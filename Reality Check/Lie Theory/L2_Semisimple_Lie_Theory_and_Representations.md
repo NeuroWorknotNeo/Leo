@@ -87,7 +87,7 @@ $$
 **E2.** Используя формулу интегрирования Вейля для $SU(2)$, доказать, что
 
 $$
-\int_{SU(2)}(\mathrm{tr}g)^{2k}\,dg=C_k=\frac{1}{k+1}\binom{2k}{k}
+\int_{SU(2)}(\mathrm{tr}\,g)^{2k}\,dg=C_k=\frac{1}{k+1}\binom{2k}{k}
 $$
 
 ($dg$ — мера Хаара массы 1), и дать теоретико-представленческую интерпретацию левой части.
@@ -145,7 +145,7 @@ $$
 3. Максимальная торическая (состоящая из полупростых элементов) подалгебра; эквивалентно — нильпотентная самонормализующаяся подалгебра. $\mathfrak g=\mathfrak h\oplus\bigoplus_{\alpha\in\Phi}\mathfrak g_\alpha$; $\dim\mathfrak g_\alpha=1$; $[\mathfrak g_\alpha,\mathfrak g_\beta]\subset\mathfrak g_{\alpha+\beta}$; $K(\mathfrak g_\alpha,\mathfrak g_\beta)=0$ при $\alpha+\beta\ne 0$; $\mathfrak g_\alpha,\mathfrak g_{-\alpha},[\mathfrak g_\alpha,\mathfrak g_{-\alpha}]$ образуют $\mathfrak{sl}_2$-тройку; $\Phi$ — система корней в $\mathfrak h_{\mathbb{R}}^{\ast}$.
 4. Простые комплексные алгебры Ли $\leftrightarrow$ связные диаграммы Дынкина: $A_n$ ($n\ge 1$, $\mathfrak{sl}_{n+1}$), $B_n$ ($n\ge 2$, $\mathfrak{so}_{2n+1}$), $C_n$ ($n\ge 3$, $\mathfrak{sp}_{2n}$), $D_n$ ($n\ge 4$, $\mathfrak{so}_{2n}$), $E_6,E_7,E_8,F_4,G_2$. Полупростые — прямые суммы простых. Ограничения на $n$ нужны из-за изоморфизмов $B_2=C_2$, $D_3=A_3$, $D_2=A_1\times A_1$.
 5. $\lambda\in\mathfrak h^{\ast}$ доминантный целый, если $\langle\lambda,\alpha^\vee\rangle\in\mathbb{Z}_{\ge 0}$ для всех простых $\alpha$. Теорема: для каждого доминантного целого $\lambda$ существует единственное с точностью до изоморфизма неприводимое конечномерное $V(\lambda)$ со старшим весом $\lambda$; каждое неприводимое конечномерное представление изоморфно ровно одному $V(\lambda)$.
-6. $\mathrm{ch}V(\lambda)=\dfrac{\sum_{w\in W}\varepsilon(w)e^{w(\lambda+\rho)}}{\sum_{w\in W}\varepsilon(w)e^{w\rho}}$, где $\mathrm{ch}V=\sum_\mu\dim V_\mu e^\mu$, $\rho$ — полусумма положительных корней, $\varepsilon(w)=\det w$.
+6. $\mathrm{ch}\,V(\lambda)=\dfrac{\sum_{w\in W}\varepsilon(w)e^{w(\lambda+\rho)}}{\sum_{w\in W}\varepsilon(w)e^{w\rho}}$, где $\mathrm{ch}\,V=\sum_\mu\dim V_\mu e^\mu$, $\rho$ — полусумма положительных корней, $\varepsilon(w)=\det w$.
 7. $\dim V(\lambda)=\prod_{\alpha>0}\dfrac{(\lambda+\rho,\alpha)}{(\rho,\alpha)}$ (эквивалентно, с $\alpha^\vee$ вместо $\alpha$).
 8. Максимальный тор — максимальная связная абелева (автоматически замкнутая) подгруппа, изоморфная $T^r$. Все максимальные торы сопряжены, и каждый элемент $G$ лежит в некотором максимальном торе. $W(G,T)=N_G(T)/T$ — конечная группа, действующая на $\mathfrak t$ и изоморфная группе Вейля системы корней $(G,T)$; два элемента $T$ сопряжены в $G$ $\iff$ они сопряжены под $W$.
 9. Для доминантного $\lambda$ пространство $H^0(G/B,\mathcal L_\lambda)$ голоморфных сечений линейного расслоения, отвечающего $\lambda$, — неприводимое представление со старшим весом $\lambda$ (при соглашении, где $H^0$ двойственно, — $V(\lambda)^{\ast}$). Ботт: если $\lambda+\rho$ сингулярен (лежит на стенке некоторой камеры), то все $H^i=0$; иначе существует единственный $w$ с $w(\lambda+\rho)$ доминантным регулярным, и $H^{\ell(w)}(G/B,\mathcal L_\lambda)\cong V(w(\lambda+\rho)-\rho)$, остальные когомологии нулевые.
@@ -222,13 +222,13 @@ $\dim V(\omega_1)=\frac{2\cdot1\cdot3\cdot4\cdot5\cdot7}{120}=7$, $\dim V(\omega
 
 Критерии: (а) 3 (неравенство с ортогональными соседями — 2, вывод про тройное ребро — 1); (б) 4 (общая формула — 2, значения 7 и 14 — 1, минимальность — 1).
 
-**E2.** $\mathrm{tr}g$ — класс-функция; для $g\sim\mathrm{diag}(e^{i\theta},e^{-i\theta})$ имеем $\mathrm{tr}g=2\cos\theta$. Формула интегрирования Вейля для $SU(2)$: $\int_{SU(2)}f\,dg=\frac2\pi\int_0^\pi f(\theta)\sin^2\theta\,d\theta$ для класс-функций (якобиан $\lvert e^{i\theta}-e^{-i\theta}\rvert^2/\lvert W\rvert=2\sin^2\theta$ относительно нормированной меры на торе). Тогда
+**E2.** $\mathrm{tr}\,g$ — класс-функция; для $g\sim\mathrm{diag}(e^{i\theta},e^{-i\theta})$ имеем $\mathrm{tr}\,g=2\cos\theta$. Формула интегрирования Вейля для $SU(2)$: $\int_{SU(2)}f\,dg=\frac2\pi\int_0^\pi f(\theta)\sin^2\theta\,d\theta$ для класс-функций (якобиан $\lvert e^{i\theta}-e^{-i\theta}\rvert^2/\lvert W\rvert=2\sin^2\theta$ относительно нормированной меры на торе). Тогда
 
 $$
-\int(\mathrm{tr}g)^{2k}dg=\frac2\pi\int_0^\pi(2\cos\theta)^{2k}\sin^2\theta\,d\theta=\binom{2k}k-\binom{2k}{k+1}=C_k
+\int(\mathrm{tr}\,g)^{2k}dg=\frac2\pi\int_0^\pi(2\cos\theta)^{2k}\sin^2\theta\,d\theta=\binom{2k}k-\binom{2k}{k+1}=C_k
 $$
 
-(раскрыть $(2\cos\theta)^{2k}\cdot\frac12\lvert e^{i\theta}-e^{-i\theta}\rvert^2$ по степеням $e^{i\theta}$ и взять свободный член: $\binom{2k}{k}-\frac12\cdot 2\binom{2k}{k+1}$). Интерпретация: $\mathrm{tr}g=\chi_{V_1}(g)$ вещественен, интеграл равен $\langle\chi_{V_1}^{2k},\chi_{V_0}\rangle$ — кратности тривиального представления в $V_1^{\otimes 2k}$, т. е. $\dim(V_1^{\otimes 2k})^{SU(2)}$. Проверка: при $k=1$ — 1 ($V_1\otimes V_1=V_2\oplus V_0$), при $k=2$ — 2.
+(раскрыть $(2\cos\theta)^{2k}\cdot\frac12\lvert e^{i\theta}-e^{-i\theta}\rvert^2$ по степеням $e^{i\theta}$ и взять свободный член: $\binom{2k}{k}-\frac12\cdot 2\binom{2k}{k+1}$). Интерпретация: $\mathrm{tr}\,g=\chi_{V_1}(g)$ вещественен, интеграл равен $\langle\chi_{V_1}^{2k},\chi_{V_0}\rangle$ — кратности тривиального представления в $V_1^{\otimes 2k}$, т. е. $\dim(V_1^{\otimes 2k})^{SU(2)}$. Проверка: при $k=1$ — 1 ($V_1\otimes V_1=V_2\oplus V_0$), при $k=2$ — 2.
 
 Критерии: формула интегрирования Вейля с правильным якобианом — 3; вычисление интеграла — 3; интерпретация — 2.
 

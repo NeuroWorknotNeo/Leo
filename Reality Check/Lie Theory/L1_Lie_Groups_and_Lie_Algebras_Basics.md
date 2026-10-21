@@ -80,7 +80,7 @@ $$
 
 **D1.** *(контрольная точка)* (а) Доказать, что $SU(2)=\left\lbrace\begin{pmatrix}\alpha&-\bar\beta\\ \beta&\bar\alpha\end{pmatrix}:\ \lvert\alpha\rvert^2+\lvert\beta\rvert^2=1\right\rbrace$ и, следовательно, $SU(2)\cong S^3$ как гладкое многообразие.
 
-(б) Снабдим $\mathfrak{su}(2)$ формой $\langle X,Y\rangle=-\tfrac12\mathrm{tr}(XY)$. Доказать, что это евклидово скалярное произведение, что $\mathrm{Ad}\colon SU(2)\to GL(\mathfrak{su}(2))$ имеет образ в $SO(3)$ и что $\mathrm{Ad}\colon SU(2)\to SO(3)$ — сюръективный гомоморфизм с ядром $\lbrace\pm I\rbrace$, являющийся двулистным накрытием.
+(б) Снабдим $\mathfrak{su}(2)$ формой $\langle X,Y\rangle=-\tfrac12\,\mathrm{tr}(XY)$. Доказать, что это евклидово скалярное произведение, что $\mathrm{Ad}\colon SU(2)\to GL(\mathfrak{su}(2))$ имеет образ в $SO(3)$ и что $\mathrm{Ad}\colon SU(2)\to SO(3)$ — сюръективный гомоморфизм с ядром $\lbrace\pm I\rbrace$, являющийся двулистным накрытием.
 
 (в) Вывести, что $\pi_1(SO(3))\cong\mathbb{Z}/2$ и $SO(3)\cong\mathbb{RP}^3$.
 
@@ -169,21 +169,21 @@ $$
 ### Часть C
 
 **C1.** Ответ:
-- $\mathfrak{sl}_n(\mathbb{R})=\lbrace\mathrm{tr}X=0\rbrace$, размерность $n^2-1$;
+- $\mathfrak{sl}_n(\mathbb{R})=\lbrace\mathrm{tr}\,X=0\rbrace$, размерность $n^2-1$;
 - $\mathfrak{o}(p,q)=\lbrace X^TI_{p,q}+I_{p,q}X=0\rbrace$, размерность $n(n-1)/2$; при $q=0$ получаем кососимметрические матрицы, и у $SO(n)$ та же алгебра;
 - $\mathfrak{sp}_{2m}(\mathbb{R})=\lbrace X^TJ+JX=0\rbrace=\left\lbrace\begin{pmatrix}A&B\\C&-A^T\end{pmatrix}: B=B^T,\ C=C^T\right\rbrace$, размерность $m^2+m(m+1)=m(2m+1)$;
 - $\mathfrak u(n)=\lbrace X^{\ast}=-X\rbrace$, размерность $n^2$;
-- $\mathfrak{su}(n)=\lbrace X^{\ast}=-X,\ \mathrm{tr}X=0\rbrace$, размерность $n^2-1$.
+- $\mathfrak{su}(n)=\lbrace X^{\ast}=-X,\ \mathrm{tr}\,X=0\rbrace$, размерность $n^2-1$.
 
-Решение для $O(p,q)$: если $e^{tX}\in O(p,q)$ при всех $t$, то, дифференцируя $e^{tX^T}I_{p,q}e^{tX}=I_{p,q}$ в нуле, получаем $X^TI_{p,q}+I_{p,q}X=0$. Обратно, из этого равенства $X^T=-I_{p,q}XI_{p,q}^{-1}$, откуда $e^{tX^T}=I_{p,q}e^{-tX}I_{p,q}^{-1}$ и $e^{tX^T}I_{p,q}e^{tX}=I_{p,q}$. Размерность: $Y=I_{p,q}X$ — произвольная кососимметрическая матрица. Для $SL_n$ — формула $\det e^{tX}=e^{t\mathrm{tr}X}$; для $Sp$ и $U$ — то же рассуждение, что для $O(p,q)$. Критерии: $O(p,q)$ с обоими включениями — 2 балла; остальные четыре алгебры — по 0,5 за описание; все размерности верны — 2 балла.
+Решение для $O(p,q)$: если $e^{tX}\in O(p,q)$ при всех $t$, то, дифференцируя $e^{tX^T}I_{p,q}e^{tX}=I_{p,q}$ в нуле, получаем $X^TI_{p,q}+I_{p,q}X=0$. Обратно, из этого равенства $X^T=-I_{p,q}XI_{p,q}^{-1}$, откуда $e^{tX^T}=I_{p,q}e^{-tX}I_{p,q}^{-1}$ и $e^{tX^T}I_{p,q}e^{tX}=I_{p,q}$. Размерность: $Y=I_{p,q}X$ — произвольная кососимметрическая матрица. Для $SL_n$ — формула $\det e^{tX}=e^{t\,\mathrm{tr}\,X}$; для $Sp$ и $U$ — то же рассуждение, что для $O(p,q)$. Критерии: $O(p,q)$ с обоими включениями — 2 балла; остальные четыре алгебры — по 0,5 за описание; все размерности верны — 2 балла.
 
 **C2.** Ответ: (б) в точности $X$ с $\det X=\pi^2k^2$, $k$ нечётно, т. е. $X$, сопряжённые $\mathrm{diag}(i\pi k,-i\pi k)$ с нечётным $k$. (в) Нет.
 
-Решение. (а) По Гамильтону–Кэли $X^2-(\mathrm{tr}X)X+(\det X)I=0$, т. е. $X^2=\delta I$. Разбивая ряд на чётную и нечётную части: $e^X=\sum_k\frac{\delta^k}{(2k)!}I+\sum_k\frac{\delta^k}{(2k+1)!}X$, это и есть указанная формула.
+Решение. (а) По Гамильтону–Кэли $X^2-(\mathrm{tr}\,X)X+(\det X)I=0$, т. е. $X^2=\delta I$. Разбивая ряд на чётную и нечётную части: $e^X=\sum_k\frac{\delta^k}{(2k)!}I+\sum_k\frac{\delta^k}{(2k+1)!}X$, это и есть указанная формула.
 
-(б) При $X\ne 0$ матрицы $I$ и $X$ линейно независимы ($\mathrm{tr}X=0$), так что $e^X=-I$ $\iff$ $\cosh\sqrt\delta=-1$ и $\frac{\sinh\sqrt\delta}{\sqrt\delta}=0$, т. е. $\sqrt\delta=i\pi k$, $k$ нечётно (при $\delta=0$ имеем $e^X=I+X\ne-I$; $X=0$ не подходит). Значит, $\delta=-\pi^2k^2$, т. е. $\det X=\pi^2k^2$, $k$ нечётно; собственные значения $\pm i\pi k$ различны, и $X$ диагонализуема.
+(б) При $X\ne 0$ матрицы $I$ и $X$ линейно независимы ($\mathrm{tr}\,X=0$), так что $e^X=-I$ $\iff$ $\cosh\sqrt\delta=-1$ и $\frac{\sinh\sqrt\delta}{\sqrt\delta}=0$, т. е. $\sqrt\delta=i\pi k$, $k$ нечётно (при $\delta=0$ имеем $e^X=I+X\ne-I$; $X=0$ не подходит). Значит, $\delta=-\pi^2k^2$, т. е. $\det X=\pi^2k^2$, $k$ нечётно; собственные значения $\pm i\pi k$ различны, и $X$ диагонализуема.
 
-(в) $A=\begin{pmatrix}-1&1\\0&-1\end{pmatrix}\in SL_2(\mathbb{C})$. Если $e^X=A$, то $\mathrm{tr}e^X=2\cosh\sqrt\delta=-2$, т. е. $\sqrt\delta=i\pi k$ с нечётным $k$; тогда $\sinh\sqrt\delta=0$ и $e^X=-I\ne A$. Противоречие.
+(в) $A=\begin{pmatrix}-1&1\\0&-1\end{pmatrix}\in SL_2(\mathbb{C})$. Если $e^X=A$, то $\mathrm{tr}\,e^X=2\cosh\sqrt\delta=-2$, т. е. $\sqrt\delta=i\pi k$ с нечётным $k$; тогда $\sinh\sqrt\delta=0$ и $e^X=-I\ne A$. Противоречие.
 
 Критерии: (а) 2, (б) 2, (в) 2 (за ответ без контрпримера — 0).
 
@@ -199,7 +199,7 @@ $$
 
 Критерии: (а) 2, (б) 3 (формула $e^X$ — 1, биективность — 1, групповой закон — 1), (в) 1.
 
-**C4.** Ответ: (а) в базисе $e,h,f$ матрица $\begin{pmatrix}0&0&4\\0&8&0\\4&0&0\end{pmatrix}$, определитель $-128\ne 0$ (вообще $K(X,Y)=4\mathrm{tr}(XY)$). По критерию Картана $\mathfrak{sl}_2$ полупроста.
+**C4.** Ответ: (а) в базисе $e,h,f$ матрица $\begin{pmatrix}0&0&4\\0&8&0\\4&0&0\end{pmatrix}$, определитель $-128\ne 0$ (вообще $K(X,Y)=4\,\mathrm{tr}(XY)$). По критерию Картана $\mathfrak{sl}_2$ полупроста.
 
 (б) В базисе $E_{11},E_{22},E_{12}$: $\mathrm{ad}E_{11}=\mathrm{diag}(0,0,1)$, $\mathrm{ad}E_{22}=\mathrm{diag}(0,0,-1)$, $\mathrm{ad}E_{12}$ нильпотентен. Для $X=aE_{11}+bE_{22}+cE_{12}$ матрица $\mathrm{ad}X$ треугольна с диагональю $(0,0,a-b)$, откуда $K(X,X')=(a-b)(a'-b')$, т. е. матрица $\begin{pmatrix}1&-1&0\\-1&1&0\\0&0&0\end{pmatrix}$. Радикал $\mathrm{span}(E_{11}+E_{22},E_{12})$. Производный ряд: $[\mathfrak b_2,\mathfrak b_2]=\mathbb{C}E_{12}$, далее $0$ — разрешима. Нижний центральный: $\mathfrak b_2^2=\mathbb{C}E_{12}$, $\mathfrak b_2^3=[\mathfrak b_2,\mathbb{C}E_{12}]=\mathbb{C}E_{12}$ (так как $[E_{11},E_{12}]=E_{12}$) — стабилизируется на ненулевом, значит, не нильпотентна (это видно и из $K\ne 0$, ср. со следствием теоремы Энгеля). Согласованность: $[\mathfrak b_2,\mathfrak b_2]=\mathbb{C}E_{12}$ лежит в радикале $K$, т. е. $K(\mathfrak b_2,[\mathfrak b_2,\mathfrak b_2])=0$.
 
@@ -224,7 +224,7 @@ $$
 **D2.** Схема доказательства.
 1. Индукция по $\dim\mathfrak g$; при $\dim\mathfrak g=0$ годится любой вектор. Так как $\mathfrak g$ разрешима и ненулевая, $[\mathfrak g,\mathfrak g]\ne\mathfrak g$; любое подпространство коразмерности 1, содержащее $[\mathfrak g,\mathfrak g]$, — идеал $\mathfrak h$. Пусть $\mathfrak g=\mathfrak h\oplus\mathbb{C}z$.
 2. $\mathfrak h$ разрешима, по индукции есть общий собственный вектор для $\mathfrak h$ с весом $\lambda\in\mathfrak h^{\ast}$; значит, $W\ne 0$.
-3. Лемма: $W$ инвариантно относительно $\mathfrak g$. Для $x\in\mathfrak g$, $w\in W$, $h\in\mathfrak h$: $h(xw)=x(hw)+[h,x]w=\lambda(h)xw+\lambda([h,x])w$. Достаточно доказать $\lambda([h,x])=0$. Пусть $U=\mathrm{span}(w,xw,x^2w,\dots)$, $m=\dim U$, $w_i=x^iw$ ($0\le i< m$) — базис. Индукцией по $i$: $hw_i\equiv\lambda(h)w_i\pmod{\mathrm{span}(w_0,\dots,w_{i-1})}$ (использовать $hw_i=x(hw_{i-1})+[h,x]w_{i-1}$ и то, что $[h,x]\in\mathfrak h$). Значит, $U$ инвариантно относительно $\mathfrak h$ и $x$, и $\mathrm{tr}_U h=m\lambda(h)$. Но $[h,x]\in\mathfrak h$ действует на $U$ как коммутатор двух операторов на $U$, поэтому $0=\mathrm{tr}_U[h,x]=m\lambda([h,x])$, откуда $\lambda([h,x])=0$ (характеристика 0).
+3. Лемма: $W$ инвариантно относительно $\mathfrak g$. Для $x\in\mathfrak g$, $w\in W$, $h\in\mathfrak h$: $h(xw)=x(hw)+[h,x]w=\lambda(h)xw+\lambda([h,x])w$. Достаточно доказать $\lambda([h,x])=0$. Пусть $U=\mathrm{span}(w,xw,x^2w,\dots)$, $m=\dim U$, $w_i=x^iw$ ($0\le i< m$) — базис. Индукцией по $i$: $hw_i\equiv\lambda(h)w_i\pmod{\mathrm{span}(w_0,\dots,w_{i-1})}$ (использовать $hw_i=x(hw_{i-1})+[h,x]w_{i-1}$ и то, что $[h,x]\in\mathfrak h$). Значит, $U$ инвариантно относительно $\mathfrak h$ и $x$, и $\mathrm{tr}_U\, h=m\lambda(h)$. Но $[h,x]\in\mathfrak h$ действует на $U$ как коммутатор двух операторов на $U$, поэтому $0=\mathrm{tr}_U[h,x]=m\lambda([h,x])$, откуда $\lambda([h,x])=0$ (характеристика 0).
 4. $z$ сохраняет $W$ и, так как $\mathbb{C}$ алгебраически замкнуто, имеет в $W$ собственный вектор; он общий для $\mathfrak g$.
 
 Критерии: идеал коразмерности 1 — 2; индукционная схема и шаг 4 — 2; треугольность действия $\mathfrak h$ на $U$ — 3; аргумент со следом — 2; явное указание, где нужны характеристика 0 и алгебраическая замкнутость, — 1.

@@ -118,7 +118,7 @@ $$
 
 (а) Используя формулу второй вариации из D1, доказать, что геодезическая длины $\ell>\pi/\sqrt k$ не является кратчайшей между своими концами.
 
-(б) Вывести, что $\mathrm{diam}M\le\pi/\sqrt k$ и $M$ компактно.
+(б) Вывести, что $\mathrm{diam}\,M\le\pi/\sqrt k$ и $M$ компактно.
 
 ## Карта навыков
 
@@ -205,7 +205,7 @@ $$
 
 **C2.** Ответ: (а) полуокружности $(x-c)^2+y^2=R^2$, $y>0$, с центром на оси $Ox$; вертикальные лучи $x=\mathrm{const}$ не являются графиками $y(x)$ и получаются отдельно (например, в параметризации $x=x(y)$ из уравнения $x'=0$, или из симметрии $x\mapsto2x_0-x$). (б) $x^2+y^2=2$, длина $2\ln(1+\sqrt2)$.
 
-Решение. (а) $L=\frac{\sqrt{1+y'^2}}{y}$ не зависит от $x$, поэтому $L-y'L_{y'}=\frac{1}{y\sqrt{1+y'^2}}=\mathrm{const}=\frac1R$, т. е. $y^2(1+y'^2)=R^2$. Тогда $yy'=\pm\sqrt{R^2-y^2}$, $\frac{d}{dx}\sqrt{R^2-y^2}=\mp1$, откуда $(x-c)^2+y^2=R^2$. (б) По симметрии $c=0$, $R^2=2$. На дуге $x=\sqrt2\cos\varphi$, $y=\sqrt2\sin\varphi$, $\varphi\in[\pi/4,3\pi/4]$, имеем $ds=\frac{d\varphi}{\sin\varphi}$, и длина равна $\int_{\pi/4}^{3\pi/4}\frac{d\varphi}{\sin\varphi}=\ln\tan\frac{3\pi}{8}-\ln\tan\frac{\pi}{8}=\ln\frac{\sqrt2+1}{\sqrt2-1}=2\ln(1+\sqrt2)$. (Проверка: $\cosh d=1+\frac{|\Delta|^2}{2y_1y_2}=3$, и $\mathrm{arccosh}3=\ln(3+2\sqrt2)=2\ln(1+\sqrt2)$.)
+Решение. (а) $L=\frac{\sqrt{1+y'^2}}{y}$ не зависит от $x$, поэтому $L-y'L_{y'}=\frac{1}{y\sqrt{1+y'^2}}=\mathrm{const}=\frac1R$, т. е. $y^2(1+y'^2)=R^2$. Тогда $yy'=\pm\sqrt{R^2-y^2}$, $\frac{d}{dx}\sqrt{R^2-y^2}=\mp1$, откуда $(x-c)^2+y^2=R^2$. (б) По симметрии $c=0$, $R^2=2$. На дуге $x=\sqrt2\cos\varphi$, $y=\sqrt2\sin\varphi$, $\varphi\in[\pi/4,3\pi/4]$, имеем $ds=\frac{d\varphi}{\sin\varphi}$, и длина равна $\int_{\pi/4}^{3\pi/4}\frac{d\varphi}{\sin\varphi}=\ln\tan\frac{3\pi}{8}-\ln\tan\frac{\pi}{8}=\ln\frac{\sqrt2+1}{\sqrt2-1}=2\ln(1+\sqrt2)$. (Проверка: $\cosh d=1+\frac{|\Delta|^2}{2y_1y_2}=3$, и $\mathrm{arccosh}\,3=\ln(3+2\sqrt2)=2\ln(1+\sqrt2)$.)
 
 Критерии: (а) 4 балла (первый интеграл — 2, интегрирование — 1, вертикальные прямые — 1); (б) 2 балла.
 

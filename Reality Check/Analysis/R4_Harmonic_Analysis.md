@@ -228,9 +228,9 @@ $$
 
 **C3.** Ответ: (а) $2\delta$; (в) $\hat E(\xi)=-\dfrac{1}{a^2+4\pi^2\xi^2}$.
 
-Решение. (а) $\langle|x|',\varphi\rangle=-\int|x|\varphi'=\int\mathrm{sign}x\,\varphi$ (интегрирование по частям на полуосях), т. е. $|x|'=\mathrm{sign}x$; $\langle(\mathrm{sign})',\varphi\rangle=-\int_0^\infty\varphi'+\int_{-\infty}^0\varphi'=\varphi(0)+\varphi(0)$, т. е. $|x|''=2\delta$.
+Решение. (а) $\langle|x|',\varphi\rangle=-\int|x|\varphi'=\int\mathrm{sign}\,x\,\varphi$ (интегрирование по частям на полуосях), т. е. $|x|'=\mathrm{sign}\,x$; $\langle(\mathrm{sign})',\varphi\rangle=-\int_0^\infty\varphi'+\int_{-\infty}^0\varphi'=\varphi(0)+\varphi(0)$, т. е. $|x|''=2\delta$.
 
-(б) Функция $E$ кусочно гладкая; $E'=\frac12\mathrm{sign}x\,e^{-a|x|}$ (сама $E$ непрерывна, поэтому $\delta$ на первом шаге не возникает). $E'$ имеет в $0$ скачок $\frac12-(-\frac12)=1$, а её классическая производная при $x\ne0$ равна $-\frac a2e^{-a|x|}=a^2E$. Формула скачка: $E''=a^2E+1\cdot\delta$.
+(б) Функция $E$ кусочно гладкая; $E'=\frac12\,\mathrm{sign}\,x\,e^{-a|x|}$ (сама $E$ непрерывна, поэтому $\delta$ на первом шаге не возникает). $E'$ имеет в $0$ скачок $\frac12-(-\frac12)=1$, а её классическая производная при $x\ne0$ равна $-\frac a2e^{-a|x|}=a^2E$. Формула скачка: $E''=a^2E+1\cdot\delta$.
 
 (в) $\langle\hat\delta,\varphi\rangle=\langle\delta,\hat\varphi\rangle=\hat\varphi(0)=\int\varphi=\langle1,\varphi\rangle$. $\langle\hat1,\varphi\rangle=\int\hat\varphi(\xi)\,d\xi=\varphi(0)$ по формуле обращения. Так как $\widehat{T'}=2\pi i\xi\,\hat T$, из (б): $(-4\pi^2\xi^2-a^2)\hat E=1$, и так как $E\in L^1$, $\hat E$ — функция, $\hat E=-\frac{1}{a^2+4\pi^2\xi^2}$. Это совпадает с $-\frac{1}{2a}\hat f_a$ из C2(а).
 
