@@ -22,7 +22,7 @@
 5. Определение компактного оператора $T\in B(X,Y)$. Как в гильбертовом пространстве компактные операторы выражаются через операторы конечного ранга? Теорема Шаудера о сопряжённом операторе.
 6. Определение фредгольмова оператора $T\in B(X,Y)$ между банаховыми пространствами и его индекса. Теорема Аткинсона.
 7. Спектр и резольвентное множество оператора $T\in B(X)$ (комплексное банахово $X$); разбиение спектра на точечный, непрерывный и остаточный. Формула Гельфанда для спектрального радиуса.
-8. Для плотно определённого оператора $A$ в гильбертовом пространстве $H$: определение сопряжённого $A^{\ast}$ (включая область определения), замкнутого, симметрического и самосопряжённого оператора. Основной критерий самосопряжённости через $\operatorname{Ran}(A\pm i)$.
+8. Для плотно определённого оператора $A$ в гильбертовом пространстве $H$: определение сопряжённого $A^{\ast}$ (включая область определения), замкнутого, симметрического и самосопряжённого оператора. Основной критерий самосопряжённости через $\mathrm{Ran}(A\pm i)$.
 9. Спектральная теорема для самосопряжённого оператора (ограниченного и неограниченного) в форме оператора умножения или в форме разложения единицы — одна из форм, полностью.
 10. Определение C\*-алгебры. Теорема Гельфанда–Наймарка для коммутативных C\*-алгебр с единицей (что такое преобразование Гельфанда и что про него утверждается).
 
@@ -32,7 +32,7 @@
 
 1. Если $(a_n)$ — числовая последовательность и ряд $\sum_n a_nb_n$ сходится для любой $b=(b_n)\in c_0$, то $(a_n)\in\ell^1$.
 2. Если в гильбертовом пространстве $x_n\to x$ слабо и $\lVert x_n\rVert\to\lVert x\rVert$, то $x_n\to x$ по норме.
-3. Оператор правого сдвига $S(x_1,x_2,\dots)=(0,x_1,x_2,\dots)$ на $\ell^2$ фредгольмов и $\operatorname{ind}S=1$.
+3. Оператор правого сдвига $S(x_1,x_2,\dots)=(0,x_1,x_2,\dots)$ на $\ell^2$ фредгольмов и $\mathrm{ind}S=1$.
 4. Для любого ненулевого вектора $x_0$ вещественного банахова пространства $X$ функционал $f\in X^{\ast}$ с $\lVert f\rVert=1$ и $f(x_0)=\lVert x_0\rVert$ единствен.
 5. Оператор $T=i\dfrac{d}{dx}$ в $L^2[0,1]$ с областью определения $D(T)=\lbrace f\in H^1[0,1]: f(0)=f(1)=0\rbrace$ самосопряжён.
 
@@ -88,11 +88,11 @@ $$
 
 Доказать центральные теоремы курса. Сюда входит контрольная точка из plan.md. 2 задачи по 10 баллов.
 
-**D1.** *(контрольная точка)* Пусть $X,Y$ — банаховы пространства, $T\in B(X,Y)$ фредгольмов, $\operatorname{ind}T=\dim\ker T-\dim(Y/\operatorname{Ran}T)$.
+**D1.** *(контрольная точка)* Пусть $X,Y$ — банаховы пространства, $T\in B(X,Y)$ фредгольмов, $\mathrm{ind}T=\dim\ker T-\dim(Y/\mathrm{Ran}T)$.
 
-(а) Доказать, что существует $\varepsilon>0$ такое, что при $S\in B(X,Y)$, $\lVert S\rVert<\varepsilon$, оператор $T+S$ фредгольмов и $\operatorname{ind}(T+S)=\operatorname{ind}T$.
+(а) Доказать, что существует $\varepsilon>0$ такое, что при $S\in B(X,Y)$, $\lVert S\rVert<\varepsilon$, оператор $T+S$ фредгольмов и $\mathrm{ind}(T+S)=\mathrm{ind}T$.
 
-(б) Вывести, что $\operatorname{ind}(T+K)=\operatorname{ind}T$ для любого компактного $K\in B(X,Y)$.
+(б) Вывести, что $\mathrm{ind}(T+K)=\mathrm{ind}T$ для любого компактного $K\in B(X,Y)$.
 
 Без доказательства можно пользоваться: теоремой об открытом отображении; тем, что конечномерное и замкнутое конечнокоразмерное подпространства банахова пространства дополняемы; тем, что образ ограниченного оператора, имеющий конечную коразмерность, замкнут; теоремой Аткинсона.
 
@@ -102,7 +102,7 @@ $$
 
 (б) хотя бы одно из чисел $\pm\lVert T\rVert$ — собственное значение $T$;
 
-(в) существует (конечная или счётная) ортонормированная система $(e_n)$ и вещественные $\lambda_n\neq0$, $\lambda_n\to0$ (если их бесконечно много), такие что $Tx=\sum_n\lambda_n\langle x,e_n\rangle e_n$ для всех $x\in H$; при этом $H=\ker T\oplus\overline{\operatorname{span}}\lbrace e_n\rbrace$.
+(в) существует (конечная или счётная) ортонормированная система $(e_n)$ и вещественные $\lambda_n\neq0$, $\lambda_n\to0$ (если их бесконечно много), такие что $Tx=\sum_n\lambda_n\langle x,e_n\rangle e_n$ для всех $x\in H$; при этом $H=\ker T\oplus\overline{\mathrm{span}}\lbrace e_n\rbrace$.
 
 ## Часть E. Задачи повышенной сложности (≈ 20 мин, 15 баллов)
 
@@ -184,17 +184,17 @@ $$
 3. Если $T\in B(X,Y)$ сюръективен, $X,Y$ банаховы, то $T$ открыт (образ открытого множества открыт). Следствие: биективный $T\in B(X,Y)$ имеет ограниченный обратный. Замкнутый график: линейный $T\colon X\to Y$ ($X,Y$ банаховы) с замкнутым графиком ограничен. Полнота обоих пространств обязательна.
 4. Слабая топология $\sigma(X,X^{\ast})$ — слабейшая, в которой непрерывны все $f\in X^{\ast}$ (базис окрестностей нуля: $\lbrace x:|f_i(x)|<\varepsilon,\ i=1..n\rbrace$). Слабая-$\ast$ $\sigma(X^{\ast},X)$ — слабейшая, в которой непрерывны все отображения $f\mapsto f(x)$, $x\in X$. Банах–Алаоглу: замкнутый единичный шар $X^{\ast}$ компактен в слабой-$\ast$ топологии ($X$ — нормированное).
 5. $T$ компактен, если образ единичного шара предкомпактен (эквивалентно: из любой ограниченной $(x_n)$ последовательность $(Tx_n)$ содержит сходящуюся подпоследовательность). В гильбертовом пространстве: $T$ компактен $\iff$ $T$ — предел по операторной норме операторов конечного ранга. Шаудер: $T\in B(X,Y)$ компактен $\iff$ $T^{\ast}\in B(Y^{\ast},X^{\ast})$ компактен.
-6. $T$ фредгольмов, если $\dim\ker T<\infty$, $\operatorname{Ran}T$ замкнут и $\dim(Y/\operatorname{Ran}T)<\infty$; $\operatorname{ind}T=\dim\ker T-\operatorname{codim}\operatorname{Ran}T$. Аткинсон: $T$ фредгольмов $\iff$ существует $R\in B(Y,X)$ с $RT-I_X$ и $TR-I_Y$ компактными (обратимость по модулю компактных; можно «по модулю конечномерных»).
+6. $T$ фредгольмов, если $\dim\ker T<\infty$, $\mathrm{Ran}T$ замкнут и $\dim(Y/\mathrm{Ran}T)<\infty$; $\mathrm{ind}T=\dim\ker T-\mathrm{codim}\mathrm{Ran}T$. Аткинсон: $T$ фредгольмов $\iff$ существует $R\in B(Y,X)$ с $RT-I_X$ и $TR-I_Y$ компактными (обратимость по модулю компактных; можно «по модулю конечномерных»).
 7. $\rho(T)=\lbrace\lambda\in\mathbb{C}: T-\lambda I\ \text{биективен}\rbrace$ (обратный автоматически ограничен), $\sigma(T)=\mathbb{C}\setminus\rho(T)$ — непустой компакт. Точечный: $T-\lambda$ не инъективен; непрерывный: инъективен, образ плотен, не сюръективен; остаточный: инъективен, образ не плотен. $r(T)=\max_{\lambda\in\sigma(T)}|\lambda|=\lim_n\lVert T^n\rVert^{1/n}$.
-8. $D(A^{\ast})=\lbrace y:\ x\mapsto\langle Ax,y\rangle\ \text{ограничен на}\ D(A)\rbrace$, $\langle Ax,y\rangle=\langle x,A^{\ast}y\rangle$ (корректно в силу плотности $D(A)$). Замкнут: график замкнут в $H\times H$. Симметричен: $\langle Ax,y\rangle=\langle x,Ay\rangle$ на $D(A)$, т. е. $A\subset A^{\ast}$. Самосопряжён: $A=A^{\ast}$, включая равенство областей. Критерий: симметрический $A$ самосопряжён $\iff$ $\operatorname{Ran}(A+i)=\operatorname{Ran}(A-i)=H$. Без различения $A\subset A^{\ast}$ и $A=A^{\ast}$ — 0 баллов.
+8. $D(A^{\ast})=\lbrace y:\ x\mapsto\langle Ax,y\rangle\ \text{ограничен на}\ D(A)\rbrace$, $\langle Ax,y\rangle=\langle x,A^{\ast}y\rangle$ (корректно в силу плотности $D(A)$). Замкнут: график замкнут в $H\times H$. Симметричен: $\langle Ax,y\rangle=\langle x,Ay\rangle$ на $D(A)$, т. е. $A\subset A^{\ast}$. Самосопряжён: $A=A^{\ast}$, включая равенство областей. Критерий: симметрический $A$ самосопряжён $\iff$ $\mathrm{Ran}(A+i)=\mathrm{Ran}(A-i)=H$. Без различения $A\subset A^{\ast}$ и $A=A^{\ast}$ — 0 баллов.
 9. Форма умножения: для самосопряжённого $A$ (ограниченного или нет) в сепарабельном $H$ существуют пространство с мерой $(\Omega,\mu)$ (конечной), измеримая вещественная функция $a$ на $\Omega$ и унитарный $U\colon H\to L^2(\Omega,\mu)$ такие, что $UAU^{-1}$ — умножение на $a$ с естественной областью $\lbrace\varphi: a\varphi\in L^2\rbrace$; в ограниченном случае $a$ ограничена. Эквивалентная форма: существует единственная проекторнозначная мера $E$ на борелевских множествах $\mathbb{R}$ с $A=\int\lambda\,dE(\lambda)$ (носитель — $\sigma(A)$). Нужно: вещественность $a$ (или носителя $E$), описание области определения в неограниченном случае.
 10. C\*-алгебра: банахова алгебра над $\mathbb{C}$ с инволюцией $a\mapsto a^{\ast}$ (антилинейной, $(ab)^{\ast}=b^{\ast}a^{\ast}$, $a^{\ast\ast}=a$), удовлетворяющая $\lVert a^{\ast}a\rVert=\lVert a\rVert^2$. Гельфанд–Наймарк: если $A$ коммутативна с единицей, $\Delta$ — пространство характеров (ненулевых гомоморфизмов $A\to\mathbb{C}$) со слабой-$\ast$ топологией (компакт), то преобразование Гельфанда $a\mapsto\hat a$, $\hat a(\chi)=\chi(a)$, — изометрический $\ast$-изоморфизм $A\cong C(\Delta)$.
 
 ### Часть B
 
-1. **Верно.** Функционалы $f_N(b)=\sum_{n\le N}a_nb_n$ на банаховом $c_0$ имеют норму $\lVert f_N\rVert=\sum_{n\le N}|a_n|$ (оценка сверху очевидна; равенство — на $b=(\overline{\operatorname{sgn}a_1},\dots,\overline{\operatorname{sgn}a_N},0,\dots)$). По условию $f_N(b)$ сходится при каждом $b$, значит, $\sup_N|f_N(b)|<\infty$; по Банаху–Штейнгаузу $\sup_N\lVert f_N\rVert=\sum|a_n|<\infty$.
-2. **Верно.** $\lVert x_n-x\rVert^2=\lVert x_n\rVert^2-2\operatorname{Re}\langle x_n,x\rangle+\lVert x\rVert^2\to\lVert x\rVert^2-2\lVert x\rVert^2+\lVert x\rVert^2=0$.
-3. **Неверно.** $\ker S=0$, $\operatorname{Ran}S=\lbrace x: x_1=0\rbrace$ замкнут и имеет коразмерность $1$, поэтому $S$ фредгольмов, но $\operatorname{ind}S=0-1=-1$. (Индекс $+1$ у левого сдвига $S^{\ast}$.)
+1. **Верно.** Функционалы $f_N(b)=\sum_{n\le N}a_nb_n$ на банаховом $c_0$ имеют норму $\lVert f_N\rVert=\sum_{n\le N}|a_n|$ (оценка сверху очевидна; равенство — на $b=(\overline{\mathrm{sgn}a_1},\dots,\overline{\mathrm{sgn}a_N},0,\dots)$). По условию $f_N(b)$ сходится при каждом $b$, значит, $\sup_N|f_N(b)|<\infty$; по Банаху–Штейнгаузу $\sup_N\lVert f_N\rVert=\sum|a_n|<\infty$.
+2. **Верно.** $\lVert x_n-x\rVert^2=\lVert x_n\rVert^2-2\mathrm{Re}\langle x_n,x\rangle+\lVert x\rVert^2\to\lVert x\rVert^2-2\lVert x\rVert^2+\lVert x\rVert^2=0$.
+3. **Неверно.** $\ker S=0$, $\mathrm{Ran}S=\lbrace x: x_1=0\rbrace$ замкнут и имеет коразмерность $1$, поэтому $S$ фредгольмов, но $\mathrm{ind}S=0-1=-1$. (Индекс $+1$ у левого сдвига $S^{\ast}$.)
 4. **Неверно.** $X=\mathbb{R}^2$ с нормой $\lVert(x,y)\rVert_\infty=\max(|x|,|y|)$; двойственная норма — $|a|+|b|$. Для $x_0=(1,1)$ оба функционала $f_1(x,y)=x$ и $f_2(x,y)=y$ имеют норму $1$ и $f_i(x_0)=1=\lVert x_0\rVert$. (Единственность есть, например, в гильбертовом пространстве или при гладкой норме.)
 5. **Неверно.** $T$ симметричен (интегрирование по частям, граничные члены нулевые), но не самосопряжён: для $g\equiv1$ и любой $f\in D(T)$ имеем $\langle Tf,g\rangle=i\int_0^1f'\,dx=i(f(1)-f(0))=0=\langle f,0\rangle$, значит, $g\in D(T^{\ast})$, $T^{\ast}g=0$, но $g\notin D(T)$. (На самом деле $D(T^{\ast})=H^1[0,1]$ без граничных условий; индексы дефекта $(1,1)$.)
 
@@ -202,7 +202,7 @@ $$
 
 **C1.** Ответ: $V$ компактен; $\sigma(V)=\lbrace0\rbrace$; $\lVert V\rVert=\dfrac{2}{\pi}$.
 
-Решение. (а) $V$ — интегральный оператор с ядром $k(x,t)=\mathbf 1_{t< x}\in L^2([0,1]^2)$, т. е. оператор Гильберта–Шмидта, значит компактен. (б) Ядро $V^n$ равно $\frac{(x-t)^{n-1}}{(n-1)!}\mathbf 1_{t< x}$ (индукция), поэтому $\lVert V^n\rVert\le\lVert k_n\rVert_{L^2}\le\frac1{(n-1)!}$ и $r(V)=\lim\lVert V^n\rVert^{1/n}=0$. Спектр непуст, значит $\sigma(V)=\lbrace0\rbrace$ (или: $0\in\sigma(V)$, так как $\operatorname{Ran}V\subset C[0,1]$ и $V$ не сюръективен). (в) $V^{\ast}g(x)=\int_x^1g$. Если $V^{\ast}Vf=\mu f$, $\mu\neq0$, то $u=V^{\ast}Vf$ удовлетворяет $u''=-f$, $u(1)=0$, $u'(0)=0$; значит $\mu u''=-u$, откуда $u=\cos\omega x$, $\omega=\mu^{-1/2}$, $\cos\omega=0$, $\mu_k=\frac{4}{(2k+1)^2\pi^2}$. $V^{\ast}V$ — компактный положительный, $\lVert V\rVert^2=\lVert V^{\ast}V\rVert=\max\mu_k=\frac4{\pi^2}$.
+Решение. (а) $V$ — интегральный оператор с ядром $k(x,t)=\mathbf 1_{t< x}\in L^2([0,1]^2)$, т. е. оператор Гильберта–Шмидта, значит компактен. (б) Ядро $V^n$ равно $\frac{(x-t)^{n-1}}{(n-1)!}\mathbf 1_{t< x}$ (индукция), поэтому $\lVert V^n\rVert\le\lVert k_n\rVert_{L^2}\le\frac1{(n-1)!}$ и $r(V)=\lim\lVert V^n\rVert^{1/n}=0$. Спектр непуст, значит $\sigma(V)=\lbrace0\rbrace$ (или: $0\in\sigma(V)$, так как $\mathrm{Ran}V\subset C[0,1]$ и $V$ не сюръективен). (в) $V^{\ast}g(x)=\int_x^1g$. Если $V^{\ast}Vf=\mu f$, $\mu\neq0$, то $u=V^{\ast}Vf$ удовлетворяет $u''=-f$, $u(1)=0$, $u'(0)=0$; значит $\mu u''=-u$, откуда $u=\cos\omega x$, $\omega=\mu^{-1/2}$, $\cos\omega=0$, $\mu_k=\frac{4}{(2k+1)^2\pi^2}$. $V^{\ast}V$ — компактный положительный, $\lVert V\rVert^2=\lVert V^{\ast}V\rVert=\max\mu_k=\frac4{\pi^2}$.
 
 Критерии: (а) 1 балл; (б) 2 балла (оценка $\lVert V^n\rVert$ — 1, вывод — 1); (в) 3 балла: сведение к $V^{\ast}V$ и краевой задаче — 2, ответ — 1.
 
@@ -220,13 +220,13 @@ $$
 
 **C4.** Ответ: (а) $\mu_\pm=\frac12\pm\frac1{\sqrt3}$, собственные функции $f_\pm=x\pm\frac1{\sqrt3}$; (б) при $\lambda\notin\lbrace 4\sqrt3-6,\ -4\sqrt3-6\rbrace$; (в) при $\lambda=4\sqrt3-6$ разрешимо $\iff\int_0^1g(x)\bigl(x+\frac1{\sqrt3}\bigr)dx=0$, при $\lambda=-4\sqrt3-6$ — $\iff\int_0^1g(x)\bigl(x-\frac1{\sqrt3}\bigr)dx=0$.
 
-Решение. $Kf=x\int_0^1f+\int_0^1yf$, так что $\operatorname{Ran}K\subset\operatorname{span}\lbrace1,x\rbrace$ и собственные функции с $\mu\neq0$ имеют вид $f=ax+b$. $K(ax+b)=(\frac a2+b)x+(\frac a3+\frac b2)$, т. е. матрица $\begin{pmatrix}1/2&1\\1/3&1/2\end{pmatrix}$ на $(a,b)$; её собственные числа $\frac12\pm\frac1{\sqrt3}$, векторы $(a,b)=(1,\pm\frac1{\sqrt3})$. $K$ компактен (конечного ранга), поэтому по альтернативе Фредгольма $I-\lambda K$ обратим $\iff$ $1/\lambda$ не собственное значение (при $\lambda=0$ тривиально); $1/\mu_+=4\sqrt3-6$, $1/\mu_-=-4\sqrt3-6$. Для характеристических $\lambda$ (они вещественны) разрешимость $\iff g\perp\ker(I-\bar\lambda K^{\ast})=\ker(I-\lambda K)$, так как ядро $K$ вещественно и симметрично.
+Решение. $Kf=x\int_0^1f+\int_0^1yf$, так что $\mathrm{Ran}K\subset\mathrm{span}\lbrace1,x\rbrace$ и собственные функции с $\mu\neq0$ имеют вид $f=ax+b$. $K(ax+b)=(\frac a2+b)x+(\frac a3+\frac b2)$, т. е. матрица $\begin{pmatrix}1/2&1\\1/3&1/2\end{pmatrix}$ на $(a,b)$; её собственные числа $\frac12\pm\frac1{\sqrt3}$, векторы $(a,b)=(1,\pm\frac1{\sqrt3})$. $K$ компактен (конечного ранга), поэтому по альтернативе Фредгольма $I-\lambda K$ обратим $\iff$ $1/\lambda$ не собственное значение (при $\lambda=0$ тривиально); $1/\mu_+=4\sqrt3-6$, $1/\mu_-=-4\sqrt3-6$. Для характеристических $\lambda$ (они вещественны) разрешимость $\iff g\perp\ker(I-\bar\lambda K^{\ast})=\ker(I-\lambda K)$, так как ядро $K$ вещественно и симметрично.
 
 Критерии: (а) 3 балла; (б) 1 балл; (в) 2 балла (ссылка на альтернативу Фредгольма обязательна).
 
 **C5.** Ответ: $\sigma(A)=\lbrace\theta+2\pi k: k\in\mathbb{Z}\rbrace$, все точки — простые собственные значения с собственными функциями $e^{i(\theta+2\pi k)x}$.
 
-Решение. (а) Для $f,g\in D_\theta$: $\langle Af,g\rangle-\langle f,Ag\rangle=-i\bigl[f\bar g\bigr]_0^1=-i\,f(0)\overline{g(0)}\bigl(|e^{i\theta}|^2-1\bigr)=0$; $D_\theta$ плотно (содержит $C_c^\infty(0,1)$). (б) $-if'-\lambda f=g\iff f'=i\lambda f+ig$, $f(x)=e^{i\lambda x}\bigl(c+i\int_0^xe^{-i\lambda t}g(t)dt\bigr)$. Условие $f(1)=e^{i\theta}f(0)$: $c\,(e^{i\theta}-e^{i\lambda})=ie^{i\lambda}\int_0^1e^{-i\lambda t}g(t)dt$. Если $e^{i\lambda}\neq e^{i\theta}$, т. е. $\lambda\notin\theta+2\pi\mathbb{Z}$, решение существует и единственно; иначе $e^{i\lambda x}\in\ker(A-\lambda)$. (в) При $\lambda=\pm i$ получаем $\operatorname{Ran}(A\pm i)=L^2$, и по основному критерию симметрический $A$ самосопряжён. Резольвента — интегральный оператор с ограниченным ядром, т. е. Гильберта–Шмидта, значит компактна; поэтому спектр дискретен и состоит из собственных значений $\theta+2\pi k$.
+Решение. (а) Для $f,g\in D_\theta$: $\langle Af,g\rangle-\langle f,Ag\rangle=-i\bigl[f\bar g\bigr]_0^1=-i\,f(0)\overline{g(0)}\bigl(|e^{i\theta}|^2-1\bigr)=0$; $D_\theta$ плотно (содержит $C_c^\infty(0,1)$). (б) $-if'-\lambda f=g\iff f'=i\lambda f+ig$, $f(x)=e^{i\lambda x}\bigl(c+i\int_0^xe^{-i\lambda t}g(t)dt\bigr)$. Условие $f(1)=e^{i\theta}f(0)$: $c\,(e^{i\theta}-e^{i\lambda})=ie^{i\lambda}\int_0^1e^{-i\lambda t}g(t)dt$. Если $e^{i\lambda}\neq e^{i\theta}$, т. е. $\lambda\notin\theta+2\pi\mathbb{Z}$, решение существует и единственно; иначе $e^{i\lambda x}\in\ker(A-\lambda)$. (в) При $\lambda=\pm i$ получаем $\mathrm{Ran}(A\pm i)=L^2$, и по основному критерию симметрический $A$ самосопряжён. Резольвента — интегральный оператор с ограниченным ядром, т. е. Гильберта–Шмидта, значит компактна; поэтому спектр дискретен и состоит из собственных значений $\theta+2\pi k$.
 
 Критерии: (а) 1 балл; (б) 3 балла (формула решения — 1, условие на $\lambda$ — 1, собственные функции — 1); (в) 2 балла (самосопряжённость через критерий — 1, компактность резольвенты и спектр — 1).
 
@@ -234,23 +234,23 @@ $$
 
 **D1.** План доказательства.
 
-(а) 1) Пусть $n=\dim\ker T$, $m=\operatorname{codim}\operatorname{Ran}T$. Выбрать разложения $X=\ker T\oplus X_1$ ($X_1$ замкнуто) и $Y=\operatorname{Ran}T\oplus Y_0$, $\dim Y_0=m$.
+(а) 1) Пусть $n=\dim\ker T$, $m=\mathrm{codim}\mathrm{Ran}T$. Выбрать разложения $X=\ker T\oplus X_1$ ($X_1$ замкнуто) и $Y=\mathrm{Ran}T\oplus Y_0$, $\dim Y_0=m$.
 
 2) Оператор $\hat T\colon X_1\oplus Y_0\to Y$, $\hat T(x,y)=Tx+y$, ограничен и биективен, поэтому по теореме об обратном операторе обратим. Обратимые операторы образуют открытое множество, значит, при $\lVert S\rVert<\varepsilon:=\lVert\hat T^{-1}\rVert^{-1}$ оператор $\hat T_S(x,y)=(T+S)x+y$ тоже обратим.
 
 3) Рассмотреть $A_S\colon X\oplus Y_0\to Y$, $A_S(x,y)=(T+S)x+y$. Он сюръективен, а его ограничение на дополнение $X_1\oplus Y_0$ к $n$-мерному $\ker T\oplus0$ — изоморфизм. Значит, $\dim\ker A_S=n$: проекция $\ker A_S\to\ker T$ — изоморфизм.
 
-4) Проекция $(x,y)\mapsto x$ отождествляет $\ker A_S$ с $W=(T+S)^{-1}(Y_0)$. Оператор $T+S$ отображает $W$ на $\operatorname{Ran}(T+S)\cap Y_0$ с ядром $\ker(T+S)$. Поэтому $n=\dim\ker(T+S)+d$, где $d=\dim(\operatorname{Ran}(T+S)\cap Y_0)$.
+4) Проекция $(x,y)\mapsto x$ отождествляет $\ker A_S$ с $W=(T+S)^{-1}(Y_0)$. Оператор $T+S$ отображает $W$ на $\mathrm{Ran}(T+S)\cap Y_0$ с ядром $\ker(T+S)$. Поэтому $n=\dim\ker(T+S)+d$, где $d=\dim(\mathrm{Ran}(T+S)\cap Y_0)$.
 
-5) Из сюръективности $A_S$ получаем $Y=\operatorname{Ran}(T+S)+Y_0$, откуда $\operatorname{codim}\operatorname{Ran}(T+S)=m-d<\infty$; образ замкнут по допущенному факту. Итак, $T+S$ фредгольмов и $\operatorname{ind}(T+S)=(n-d)-(m-d)=n-m$.
+5) Из сюръективности $A_S$ получаем $Y=\mathrm{Ran}(T+S)+Y_0$, откуда $\mathrm{codim}\mathrm{Ran}(T+S)=m-d<\infty$; образ замкнут по допущенному факту. Итак, $T+S$ фредгольмов и $\mathrm{ind}(T+S)=(n-d)-(m-d)=n-m$.
 
-(б) По Аткинсону $T$ обратим по модулю компактных: $RT-I$ и $TR-I$ компактны. Тогда то же верно для $T+tK$ с тем же $R$ при любом $t\in[0,1]$, т. е. все $T+tK$ фредгольмовы. По (а) функция $t\mapsto\operatorname{ind}(T+tK)$ локально постоянна на связном $[0,1]$ (так как $\lVert(T+sK)-(T+tK)\rVert=|s-t|\lVert K\rVert$), значит, постоянна, и $\operatorname{ind}(T+K)=\operatorname{ind}T$.
+(б) По Аткинсону $T$ обратим по модулю компактных: $RT-I$ и $TR-I$ компактны. Тогда то же верно для $T+tK$ с тем же $R$ при любом $t\in[0,1]$, т. е. все $T+tK$ фредгольмовы. По (а) функция $t\mapsto\mathrm{ind}(T+tK)$ локально постоянна на связном $[0,1]$ (так как $\lVert(T+sK)-(T+tK)\rVert=|s-t|\lVert K\rVert$), значит, постоянна, и $\mathrm{ind}(T+K)=\mathrm{ind}T$.
 
 Критерии: (а) 7 баллов: шаги 1–2 — 2 балла; размерность ядра $A_S$ (шаг 3) — 2 балла; подсчёт индекса (шаги 4–5) — 3 балла. (б) 3 балла: фредгольмовость гомотопии — 1, связность и локальное постоянство — 2. Доказательство только для гильбертова пространства с теми же идеями — без штрафа. Утверждение «индекс непрерывен, потому что ядро и коядро меняются непрерывно» без доказательства — 0 за (а).
 
 **D2.** План доказательства.
 
-(а) Пусть $M=\sup_{\lVert x\rVert=1}|\langle Tx,x\rangle|\le\lVert T\rVert$. Для самосопряжённого $T$ имеем $4\operatorname{Re}\langle Tx,y\rangle=\langle T(x+y),x+y\rangle-\langle T(x-y),x-y\rangle\le M(\lVert x+y\rVert^2+\lVert x-y\rVert^2)=2M(\lVert x\rVert^2+\lVert y\rVert^2)$. При $\lVert x\rVert=1$, $Tx\neq0$, $y=Tx/\lVert Tx\rVert$ получаем $\lVert Tx\rVert\le M$.
+(а) Пусть $M=\sup_{\lVert x\rVert=1}|\langle Tx,x\rangle|\le\lVert T\rVert$. Для самосопряжённого $T$ имеем $4\mathrm{Re}\langle Tx,y\rangle=\langle T(x+y),x+y\rangle-\langle T(x-y),x-y\rangle\le M(\lVert x+y\rVert^2+\lVert x-y\rVert^2)=2M(\lVert x\rVert^2+\lVert y\rVert^2)$. При $\lVert x\rVert=1$, $Tx\neq0$, $y=Tx/\lVert Tx\rVert$ получаем $\lVert Tx\rVert\le M$.
 
 (б) Выберем $\lVert x_n\rVert=1$ с $\langle Tx_n,x_n\rangle\to\lambda$, где $\lambda\in\lbrace\pm\lVert T\rVert\rbrace$ (числа вещественны). Тогда $\lVert Tx_n-\lambda x_n\rVert^2=\lVert Tx_n\rVert^2-2\lambda\langle Tx_n,x_n\rangle+\lambda^2\le2\lambda^2-2\lambda\langle Tx_n,x_n\rangle\to0$. По компактности $Tx_{n_k}\to y$, откуда $\lambda x_{n_k}\to y$. Если $\lambda\neq0$, то $x_{n_k}\to y/\lambda$, $\lVert y\rVert=|\lambda|$ и $Ty=\lambda y$. Если $\lambda=0$, то $T=0$ и всё тривиально.
 

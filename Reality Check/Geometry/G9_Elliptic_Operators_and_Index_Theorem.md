@@ -128,7 +128,7 @@ $$
 
 1. $P\colon\Gamma(E)\to\Gamma(F)$, в локальных координатах и тривиализациях $P=\sum_{\lvert\alpha\rvert\le m}a_\alpha(x)\partial^\alpha$ с матричными $a_\alpha$. $\sigma_m(P)(x,\xi)=\sum_{\lvert\alpha\rvert=m}a_\alpha(x)(i\xi)^\alpha$, $\xi\in T^\ast_xM$; инвариантно: $\sigma_m(P)(x,d\phi)\,e=\lim_{t\to\infty}t^{-m}e^{-it\phi}P(e^{it\phi}\tilde e)(x)$. $P$ эллиптичен, если $\sigma_m(P)(x,\xi)$ обратим при всех $\xi\ne 0$.
 2. $a\in S^m$, если $\lvert\partial_x^\beta\partial_\xi^\alpha a(x,\xi)\rvert\le C_{\alpha\beta}(1+\lvert\xi\rvert)^{m-\lvert\alpha\rvert}$; $\mathrm{Op}(a)u(x)=(2\pi)^{-n}\int e^{ix\xi}a(x,\xi)\hat u(\xi)\,d\xi$. $\sigma(PQ)\sim\sum_\alpha\frac{1}{\alpha!}\partial_\xi^\alpha a\,D_x^\alpha b$, главный символ — $ab$; главный символ сопряжённого — $a^*$. Эллиптический $P\in\Psi^m$ имеет параметрикс $Q\in\Psi^{-m}$: $PQ-1,\,QP-1\in\Psi^{-\infty}$ (сглаживающие).
-3. $T$ ограничен, $\dim\ker T<\infty$, $\operatorname{im}T$ замкнут, $\dim\operatorname{coker}T<\infty$; $\mathrm{ind}\,T=\dim\ker T-\dim\operatorname{coker}T$. Фредгольмовы операторы образуют открытое множество, индекс локально постоянен (непрерывен в норме) и не меняется при добавлении компактного оператора; $\mathrm{ind}(ST)=\mathrm{ind}\,S+\mathrm{ind}\,T$.
+3. $T$ ограничен, $\dim\ker T<\infty$, $\mathrm{im}T$ замкнут, $\dim\mathrm{coker}T<\infty$; $\mathrm{ind}\,T=\dim\ker T-\dim\mathrm{coker}T$. Фредгольмовы операторы образуют открытое множество, индекс локально постоянен (непрерывен в норме) и не меняется при добавлении компактного оператора; $\mathrm{ind}(ST)=\mathrm{ind}\,S+\mathrm{ind}\,T$.
 4. Эллиптический $P$ порядка $m$ продолжается до фредгольмова $H^s(E)\to H^{s-m}(F)$ при всех $s$; если $Pu\in H^{s-m}$, то $u\in H^s$ (в частности, $\ker P$ состоит из гладких сечений); $\mathrm{ind}$ не зависит от $s$, равен $\dim\ker P-\dim\ker P^*$ и зависит только от гомотопического класса $\sigma_m(P)$ среди эллиптических символов.
 5. $0\to\Gamma(E_0)\xrightarrow{d}\Gamma(E_1)\xrightarrow{d}\cdots\to\Gamma(E_N)\to 0$ — дифференциальные операторы, $d^2=0$, и последовательность символов точна при всех $\xi\ne 0$. Когомологии конечномерны, $\mathrm{ind}=\sum(-1)^i\dim H^i$. Сведение: выбрать метрики, тогда $d+d^*\colon\bigoplus E_{2i}\to\bigoplus E_{2i+1}$ эллиптичен, и его индекс равен индексу комплекса (по теории Ходжа).
 6. На $\Omega^p\otimes\mathbb{C}$ полагаем $\tau=i^{p(p-1)+2k}\ast$; тогда $\tau^2=1$ и $d+d^*$ антикоммутирует с $\tau$. $\Omega^\pm$ — собственные подпространства, $(d+d^*)^+\colon\Omega^+\to\Omega^-$. Его индекс равен $\sigma(M)$: вклады степеней $p\ne 2k$ сокращаются попарно ($\alpha\pm\tau\alpha$), а в средней степени получается $b^+-b^-$.
@@ -139,9 +139,9 @@ $$
 
 ### Часть B
 
-1. **Неверно.** $d+d^*$ на всех формах формально самосопряжён и эллиптичен, поэтому $\operatorname{coker}\cong\ker(d+d^*)^*=\ker(d+d^*)$ и индекс равен 0. Число $\chi(M)$ — индекс ограничения $\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$. Пример: $S^2$, $\chi=2\ne 0$.
+1. **Неверно.** $d+d^*$ на всех формах формально самосопряжён и эллиптичен, поэтому $\mathrm{coker}\cong\ker(d+d^*)^*=\ker(d+d^*)$ и индекс равен 0. Число $\chi(M)$ — индекс ограничения $\Omega^{\mathrm{even}}\to\Omega^{\mathrm{odd}}$. Пример: $S^2$, $\chi=2\ne 0$.
 2. **Неверно.** Главный символ (порядок 2) равен $\lvert\xi\rvert^2$ и не зависит от двойственной к $t$ переменной $\tau$; при $\xi=0$, $\tau\ne 0$ он обращается в нуль. (Оператор параболичен.)
-3. **Верно.** $\ker\bar\partial=H^0(\Sigma,\mathcal{O})=\mathbb{C}$. По теории Ходжа (или по Дольбо) $\operatorname{coker}\bar\partial\cong H^{0,1}(\Sigma)$ размерности $g$. Индекс $1-g$ — это Риман–Рох для $\mathcal{O}$.
+3. **Верно.** $\ker\bar\partial=H^0(\Sigma,\mathcal{O})=\mathbb{C}$. По теории Ходжа (или по Дольбо) $\mathrm{coker}\bar\partial\cong H^{0,1}(\Sigma)$ размерности $g$. Индекс $1-g$ — это Риман–Рох для $\mathcal{O}$.
 4. **Верно.** $\mathrm{ind}\,D^+=\hat A(M)\ne 0$ при любой метрике (индекс — топологический инвариант), а $\dim\ker D\ge\dim\ker D^++\dim\ker D^-\ge\lvert\mathrm{ind}\,D^+\rvert>0$.
 5. **Неверно.** Для $f(z)=\lambda z$ на $\mathbb{P}^1$ вклады $\frac{1}{1-\lambda}$ и $\frac{1}{1-\lambda^{-1}}=\frac{\lambda}{\lambda-1}$ при, например, $\lambda=-1$ равны $\frac12$. Целым является только их сумма (равная 1, см. C3).
 
@@ -186,7 +186,7 @@ $$
 
 **D2.** План доказательства.
 
-1. $\ker\Delta^+=\ker D$, так как $\langle D^*Dv,v\rangle=\lVert Dv\rVert^2$; аналогично $\ker\Delta^-=\ker D^*\cong\operatorname{coker}D$.
+1. $\ker\Delta^+=\ker D$, так как $\langle D^*Dv,v\rangle=\lVert Dv\rVert^2$; аналогично $\ker\Delta^-=\ker D^*\cong\mathrm{coker}D$.
 2. Для $\lambda>0$ пусть $E^\pm_\lambda$ — собственные подпространства. $D\Delta^+=\Delta^-D$, поэтому $D(E^+_\lambda)\subset E^-_\lambda$. $D$ инъективен на $E^+_\lambda$: если $Dv=0$, то $\lambda v=D^*Dv=0$. Аналогично $D^*\colon E^-_\lambda\to E^+_\lambda$ инъективен. Значит, $\dim E^+_\lambda=\dim E^-_\lambda$.
 3. $\mathrm{Tr}\,e^{-t\Delta^+}-\mathrm{Tr}\,e^{-t\Delta^-}=\sum_{\lambda\ge 0}e^{-t\lambda}(\dim E^+_\lambda-\dim E^-_\lambda)=\dim\ker D-\dim\ker D^*=\mathrm{ind}\,D$.
 4. Локальность. $\mathrm{Tr}\,e^{-t\Delta^\pm}=\int_M\mathrm{tr}\,k^\pm_t(x,x)\,dx$, и при $t\to 0$ $\mathrm{tr}\,k_t(x,x)\sim(4\pi t)^{-n/2}\sum_jt^ja_j(x)$, где $a_j$ — универсальные многочлены от струи символа (метрики, кривизны) в точке $x$. Левая часть от $t$ не зависит, поэтому $\mathrm{ind}\,D=\int_M\big(a^+_{n/2}(x)-a^-_{n/2}(x)\big)dx$, а интегралы остальных коэффициентов сокращаются.
