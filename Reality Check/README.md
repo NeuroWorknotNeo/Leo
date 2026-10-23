@@ -89,14 +89,14 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [F1](PLAN.md#f1) | [Язык математики: логика, множества, доказательства](Exams/Foundations/F1_Logic_Sets_Proofs.md) | 0 | прежний (120 мин) |
+| [F1](PLAN.md#f1) | [Язык математики: логика, множества, доказательства](Exams/Foundations/F1_Logic_Sets_Proofs.md) | 0 | новый |
 
 ### Algebra — Алгебра
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | прежний (120 мин) |
-| [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | прежний (120 мин) |
+| [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | новый |
+| [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | новый |
 | [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | прежний (120 мин) |
 | [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | прежний (180 мин, один заход) |
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | прежний (120 мин) |
@@ -109,7 +109,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [N1](PLAN.md#n1) | [Элементарная теория чисел](Exams/Number%20Theory/N1_Elementary_Number_Theory.md) | 0–1 | прежний (120 мин) |
+| [N1](PLAN.md#n1) | [Элементарная теория чисел](Exams/Number%20Theory/N1_Elementary_Number_Theory.md) | 0–1 | новый |
 | [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 | прежний (120 мин) |
 | [N3](PLAN.md#n3) | [Алгебраическая теория чисел](Exams/Number%20Theory/N3_Algebraic_Number_Theory.md) | 3 | прежний (120 мин) |
 | [N4](PLAN.md#n4) | [Аналитическая теория чисел](Exams/Number%20Theory/N4_Analytic_Number_Theory.md) | 3 | прежний (120 мин) |
@@ -123,7 +123,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | прежний (120 мин) |
+| [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | новый |
 | [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | прежний (120 мин) |
 | [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | прежний (120 мин) |
 | [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | прежний (120 мин) |
@@ -136,7 +136,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [D1](PLAN.md#d1) | [Обыкновенные дифференциальные уравнения](Exams/Differential%20Equations/D1_Ordinary_Differential_Equations.md) | 1 | прежний (120 мин) |
+| [D1](PLAN.md#d1) | [Обыкновенные дифференциальные уравнения](Exams/Differential%20Equations/D1_Ordinary_Differential_Equations.md) | 1 | новый |
 | [D2](PLAN.md#d2) | [Динамические системы](Exams/Differential%20Equations/D2_Dynamical_Systems.md) | 3 (боковая ветвь) | прежний (120 мин) |
 | [D3](PLAN.md#d3) | [Уравнения в частных производных](Exams/Differential%20Equations/D3_Partial_Differential_Equations.md) | 3 | прежний (120 мин) |
 | [D4](PLAN.md#d4) | [Геометрический анализ и поток Риччи](Exams/Differential%20Equations/D4_Geometric_Analysis_and_Ricci_Flow.md) | 5 | прежний (120 мин) |
@@ -145,7 +145,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | прежний (120 мин) |
+| [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | новый |
 | [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | прежний (120 мин) |
 | [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | прежний (120 мин) |
 | [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | прежний (120 мин) |

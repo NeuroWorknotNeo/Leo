@@ -46,7 +46,7 @@ PREAMBLE = r"""\documentclass[11pt,a4paper]{article}
 \usepackage{fancyhdr,lastpage}
 \pagestyle{fancy}\fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\footnotesize\color{black!60}<<FOOTER>>}
+\fancyfoot[L]{\parbox[b]{0.84\textwidth}{\raggedright\scriptsize\color{black!60}<<FOOTER>>}}
 \fancyfoot[R]{\footnotesize\color{black!60}\thepage\ из \pageref{LastPage}}
 \usepackage[hidelinks]{hyperref}
 \setlength{\parindent}{0pt}\setlength{\parskip}{0.55em}
@@ -172,7 +172,8 @@ def build(exam, output, variant='v1', keep_tex=False, allow_dirty=False):
     code = os.path.basename(exam).split('_')[0].split('.')[0]
     if re.fullmatch(r'v\d+', code):   # Variants/<Код>/vN.md — код берётся из имени папки
         code = os.path.basename(os.path.dirname(os.path.abspath(exam)))
-    footer = f'{code} · вариант {variant} · {rel} · коммит {commit or "—"}'
+    shown = rel.split('Reality Check/', 1)[-1]   # путь внутри Reality Check — короче
+    footer = f'{code} · вариант {variant} · {shown} · коммит {commit or "—"}'
     tex = convert(open(exam, encoding='utf-8').read(), footer)
     with tempfile.TemporaryDirectory() as tmp:
         tf = os.path.join(tmp, 'exam.tex')
