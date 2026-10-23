@@ -167,6 +167,8 @@ def build(exam, output, variant='v1', keep_tex=False, allow_dirty=False):
     if dirty and not allow_dirty:
         sys.exit(f'{rel}: есть незакоммиченные изменения — сначала закоммитьте, чтобы PDF ссылался на точную версию')
     code = os.path.basename(exam).split('_')[0].split('.')[0]
+    if re.fullmatch(r'v\d+', code):   # Variants/<Код>/vN.md — код берётся из имени папки
+        code = os.path.basename(os.path.dirname(os.path.abspath(exam)))
     footer = f'{code} · вариант {variant} · {rel} · коммит {commit or "—"}'
     tex = convert(open(exam, encoding='utf-8').read(), footer)
     with tempfile.TemporaryDirectory() as tmp:
