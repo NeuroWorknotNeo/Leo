@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Собирает PDF с условиями экзамена Reality Check (без карты навыков, интерпретации и ключа).
 
-    python3 "Reality Check/tools/exam_pdf.py" <экзамен.md> -o <exam.pdf> [--variant v1] [--keep-tex]
+    python3 "Reality Check/tools/exam_pdf.py" "Reality Check/Exams/<Область>/<экзамен>.md" -o "Reality Check/Students/<Имя>/<Код>/<дата>/exam.pdf"
+    python3 "Reality Check/tools/exam_pdf.py" "Reality Check/Variants/<Код>/vN.md" --variant vN -o <exam.pdf>
     python3 "Reality Check/tools/exam_pdf.py" --zip "Reality Check/exams_math_and_phys.zip"
+
+Основные экзамены лежат в Reality Check/Exams/<Область>/, варианты — в Reality Check/Variants/<Код>/.
 
 Нужен pdfLaTeX (TeX Live) с кириллицей: babel-russian, cm-super (T2A), amsmath, adjustbox, newunicodechar, enumitem, titlesec, fancyhdr, lastpage.
 Источник берётся из рабочей копии; в колонтитул пишется последний коммит файла
@@ -201,8 +204,8 @@ def build(exam, output, variant='v1', keep_tex=False, allow_dirty=False):
 def build_zip(zip_path):
     """PDF основных вариантов всех экзаменов Reality Check → один zip, по папкам областей."""
     rc = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # папка Reality Check
-    exams = sorted(f for f in glob.glob(os.path.join(rc, '*', '*.md'))
-                   if re.match(r'[A-Z]+\d+_', os.path.basename(f)) and os.sep + 'Variants' + os.sep not in f)
+    exams = sorted(f for f in glob.glob(os.path.join(rc, 'Exams', '*', '*.md'))
+                   if re.match(r'[A-Z]+\d+_', os.path.basename(f)))
     warnings = []
     with tempfile.TemporaryDirectory() as out:
         names = []
