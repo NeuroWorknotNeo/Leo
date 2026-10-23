@@ -98,12 +98,12 @@ Reality Check/
 |---|---|---|---|
 | [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | новый |
 | [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | новый |
-| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | прежний (120 мин) |
+| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | новый, ждёт рецензии |
 | [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | прежний (180 мин, один заход) |
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | прежний (120 мин) |
 | [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый, ждёт рецензии |
 | [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | прежний (120 мин) |
-| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | прежний (120 мин) |
+| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | новый, ждёт рецензии |
 | [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | прежний (120 мин) |
 
 ### Number Theory — Теория чисел
@@ -126,7 +126,7 @@ Reality Check/
 |---|---|---|---|
 | [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | новый |
 | [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | новый, ждёт рецензии |
-| [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | прежний (120 мин) |
+| [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | новый, ждёт рецензии |
 | [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | новый, ждёт рецензии |
 | [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | новый, ждёт рецензии |
 | [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) | прежний (120 мин) |
