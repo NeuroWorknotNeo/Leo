@@ -16,6 +16,7 @@ Reality Check/
   Variants/<Код>/v2.md, v3.md …         — варианты для пересдач и для других студентов, тоже с ключом
   Students/<Имя>/<Код>/<дата выдачи>/   — попытки: exam.pdf, notes.md, решения, REPORT.md
   tools/exam_pdf.py                     — сборка PDF с условиями (без карты навыков, интерпретации и ключа)
+  tools/verify_exam.py, tools/toc.py    — проверка экзамена в новом формате и пересборка оглавления (для Claude)
   exams_math_and_phys.zip               — PDF условий всех основных экзаменов одним архивом
 ```
 
@@ -82,7 +83,7 @@ Reality Check/
 
 ## Оглавление
 
-Порядок папок и кодов совпадает с атласом в [PLAN.md](PLAN.md#part3). Столбец «Формат»: экзамены переводятся в новый формат (180 минут, 10 / 15 / 30 / 30 / 15 баллов) по этапам плана; у ещё не переведённых указан прежний формат, их условия и ключ действуют до перевода.
+Порядок папок и кодов совпадает с атласом в [PLAN.md](PLAN.md#part3). Столбец «Формат»: экзамены переводятся в новый формат (180 минут, 10 / 15 / 30 / 30 / 15 баллов) по этапам плана. «Новый» — переведён и прошёл независимую рецензию; «новый, ждёт рецензии» — переведён и прошёл автоматические проверки, но независимая рецензия ключа ещё впереди (сдавать можно, при проверке попытки ключ сверяется особенно внимательно); «прежний» — ещё не переведён, его условия и ключ действуют до перевода.
 
 <!-- TOC:BEGIN -->
 ### Foundations — Фундамент
@@ -100,7 +101,7 @@ Reality Check/
 | [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | прежний (120 мин) |
 | [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | прежний (180 мин, один заход) |
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | прежний (120 мин) |
-| [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | прежний (120 мин) |
+| [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый, ждёт рецензии |
 | [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | прежний (120 мин) |
 | [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | прежний (120 мин) |
 | [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | прежний (120 мин) |
@@ -124,10 +125,10 @@ Reality Check/
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
 | [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | новый |
-| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | прежний (120 мин) |
+| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | новый, ждёт рецензии |
 | [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | прежний (120 мин) |
-| [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | прежний (120 мин) |
-| [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | прежний (120 мин) |
+| [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | новый, ждёт рецензии |
+| [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | новый, ждёт рецензии |
 | [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) | прежний (120 мин) |
 | [R8](PLAN.md#r8) | [Выпуклый анализ](Exams/Analysis/R8_Convex_Analysis.md) | 3 (боковая ветвь) | прежний (120 мин) |
 | [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) | прежний (120 мин) |
