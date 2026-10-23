@@ -1,0 +1,91 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} %печать кириллицей
+\usepackage[utf8]{inputenc} %кодировка utf-8
+\usepackage[russian]{babel} %названия элементов на русском языке, использование некоторых дополнительных символов, типографические правила (перенос строки, пунктуация, кавычки и форматы дат)
+\usepackage{hyphenat} %управление переносами
+\usepackage{geometry} %настройка макета документа
+\usepackage{setspace} %управление межстрочными интервалами
+\usepackage{amsmath} %оформление уравнений и прочее
+\usepackage{amsthm} %теоремы и прочее
+\usepackage{amssymb} %математические символы
+\usepackage{graphicx} %включение графических изображений в документы
+\usepackage[backend=biber, style=alphabetic, maxbibnames=4]{biblatex} %список литературы
+
+\addbibresource{bibliography.bib}
+
+\geometry{margin=2.5cm}
+\setstretch{1.2}
+
+\pagenumbering{gobble}
+
+\newtheorem{theorem}{Теорема}
+\newtheorem{definition}{Определение}
+\newtheorem{lemma}{Задача}
+
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			
+			{\large Московский государственный университет им.\ М.\,В.\,Ломоносова}
+			
+			\vspace{0.5cm}
+			
+			{\large Механико-математический факультет}
+			
+			\vspace{0.5cm}
+			
+			{\large Кафедра дифференциальной геометрии и приложений}
+			
+			\vspace{3cm}
+			
+			{\LARGE \textbf{K-модули кубических поверхностей: необходимые пререквизиты}}
+			
+			\vspace{0.5cm}
+			
+			
+			\vfill
+			
+			\begin{flushright}
+				Выполнил: \\
+				Claude Opus 5.5,\\
+				Студент группы 407 \\
+				Азнаурьян Л.\,П. \\
+				
+				
+				\vspace{1cm}
+				
+				Научные руководители: \\
+				Логинов К.\,В.\\
+				Claude Opus 5.5
+			\end{flushright}
+			
+			\vfill
+			
+			Москва \\
+			2026
+			
+		\end{center}
+	\end{titlepage}
+	
+	\newpage
+	
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	
+	\section{Предварительные сведения}
+	
+	На протяжении всего текста работы основным полем является $\mathbb{C}$.
+	
+	\begin{definition}
+		n-мерным проективным пространством $\mathbb{P}^n$ называется
+	\end{definition}
+	
+	\section{Список литературы}
+	
+	\printbibliography[heading=none]
+	
+\end{document}
