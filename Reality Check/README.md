@@ -125,7 +125,7 @@ Reality Check/
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
 | [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | новый |
-| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | новый, ждёт рецензии |
+| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | новый |
 | [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | новый |
 | [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | новый, ждёт рецензии |
 | [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | новый, ждёт рецензии |
