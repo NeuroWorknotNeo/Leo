@@ -186,7 +186,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [X1](PLAN.md#x1) | [Классическая алгебраическая геометрия](Exams/Algebraic%20Geometry/X1_Classical_Algebraic_Geometry.md) | 3 | прежний (120 мин) |
+| [X1](PLAN.md#x1) | [Классическая алгебраическая геометрия](Exams/Algebraic%20Geometry/X1_Classical_Algebraic_Geometry.md) | 3 | новый |
 | [X2](PLAN.md#x2) | [Пучки, схемы, морфизмы схем](Exams/Algebraic%20Geometry/X2_Sheaves_and_Schemes.md) | 4 | прежний (120 мин) |
 | [X3](PLAN.md#x3) | [Когомологии когерентных пучков, Риман–Рох, теория пересечений](Exams/Algebraic%20Geometry/X3_Coherent_Cohomology_Riemann-Roch_Intersection_Theory.md) | 4 | прежний (120 мин) |
 | [X4](PLAN.md#x4) | [Этальные когомологии](Exams/Algebraic%20Geometry/X4_Etale_Cohomology.md) | 4 | прежний (120 мин) |
