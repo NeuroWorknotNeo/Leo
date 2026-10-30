@@ -78,7 +78,9 @@ def check(path, render=True, pdf=True):
             inner = re.findall(r'<math-renderer[^>]*>(.*?)</math-renderer>', html, re.S)
             bad = [x for x in inner if '<em>' in x or '<code>' in x or '`' in x]
             if bad: errs.append(f'в {len(bad)} формулах рендера есть <em>/<code>/`: ' + bad[0][:80])
-            if '$`' in re.sub(r'<math-renderer.*?</math-renderer>', '', html, flags=re.S): errs.append('в рендере остались необработанные $`')
+            outside = re.sub(r'<math-renderer.*?</math-renderer>', '', html, flags=re.S)
+            if '$`' in outside: errs.append('в рендере остались необработанные $`')
+            if '$<code' in outside: errs.append('в рендере формула стала кодом ($<code>): формула внутри *курсива* или **жирного**?')
             warns.append(f'формул в рендере: {html.count("<math-renderer")}')
     if pdf and not errs:
         with tempfile.TemporaryDirectory() as td:
