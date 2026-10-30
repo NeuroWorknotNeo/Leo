@@ -160,7 +160,7 @@ Reality Check/
 
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
-| [G1](PLAN.md#g1) | [Гладкие многообразия и анализ на многообразиях](Exams/Geometry/G1_Smooth_Manifolds.md) | 2 | прежний (120 мин) |
+| [G1](PLAN.md#g1) | [Гладкие многообразия и анализ на многообразиях](Exams/Geometry/G1_Smooth_Manifolds.md) | 2 | новый |
 | [G2](PLAN.md#g2) | [Дифференциальная геометрия: расслоения, связности, кривизна](Exams/Geometry/G2_Bundles_Connections_Curvature.md) | 3 | прежний (120 мин) |
 | [G3](PLAN.md#g3) | [Риманова геометрия](Exams/Geometry/G3_Riemannian_Geometry.md) | 3 | прежний (120 мин) |
 | [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 | прежний (120 мин) |
