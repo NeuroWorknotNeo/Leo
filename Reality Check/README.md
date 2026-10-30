@@ -150,7 +150,7 @@ Reality Check/
 | [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | новый |
 | [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | новый |
 | [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | новый |
-| [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | прежний (120 мин) |
+| [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | новый |
 | [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 | прежний (120 мин) |
 | [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 | прежний (120 мин) |
 | [T7](PLAN.md#t7) | [Топологическая K-теория](Exams/Topology/T7_Topological_K-Theory.md) | 4 | прежний (120 мин) |
