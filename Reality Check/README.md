@@ -167,7 +167,7 @@ Reality Check/
 | [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 | новый |
 | [G5](PLAN.md#g5) | [Симплектическая геометрия](Exams/Geometry/G5_Symplectic_Geometry.md) | 3 | новый |
 | [G6](PLAN.md#g6) | [Комплексная геометрия](Exams/Geometry/G6_Complex_Geometry.md) | 4 | новый |
-| [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 | прежний (120 мин) |
+| [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 | новый |
 | [G8](PLAN.md#g8) | [Спинорная геометрия и операторы Дирака](Exams/Geometry/G8_Spin_Geometry_and_Dirac_Operators.md) | 4 | прежний (120 мин) |
 | [G9](PLAN.md#g9) | [Эллиптические операторы и теорема об индексе](Exams/Geometry/G9_Elliptic_Operators_and_Index_Theorem.md) | 5 | новый |
 | [G10](PLAN.md#g10) | [Теория Морса](Exams/Geometry/G10_Morse_Theory.md) | 4 | прежний (120 мин) |
