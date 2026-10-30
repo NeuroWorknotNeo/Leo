@@ -154,7 +154,7 @@ Reality Check/
 | [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 | прежний (120 мин) |
 | [T7](PLAN.md#t7) | [Топологическая K-теория](Exams/Topology/T7_Topological_K-Theory.md) | 4 | прежний (120 мин) |
 | [T8](PLAN.md#t8) | [Кобордизмы](Exams/Topology/T8_Cobordism.md) | 4 | прежний (120 мин) |
-| [T9](PLAN.md#t9) | [Топология трёхмерных многообразий](Exams/Topology/T9_3-Manifolds.md) | 5 | прежний (120 мин) |
+| [T9](PLAN.md#t9) | [Топология трёхмерных многообразий](Exams/Topology/T9_3-Manifolds.md) | 5 | новый |
 
 ### Geometry — Геометрия
 
