@@ -132,7 +132,7 @@ Reality Check/
 | [R6](PLAN.md#r6) | [Асимптотические методы и интегральные преобразования](Exams/Analysis/R6_Asymptotic_Methods_and_Integral_Transforms.md) | 3 (боковая ветвь) | новый |
 | [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) | новый |
 | [R8](PLAN.md#r8) | [Выпуклый анализ](Exams/Analysis/R8_Convex_Analysis.md) | 3 (боковая ветвь) | новый |
-| [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) | прежний (120 мин) |
+| [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) | новый |
 
 ### Differential Equations — Дифференциальные уравнения
 
