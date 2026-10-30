@@ -192,7 +192,7 @@ Reality Check/
 | [X4](PLAN.md#x4) | [Этальные когомологии](Exams/Algebraic%20Geometry/X4_Etale_Cohomology.md) | 4 | новый |
 | [X5](PLAN.md#x5) | [Бирациональная геометрия](Exams/Algebraic%20Geometry/X5_Birational_Geometry.md) | 4 (боковая ветвь) | прежний (120 мин) |
 | [X6](PLAN.md#x6) | [Производные категории когерентных пучков](Exams/Algebraic%20Geometry/X6_Derived_Categories.md) | 6 | новый |
-| [X7](PLAN.md#x7) | [Торические многообразия](Exams/Algebraic%20Geometry/X7_Toric_Varieties.md) | 4 | прежний (120 мин) |
+| [X7](PLAN.md#x7) | [Торические многообразия](Exams/Algebraic%20Geometry/X7_Toric_Varieties.md) | 4 | новый |
 | [X8](PLAN.md#x8) | [Пространства модулей и стеки](Exams/Algebraic%20Geometry/X8_Moduli_Spaces_and_Stacks.md) | 6 | новый |
 | [X9](PLAN.md#x9) | [D-модули и перверсные пучки](Exams/Algebraic%20Geometry/X9_D-modules_and_Perverse_Sheaves.md) | 6 | новый |
 
