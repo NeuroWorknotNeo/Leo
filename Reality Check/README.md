@@ -99,7 +99,7 @@ Reality Check/
 | [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | новый |
 | [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | новый |
 | [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | новый |
-| [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | прежний (180 мин, один заход) |
+| [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | новый |
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | новый |
 | [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый |
 | [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | прежний (120 мин) |
@@ -148,7 +148,7 @@ Reality Check/
 |---|---|---|---|
 | [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | новый |
 | [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | новый |
-| [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | прежний (120 мин) |
+| [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | новый |
 | [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | прежний (120 мин) |
 | [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 | прежний (120 мин) |
 | [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 | прежний (120 мин) |
