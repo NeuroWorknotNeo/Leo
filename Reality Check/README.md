@@ -215,7 +215,7 @@ Reality Check/
 | [Q4](PLAN.md#q4) | [Квантовая теория поля для математиков](Exams/Mathematical%20Physics/Q4_Quantum_Field_Theory.md) | 6 | новый |
 | [Q5](PLAN.md#q5) | [Суперсимметрия для математиков](Exams/Mathematical%20Physics/Q5_Supersymmetry.md) | 6 | новый |
 | [Q6](PLAN.md#q6) | [Теория струн для математиков](Exams/Mathematical%20Physics/Q6_String_Theory.md) | 6 | новый |
-| [Q7](PLAN.md#q7) | [Общая теория относительности](Exams/Mathematical%20Physics/Q7_General_Relativity.md) | 4 (боковая ветвь) | прежний (≈ 215 мин) |
+| [Q7](PLAN.md#q7) | [Общая теория относительности](Exams/Mathematical%20Physics/Q7_General_Relativity.md) | 4 (боковая ветвь) | новый |
 | [Q8](PLAN.md#q8) | [Механика сплошных сред](Exams/Mathematical%20Physics/Q8_Continuum_Mechanics.md) | 4 (боковая ветвь) | новый |
 | [Q9](PLAN.md#q9) | [Статистическая физика](Exams/Mathematical%20Physics/Q9_Statistical_Physics.md) | 4 (боковая ветвь) | новый |
 | [Q10](PLAN.md#q10) | [Физическая кинетика](Exams/Mathematical%20Physics/Q10_Physical_Kinetics.md) | 4 (боковая ветвь) | новый |
