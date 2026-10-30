@@ -103,7 +103,7 @@ Reality Check/
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | новый, ждёт рецензии |
 | [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый, ждёт рецензии |
 | [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | прежний (120 мин) |
-| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | новый, ждёт рецензии |
+| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | новый |
 | [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | прежний (120 мин) |
 
 ### Number Theory — Теория чисел
