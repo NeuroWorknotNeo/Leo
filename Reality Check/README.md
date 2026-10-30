@@ -114,7 +114,7 @@ Reality Check/
 | [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 | новый |
 | [N3](PLAN.md#n3) | [Алгебраическая теория чисел](Exams/Number%20Theory/N3_Algebraic_Number_Theory.md) | 3 | новый |
 | [N4](PLAN.md#n4) | [Аналитическая теория чисел](Exams/Number%20Theory/N4_Analytic_Number_Theory.md) | 3 | новый |
-| [N5](PLAN.md#n5) | [Модулярные формы](Exams/Number%20Theory/N5_Modular_Forms.md) | 3 | прежний (120 мин) |
+| [N5](PLAN.md#n5) | [Модулярные формы](Exams/Number%20Theory/N5_Modular_Forms.md) | 3 | новый |
 | [N6](PLAN.md#n6) | [Эллиптические кривые](Exams/Number%20Theory/N6_Elliptic_Curves.md) | 4 | прежний (120 мин) |
 | [N7](PLAN.md#n7) | [Теория полей классов](Exams/Number%20Theory/N7_Class_Field_Theory.md) | 4 | прежний (120 мин) |
 | [N8](PLAN.md#n8) | [Представления Галуа и теория деформаций](Exams/Number%20Theory/N8_Galois_Representations_and_Deformations.md) | 5 | новый |
