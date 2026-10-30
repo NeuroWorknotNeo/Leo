@@ -98,7 +98,7 @@ Reality Check/
 |---|---|---|---|
 | [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | новый |
 | [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | новый |
-| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | новый, ждёт рецензии |
+| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | новый |
 | [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | прежний (180 мин, один заход) |
 | [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | новый, ждёт рецензии |
 | [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый, ждёт рецензии |
