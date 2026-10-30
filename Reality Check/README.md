@@ -179,7 +179,7 @@ Reality Check/
 |---|---|---|---|
 | [L1](PLAN.md#l1) | [Группы и алгебры Ли: основы](Exams/Lie%20Theory/L1_Lie_Groups_and_Lie_Algebras_Basics.md) | 2 | новый |
 | [L2](PLAN.md#l2) | [Структура и представления полупростых групп и алгебр Ли](Exams/Lie%20Theory/L2_Semisimple_Lie_Theory_and_Representations.md) | 3 | новый |
-| [L3](PLAN.md#l3) | [Алгебраические и редуктивные группы](Exams/Lie%20Theory/L3_Algebraic_and_Reductive_Groups.md) | 4 | прежний (120 мин) |
+| [L3](PLAN.md#l3) | [Алгебраические и редуктивные группы](Exams/Lie%20Theory/L3_Algebraic_and_Reductive_Groups.md) | 4 | новый |
 | [L4](PLAN.md#l4) | [Бесконечномерные представления редуктивных групп](Exams/Lie%20Theory/L4_Infinite-Dimensional_Representations.md) | 6 | новый |
 
 ### Algebraic Geometry — Алгебраическая геометрия
