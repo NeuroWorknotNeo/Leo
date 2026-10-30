@@ -63,6 +63,9 @@ def check(path, render=True, pdf=True):
         if re.search(r'<summary>[^\n]*</summary>\n(?!\n)', s): errs.append('после <summary> нет пустой строки')
     except ValueError as e:
         errs.append(f'разделы не найдены: {e}')
+    maths = re.findall(r'\$`(.*?)`\$', s, flags=re.S) + re.findall(r'```math\n(.*?)```', s, flags=re.S)
+    lt = [m for m in maths if re.search(r'<[A-Za-z]', m)]
+    if lt: errs.append(f'в {len(lt)} формулах «<» стоит прямо перед латинской буквой — на GitHub это читается как HTML-тег и ломает формулу; нужен пробел (a < b): ' + lt[0][:60])
     if s.count('$`') != s.count('`$'): errs.append(f"несбалансированные $` / `$: {s.count('$`')} / {s.count('`$')}")
     body = re.sub(r'```.*?```', '', s, flags=re.S)
     body = re.sub(r'\$`.*?`\$', '', body, flags=re.S)
