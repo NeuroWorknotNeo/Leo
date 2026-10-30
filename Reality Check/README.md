@@ -164,7 +164,7 @@ Reality Check/
 | [G1](PLAN.md#g1) | [Гладкие многообразия и анализ на многообразиях](Exams/Geometry/G1_Smooth_Manifolds.md) | 2 | новый |
 | [G2](PLAN.md#g2) | [Дифференциальная геометрия: расслоения, связности, кривизна](Exams/Geometry/G2_Bundles_Connections_Curvature.md) | 3 | прежний (120 мин) |
 | [G3](PLAN.md#g3) | [Риманова геометрия](Exams/Geometry/G3_Riemannian_Geometry.md) | 3 | новый |
-| [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 | прежний (120 мин) |
+| [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 | новый |
 | [G5](PLAN.md#g5) | [Симплектическая геометрия](Exams/Geometry/G5_Symplectic_Geometry.md) | 3 | новый |
 | [G6](PLAN.md#g6) | [Комплексная геометрия](Exams/Geometry/G6_Complex_Geometry.md) | 4 | прежний (120 мин) |
 | [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 | прежний (120 мин) |
