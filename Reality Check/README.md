@@ -203,7 +203,7 @@ Reality Check/
 | [P1](PLAN.md#p1) | [Теория вероятностей](Exams/Probability/P1_Probability_Theory.md) | 2 (боковая ветвь) | новый |
 | [P2](PLAN.md#p2) | [Математическая статистика](Exams/Probability/P2_Mathematical_Statistics.md) | 4 (боковая ветвь) | новый |
 | [P3](PLAN.md#p3) | [Случайные процессы](Exams/Probability/P3_Stochastic_Processes.md) | 3 (боковая ветвь) | новый |
-| [P4](PLAN.md#p4) | [Стохастические дифференциальные уравнения](Exams/Probability/P4_Stochastic_Differential_Equations.md) | 4 (боковая ветвь) | прежний (120 мин) |
+| [P4](PLAN.md#p4) | [Стохастические дифференциальные уравнения](Exams/Probability/P4_Stochastic_Differential_Equations.md) | 4 (боковая ветвь) | новый |
 
 ### Mathematical Physics — Физика для математиков
 
