@@ -104,7 +104,7 @@ Reality Check/
 | [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый |
 | [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | новый |
 | [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | новый |
-| [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | прежний (120 мин) |
+| [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | новый |
 
 ### Number Theory — Теория чисел
 
