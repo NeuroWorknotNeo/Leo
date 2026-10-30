@@ -139,7 +139,7 @@ Reality Check/
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
 | [D1](PLAN.md#d1) | [Обыкновенные дифференциальные уравнения](Exams/Differential%20Equations/D1_Ordinary_Differential_Equations.md) | 1 | новый |
-| [D2](PLAN.md#d2) | [Динамические системы](Exams/Differential%20Equations/D2_Dynamical_Systems.md) | 3 (боковая ветвь) | прежний (120 мин) |
+| [D2](PLAN.md#d2) | [Динамические системы](Exams/Differential%20Equations/D2_Dynamical_Systems.md) | 3 (боковая ветвь) | новый |
 | [D3](PLAN.md#d3) | [Уравнения в частных производных](Exams/Differential%20Equations/D3_Partial_Differential_Equations.md) | 3 | прежний (120 мин) |
 | [D4](PLAN.md#d4) | [Геометрический анализ и поток Риччи](Exams/Differential%20Equations/D4_Geometric_Analysis_and_Ricci_Flow.md) | 5 | новый |
 
