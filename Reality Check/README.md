@@ -147,7 +147,7 @@ Reality Check/
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
 | [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | новый |
-| [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | прежний (120 мин) |
+| [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | новый |
 | [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | прежний (120 мин) |
 | [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | прежний (120 мин) |
 | [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 | прежний (120 мин) |
