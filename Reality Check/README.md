@@ -129,6 +129,7 @@ Reality Check/
 | [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | новый |
 | [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | новый |
 | [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | новый |
+| [R6](PLAN.md#r6) | [Асимптотические методы и интегральные преобразования](Exams/Analysis/R6_Asymptotic_Methods_and_Integral_Transforms.md) | 3 (боковая ветвь) | новый |
 | [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) | новый |
 | [R8](PLAN.md#r8) | [Выпуклый анализ](Exams/Analysis/R8_Convex_Analysis.md) | 3 (боковая ветвь) | прежний (120 мин) |
 | [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) | прежний (120 мин) |
