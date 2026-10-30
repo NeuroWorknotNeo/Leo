@@ -211,7 +211,7 @@ Reality Check/
 |---|---|---|---|
 | [Q1](PLAN.md#q1) | [Классическая механика](Exams/Mathematical%20Physics/Q1_Classical_Mechanics.md) | 2 | новый |
 | [Q2](PLAN.md#q2) | [Квантовая механика для математиков](Exams/Mathematical%20Physics/Q2_Quantum_Mechanics.md) | 4 | новый |
-| [Q3](PLAN.md#q3) | [Классическая теория поля](Exams/Mathematical%20Physics/Q3_Classical_Field_Theory.md) | 4 | прежний (≈ 200 мин) |
+| [Q3](PLAN.md#q3) | [Классическая теория поля](Exams/Mathematical%20Physics/Q3_Classical_Field_Theory.md) | 4 | новый |
 | [Q4](PLAN.md#q4) | [Квантовая теория поля для математиков](Exams/Mathematical%20Physics/Q4_Quantum_Field_Theory.md) | 6 | новый |
 | [Q5](PLAN.md#q5) | [Суперсимметрия для математиков](Exams/Mathematical%20Physics/Q5_Supersymmetry.md) | 6 | новый |
 | [Q6](PLAN.md#q6) | [Теория струн для математиков](Exams/Mathematical%20Physics/Q6_String_Theory.md) | 6 | новый |
