@@ -193,7 +193,7 @@ Reality Check/
 | [X6](PLAN.md#x6) | [Производные категории когерентных пучков](Exams/Algebraic%20Geometry/X6_Derived_Categories.md) | 6 | новый |
 | [X7](PLAN.md#x7) | [Торические многообразия](Exams/Algebraic%20Geometry/X7_Toric_Varieties.md) | 4 | прежний (120 мин) |
 | [X8](PLAN.md#x8) | [Пространства модулей и стеки](Exams/Algebraic%20Geometry/X8_Moduli_Spaces_and_Stacks.md) | 6 | новый |
-| [X9](PLAN.md#x9) | [D-модули и перверсные пучки](Exams/Algebraic%20Geometry/X9_D-modules_and_Perverse_Sheaves.md) | 6 | прежний (120 мин) |
+| [X9](PLAN.md#x9) | [D-модули и перверсные пучки](Exams/Algebraic%20Geometry/X9_D-modules_and_Perverse_Sheaves.md) | 6 | новый |
 
 ### Probability — Вероятность
 
