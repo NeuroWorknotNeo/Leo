@@ -154,7 +154,7 @@ Reality Check/
 | [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 | новый |
 | [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 | новый |
 | [T7](PLAN.md#t7) | [Топологическая K-теория](Exams/Topology/T7_Topological_K-Theory.md) | 4 | прежний (120 мин) |
-| [T8](PLAN.md#t8) | [Кобордизмы](Exams/Topology/T8_Cobordism.md) | 4 | прежний (120 мин) |
+| [T8](PLAN.md#t8) | [Кобордизмы](Exams/Topology/T8_Cobordism.md) | 4 | новый |
 | [T9](PLAN.md#t9) | [Топология трёхмерных многообразий](Exams/Topology/T9_3-Manifolds.md) | 5 | новый |
 
 ### Geometry — Геометрия
