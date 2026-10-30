@@ -168,7 +168,7 @@ Reality Check/
 | [G6](PLAN.md#g6) | [Комплексная геометрия](Exams/Geometry/G6_Complex_Geometry.md) | 4 | прежний (120 мин) |
 | [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 | прежний (120 мин) |
 | [G8](PLAN.md#g8) | [Спинорная геометрия и операторы Дирака](Exams/Geometry/G8_Spin_Geometry_and_Dirac_Operators.md) | 4 | прежний (120 мин) |
-| [G9](PLAN.md#g9) | [Эллиптические операторы и теорема об индексе](Exams/Geometry/G9_Elliptic_Operators_and_Index_Theorem.md) | 5 | прежний (120 мин) |
+| [G9](PLAN.md#g9) | [Эллиптические операторы и теорема об индексе](Exams/Geometry/G9_Elliptic_Operators_and_Index_Theorem.md) | 5 | новый |
 | [G10](PLAN.md#g10) | [Теория Морса](Exams/Geometry/G10_Morse_Theory.md) | 4 | прежний (120 мин) |
 | [G11](PLAN.md#g11) | [Теория Флоера и псевдоголоморфные кривые](Exams/Geometry/G11_Floer_Theory_and_Pseudoholomorphic_Curves.md) | 6 | новый |
 
