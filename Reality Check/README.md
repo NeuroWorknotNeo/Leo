@@ -111,7 +111,7 @@ Reality Check/
 | Код | Экзамен | Этап плана | Формат |
 |---|---|---|---|
 | [N1](PLAN.md#n1) | [Элементарная теория чисел](Exams/Number%20Theory/N1_Elementary_Number_Theory.md) | 0–1 | новый |
-| [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 | прежний (120 мин) |
+| [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 | новый |
 | [N3](PLAN.md#n3) | [Алгебраическая теория чисел](Exams/Number%20Theory/N3_Algebraic_Number_Theory.md) | 3 | прежний (120 мин) |
 | [N4](PLAN.md#n4) | [Аналитическая теория чисел](Exams/Number%20Theory/N4_Analytic_Number_Theory.md) | 3 | прежний (120 мин) |
 | [N5](PLAN.md#n5) | [Модулярные формы](Exams/Number%20Theory/N5_Modular_Forms.md) | 3 | прежний (120 мин) |
