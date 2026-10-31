@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Собирает PDF с условиями экзамена Reality Check (без карты навыков, интерпретации и ключа).
+"""Собирает PDF с условиями экзамена Reality Check: шапка, правила, условия задач с баллами
+(без истории правок из шапки, карты навыков, интерпретации и ключа).
 
     python3 "Reality Check/tools/exam_pdf.py" "Reality Check/Exams/<Область>/<экзамен>.md" -o "Reality Check/Students/<Имя>/<Код>/<дата>/exam.pdf"
     python3 "Reality Check/tools/exam_pdf.py" "Reality Check/Variants/<Код>/vN.md" --variant vN -o <exam.pdf>
@@ -14,6 +15,7 @@
 import argparse, glob, os, re, shutil, subprocess, sys, tempfile, zipfile
 
 STOP_HEADING = '## Карта навыков'
+SKIP_META = ('**Изменения:**', '**Составлен:**', '**Архив:**')   # строки шапки с историей файла — не для студента
 
 TEXT_SPECIAL = {'\\': r'\textbackslash{}', '{': r'\{', '}': r'\}', '#': r'\#', '$': r'\$',
                 '%': r'\%', '&': r'\&', '_': r'\_', '~': r'\textasciitilde{}', '^': r'\textasciicircum{}'}
@@ -133,7 +135,7 @@ def convert(md, footer):
         elif st.startswith('>'):
             flush_para(); close_list()
             t = st[1:].strip()
-            if t: out.append('{\\small ' + inline(t, store) + '\\par}\n')
+            if t and not t.startswith(SKIP_META): out.append('{\\small ' + inline(t, store) + '\\par}\n')
         elif re.match(r'\d+\.\s', st) or re.match(r'-\s', st):
             flush_para()
             kind = 'enumerate' if st[0].isdigit() else 'itemize'
