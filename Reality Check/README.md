@@ -80,145 +80,142 @@ Reality Check/
 
 Попытка A4 от 2026-10-21 сдавалась в прежнем формате (120 минут, части 20 / 15 / 30 / 20 / 15 баллов), а выданный 2026-10-23 вариант A4 v2 составлен по промежуточному формату (180 минут, 10 / 10 / 30 / 30 / 20 баллов) и будет проверяться по нему. Итоги из 100 и уровни сравнимы с новыми, баллы по частям — нет. С переводом A4 в новый формат прежние варианты сохранены как [`Variants/A4/v1_old.md`](Variants/A4/v1_old.md) (основной экзамен до перевода) и [`Variants/A4/v2_old.md`](Variants/A4/v2_old.md); в журнале они значатся как v1 и v2 прежнего формата. Нумерация вариантов нового A4 начинается заново: v1 — новый основной экзамен, дальше v2, v3 …
 
-<a id="physics"></a>
-**Переходное правило для ещё не переведённых экзаменов по физике (Q3–Q10).** Пока экзамен не переведён в новый формат, действуют его прежние условия: время из шапки (от 190 до 240 минут), ориентир по частям — из заголовков частей; сдать можно за один раз или в два захода (части A–C, затем D–E, не больше суток между ними, во втором заходе к A–C не возвращаться; способ сдачи записать в `notes.md`). Оговорка «на физическом уровне строгости» и абзац «Соглашения» действуют как описано в [GRADING.md](GRADING.md).
-
 ## Оглавление
 
-Порядок папок и кодов совпадает с атласом в [PLAN.md](PLAN.md#part3). Столбец «Формат»: экзамены переводятся в новый формат (180 минут, 10 / 15 / 30 / 30 / 15 баллов) по этапам плана. «Новый» — переведён и прошёл независимую рецензию; «новый, ждёт рецензии» — переведён и прошёл автоматические проверки, но независимая рецензия ключа ещё впереди (сдавать можно, при проверке попытки ключ сверяется особенно внимательно); «прежний» — ещё не переведён, его условия и ключ действуют до перевода.
+Порядок папок и кодов совпадает с атласом в [PLAN.md](PLAN.md#part3). Все экзамены — в формате 180 минут (части 10 / 15 / 30 / 30 / 15 баллов), ключ каждого прошёл независимую рецензию.
 
 <!-- TOC:BEGIN -->
 ### Foundations — Фундамент
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [F1](PLAN.md#f1) | [Язык математики: логика, множества, доказательства](Exams/Foundations/F1_Logic_Sets_Proofs.md) | 0 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [F1](PLAN.md#f1) | [Язык математики: логика, множества, доказательства](Exams/Foundations/F1_Logic_Sets_Proofs.md) | 0 |
 
 ### Algebra — Алгебра
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 | новый |
-| [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 | новый |
-| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 | новый |
-| [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 | новый |
-| [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 | новый |
-| [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 | новый |
-| [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 | новый |
-| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 | новый |
-| [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [A1](PLAN.md#a1) | [Линейная алгебра](Exams/Algebra/A1_Linear_Algebra.md) | 1 |
+| [A2](PLAN.md#a2) | [Общая алгебра](Exams/Algebra/A2_Abstract_Algebra.md) | 1 |
+| [A3](PLAN.md#a3) | [Теория групп](Exams/Algebra/A3_Group_Theory.md) | 2 |
+| [A4](PLAN.md#a4) | [Теория Галуа](Exams/Algebra/A4_Galois_Theory.md) | 2 |
+| [A5](PLAN.md#a5) | [Представления конечных групп](Exams/Algebra/A5_Representations_of_Finite_Groups.md) | 2 |
+| [A6](PLAN.md#a6) | [Коммутативная алгебра](Exams/Algebra/A6_Commutative_Algebra.md) | 2 |
+| [A7](PLAN.md#a7) | [Гомологическая алгебра](Exams/Algebra/A7_Homological_Algebra.md) | 3 |
+| [A8](PLAN.md#a8) | [Теория категорий](Exams/Algebra/A8_Category_Theory.md) | 2 |
+| [A9](PLAN.md#a9) | [Алгебраическая K-теория](Exams/Algebra/A9_Algebraic_K-Theory.md) | 4 (боковая ветвь) |
 
 ### Number Theory — Теория чисел
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [N1](PLAN.md#n1) | [Элементарная теория чисел](Exams/Number%20Theory/N1_Elementary_Number_Theory.md) | 0–1 | новый |
-| [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 | новый |
-| [N3](PLAN.md#n3) | [Алгебраическая теория чисел](Exams/Number%20Theory/N3_Algebraic_Number_Theory.md) | 3 | новый |
-| [N4](PLAN.md#n4) | [Аналитическая теория чисел](Exams/Number%20Theory/N4_Analytic_Number_Theory.md) | 3 | новый |
-| [N5](PLAN.md#n5) | [Модулярные формы](Exams/Number%20Theory/N5_Modular_Forms.md) | 3 | новый |
-| [N6](PLAN.md#n6) | [Эллиптические кривые](Exams/Number%20Theory/N6_Elliptic_Curves.md) | 4 | новый |
-| [N7](PLAN.md#n7) | [Теория полей классов](Exams/Number%20Theory/N7_Class_Field_Theory.md) | 4 | новый |
-| [N8](PLAN.md#n8) | [Представления Галуа и теория деформаций](Exams/Number%20Theory/N8_Galois_Representations_and_Deformations.md) | 5 | новый |
-| [N9](PLAN.md#n9) | [Автоморфные формы и представления](Exams/Number%20Theory/N9_Automorphic_Forms_and_Representations.md) | 6 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [N1](PLAN.md#n1) | [Элементарная теория чисел](Exams/Number%20Theory/N1_Elementary_Number_Theory.md) | 0–1 |
+| [N2](PLAN.md#n2) | [p-адические числа и локальные поля](Exams/Number%20Theory/N2_p-adic_Numbers_and_Local_Fields.md) | 2 |
+| [N3](PLAN.md#n3) | [Алгебраическая теория чисел](Exams/Number%20Theory/N3_Algebraic_Number_Theory.md) | 3 |
+| [N4](PLAN.md#n4) | [Аналитическая теория чисел](Exams/Number%20Theory/N4_Analytic_Number_Theory.md) | 3 |
+| [N5](PLAN.md#n5) | [Модулярные формы](Exams/Number%20Theory/N5_Modular_Forms.md) | 3 |
+| [N6](PLAN.md#n6) | [Эллиптические кривые](Exams/Number%20Theory/N6_Elliptic_Curves.md) | 4 |
+| [N7](PLAN.md#n7) | [Теория полей классов](Exams/Number%20Theory/N7_Class_Field_Theory.md) | 4 |
+| [N8](PLAN.md#n8) | [Представления Галуа и теория деформаций](Exams/Number%20Theory/N8_Galois_Representations_and_Deformations.md) | 5 |
+| [N9](PLAN.md#n9) | [Автоморфные формы и представления](Exams/Number%20Theory/N9_Automorphic_Forms_and_Representations.md) | 6 |
 
 ### Analysis — Анализ
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 | новый |
-| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 | новый |
-| [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 | новый |
-| [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 | новый |
-| [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 | новый |
-| [R6](PLAN.md#r6) | [Асимптотические методы и интегральные преобразования](Exams/Analysis/R6_Asymptotic_Methods_and_Integral_Transforms.md) | 3 (боковая ветвь) | новый |
-| [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) | новый |
-| [R8](PLAN.md#r8) | [Выпуклый анализ](Exams/Analysis/R8_Convex_Analysis.md) | 3 (боковая ветвь) | новый |
-| [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [R1](PLAN.md#r1) | [Математический анализ](Exams/Analysis/R1_Mathematical_Analysis.md) | 1 |
+| [R2](PLAN.md#r2) | [Действительный анализ (мера и интеграл)](Exams/Analysis/R2_Real_Analysis_Measure_and_Integration.md) | 2 |
+| [R3](PLAN.md#r3) | [Комплексный анализ](Exams/Analysis/R3_Complex_Analysis.md) | 2 |
+| [R4](PLAN.md#r4) | [Гармонический анализ](Exams/Analysis/R4_Harmonic_Analysis.md) | 2 |
+| [R5](PLAN.md#r5) | [Функциональный анализ](Exams/Analysis/R5_Functional_Analysis.md) | 2 |
+| [R6](PLAN.md#r6) | [Асимптотические методы и интегральные преобразования](Exams/Analysis/R6_Asymptotic_Methods_and_Integral_Transforms.md) | 3 (боковая ветвь) |
+| [R7](PLAN.md#r7) | [Вариационное исчисление](Exams/Analysis/R7_Calculus_of_Variations.md) | 2 (боковая ветвь) |
+| [R8](PLAN.md#r8) | [Выпуклый анализ](Exams/Analysis/R8_Convex_Analysis.md) | 3 (боковая ветвь) |
+| [R9](PLAN.md#r9) | [Оптимальное управление](Exams/Analysis/R9_Optimal_Control.md) | 4 (боковая ветвь) |
 
 ### Differential Equations — Дифференциальные уравнения
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [D1](PLAN.md#d1) | [Обыкновенные дифференциальные уравнения](Exams/Differential%20Equations/D1_Ordinary_Differential_Equations.md) | 1 | новый |
-| [D2](PLAN.md#d2) | [Динамические системы](Exams/Differential%20Equations/D2_Dynamical_Systems.md) | 3 (боковая ветвь) | новый |
-| [D3](PLAN.md#d3) | [Уравнения в частных производных](Exams/Differential%20Equations/D3_Partial_Differential_Equations.md) | 3 | новый |
-| [D4](PLAN.md#d4) | [Геометрический анализ и поток Риччи](Exams/Differential%20Equations/D4_Geometric_Analysis_and_Ricci_Flow.md) | 5 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [D1](PLAN.md#d1) | [Обыкновенные дифференциальные уравнения](Exams/Differential%20Equations/D1_Ordinary_Differential_Equations.md) | 1 |
+| [D2](PLAN.md#d2) | [Динамические системы](Exams/Differential%20Equations/D2_Dynamical_Systems.md) | 3 (боковая ветвь) |
+| [D3](PLAN.md#d3) | [Уравнения в частных производных](Exams/Differential%20Equations/D3_Partial_Differential_Equations.md) | 3 |
+| [D4](PLAN.md#d4) | [Геометрический анализ и поток Риччи](Exams/Differential%20Equations/D4_Geometric_Analysis_and_Ricci_Flow.md) | 5 |
 
 ### Topology — Топология
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 | новый |
-| [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 | новый |
-| [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 | новый |
-| [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 | новый |
-| [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 | новый |
-| [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 | новый |
-| [T7](PLAN.md#t7) | [Топологическая K-теория](Exams/Topology/T7_Topological_K-Theory.md) | 4 | новый |
-| [T8](PLAN.md#t8) | [Кобордизмы](Exams/Topology/T8_Cobordism.md) | 4 | новый |
-| [T9](PLAN.md#t9) | [Топология трёхмерных многообразий](Exams/Topology/T9_3-Manifolds.md) | 5 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [T1](PLAN.md#t1) | [Общая топология](Exams/Topology/T1_General_Topology.md) | 1 |
+| [T2](PLAN.md#t2) | [Фундаментальная группа и накрытия](Exams/Topology/T2_Fundamental_Group_and_Coverings.md) | 2 |
+| [T3](PLAN.md#t3) | [Гомологии и когомологии](Exams/Topology/T3_Homology_and_Cohomology.md) | 2 |
+| [T4](PLAN.md#t4) | [Гомотопические группы и расслоения](Exams/Topology/T4_Homotopy_Groups_and_Fibrations.md) | 3 |
+| [T5](PLAN.md#t5) | [Спектральные последовательности](Exams/Topology/T5_Spectral_Sequences.md) | 3 |
+| [T6](PLAN.md#t6) | [Характеристические классы](Exams/Topology/T6_Characteristic_Classes.md) | 3 |
+| [T7](PLAN.md#t7) | [Топологическая K-теория](Exams/Topology/T7_Topological_K-Theory.md) | 4 |
+| [T8](PLAN.md#t8) | [Кобордизмы](Exams/Topology/T8_Cobordism.md) | 4 |
+| [T9](PLAN.md#t9) | [Топология трёхмерных многообразий](Exams/Topology/T9_3-Manifolds.md) | 5 |
 
 ### Geometry — Геометрия
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [G1](PLAN.md#g1) | [Гладкие многообразия и анализ на многообразиях](Exams/Geometry/G1_Smooth_Manifolds.md) | 2 | новый |
-| [G2](PLAN.md#g2) | [Дифференциальная геометрия: расслоения, связности, кривизна](Exams/Geometry/G2_Bundles_Connections_Curvature.md) | 3 | новый |
-| [G3](PLAN.md#g3) | [Риманова геометрия](Exams/Geometry/G3_Riemannian_Geometry.md) | 3 | новый |
-| [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 | новый |
-| [G5](PLAN.md#g5) | [Симплектическая геометрия](Exams/Geometry/G5_Symplectic_Geometry.md) | 3 | новый |
-| [G6](PLAN.md#g6) | [Комплексная геометрия](Exams/Geometry/G6_Complex_Geometry.md) | 4 | новый |
-| [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 | новый |
-| [G8](PLAN.md#g8) | [Спинорная геометрия и операторы Дирака](Exams/Geometry/G8_Spin_Geometry_and_Dirac_Operators.md) | 4 | новый |
-| [G9](PLAN.md#g9) | [Эллиптические операторы и теорема об индексе](Exams/Geometry/G9_Elliptic_Operators_and_Index_Theorem.md) | 5 | новый |
-| [G10](PLAN.md#g10) | [Теория Морса](Exams/Geometry/G10_Morse_Theory.md) | 4 | новый |
-| [G11](PLAN.md#g11) | [Теория Флоера и псевдоголоморфные кривые](Exams/Geometry/G11_Floer_Theory_and_Pseudoholomorphic_Curves.md) | 6 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [G1](PLAN.md#g1) | [Гладкие многообразия и анализ на многообразиях](Exams/Geometry/G1_Smooth_Manifolds.md) | 2 |
+| [G2](PLAN.md#g2) | [Дифференциальная геометрия: расслоения, связности, кривизна](Exams/Geometry/G2_Bundles_Connections_Curvature.md) | 3 |
+| [G3](PLAN.md#g3) | [Риманова геометрия](Exams/Geometry/G3_Riemannian_Geometry.md) | 3 |
+| [G4](PLAN.md#g4) | [Римановы поверхности и алгебраические кривые](Exams/Geometry/G4_Riemann_Surfaces_and_Algebraic_Curves.md) | 3 |
+| [G5](PLAN.md#g5) | [Симплектическая геометрия](Exams/Geometry/G5_Symplectic_Geometry.md) | 3 |
+| [G6](PLAN.md#g6) | [Комплексная геометрия](Exams/Geometry/G6_Complex_Geometry.md) | 4 |
+| [G7](PLAN.md#g7) | [Теория Ходжа](Exams/Geometry/G7_Hodge_Theory.md) | 4 |
+| [G8](PLAN.md#g8) | [Спинорная геометрия и операторы Дирака](Exams/Geometry/G8_Spin_Geometry_and_Dirac_Operators.md) | 4 |
+| [G9](PLAN.md#g9) | [Эллиптические операторы и теорема об индексе](Exams/Geometry/G9_Elliptic_Operators_and_Index_Theorem.md) | 5 |
+| [G10](PLAN.md#g10) | [Теория Морса](Exams/Geometry/G10_Morse_Theory.md) | 4 |
+| [G11](PLAN.md#g11) | [Теория Флоера и псевдоголоморфные кривые](Exams/Geometry/G11_Floer_Theory_and_Pseudoholomorphic_Curves.md) | 6 |
 
 ### Lie Theory — Группы и алгебры Ли
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [L1](PLAN.md#l1) | [Группы и алгебры Ли: основы](Exams/Lie%20Theory/L1_Lie_Groups_and_Lie_Algebras_Basics.md) | 2 | новый |
-| [L2](PLAN.md#l2) | [Структура и представления полупростых групп и алгебр Ли](Exams/Lie%20Theory/L2_Semisimple_Lie_Theory_and_Representations.md) | 3 | новый |
-| [L3](PLAN.md#l3) | [Алгебраические и редуктивные группы](Exams/Lie%20Theory/L3_Algebraic_and_Reductive_Groups.md) | 4 | новый |
-| [L4](PLAN.md#l4) | [Бесконечномерные представления редуктивных групп](Exams/Lie%20Theory/L4_Infinite-Dimensional_Representations.md) | 6 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [L1](PLAN.md#l1) | [Группы и алгебры Ли: основы](Exams/Lie%20Theory/L1_Lie_Groups_and_Lie_Algebras_Basics.md) | 2 |
+| [L2](PLAN.md#l2) | [Структура и представления полупростых групп и алгебр Ли](Exams/Lie%20Theory/L2_Semisimple_Lie_Theory_and_Representations.md) | 3 |
+| [L3](PLAN.md#l3) | [Алгебраические и редуктивные группы](Exams/Lie%20Theory/L3_Algebraic_and_Reductive_Groups.md) | 4 |
+| [L4](PLAN.md#l4) | [Бесконечномерные представления редуктивных групп](Exams/Lie%20Theory/L4_Infinite-Dimensional_Representations.md) | 6 |
 
 ### Algebraic Geometry — Алгебраическая геометрия
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [X1](PLAN.md#x1) | [Классическая алгебраическая геометрия](Exams/Algebraic%20Geometry/X1_Classical_Algebraic_Geometry.md) | 3 | новый |
-| [X2](PLAN.md#x2) | [Пучки, схемы, морфизмы схем](Exams/Algebraic%20Geometry/X2_Sheaves_and_Schemes.md) | 4 | новый |
-| [X3](PLAN.md#x3) | [Когомологии когерентных пучков, Риман–Рох, теория пересечений](Exams/Algebraic%20Geometry/X3_Coherent_Cohomology_Riemann-Roch_Intersection_Theory.md) | 4 | новый |
-| [X4](PLAN.md#x4) | [Этальные когомологии](Exams/Algebraic%20Geometry/X4_Etale_Cohomology.md) | 4 | новый |
-| [X5](PLAN.md#x5) | [Бирациональная геометрия](Exams/Algebraic%20Geometry/X5_Birational_Geometry.md) | 4 (боковая ветвь) | новый |
-| [X6](PLAN.md#x6) | [Производные категории когерентных пучков](Exams/Algebraic%20Geometry/X6_Derived_Categories.md) | 6 | новый |
-| [X7](PLAN.md#x7) | [Торические многообразия](Exams/Algebraic%20Geometry/X7_Toric_Varieties.md) | 4 | новый |
-| [X8](PLAN.md#x8) | [Пространства модулей и стеки](Exams/Algebraic%20Geometry/X8_Moduli_Spaces_and_Stacks.md) | 6 | новый |
-| [X9](PLAN.md#x9) | [D-модули и перверсные пучки](Exams/Algebraic%20Geometry/X9_D-modules_and_Perverse_Sheaves.md) | 6 | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [X1](PLAN.md#x1) | [Классическая алгебраическая геометрия](Exams/Algebraic%20Geometry/X1_Classical_Algebraic_Geometry.md) | 3 |
+| [X2](PLAN.md#x2) | [Пучки, схемы, морфизмы схем](Exams/Algebraic%20Geometry/X2_Sheaves_and_Schemes.md) | 4 |
+| [X3](PLAN.md#x3) | [Когомологии когерентных пучков, Риман–Рох, теория пересечений](Exams/Algebraic%20Geometry/X3_Coherent_Cohomology_Riemann-Roch_Intersection_Theory.md) | 4 |
+| [X4](PLAN.md#x4) | [Этальные когомологии](Exams/Algebraic%20Geometry/X4_Etale_Cohomology.md) | 4 |
+| [X5](PLAN.md#x5) | [Бирациональная геометрия](Exams/Algebraic%20Geometry/X5_Birational_Geometry.md) | 4 (боковая ветвь) |
+| [X6](PLAN.md#x6) | [Производные категории когерентных пучков](Exams/Algebraic%20Geometry/X6_Derived_Categories.md) | 6 |
+| [X7](PLAN.md#x7) | [Торические многообразия](Exams/Algebraic%20Geometry/X7_Toric_Varieties.md) | 4 |
+| [X8](PLAN.md#x8) | [Пространства модулей и стеки](Exams/Algebraic%20Geometry/X8_Moduli_Spaces_and_Stacks.md) | 6 |
+| [X9](PLAN.md#x9) | [D-модули и перверсные пучки](Exams/Algebraic%20Geometry/X9_D-modules_and_Perverse_Sheaves.md) | 6 |
 
 ### Probability — Вероятность
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [P1](PLAN.md#p1) | [Теория вероятностей](Exams/Probability/P1_Probability_Theory.md) | 2 (боковая ветвь) | новый |
-| [P2](PLAN.md#p2) | [Математическая статистика](Exams/Probability/P2_Mathematical_Statistics.md) | 4 (боковая ветвь) | новый |
-| [P3](PLAN.md#p3) | [Случайные процессы](Exams/Probability/P3_Stochastic_Processes.md) | 3 (боковая ветвь) | новый |
-| [P4](PLAN.md#p4) | [Стохастические дифференциальные уравнения](Exams/Probability/P4_Stochastic_Differential_Equations.md) | 4 (боковая ветвь) | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [P1](PLAN.md#p1) | [Теория вероятностей](Exams/Probability/P1_Probability_Theory.md) | 2 (боковая ветвь) |
+| [P2](PLAN.md#p2) | [Математическая статистика](Exams/Probability/P2_Mathematical_Statistics.md) | 4 (боковая ветвь) |
+| [P3](PLAN.md#p3) | [Случайные процессы](Exams/Probability/P3_Stochastic_Processes.md) | 3 (боковая ветвь) |
+| [P4](PLAN.md#p4) | [Стохастические дифференциальные уравнения](Exams/Probability/P4_Stochastic_Differential_Equations.md) | 4 (боковая ветвь) |
 
 ### Mathematical Physics — Физика для математиков
 
-| Код | Экзамен | Этап плана | Формат |
-|---|---|---|---|
-| [Q1](PLAN.md#q1) | [Классическая механика](Exams/Mathematical%20Physics/Q1_Classical_Mechanics.md) | 2 | новый |
-| [Q2](PLAN.md#q2) | [Квантовая механика для математиков](Exams/Mathematical%20Physics/Q2_Quantum_Mechanics.md) | 4 | новый |
-| [Q3](PLAN.md#q3) | [Классическая теория поля](Exams/Mathematical%20Physics/Q3_Classical_Field_Theory.md) | 4 | новый |
-| [Q4](PLAN.md#q4) | [Квантовая теория поля для математиков](Exams/Mathematical%20Physics/Q4_Quantum_Field_Theory.md) | 6 | новый |
-| [Q5](PLAN.md#q5) | [Суперсимметрия для математиков](Exams/Mathematical%20Physics/Q5_Supersymmetry.md) | 6 | новый |
-| [Q6](PLAN.md#q6) | [Теория струн для математиков](Exams/Mathematical%20Physics/Q6_String_Theory.md) | 6 | новый |
-| [Q7](PLAN.md#q7) | [Общая теория относительности](Exams/Mathematical%20Physics/Q7_General_Relativity.md) | 4 (боковая ветвь) | новый |
-| [Q8](PLAN.md#q8) | [Механика сплошных сред](Exams/Mathematical%20Physics/Q8_Continuum_Mechanics.md) | 4 (боковая ветвь) | новый |
-| [Q9](PLAN.md#q9) | [Статистическая физика](Exams/Mathematical%20Physics/Q9_Statistical_Physics.md) | 4 (боковая ветвь) | новый |
-| [Q10](PLAN.md#q10) | [Физическая кинетика](Exams/Mathematical%20Physics/Q10_Physical_Kinetics.md) | 4 (боковая ветвь) | новый |
+| Код | Экзамен | Этап плана |
+|---|---|---|
+| [Q1](PLAN.md#q1) | [Классическая механика](Exams/Mathematical%20Physics/Q1_Classical_Mechanics.md) | 2 |
+| [Q2](PLAN.md#q2) | [Квантовая механика для математиков](Exams/Mathematical%20Physics/Q2_Quantum_Mechanics.md) | 4 |
+| [Q3](PLAN.md#q3) | [Классическая теория поля](Exams/Mathematical%20Physics/Q3_Classical_Field_Theory.md) | 4 |
+| [Q4](PLAN.md#q4) | [Квантовая теория поля для математиков](Exams/Mathematical%20Physics/Q4_Quantum_Field_Theory.md) | 6 |
+| [Q5](PLAN.md#q5) | [Суперсимметрия для математиков](Exams/Mathematical%20Physics/Q5_Supersymmetry.md) | 6 |
+| [Q6](PLAN.md#q6) | [Теория струн для математиков](Exams/Mathematical%20Physics/Q6_String_Theory.md) | 6 |
+| [Q7](PLAN.md#q7) | [Общая теория относительности](Exams/Mathematical%20Physics/Q7_General_Relativity.md) | 4 (боковая ветвь) |
+| [Q8](PLAN.md#q8) | [Механика сплошных сред](Exams/Mathematical%20Physics/Q8_Continuum_Mechanics.md) | 4 (боковая ветвь) |
+| [Q9](PLAN.md#q9) | [Статистическая физика](Exams/Mathematical%20Physics/Q9_Statistical_Physics.md) | 4 (боковая ветвь) |
+| [Q10](PLAN.md#q10) | [Физическая кинетика](Exams/Mathematical%20Physics/Q10_Physical_Kinetics.md) | 4 (боковая ветвь) |
 <!-- TOC:END -->

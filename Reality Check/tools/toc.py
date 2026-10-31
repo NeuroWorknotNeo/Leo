@@ -7,10 +7,6 @@
 Режим --index нужен, когда в рабочем дереве агенты пишут экзамены: в оглавление попадает только то,
 что уже добавлено в коммит (git add), а недописанные файлы не учитываются.
 
-Столбец «Формат»: «новый» — экзамен в формате 180 минут / 10-15-30-30-15 и в строке «Изменения» есть
-пометка «Независимая рецензия»; «новый, ждёт рецензии» — переведён, но рецензия не проводилась;
-«прежний (…)» — ещё не переведён (время берётся из шапки). Когда все экзамены переведены и отрецензированы,
-столбец можно убрать, удалив его из этого скрипта.
 """
 import re, glob, os, subprocess, sys, urllib.parse
 
@@ -54,25 +50,16 @@ def key(f):
     return (re.match(r'[A-Z]+', code).group(), int(re.search(r'\d+', code).group()))
 
 
-def fmt(txt):
-    new = ('## Часть D. Ключевые доказательства (≈ 45 мин, 30 баллов)' in txt
-           and '## Часть A. Определения и формулировки (≈ 20 мин, 10 баллов)' in txt)
-    if new:
-        return 'новый' if 'Независимая рецензия' in txt else 'новый, ждёт рецензии'
-    time = re.search(r'\*\*Время:\*\* ([^·]*?) ·', txt).group(1).strip()
-    return 'прежний (' + re.sub(r' \(.*', '', time).replace('минут', 'мин') + ')'
-
-
 def main():
     out, n = [], 0
     for folder, rus in AREAS:
-        out += [f'### {folder} — {rus}\n', '| Код | Экзамен | Этап плана | Формат |', '|---|---|---|---|']
+        out += [f'### {folder} — {rus}\n', '| Код | Экзамен | Этап плана |', '|---|---|---|']
         for f in sorted(exam_files(folder), key=key):
             code = os.path.basename(f).split('_')[0]
             txt = read_exam(f)
             title = re.match(r'# [A-Z]+\d+\. (.*?) — диагностика', txt).group(1)
             rel = 'Exams/' + urllib.parse.quote(folder) + '/' + os.path.basename(f)
-            out.append(f'| [{code}](PLAN.md#{code.lower()}) | [{title}]({rel}) | {STAGE[code]} | {fmt(txt)} |')
+            out.append(f'| [{code}](PLAN.md#{code.lower()}) | [{title}]({rel}) | {STAGE[code]} |')
             n += 1
         out.append('')
     toc = '\n'.join(out).rstrip('\n')
@@ -80,7 +67,7 @@ def main():
     s = open(p, encoding='utf-8').read()
     s2 = re.sub(r'<!-- TOC:BEGIN -->.*<!-- TOC:END -->', '<!-- TOC:BEGIN -->\n' + toc + '\n<!-- TOC:END -->', s, flags=re.S)
     open(p, 'w', encoding='utf-8').write(s2)
-    print(f'оглавление: {n} экзаменов; новых: {toc.count("| новый |")}, ждут рецензии: {toc.count("ждёт рецензии")}')
+    print(f'оглавление: {n} экзаменов')
 
 
 if __name__ == '__main__':
