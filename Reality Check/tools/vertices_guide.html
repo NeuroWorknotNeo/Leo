@@ -1,0 +1,1712 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Шесть вершин: путеводитель по V1–V6</title>
+<!--
+  Источник PDF «Шесть вершин» (Reality Check/vertices_guide.pdf).
+  Сборка: python3 -I "Reality Check/tools/vertices_pdf.py" -o "Reality Check/vertices_guide.pdf"
+  Разметка, которую обрабатывает скрипт:
+    [X4], [V1] …           — код дисциплины или вершины, раскрашивается цветом области;
+    mark:key в комментарии — метка страницы для оглавления (ставится в начале раздела);
+    {{pg:…}}               — номер страницы раздела в оглавлении (вместо … — ключ метки);
+    {{date}}               — дата сборки.
+-->
+<style>
+@page { size: A4; margin: 18mm 18mm 19mm 18mm;
+  @bottom-left { content: "Шесть вершин · путеводитель по V1–V6"; font: 8pt "Nimbus Sans", sans-serif; color: #8a8a8a; }
+  @bottom-right { content: counter(page); font: 8.5pt "Nimbus Sans", sans-serif; color: #8a8a8a; } }
+@page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { overflow-x: hidden; }
+body { margin: 0; font-family: "P052", "FreeSerif", "DejaVu Serif", serif; font-size: 10pt; line-height: 1.36; color: #262626; orphans: 2; widows: 2; }
+a { color: inherit; text-decoration: none; }
+p { margin: 0 0 2.4mm 0; }
+ul, ol { margin: 1mm 0 2.4mm 0; padding-left: 5mm; }
+li { margin-bottom: 0.9mm; }
+sub, sup { font-size: 0.72em; line-height: 0; }
+.sans, h2, h3, h4, .lab { font-family: "Nimbus Sans", "DejaVu Sans", sans-serif; }
+.code { font-family: "Nimbus Sans", "DejaVu Sans", sans-serif; font-weight: bold; font-size: 0.9em; }
+.marker { position: absolute; left: 0; top: 0; font-size: 1px; color: #fff; }
+.newpage { break-before: page; position: relative; }
+.muted { color: #6b6b6b; }
+.small { font-size: 9.2pt; }
+.nb { white-space: nowrap; }
+.ov { text-decoration: overline; text-decoration-thickness: 0.05em; }
+
+/* Обложка */
+.cover { page: cover; position: relative; width: 210mm; height: 297mm; background: #F6F3EC; padding: 44mm 24mm 22mm 24mm; overflow: hidden; }
+.cover .strip { display: flex; margin-bottom: 13mm; }
+.cover .strip span { flex: 1; height: 5mm; }
+.cover .kicker { font-family: "Nimbus Sans", sans-serif; letter-spacing: 0.18em; text-transform: uppercase; font-size: 10pt; color: #7a7a7a; }
+.cover h1 { font-size: 46pt; line-height: 1.04; margin: 6mm 0 5mm 0; font-weight: bold; color: #1f1f1f; }
+.cover .sub { font-size: 16pt; font-style: italic; color: #444; margin-bottom: 11mm; line-height: 1.3; }
+.cover .lead { font-size: 12.2pt; line-height: 1.5; max-width: 150mm; color: #333; }
+.cover .tiles { position: absolute; left: 24mm; right: 24mm; bottom: 38mm; display: grid; grid-template-columns: 1fr 1fr; gap: 4.5mm 8mm; }
+.cover .tile { display: flex; gap: 3.5mm; align-items: flex-start; }
+.cover .tile b.sq { width: 11mm; height: 11mm; line-height: 11mm; font-size: 13pt; }
+.cover .tile .tt { font-size: 11.6pt; font-weight: bold; color: #222; line-height: 1.2; }
+.cover .tile .ts { font-family: "Nimbus Sans", sans-serif; font-size: 8.4pt; color: #6f6f6f; margin-top: 0.8mm; }
+.cover .foot { position: absolute; left: 24mm; right: 24mm; bottom: 18mm; font-family: "Nimbus Sans", sans-serif; font-size: 9pt; color: #7a7a7a;
+               border-top: 0.6pt solid #cfc8b8; padding-top: 3mm; display: flex; justify-content: space-between; }
+b.sq, span.sq { display: inline-block; text-align: center; color: #fff; border-radius: 1.4mm; font-family: "Nimbus Sans", sans-serif; font-weight: bold; flex: none; }
+
+/* Заголовки общих разделов */
+h2.page-title { font-size: 20pt; margin: 0 0 5mm 0; color: #1f1f1f; }
+h3.sec { font-size: 12.4pt; margin: 5mm 0 2mm 0; color: #2a2a2a; }
+
+/* Оглавление */
+.toc { font-size: 10.4pt; margin-top: 2mm; }
+.toc .row { display: flex; align-items: baseline; line-height: 1.35; margin-bottom: 1.6mm; }
+.toc .row .t { flex: 0 1 auto; }
+.toc .dots { flex: 1 0 6mm; border-bottom: 0.7pt dotted #b9b9b9; margin: 0 2mm; transform: translateY(-1mm); }
+.toc .pg { font-family: "Nimbus Sans", sans-serif; font-size: 9pt; color: #777; flex: none; min-width: 5mm; text-align: right; }
+.toc .grp { font-family: "Nimbus Sans", sans-serif; font-size: 7.6pt; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a8a; margin: 5mm 0 2mm 0; }
+.toc .vrow { display: flex; align-items: center; margin-bottom: 2.6mm; }
+.toc .vrow .sq { width: 9mm; height: 9mm; line-height: 9mm; font-size: 10.5pt; margin-right: 4mm; }
+.toc .vrow .vt { flex: 0 1 auto; }
+.toc .vrow .vt b { font-size: 11.6pt; }
+.toc .vrow .vt span { display: block; font-family: "Nimbus Sans", sans-serif; font-size: 8.4pt; color: #777; margin-top: 0.4mm; }
+
+/* Плашки */
+.box { background: #F6F3EC; border-radius: 2.6mm; padding: 4mm 5.5mm; margin: 3.5mm 0; break-inside: avoid; }
+.box > .lab, .tag { font-size: 7.4pt; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a8a; margin-bottom: 1.6mm; display: block; }
+.box ul, .box ol { margin-bottom: 0.5mm; }
+.box p:last-child { margin-bottom: 0; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 7mm; }
+.legend { display: grid; grid-template-columns: auto 1fr; gap: 1.6mm 4mm; align-items: center; font-size: 9.8pt; }
+.dot { font-size: 12pt; line-height: 1; }
+.check { display: inline-block; width: 3.2mm; height: 3.2mm; border: 0.9pt solid #555; border-radius: 0.6mm; vertical-align: -0.3mm; }
+
+/* Таблицы */
+table.t { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 2mm 0 3mm 0; }
+table.t.compact { font-size: 8.9pt; }
+table.t.compact td { padding: 1.1mm 2mm; }
+table.t th { font-family: "Nimbus Sans", sans-serif; font-size: 7.4pt; letter-spacing: 0.06em; text-transform: uppercase; color: #8a8a8a;
+             text-align: left; padding: 1.4mm 2mm; border-bottom: 0.8pt solid #bbb; font-weight: bold; }
+table.t td { padding: 1.5mm 2mm; vertical-align: top; border-bottom: 0.5pt solid #e4e0d6; }
+table.t tr { break-inside: avoid; }
+table.t tbody tr:nth-child(odd) td { background: #FAF8F3; }
+table.feed td, table.feed th { text-align: center; padding: 0.75mm 1mm; line-height: 1.25; }
+table.feed td:first-child, table.feed th:first-child { text-align: left; padding-left: 2mm; }
+table.feed td { font-size: 8.8pt; }
+table.feed .full { font-size: 10.5pt; line-height: 1; }
+table.feed .half { font-size: 10.5pt; line-height: 1; color: #777; }
+
+/* Диаграммы */
+svg text { font-family: "Nimbus Sans", "DejaVu Sans", sans-serif; }
+.gantt { position: relative; margin: 4mm 0 2mm 0; font-family: "Nimbus Sans", sans-serif; font-size: 8.4pt; }
+.gantt .axis, .gantt .grow { display: grid; grid-template-columns: 40mm 1fr; align-items: center; }
+.gantt .grow { height: 11mm; border-bottom: 0.5pt solid #eee8dc; }
+.gantt .lbl b { font-size: 9.4pt; }
+.gantt .lbl span { display: block; font-size: 7.2pt; color: #8a8a8a; margin-top: 0.3mm; }
+.gantt .lane { position: relative; height: 100%; overflow: hidden; }
+.gantt .bar { position: absolute; top: 2.5mm; height: 6mm; border-radius: 1.4mm; color: #fff; font-size: 7.8pt; line-height: 6mm; padding: 0 2.2mm; white-space: nowrap; overflow: hidden; }
+.gantt .bar.open { -webkit-mask-image: linear-gradient(90deg, #000 72%, transparent); mask-image: linear-gradient(90deg, #000 72%, transparent); }
+.gantt .bar.par { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.25) 0 1.6mm, transparent 1.6mm 3.2mm); }
+.gantt .bl { position: absolute; top: 2.5mm; line-height: 6mm; font-size: 7.8pt; color: #555; white-space: nowrap; }
+.gantt .ticks { position: relative; height: 5mm; }
+.gantt .ticks span { position: absolute; transform: translateX(-50%); color: #888; font-size: 7.6pt; white-space: nowrap; }
+.gantt .stage { position: absolute; top: 0; bottom: 8mm; border-left: 0.6pt dashed #c9c1ad; }
+.gantt .stages { position: relative; height: 8mm; }
+.gantt .stages span { position: absolute; top: 2mm; height: 5mm; line-height: 5mm; text-align: center; font-size: 7.2pt; letter-spacing: 0.08em; text-transform: uppercase;
+                      color: #7a7a7a; background: #F6F3EC; border-left: 1.5pt solid #fff; }
+
+/* Вершины */
+.vhead { break-before: page; position: relative; display: flex; gap: 5.5mm; align-items: center; padding: 6mm 6mm 6mm 6mm; border-radius: 3mm; margin-bottom: 4mm; color: #fff; }
+.vhead .big { width: 22mm; height: 22mm; line-height: 22mm; border-radius: 2.6mm; background: rgba(255,255,255,0.18); text-align: center;
+              font-family: "Nimbus Sans", sans-serif; font-weight: bold; font-size: 30pt; flex: none; }
+.vhead .kick { font-family: "Nimbus Sans", sans-serif; font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85; }
+.vhead h2 { font-family: "P052", serif; font-size: 24pt; margin: 1mm 0 1.2mm 0; line-height: 1.1; }
+.vhead .vs { font-size: 11pt; font-style: italic; opacity: 0.95; line-height: 1.3; }
+.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 0 0 4mm 0; }
+.facts div { border-top: 1.6pt solid; padding-top: 1.4mm; font-size: 9pt; line-height: 1.3; }
+.facts div .lab { display: block; font-size: 7pt; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a8a; margin-bottom: 0.6mm; }
+h3.vs3 { font-size: 13pt; margin: 5.5mm 0 2.2mm 0; padding-left: 3mm; border-left: 2.4pt solid; line-height: 1.15; break-after: avoid; }
+h4 { font-size: 9.6pt; margin: 3mm 0 1.2mm 0; break-after: avoid; }
+.statement { border-left: 2.4pt solid; padding: 2.5mm 4.5mm; margin: 2mm 0 3mm 0; border-radius: 0 2mm 2mm 0; }
+.statement ol { margin: 1mm 0 0 0; }
+
+table.pre td.c { width: 17mm; }
+table.pre td.lv { width: 6mm; text-align: center; font-size: 10.5pt; }
+
+.route { position: relative; margin: 2mm 0 2mm 2mm; padding-left: 8mm; border-left: 1.4pt solid; }
+.ph { position: relative; margin-bottom: 3.4mm; }
+.ph .h { break-after: avoid; }
+.ph ul.ms li { break-inside: avoid; }
+.ph .n { position: absolute; left: -11.6mm; top: -0.4mm; width: 7mm; height: 7mm; line-height: 7mm; border-radius: 50%; color: #fff; text-align: center;
+         font-family: "Nimbus Sans", sans-serif; font-weight: bold; font-size: 9pt; }
+.ph .h { display: flex; align-items: baseline; gap: 3mm; margin-bottom: 0.8mm; }
+.ph .h b { font-family: "Nimbus Sans", sans-serif; font-size: 10.6pt; }
+.ph .h .dur { font-family: "Nimbus Sans", sans-serif; font-size: 7.8pt; padding: 0.4mm 1.8mm; border-radius: 1mm; white-space: nowrap; }
+.ph .h .ex { font-family: "Nimbus Sans", sans-serif; font-size: 7.8pt; padding: 0.4mm 1.8mm; border-radius: 1mm; white-space: nowrap; color: #fff; }
+.ph p { margin-bottom: 1.2mm; }
+.ph .read { font-size: 9.2pt; color: #4a4a4a; }
+.ph .read .lab { font-size: 7pt; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a8a; margin-right: 1.5mm; }
+ul.ms { list-style: none; padding-left: 0; margin: 1mm 0 1.4mm 0; }
+ul.ms li { position: relative; padding-left: 6.5mm; font-size: 9.6pt; }
+ul.ms li::before { content: ""; position: absolute; left: 0.6mm; top: 0.9mm; width: 3.1mm; height: 3.1mm; border: 0.9pt solid #555; border-radius: 0.6mm; background: #fff; }
+ul.ms li .w { font-family: "Nimbus Sans", sans-serif; font-size: 7pt; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 1.2mm; }
+
+ol.chain { list-style: none; padding: 0; margin: 1.5mm 0 0 0; counter-reset: ch; }
+ol.chain li { position: relative; counter-increment: ch; padding: 1.1mm 3mm 1.1mm 9mm; margin-bottom: 2.9mm; background: #fff; border-radius: 1.6mm; border: 0.6pt solid #e0d9c8; font-size: 9.3pt; break-inside: avoid; }
+ol.chain li::before { content: counter(ch); position: absolute; left: 3mm; top: 1.1mm; font-family: "Nimbus Sans", sans-serif; font-weight: bold; font-size: 9pt; }
+ol.chain li:not(:last-child)::after { content: "↓"; position: absolute; left: 3.1mm; bottom: -3.1mm; font-size: 8pt; color: #9a9a9a; line-height: 1; }
+.maps .box { margin: 2.5mm 0; break-inside: auto; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.maps .box:first-child { margin-top: 1mm; }
+ol.chain li b.k { font-family: "Nimbus Sans", sans-serif; font-size: 8.6pt; }
+
+.lit { margin: 1mm 0 2mm 0; }
+.lit .tier { font-family: "Nimbus Sans", sans-serif; font-size: 7.4pt; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; margin: 2.6mm 0 1mm 0; break-after: avoid; }
+.lit ul { list-style: none; padding-left: 0; margin: 0; }
+.lit li { font-size: 9.4pt; line-height: 1.34; padding-left: 4mm; text-indent: -4mm; margin-bottom: 1.1mm; break-inside: avoid; }
+.lit li .au { font-variant: small-caps; letter-spacing: 0.02em; }
+.lit li .nt { color: #6a6a6a; }
+
+.boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 0 5mm; }
+.boxes .box { margin: 2mm 0; }
+.keep { break-inside: avoid; }
+ol.steps { padding-left: 5mm; }
+ol.steps li { margin-bottom: 1.4mm; }
+.pr li { font-size: 9.5pt; }
+.tool { font-family: "Nimbus Sans", sans-serif; font-size: 7.2pt; padding: 0.2mm 1.4mm; border-radius: 0.8mm; background: #e8e2d4; color: #555; margin-right: 1mm; white-space: nowrap; }
+.links { display: grid; grid-template-columns: auto 1fr; gap: 1.6mm 3.5mm; align-items: baseline; font-size: 9.6pt; }
+.links .sq { min-width: 8mm; padding: 0 1.2mm; height: 5.2mm; line-height: 5.2mm; font-size: 8.4pt; border-radius: 1mm; }
+.formula { text-align: center; margin: 2mm 0 2.6mm 0; font-size: 10.8pt; }
+/* Цвет вершины: --c основной, --t заливка, --m полупрозрачный */
+.vertex .vhead { background: var(--c); }
+.vertex .facts div { border-color: var(--c); }
+.vertex h3.vs3 { border-color: var(--c); }
+.vertex .statement { border-color: var(--c); background: var(--t); }
+.vertex .route { border-color: var(--m); }
+.vertex .ph .n { background: var(--c); }
+.vertex .ph .h .dur { background: var(--t); color: var(--c); }
+.vertex .ph .h .ex { background: var(--c); }
+.vertex .lit .tier { color: var(--c); }
+.vertex ul.ms li .w { color: var(--c); }
+.vertex ol.chain li::before { color: var(--c); }
+.vertex .box.tint { background: var(--t); }
+</style>
+</head>
+<body>
+
+<!-- ===================== Обложка ===================== -->
+<section class="cover">
+  <div class="strip"><span style="background:#9C3D7A"></span><span style="background:#A23B3B"></span><span style="background:#2A7F62"></span><span style="background:#B5652A"></span><span style="background:#9A7B1C"></span><span style="background:#3E7CB1"></span></div>
+  <div class="kicker">Reality Check · путеводитель по вершинам</div>
+  <h1>Шесть вершин</h1>
+  <div class="sub">Маршруты, пререквизиты, главные идеи<br>и литература для V1–V6</div>
+  <div class="lead">Рабочий план к Части IV программы: как подойти к каждой из шести вершин, что именно взять из пройденных дисциплин,
+  в каком порядке читать, какие теоремы можно на первом проходе принять на веру и что посчитать руками, чтобы теория стала своей.</div>
+  <div class="tiles">
+    <div class="tile"><b class="sq" style="background:#9C3D7A">V1</b><div><div class="tt">Гипотезы Вейля</div><div class="ts">Вейль 1949 · Гротендик 1960-е · Делинь 1974</div></div></div>
+    <div class="tile"><b class="sq" style="background:#B5652A">V4</b><div><div class="tt">Теорема Атьи–Зингера об индексе</div><div class="ts">Атья, Зингер 1963–1968 · Патоди, Гетцлер</div></div></div>
+    <div class="tile"><b class="sq" style="background:#A23B3B">V2</b><div><div class="tt">Великая теорема Ферма</div><div class="ts">Фрей, Серр, Рибет · Уайлс, Тейлор–Уайлс 1995</div></div></div>
+    <div class="tile"><b class="sq" style="background:#3E7CB1">V6</b><div><div class="tt">Зеркальная симметрия</div><div class="ts">Канделас и др. 1991 · Концевич 1994 · SYZ 1996</div></div></div>
+    <div class="tile"><b class="sq" style="background:#2A7F62">V3</b><div><div class="tt">Гипотеза Пуанкаре</div><div class="ts">Смейл 1961 · Гамильтон 1982 · Перельман 2002–2003</div></div></div>
+    <div class="tile"><b class="sq" style="background:#9A7B1C">V5</b><div><div class="tt">Программа Ленглендса</div><div class="ts">Письмо Вейлю 1967 · открытый этап</div></div></div>
+  </div>
+  <div class="foot"><span>Этапы 5–6 программы · дополнение к PLAN.md, Часть IV</span><span>Leo · {{date}}</span></div>
+</section>
+
+<!-- ===================== Оглавление ===================== -->
+<section class="newpage">
+  <h2 class="page-title">Содержание</h2>
+  <div class="toc">
+    <div class="grp">Общая часть</div>
+    <div class="row"><a class="t" href="#how">Как пользоваться путеводителем</a><span class="dots"></span><span class="pg">{{pg:how}}</span></div>
+    <div class="row"><a class="t" href="#map">Шесть вершин на одной карте</a><span class="dots"></span><span class="pg">{{pg:map}}</span></div>
+    <div class="row"><a class="t" href="#order">Порядок и сроки</a><span class="dots"></span><span class="pg">{{pg:order}}</span></div>
+    <div class="row"><a class="t" href="#prereq">Какие дисциплины питают какие вершины</a><span class="dots"></span><span class="pg">{{pg:prereq}}</span></div>
+    <div class="row"><a class="t" href="#method">Как брать вершину: общий метод</a><span class="dots"></span><span class="pg">{{pg:method}}</span></div>
+    <div class="grp">Вершины прошлого · этап 5</div>
+    <div class="vrow"><span class="sq" style="background:#9C3D7A">V1</span><a class="vt" href="#v1"><b>Гипотезы Вейля</b><span>Дзета-функции над конечными полями, этальные когомологии, доказательство Делиня</span></a><span class="dots"></span><span class="pg">{{pg:v1}}</span></div>
+    <div class="vrow"><span class="sq" style="background:#A23B3B">V2</span><a class="vt" href="#v2"><b>Великая теорема Ферма</b><span>Кривая Фрея, теорема Рибета, модулярность и R = T</span></a><span class="dots"></span><span class="pg">{{pg:v2}}</span></div>
+    <div class="vrow"><span class="sq" style="background:#2A7F62">V3</span><a class="vt" href="#v3"><b>Гипотеза Пуанкаре</b><span>h-кобордизм, топология 3-многообразий, поток Риччи с хирургиями</span></a><span class="dots"></span><span class="pg">{{pg:v3}}</span></div>
+    <div class="vrow"><span class="sq" style="background:#B5652A">V4</span><a class="vt" href="#v4"><b>Теорема Атьи–Зингера об индексе</b><span>Фредгольм, K-теория, псевдодифференциальные операторы, тепловое ядро</span></a><span class="dots"></span><span class="pg">{{pg:v4}}</span></div>
+    <div class="grp">Современные направления · этап 6</div>
+    <div class="vrow"><span class="sq" style="background:#9A7B1C">V5</span><a class="vt" href="#v5"><b>Программа Ленглендса</b><span>GL₁ и GL₂, функториальность, многообразия Шимуры, функциональные поля и геометрия</span></a><span class="dots"></span><span class="pg">{{pg:v5}}</span></div>
+    <div class="vrow"><span class="sq" style="background:#3E7CB1">V6</span><a class="vt" href="#v6"><b>Зеркальная симметрия</b><span>Калаби–Яу, квинтика, инварианты Громова–Виттена, HMS, SYZ</span></a><span class="dots"></span><span class="pg">{{pg:v6}}</span></div>
+    <div class="grp">Приложение</div>
+    <div class="row"><a class="t" href="#tools">Инструменты, ресурсы и школы</a><span class="dots"></span><span class="pg">{{pg:tools}}</span></div>
+  </div>
+</section>
+
+<!-- ===================== Как пользоваться ===================== -->
+<section class="newpage" id="how"><!--mark:how-->
+  <h2 class="page-title">Как пользоваться путеводителем</h2>
+  <p>Путеводитель развивает Часть IV плана («Маршруты к вершинам») в рабочий план для каждой из шести вершин. Суть, минимальные пути и вехи
+  взяты из <span class="sans">PLAN.md</span> без изменений. Добавлено то, чего в плане нет: что именно понадобится из каждой дисциплины-пререквизита,
+  по каким фазам идти и сколько времени закладывать, какие теоремы можно на первом проходе принять без доказательства, что читать на каждом шаге,
+  что посчитать руками и где обычно застревают.</p>
+
+  <div class="box"><span class="lab">Что есть в разделе каждой вершины</span>
+  <div class="two"><ul>
+    <li><b>Суть и зачем</b> — точная формулировка и что из неё выросло;</li>
+    <li><b>Пререквизиты</b> — таблица «дисциплина → что именно нужно» и короткая проверка готовности;</li>
+    <li><b>Маршрут</b> — фазы от ориентации до горизонта с ориентировочными сроками;</li>
+    <li><b>Карта доказательства</b> — логический скелет главной теоремы на одной странице;</li>
+  </ul><ul>
+    <li><b>Чёрные ящики</b> — что разумно принять на веру при первом проходе;</li>
+    <li><b>Литература</b> по уровням: с чего начать, основные тексты, первоисточники, дальше;</li>
+    <li><b>Практика</b> — вычисления и мини-проекты, обычно на компьютере;</li>
+    <li><b>Трудности</b> и <b>связи</b> с другими вершинами.</li>
+  </ul></div></div>
+
+  <h3 class="sec">Обозначения</h3>
+  <div class="legend">
+    <span class="check"></span><span><b>Веха</b> из Части IV плана. Её же отмечать галочкой в <span class="sans">PLAN.md</span>; в маршрутах вехи стоят в той фазе, где до них естественно дойти.</span>
+    <span class="ex sans" style="font-size:7.8pt;padding:0.4mm 1.8mm;border-radius:1mm;background:#555;color:#fff">экзамен G9</span><span><b>Рубеж</b>: экзамен Reality Check по новой дисциплине вершины. У самих вершин экзаменов нет; их «новые» дисциплины ([G9], [X4], [N8], [T9], [D4], [L4], [N9], [X6], [X8], [X9], [G11], [Q4]–[Q6]) сдаются как обычно, на 75 баллов и выше.</span>
+    <span class="dot">●&thinsp;○</span><span>Необходимо / полезно или нужно частично — как в таблице Части II плана.</span>
+    <span class="code" style="color:#9C3D7A">X4</span><span>Код дисциплины, окрашенный в цвет её области, как в атласе <span class="sans">program_atlas.pdf</span>. Вершины окрашены в цвет своей «главной» области.</span>
+    <span class="tool">Sage</span><span>Инструмент для практики: Sage, PARI/GP, Macaulay2, SnapPy, LMFDB и т. п. (см. приложение).</span>
+  </div>
+
+  <h3 class="sec">Сроки</h3>
+  <p>Как и в плане, сроки ориентировочные и рассчитаны на 20–25 часов сосредоточенной работы в неделю при 2–3 параллельных треках.
+  Срок вершины включает её новую дисциплину (например, срок V4 включает [G9]), но не предыдущие этапы. Это ориентир, а не норма:
+  если фаза идёт вдвое дольше, это нормально, если при этом действительно проходятся вехи.</p>
+
+  <h3 class="sec">Что делать с этим текстом</h3>
+  <ul>
+    <li><b>Ориентационную фазу</b> любой вершины можно пройти заранее, ещё на этапах 3–4: она не требует новой техники и объясняет, зачем нужны текущие дисциплины.</li>
+    <li><b>Перед началом вершины</b> — пройти «проверку готовности». Если пункт не получается за разумное время, вернуться к соответствующей карточке атласа.</li>
+    <li><b>По ходу</b> — вести в репозитории папку с разборами (по образцу <span class="sans">Drafts/Galois Theory</span>): карта доказательства, решённые примеры, лист нормировок и знаков.</li>
+    <li><b>В конце</b> — карта доказательства без чёрных ящиков в главном месте и все вехи вершины отмечены в плане.</li>
+  </ul>
+</section>
+
+<!-- ===================== Карта вершин ===================== -->
+<section class="newpage" id="map"><!--mark:map-->
+  <h2 class="page-title">Шесть вершин на одной карте</h2>
+  <p>Вершины не изолированы: через них проходят одни и те же идеи (Часть II плана, «Сквозные идеи»). Слева — арифметическая система [V1] → [V2] → [V5],
+  справа — геометрическая [V4] → [V6]; [V3] стоит особняком, но делит с [V4] методы геометрического анализа. Сплошные линии — прямые логические связи,
+  пунктир — общие методы и аналогии.</p>
+  <svg viewBox="0 0 680 470" width="100%" style="margin:2mm 0 3mm 0">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/></marker>
+    </defs>
+    <rect x="8" y="8" width="300" height="454" rx="14" fill="#F6F3EC"/>
+    <rect x="372" y="8" width="300" height="454" rx="14" fill="#F2F5F7"/>
+    <text x="22" y="30" font-size="10.5" fill="#8a8a8a" letter-spacing="1.5">АРИФМЕТИКА</text>
+    <text x="386" y="30" font-size="10.5" fill="#8a8a8a" letter-spacing="1.5">ГЕОМЕТРИЯ И АНАЛИЗ</text>
+    <!-- рёбра -->
+    <g stroke="#8a8a8a" stroke-width="1.6" fill="none">
+      <line x1="210" y1="80" x2="468" y2="80" marker-end="url(#ar)" marker-start="url(#ar)"/>
+      <line x1="160" y1="108" x2="190" y2="208" marker-end="url(#ar)"/>
+      <line x1="190" y1="264" x2="160" y2="362" marker-end="url(#ar)"/>
+      <line x1="80" y1="108" x2="80" y2="362" marker-end="url(#ar)"/>
+      <line x1="210" y1="392" x2="468" y2="392" marker-end="url(#ar)" marker-start="url(#ar)"/>
+      <line x1="600" y1="108" x2="600" y2="362" marker-end="url(#ar)"/>
+      <line x1="500" y1="108" x2="480" y2="208" stroke-dasharray="5 4"/>
+      <line x1="480" y1="264" x2="500" y2="362" stroke-dasharray="5 4"/>
+    </g>
+    <!-- подписи рёбер -->
+    <g font-size="10.5" fill="#555">
+      <text x="339" y="70" text-anchor="middle">формулы следа: Гротендик–Лефшец ↔ Атья–Ботт</text>
+      <text x="339" y="413" text-anchor="middle">S-дуальность (Капустин–Виттен), система Хитчина</text>
+      <text x="183" y="150">Эйхлер–Шимура,</text><text x="183" y="163">Делинь: Рамануджан</text>
+      <text x="190" y="310">модулярность =</text><text x="190" y="323">взаимность для GL₂</text>
+      <text x="0" y="0" transform="translate(70,235) rotate(-90)" text-anchor="middle">функциональные поля: Дринфельд, Лафорги</text>
+      <text x="0" y="0" transform="translate(616,235) rotate(90)" text-anchor="middle">индекс = ожидаемая размерность модулей</text>
+      <text x="482" y="150" text-anchor="end">тепловое</text><text x="482" y="163" text-anchor="end">ядро</text>
+      <text x="478" y="310" text-anchor="end">метрики</text><text x="478" y="323" text-anchor="end">Калаби–Яу</text>
+    </g>
+    <!-- узлы -->
+    <g font-size="15" font-weight="bold" fill="#fff">
+      <rect x="60" y="52" width="150" height="56" rx="9" fill="#9C3D7A"/><text x="74" y="76">V1</text><text x="74" y="96" font-size="12.5" font-weight="normal">Гипотезы Вейля</text>
+      <rect x="110" y="208" width="150" height="56" rx="9" fill="#A23B3B"/><text x="124" y="232">V2</text><text x="124" y="252" font-size="12.5" font-weight="normal">Теорема Ферма</text>
+      <rect x="60" y="364" width="150" height="56" rx="9" fill="#9A7B1C"/><text x="74" y="388">V5</text><text x="74" y="408" font-size="12.5" font-weight="normal">Ленглендс</text>
+      <rect x="470" y="52" width="150" height="56" rx="9" fill="#B5652A"/><text x="484" y="76">V4</text><text x="484" y="96" font-size="12.5" font-weight="normal">Атья–Зингер</text>
+      <rect x="410" y="208" width="150" height="56" rx="9" fill="#2A7F62"/><text x="424" y="232">V3</text><text x="424" y="252" font-size="12.5" font-weight="normal">Гипотеза Пуанкаре</text>
+      <rect x="470" y="364" width="150" height="56" rx="9" fill="#3E7CB1"/><text x="484" y="388">V6</text><text x="484" y="408" font-size="12.5" font-weight="normal">Зеркальная симметрия</text>
+    </g>
+  </svg>
+
+  <div class="links">
+    <span class="sq" style="background:#9C3D7A">V1–V2</span><span>По Эйхлеру–Шимуре коэффициенты aₚ модулярной формы — следы Фробениуса на когомологиях модулярной кривой; гипотеза Римана для кривых даёт |aₚ| ≤ 2√p. Делинь (1969, 1974) таким путём доказал гипотезу Рамануджана–Петерссона.</span>
+    <span class="sq" style="background:#A23B3B">V2–V5</span><span>Модулярность эллиптических кривых — закон взаимности для двумерных представлений Галуа над ℚ; метод Тейлора–Уайлса стал главным инструментом арифметической программы Ленглендса.</span>
+    <span class="sq" style="background:#9C3D7A">V1–V5</span><span>«Розеттский камень» Вейля: над функциональными полями соответствие Ленглендса доказано Дринфельдом (GL₂) и Л. Лафоргом (GLₙ) через когомологии модулей штук и формулу следа — прямые наследники техники V1.</span>
+    <span class="sq" style="background:#B5652A">V1–V4</span><span>Одна идея — число неподвижных точек равно знакопеременной сумме следов на когомологиях: Лефшец → Атья–Ботт → Гротендик–Лефшец → Сельберг–Артур.</span>
+    <span class="sq" style="background:#B5652A">V4–V6</span><span>Теорема об индексе вычисляет ожидаемую (виртуальную) размерность пространств модулей псевдоголоморфных кривых, на которых определены инварианты Громова–Виттена и гомологии Флоера.</span>
+    <span class="sq" style="background:#9A7B1C">V5–V6</span><span>По Капустину–Виттену геометрическое соответствие Ленглендса и зеркальная симметрия — проявления одной S-дуальности; системы Хитчина для дуальных групп — SYZ-зеркальные пары (Хаузел–Таддеус).</span>
+    <span class="sq" style="background:#2A7F62">V3–V4</span><span>Уравнение теплопроводности на многообразии: тепловое ядро доказывает теорему об индексе, а энтропия Перельмана и приведённый объём устроены как функционалы теплового ядра.</span>
+  </div>
+</section>
+
+<!-- ===================== Порядок и сроки ===================== -->
+<section class="newpage" id="order"><!--mark:order-->
+  <h2 class="page-title">Порядок и сроки</h2>
+  <p>Рекомендуемый порядок из плана: <b>[V4] → [V1] → [V2]</b>, а <b>[V3]</b> можно вести параллельно в любой момент. [V4] закрепляет геометрию,
+  топологию и анализ, [V1] — алгебраическую геометрию, [V2] опирается на [V1] и даёт арифметику, нужную для Ленглендса. На этапе 6 [V5] и [V6] — открытые
+  направления: «вход» в каждое занимает 1,5–2 года, после чего начинается чтение свежих статей по выбранной теме.</p>
+
+  <div class="gantt">
+    <div class="axis"><div></div><div class="ticks">
+      <span style="left:0%">0</span><span style="left:25%">1 год</span><span style="left:50%">2 года</span><span style="left:75%">3 года</span><span style="left:97%">4 года</span></div></div>
+    <div style="position:relative">
+      <div style="position:absolute;left:40mm;right:0;top:0;bottom:0">
+        <div class="stage" style="left:0%"></div><div class="stage" style="left:58.3%"></div><div class="stage" style="left:100%"></div>
+      </div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#B5652A">V4</b> Атья–Зингер<span>новое: G9</span></div><div class="lane"><div class="bar" style="left:0%;width:16.7%;background:#B5652A"></div><span class="bl" style="left:17.5%">≈ 7–9 мес</span></div></div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#2A7F62">V3</b> Пуанкаре<span>новое: T9, D4 · параллельно</span></div><div class="lane"><div class="bar par" style="left:8.3%;width:25%;background:#2A7F62"></div><span class="bl" style="left:34.2%">≈ 10–12 мес, вторым треком</span></div></div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#9C3D7A">V1</b> Вейль<span>новое: доказательство Делиня</span></div><div class="lane"><div class="bar" style="left:16.7%;width:16.7%;background:#9C3D7A"></div><span class="bl" style="left:34.2%">≈ 7–9 мес</span></div></div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#A23B3B">V2</b> Ферма<span>новое: N8</span></div><div class="lane"><div class="bar" style="left:33.3%;width:25%;background:#A23B3B"></div><span class="bl" style="left:59.2%">≈ 10–12 мес</span></div></div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#9A7B1C">V5</b> Ленглендс<span>новое: L4, N9, X6, X8, X9</span></div><div class="lane"><div class="bar open" style="left:58.3%;width:41.7%;background:#9A7B1C">вход 1,5–2 года, дальше открыто</div></div></div>
+      <div class="grow"><div class="lbl"><b class="code" style="color:#3E7CB1">V6</b> Зеркальная<span>новое: X6, X8, G11, Q4–Q6</span></div><div class="lane"><div class="bar open" style="left:58.3%;width:41.7%;background:#3E7CB1">вход 1,5–2 года, дальше открыто</div></div></div>
+      <div class="axis"><div></div><div class="stages"><span style="left:0%;width:58.3%">этап 5 · вершины прошлого</span><span style="left:58.3%;width:41.7%">этап 6 · современные направления</span></div></div>
+    </div>
+  </div>
+  <p class="small muted">Шкала — месяцы от начала этапа 5. Заштрихованная полоса — трек, который идёт параллельно основному; при этом основной трек замедляется.
+  Этап 5 по плану занимает 2–3 года; на схеме ≈ 2,3 года. Справа от полосы — ориентировочная длительность вершины вместе с её новыми дисциплинами.</p>
+
+  <h3 class="sec">Почему именно так</h3>
+  <ul>
+    <li><b>[V4] первой</b>: это самая «замкнутая» вершина. Всё нужное — анализ ([R5], [D3]), топология ([T6], [T7]) и геометрия ([G3], [G8]) — уже пройдено на этапах 2–4,
+    а новая дисциплина одна: [G9]. Заодно она даёт язык индексов и характеристических классов, который вернётся в [V6].</li>
+    <li><b>[V1] перед [V2]</b>: представления Галуа, связанные с модулярными формами, строятся в этальных когомологиях модулярных кривых, а оценки Вейля для aₚ — частный случай [V1].
+    Доказательство Делиня — лучшая тренировка в этальных когомологиях перед [N8].</li>
+    <li><b>[V2] последней из вершин прошлого</b>: она самая объёмная (новая дисциплина [N8] большая) и одновременно — вход в арифметическую часть [V5].</li>
+    <li><b>[V3] параллельно</b>: её пререквизиты ([G3], [D3], [T2]) свои, с остальными вершинами она почти не пересекается. Её удобно вести вторым треком рядом с [V1] или [V2],
+    чтобы чередовать алгебру и анализ.</li>
+    <li><b>[V5] и [V6]</b> можно вести двумя треками, но разумнее после общего ствола выбрать одно главное направление, а второе держать на уровне обзоров.
+    Если ближе арифметика — главным будет [V5]; если геометрия и физика — [V6]. Мост между ними — геометрический Ленглендс и системы Хитчина.</li>
+  </ul>
+  <div class="box"><span class="lab">Что можно начать раньше</span>
+    Ориентационные фазы (обзоры, история, популярные книги), классические частные случаи ([V2]: n = 3, 4 и Куммер; [V1]: суммы Гаусса и Якоби; [V3]: h-кобордизм;
+    [V4]: Гаусс–Бонне и Риман–Рох) и вычислительные мини-проекты доступны уже на этапах 3–4. Они хорошо мотивируют прохождение [X2]–[X4], [N5]–[N7], [T6]–[T8] и [G3].
+  </div>
+</section>
+
+<!-- ===================== Таблица пререквизитов ===================== -->
+<section class="newpage" id="prereq"><!--mark:prereq-->
+  <h2 class="page-title">Какие дисциплины питают какие вершины</h2>
+  <p>Таблица из Части II плана. ● — необходимо, ○ — полезно или нужно частично, пусто — практически не используется.</p>
+  <table class="t feed">
+    <thead><tr><th>Дисциплина</th>
+      <th><span class="code" style="color:#9C3D7A">V1</span></th><th><span class="code" style="color:#A23B3B">V2</span></th><th><span class="code" style="color:#2A7F62">V3</span></th>
+      <th><span class="code" style="color:#B5652A">V4</span></th><th><span class="code" style="color:#9A7B1C">V5</span></th><th><span class="code" style="color:#3E7CB1">V6</span></th></tr></thead>
+    <tbody>
+<tr><td>Теория Галуа <span class="muted">([A4])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Представления конечных групп <span class="muted">([A5])</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Коммутативная алгебра <span class="muted">([A6])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Гомологическая алгебра <span class="muted">([A7])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Теория категорий <span class="muted">([A8])</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>p-адические числа <span class="muted">([N2])</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Алгебраическая теория чисел <span class="muted">([N3])</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Аналитическая теория чисел <span class="muted">([N4])</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Модулярные формы <span class="muted">([N5])</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="half">○</span></td></tr>
+<tr><td>Эллиптические кривые <span class="muted">([N6])</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="half">○</span></td></tr>
+<tr><td>Теория полей классов <span class="muted">([N7])</span></td><td></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Комплексный анализ <span class="muted">([R3])</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Гармонический анализ <span class="muted">([R4])</span></td><td></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Функциональный анализ <span class="muted">([R5])</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td></tr>
+<tr><td>Уравнения в частных производных <span class="muted">([D3])</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td></tr>
+<tr><td>Многообразия, связности <span class="muted">([G1]–[G2])</span></td><td><span class="half">○</span></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Риманова геометрия <span class="muted">([G3])</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td><span class="half">○</span></td></tr>
+<tr><td>Римановы поверхности <span class="muted">([G4])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Симплектическая геометрия, Флоер <span class="muted">([G5], [G11])</span></td><td></td><td></td><td></td><td></td><td></td><td><span class="full">●</span></td></tr>
+<tr><td>Комплексная геометрия, Ходж <span class="muted">([G6]–[G7])</span></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Алгебраическая топология <span class="muted">([T2]–[T5])</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Характеристические классы, K-теория <span class="muted">([T6]–[T7])</span></td><td><span class="half">○</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Группы Ли и представления <span class="muted">([L1]–[L2])</span></td><td></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td><span class="half">○</span></td></tr>
+<tr><td>Редуктивные группы <span class="muted">([L3]–[L4])</span></td><td></td><td><span class="half">○</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Схемы, когомологии пучков <span class="muted">([X2]–[X3])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td><span class="half">○</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Этальные когомологии <span class="muted">([X4])</span></td><td><span class="full">●</span></td><td><span class="full">●</span></td><td></td><td></td><td><span class="full">●</span></td><td></td></tr>
+<tr><td>Производные категории <span class="muted">([X6])</span></td><td><span class="half">○</span></td><td></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Пространства модулей <span class="muted">([X8])</span></td><td></td><td><span class="half">○</span></td><td></td><td></td><td><span class="full">●</span></td><td><span class="full">●</span></td></tr>
+<tr><td>Физика: механика, теория поля, суперсимметрия, струны <span class="muted">([Q1]–[Q6])</span></td><td></td><td></td><td></td><td><span class="half">○</span></td><td><span class="half">○</span></td><td><span class="full">●</span></td></tr>
+    </tbody>
+  </table>
+  <div class="two">
+    <div class="box" style="margin-top:1mm"><span class="lab">Новые дисциплины вершин</span>
+      <div class="links" style="font-size:9.2pt">
+        <span class="code" style="color:#9C3D7A">V1</span><span>доказательство Делиня на базе [X4] (этап 4)</span>
+        <span class="code" style="color:#A23B3B">V2</span><span>[N8] Представления Галуа и теория деформаций</span>
+        <span class="code" style="color:#2A7F62">V3</span><span>[T9] 3-многообразия, [D4] поток Риччи</span>
+        <span class="code" style="color:#B5652A">V4</span><span>[G9] Эллиптические операторы и индекс</span>
+        <span class="code" style="color:#9A7B1C">V5</span><span>[L4], [N9], [X6], [X8], [X9]</span>
+        <span class="code" style="color:#3E7CB1">V6</span><span>[X6], [X8], [G11], [Q4], [Q5], [Q6]</span>
+      </div></div>
+    <div class="box" style="margin-top:1mm"><span class="lab">Что окупается везде</span>
+      <p class="small">По строкам видно: <b>гомологическая алгебра</b> ([A7]) и <b>алгебраическая топология</b> ([T2]–[T5]) отмечены во всех шести столбцах,
+      <b>римановы поверхности</b> ([G4]) и <b>схемы с когерентными когомологиями</b> ([X2]–[X3]) — в пяти. Когомологии — общий язык всех вершин (сквозная идея 3 плана),
+      поэтому перед этапом 5 полезно повторить [A7], [T3] и [X3] — быстро и по контрольным точкам их карточек.</p></div>
+  </div>
+</section>
+
+<!-- ===================== Общий метод ===================== -->
+<section class="newpage" id="method"><!--mark:method-->
+  <h2 class="page-title">Как брать вершину: общий метод</h2>
+  <p>Вершина — не дисциплина, а большая теорема (или программа), в доказательство которой сходится несколько дисциплин. Поэтому и работа с ней устроена иначе,
+  чем с учебным курсом: главное — увидеть доказательство целиком, понимая, что именно в каждом месте используется, и честно разобрать его центральную часть.</p>
+
+  <h3 class="sec">Пять фаз</h3>
+  <table class="t compact">
+    <thead><tr><th style="width:27%">Фаза</th><th>Что делать</th><th style="width:27%">Результат</th></tr></thead>
+    <tbody>
+      <tr><td><b>0. Ориентация</b><br><span class="muted small">2–4 недели</span></td><td>Обзоры, история, популярные книги; формулировка главной теоремы в нескольких эквивалентных формах; простейшие примеры.</td><td>Одна страница: что доказываем, почему это трудно, из каких частей состоит доказательство.</td></tr>
+      <tr><td><b>1. Частные случаи руками</b></td><td>У каждой вершины есть классические случаи: кривые над 𝔽<sub>q</sub>, n = 3 и 4, размерности ≥ 5, Гаусс–Бонне и Риман–Рох, GL₁, эллиптическая кривая.</td><td>Разобранные примеры, на которых видна общая идея.</td></tr>
+      <tr><td><b>2. Машинерия</b></td><td>Новая дисциплина вершины ([G9], [N8], [T9] и [D4] …) с её экзаменом Reality Check как рубежом; выборочное повторение пререквизитов.</td><td>Экзамен сдан на 75+; инструменты под рукой.</td></tr>
+      <tr><td><b>3. Доказательство</b></td><td>Первоисточник параллельно с обработанным изложением (пары ниже). Один ключевой шаг разобрать полностью, остальные — на уровне точных формулировок.</td><td>Карта доказательства без чёрных ящиков в главном месте; вехи отмечены.</td></tr>
+      <tr><td><b>4. Горизонт</b></td><td>Что выросло из теоремы; современные обзоры; выбор, куда идти дальше.</td><td>Список открытых вопросов и следующих текстов.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики — осознанно</span>
+      <p class="small">Ни одну вершину нельзя за разумное время пройти, доказав всё до аксиом. Нормально принять часть теорем на веру — но <b>записать их списком</b>
+      с точными формулировками и ссылками. В разделе каждой вершины предложен такой список. Цель — открыть хотя бы один ящик в центральном месте и понимать,
+      что именно лежит в остальных.</p></div>
+    <div class="box"><span class="lab">Письменные разборы</span>
+      <p class="small">Для каждой вершины — папка в репозитории (по образцу <span class="sans">Drafts/Galois Theory</span>): карта доказательства, обновляемая после каждой фазы;
+      разборы примеров; <b>лист нормировок</b> (знаки, твисты, соглашения о Фробениусе, множители 2πi), который экономит недели на путанице между источниками.</p></div>
+    <div class="box"><span class="lab">Считать</span>
+      <p class="small">Каждая вершина допускает вычислительные эксперименты: числа точек и следы Фробениуса, коэффициенты модулярных форм, объёмы гиперболических многообразий,
+      инварианты Громова–Виттена. Числа, полученные своими руками, — лучшая проверка, что формулировка понята правильно.</p></div>
+    <div class="box"><span class="lab">Обсуждать</span>
+      <p class="small">Объяснить вершину другому — лучшая контрольная точка (пункт 10 Части VI). Тематические летние школы (Arizona Winter School, PCMI, школы Clay)
+      и их записи лекций часто посвящены именно этим сюжетам; см. приложение.</p></div>
+  </div>
+</section>
+
+<section class="newpage">
+  <h3 class="sec">Первоисточник и проводник — парами</h3>
+  <p>Оригинальные статьи показывают, <i>почему</i> теория устроена именно так (пункт 9 Части VI плана), но читать их в одиночку тяжело. Надёжная схема — пара «статья + изложение»: параграф статьи, затем тот же шаг в изложении, затем своя запись.</p>
+  <table class="t compact">
+    <thead><tr><th style="width:9%"></th><th style="width:43%">Первоисточник</th><th>Проводник</th></tr></thead>
+    <tbody>
+      <tr><td>[V1]</td><td>Deligne «La conjecture de Weil. I» (1974)</td><td>Katz, обзор 1976 г.; Freitag, Kiehl; Milne «Lectures on Étale Cohomology»</td></tr>
+      <tr><td>[V2]</td><td>Wiles (1995); Taylor, Wiles (1995)</td><td>Darmon, Diamond, Taylor; сборник Cornell, Silverman, Stevens</td></tr>
+      <tr><td>[V3]</td><td>Perelman, три препринта (2002–2003)</td><td>Kleiner, Lott «Notes on Perelman's papers»; Morgan, Tian</td></tr>
+      <tr><td>[V4]</td><td>Atiyah, Singer I и III (1968); Atiyah, Bott, Patodi (1973)</td><td>Lawson, Michelsohn, гл. III; Roe; Berline, Getzler, Vergne</td></tr>
+      <tr><td>[V5]</td><td>Письмо Ленглендса Вейлю (1967); Jacquet, Langlands (1970)</td><td>Gelbart (1984); Arthur «The principle of functoriality»; Bump</td></tr>
+      <tr><td>[V6]</td><td>Candelas и др. (1991); Kontsevich, ICM 1994</td><td>Cox, Katz; Hori и др.; Auroux; Polishchuk, Zaslow</td></tr>
+    </tbody>
+  </table>
+
+
+  <h3 class="sec">Как читать первоисточник</h3>
+  <ol class="steps">
+    <li><b>Сначала каркас.</b> Прочитать введение и все формулировки, пропуская доказательства; нарисовать граф «какое утверждение опирается на какое». Обычно в нём видно 2–3 узла, где сосредоточена новая идея.</li>
+    <li><b>Сверить с проводником.</b> Найти соответствие нумерации и отметить, где изложение отходит от статьи и почему: часто так исправлены пробелы или упрощены рассуждения.</li>
+    <li><b>Доказательства — сверху вниз.</b> Сначала главная теорема по модулю лемм, затем леммы по требованию; лемму, которая выглядит стандартной, сначала принять и пометить в списке чёрных ящиков.</li>
+    <li><b>Записывать.</b> После каждого параграфа — полстраницы своими словами в папке разборов; вопросы, на которые не нашлось ответа, — отдельным списком. Обозначения и знаки сразу сверять с листом нормировок.</li>
+    <li><b>Проверить себя.</b> Через неделю пересказать доказательство без текста — устно или письменно. Места, где пересказ «проваливается», и есть следующая порция чтения.</li>
+    <li><b>Не застревать.</b> Если параграф не идёт неделю, перейти к другому проводнику из списка литературы или временно принять результат — и вернуться позже (пункт 8 Части VI плана).</li>
+  </ol>
+</section>
+
+<!-- ===================== V1 ===================== -->
+<section class="vertex" id="v1" style="--c:#9C3D7A;--t:#9C3D7A14;--m:#9C3D7A55">
+  <div class="vhead"><!--mark:v1--><div class="big">V1</div><div>
+    <div class="kick">Вершина прошлого · этап 5 · алгебро-арифметическая ветвь</div>
+    <h2>Гипотезы Вейля</h2>
+    <div class="vs">Сколько решений у системы уравнений над конечным полем — и почему ответ управляется топологией</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>≈ 7–9 месяцев</div>
+    <div><span class="lab">Новое</span>доказательство Делиня на базе [X4]</div>
+    <div><span class="lab">Рубеж</span>экзамен [X4] сдан до начала (этап 4)</div>
+    <div><span class="lab">Главная пара</span>Deligne «Weil I» + Katz 1976, Freitag–Kiehl</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <p>Пусть X — гладкое проективное многообразие размерности n над 𝔽<sub>q</sub>, N<sub>m</sub> = #X(𝔽<sub>q<sup>m</sup></sub>). Дзета-функция собирает все числа точек сразу:</p>
+  <div class="formula">Z(X, t) = exp ( Σ<sub>m ≥ 1</sub> N<sub>m</sub> t<sup>m</sup> / m ).</div>
+  <div class="statement">
+    <ol>
+      <li><b>Рациональность:</b> Z(X, t) = P<sub>1</sub>(t) P<sub>3</sub>(t) ⋯ P<sub>2n−1</sub>(t) / (P<sub>0</sub>(t) P<sub>2</sub>(t) ⋯ P<sub>2n</sub>(t)), где P<sub>0</sub> = 1 − t, P<sub>2n</sub> = 1 − q<sup>n</sup>t.</li>
+      <li><b>Функциональное уравнение:</b> Z(X, q<sup>−n</sup>t<sup>−1</sup>) = ± q<sup>nE/2</sup> t<sup>E</sup> Z(X, t), где E — индекс самопересечения диагонали (эйлерова характеристика).</li>
+      <li><b>Числа Бетти:</b> P<sub>i</sub>(t) = ∏<sub>j</sub> (1 − α<sub>ij</sub> t) ∈ ℤ[t], и deg P<sub>i</sub> = b<sub>i</sub> — числа Бетти «комплексного подъёма» X, если он есть.</li>
+      <li><b>Гипотеза Римана:</b> |α<sub>ij</sub>| = q<sup>i/2</sup> при всех вложениях в ℂ: корни P<sub>i</sub> лежат на окружности |t| = q<sup>−i/2</sup>.</li>
+    </ol>
+  </div>
+  <p><b>Два примера, которые стоит держать в голове.</b> Для ℙ<sup>n</sup>: N<sub>m</sub> = 1 + q<sup>m</sup> + … + q<sup>nm</sup> и Z = 1/((1 − t)(1 − qt)⋯(1 − q<sup>n</sup>t)) — нечётные P<sub>i</sub> отсутствуют,
+  как и нечётные когомологии ℂP<sup>n</sup>. Для эллиптической кривой E: Z(E, t) = (1 − at + qt²)/((1 − t)(1 − qt)) с a = q + 1 − #E(𝔽<sub>q</sub>), и гипотеза Римана — это теорема Хассе |a| ≤ 2√q.</p>
+  <p><b>Почему это вершина.</b> Чтобы доказать гипотезы, Гротендик построил этальные когомологии — «топологию в характеристике p» — и вместе с ними язык современной
+  алгебраической геометрии: схемы, сайты, производные категории, мотивы. Следствия доказательства Делиня — оценки экспоненциальных сумм (|K(a, b; p)| ≤ 2√p для сумм Клостермана),
+  гипотеза Рамануджана–Петерссона |τ(p)| ≤ 2p<sup>11/2</sup>, оценки Лэнга–Вейля и теория весов, без которой не обходится ни арифметическая геометрия, ни теория представлений.</p>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана: [N1] → [A4] → [N2] → [X1] → [X2] → [X3] → ([T3], [T5], [A7]) → [X4] → V1; [G7] ○ — для мотивации.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[A4]</td><td>Конечные поля и их расширения; Фробениус x ↦ x<sup>q</sup> как образующая Gal(𝔽<sub>q<sup>m</sup></sub>/𝔽<sub>q</sub>); проконечное пополнение ℤ — абсолютная группа Галуа 𝔽<sub>q</sub>.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X1]–[X3]</td><td>Многообразия и схемы над 𝔽<sub>q</sub>, точки над расширениями; Риман–Рох для кривых; теория пересечений на поверхностях и индексная теорема Ходжа.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G4]</td><td>Род, якобиан, формула Римана–Гурвица: кривая над ℂ — «комплексный подъём», чьи числа Бетти входят в гипотезу 3.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[T3]</td><td>Теорема Лефшеца о неподвижных точках, двойственность Пуанкаре, формула Кюннета — топологическая модель всего доказательства.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[A7], [T5]</td><td>Производные функторы, спектральная последовательность Лере: замена базы и пучки Лефшеца.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X4]</td><td>Главный инструмент: ℓ-адические когомологии с компактными носителями, теоремы сравнения и замены базы, двойственность Пуанкаре, формула следа.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N1], [N2]</td><td>Суммы Гаусса и Якоби (Айерлэнд–Роузен); p-адический анализ — только для доказательства Дворка.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[N5], [N6]</td><td>Теорема Хассе и τ-функция Рамануджана — первый и последний пункты маршрута.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[G7]</td><td>Жёсткая теорема Лефшеца, соотношения Ходжа–Римана, веса: комплексный образец того, что Делинь доказывает над 𝔽<sub>q</sub>.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>выписать Z(ℙ<sup>n</sup>, t) и Z(E, t) для эллиптической кривой и проверить для них все четыре гипотезы;</li>
+      <li>объяснить, почему X(𝔽<sub>q<sup>m</sup></sub>) — это неподвижные точки m-й степени Фробениуса на X(<span class="ov">𝔽</span><sub>q</sub>);</li>
+      <li>доказать теорему Римана–Роха для кривых (хотя бы по схеме) и вычислить ℓ(D) на ℙ¹ и на эллиптической кривой;</li>
+      <li>вычислить H<sup>i</sup>(ℙ<sup>n</sup><sub><span class="ov">𝔽</span><sub>q</sub></sub>, ℚ<sub>ℓ</sub>) вместе с действием Фробениуса;</li>
+      <li>сформулировать теоремы о собственной и гладкой замене базы и двойственность Пуанкаре для ℓ-адических когомологий;</li>
+      <li>доказать теорему Лефшеца о неподвижных точках для конечного симплициального комплекса.</li>
+    </ul></div>
+
+  <h3 class="vs3">Карта доказательства</h3>
+  <div class="maps">
+  <div class="box tint"><span class="lab">Гротендик: гипотезы 1–3</span>
+    <ol class="chain">
+      <li>N<sub>m</sub> — число неподвижных точек F<sup>m</sup> на X(<span class="ov">𝔽</span><sub>q</sub>), где F — Фробениус.</li>
+      <li><b class="k">Формула следа:</b> N<sub>m</sub> = Σ<sub>i</sub> (−1)<sup>i</sup> Tr(F<sup>m</sup> | H<sup>i</sup><sub>c</sub>(X<sub><span class="ov">𝔽</span><sub>q</sub></sub>, ℚ<sub>ℓ</sub>)).</li>
+      <li>⇒ Z = ∏<sub>i</sub> det(1 − Ft | H<sup>i</sup>)<sup>(−1)<sup>i+1</sup></sup>; ряд из ℚ[[t]], рациональный над ℚ<sub>ℓ</sub>, рационален над ℚ: <b class="k">гипотеза 1</b>.</li>
+      <li><b class="k">Двойственность Пуанкаре</b> H<sup>i</sup> × H<sup>2n−i</sup> → ℚ<sub>ℓ</sub>(−n) переводит α в q<sup>n</sup>/α: <b class="k">гипотеза 2</b>.</li>
+      <li><b class="k">Сравнение и замена базы</b>: dim H<sup>i</sup> = b<sub>i</sub> подъёма: <b class="k">гипотеза 3</b> (по модулю целочисленности).</li>
+    </ol></div>
+  <div class="box tint"><span class="lab">Делинь: гипотеза 4</span>
+    <ol class="chain">
+      <li><b class="k">Пучок Лефшеца</b>: раздутие X̃ → ℙ¹ с гиперплоскими сечениями в слоях; когомологии X̃ — через слои и локальную систему средних когомологий на U ⊂ ℙ¹.</li>
+      <li><b class="k">Пикар–Лефшец и Каждан–Маргулис</b>: монодромия на исчезающих циклах велика — плотна в симплектической или ортогональной группе.</li>
+      <li><b class="k">Основная лемма</b>: теория инвариантов + рациональность следов + трюк Рэнкина (положительность коэффициентов L-функции чётной тензорной степени) дают оценку весов с потерей q<sup>1/2</sup>.</li>
+      <li><b class="k">Тензорные степени</b>: H<sup>n</sup>(X)<sup>⊗k</sup> ⊂ H<sup>nk</sup>(X<sup>k</sup>), k → ∞ убирает потерю: |α| ≤ q<sup>n/2</sup>; двойственность даёт равенство.
+        Отсюда же: P<sub>i</sub> имеют целые коэффициенты, не зависящие от ℓ.</li>
+    </ol></div>
+  </div>
+
+
+  <h3 class="vs3">Маршрут</h3>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">2–3 недели</span></div>
+      <p>Прочитать саму статью Вейля 1949 года — она короткая и доступна после Айерлэнда–Роузена; историю — по Дьёдонне; общую картину от Вейля до Делиня — по обзору Милна.
+      Сформулировать четыре гипотезы и проверить их на ℙ<sup>n</sup> и на эллиптической кривой.</p>
+      <div class="read"><span class="lab">Читать</span>Weil 1949; Dieudonné 1975; Milne 2015, первые разделы; Hartshorne, приложение C.</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>Диагональные уравнения и эллиптические кривые</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Суммы Гаусса и Якоби, соотношение Хассе–Дэвенпорта; число решений a<sub>1</sub>x<sub>1</sub><sup>m</sup> + … + a<sub>r</sub>x<sub>r</sub><sup>m</sup> = b; дзета-функции кривых Ферма.
+      Ровно на этих примерах Вейль увидел гипотезы: корни выражаются через суммы Якоби, а |J| = √q — элементарное тождество. Для эллиптических кривых — доказательство Хассе через
+      положительность формы степени на End(E): deg(1 − φ) = 1 − a + q. Это прообраз доказательства Вейля для кривых любого рода.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Подсчитать точки на диагональных гиперповерхностях через суммы Гаусса и Якоби и проверить для них гипотезы Вейля.</li>
+        <li><span class="w">веха</span>Теорема Хассе для эллиптических кривых ([N6]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Ireland, Rosen, гл. 8, 10, 11; Silverman «The Arithmetic of Elliptic Curves», гл. V.</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>Кривые</b><span class="dur">≈ 1,5 месяца</span></div>
+      <p>Рациональность для кривых элементарна: Риман–Рох считает эффективные дивизоры данной степени, откуда Z(C, t) = P(t)/((1 − t)(1 − qt)) с deg P = 2g.
+      Гипотеза Римана — двумя способами: (а) <b>Степанов–Бомбьери</b>: вспомогательная функция с нулями высокой кратности во всех 𝔽<sub>q</sub>-точках даёт оценку сверху на их число,
+      а переход к расширениям и рациональность Z — равенство |α| = √q; (б) <b>Вейль</b>: индексная теорема Ходжа на поверхности C × C, применённая к графику Фробениуса.
+      Второй путь — образец всех будущих доказательств «через положительность»; на нём держатся стандартные гипотезы Гротендика.</p>
+      <ul class="ms"><li><span class="w">веха</span>Гипотеза Римана для кривых: элементарное доказательство Степанова–Бомбьери или доказательство через индексную теорему Ходжа ([X3]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Rosen «Number Theory in Function Fields»; Bombieri, Séminaire Bourbaki 430; Hartshorne, упражнение V.1.10; Mustaţă «Zeta Functions in Algebraic Geometry».</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Рациональность по Дворку</b><span class="dur">3–4 недели</span></div>
+      <p>Первое доказательство рациональности для любого многообразия (1960) — без всяких когомологий. Сведение к гиперповерхностям, запись Z через p-адически аналитические
+      функции и критерий рациональности степенного ряда. Полезно увидеть, что p-адический анализ — полноценный анализ; позже из этой идеи выросли p-адические когомологии.</p>
+      <ul class="ms"><li><span class="w">веха</span>Рациональность по Дворку: p-адический анализ (Коблиц, гл. V).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Коблиц «p-адические числа, p-адический анализ и дзета-функции», гл. V; Mustaţă, заключительная глава; Dwork 1960.</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>Формализм Гротендика</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Собрать из [X4] нужное: когомологии с компактными носителями, формулу следа, двойственность Пуанкаре, замену базы. Вывести рациональность и функциональное уравнение;
+      объяснить, почему deg P<sub>i</sub> = b<sub>i</sub>, когда есть подъём в характеристику 0. Разобраться с геометрическим и арифметическим Фробениусом и твистами Тейта.</p>
+      <ul class="ms"><li><span class="w">веха</span>Формула следа Гротендика–Лефшеца ⇒ рациональность; двойственность Пуанкаре ⇒ функциональное уравнение.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Milne «Lectures on Étale Cohomology» (формула следа); Grothendieck, Séminaire Bourbaki 279; SGA 4½ («Rapport sur la formule des traces»); Freitag, Kiehl, гл. II.</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>Доказательство Делиня</b><span class="dur">2–3 месяца</span></div>
+      <p>Центральная фаза. Индукция по размерности через пучки Лефшеца; исчезающие циклы и формула Пикара–Лефшеца; большая монодромия; «основная лемма» с трюком Рэнкина;
+      трюк с тензорными степенями. Подробнее — в карте доказательства ниже. Статья Делиня короткая: её стоит прочитать целиком, сверяя каждый шаг с обзором Каца.</p>
+      <ul class="ms"><li><span class="w">веха</span>Доказательство Делиня («Weil I»): пучки Лефшеца, монодромия, трюк Рэнкина.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Deligne «La conjecture de Weil. I»; Katz 1976; Freitag, Kiehl, гл. III–IV; Milne «Lectures on Étale Cohomology», заключительные разделы.</div></div>
+    <div class="ph"><span class="n">6</span><div class="h"><b>Следствия и горизонт</b><span class="dur">1 месяц и дальше</span></div>
+      <p>Гипотеза Рамануджана: τ(p) — след Фробениуса на когомологиях многообразия Куги–Сато (Эйхлер, Шимура, Куга, Сато, Делинь 1969), и оценка следует из V1.
+      Затем — обзор «Weil II»: веса, чистота, теорема о разложении, перверсные пучки; распределение собственных значений Фробениуса (Кац–Сарнак); стандартные гипотезы и мотивы.</p>
+      <ul class="ms"><li><span class="w">веха</span>Следствие: гипотеза Рамануджана–Петерссона |τ(p)| ≤ 2p<sup>11/2</sup>. Это мост к V2 и V5. Обзор «Weil II» и теории весов.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Deligne, Séminaire Bourbaki 355; Deligne «Weil II»; Kiehl, Weissauer; Katz, Sarnak; Kleiman 1968.</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики при первом проходе</span>
+      <ul class="small">
+        <li>теоремы сравнения Артина, о собственной и о гладкой замене базы (SGA 4);</li>
+        <li>двойственность Пуанкаре и формула следа в общем виде (SGA 4, SGA 4½, SGA 5);</li>
+        <li>существование пучков Лефшеца и формула Пикара–Лефшеца (SGA 7);</li>
+        <li>теорема Каждана–Маргулиса о плотности монодромии;</li>
+        <li>целочисленность собственных значений Фробениуса.</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> основную лемму Делиня — она элементарна, занимает несколько страниц и составляет сердце доказательства.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Объём этальной теории. Не читать SGA подряд: держать список ящиков и открывать их по одному.</li>
+        <li>Геометрический и арифметический Фробениус, твисты ℚ<sub>ℓ</sub>(n): завести лист нормировок с первого дня.</li>
+        <li>Порядок логики: целочисленность P<sub>i</sub> и независимость от ℓ — <i>следствие</i> гипотезы Римана, а не вход в неё.</li>
+        <li>Статья Делиня плотная: читать по параграфу, отмечая, какой результат SGA используется на каждом шаге.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Weil</span> «Numbers of solutions of equations in finite fields» (Bull. AMS, 1949) <span class="nt">— первоисточник гипотез; диагональные уравнения.</span></li>
+        <li><span class="au">Dieudonné</span> «On the history of the Weil conjectures» (Math. Intelligencer, 1975) <span class="nt">— история.</span></li>
+        <li><span class="au">Milne</span> «The Riemann Hypothesis over Finite Fields: From Weil to the Present Day» (arXiv: 1509.00797) <span class="nt">— обзор: Вейль, стандартные гипотезы, мотивы, Делинь.</span></li>
+        <li><span class="au">Hartshorne</span> «Algebraic Geometry», приложение C <span class="nt">— несколько страниц: формулировки и роль когомологий Вейля.</span></li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Ireland, Rosen</span> «A Classical Introduction to Modern Number Theory», гл. 8, 10, 11.</li>
+        <li><span class="au">Mustaţă</span> «Zeta Functions in Algebraic Geometry» (конспекты, свободно) <span class="nt">— от определений до рациональности по Дворку.</span></li>
+        <li><span class="au">Rosen</span> «Number Theory in Function Fields» (GTM 210) <span class="nt">— функциональные поля, дзета-функции кривых, доказательство Бомбьери.</span></li>
+        <li><span class="au">Коблиц</span> «p-адические числа, p-адический анализ и дзета-функции», гл. V.</li>
+        <li><span class="au">Milne</span> «Lectures on Étale Cohomology» (свободно) <span class="nt">— сжатый курс, заканчивающийся доказательством гипотез.</span></li>
+        <li><span class="au">Freitag, Kiehl</span> «Etale Cohomology and the Weil Conjecture» <span class="nt">— полное изложение, включая монодромию пучков Лефшеца.</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники</div>
+      <ul>
+        <li><span class="au">Dwork</span> «On the rationality of the zeta function of an algebraic variety» (Amer. J. Math., 1960).</li>
+        <li><span class="au">Grothendieck</span> «Formule de Lefschetz et rationalité des fonctions L» (Séminaire Bourbaki 279, 1965).</li>
+        <li><span class="au">Bombieri</span> «Counting points on curves over finite fields (d'après S. A. Stepanov)» (Séminaire Bourbaki 430, 1973).</li>
+        <li><span class="au">Deligne</span> «La conjecture de Weil. I» (Publ. Math. IHÉS 43, 1974).</li>
+        <li><span class="au">Katz</span> «An overview of Deligne's proof of the Riemann hypothesis for varieties over finite fields» (Proc. Symp. Pure Math. 28, 1976).</li>
+        <li><span class="au">Deligne</span> SGA 4½ <span class="nt">— «Cohomologie étale: les points de départ», «Rapport sur la formule des traces».</span></li>
+      </ul>
+      <div class="tier">Дальше</div>
+      <ul>
+        <li><span class="au">Deligne</span> «Formes modulaires et représentations ℓ-adiques» (Séminaire Bourbaki 355, 1969) <span class="nt">— путь к Рамануджану.</span></li>
+        <li><span class="au">Deligne</span> «La conjecture de Weil. II» (Publ. Math. IHÉS 52, 1980).</li>
+        <li><span class="au">Kiehl, Weissauer</span> «Weil Conjectures, Perverse Sheaves and ℓ-adic Fourier Transform» (2001).</li>
+        <li><span class="au">Katz, Sarnak</span> «Random Matrices, Frobenius Eigenvalues, and Monodromy» (1999).</li>
+        <li><span class="au">Kleiman</span> «Algebraic cycles and the Weil conjectures» (в сборнике «Dix exposés sur la cohomologie des schémas», 1968) <span class="nt">— стандартные гипотезы.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li><span class="tool">Sage</span><span class="tool">PARI/GP</span> Для y² = x³ + x + 1 посчитать aₚ = p + 1 − #E(𝔽ₚ) при p &lt; 10⁴, проверить |aₚ| ≤ 2√p и построить гистограмму aₚ/(2√p).
+      Сравнить с кривой y² = x³ − x с комплексным умножением, у которой aₚ = 0 для всех p ≡ 3 (mod 4). Это заодно первая встреча с законом Сато–Тейта ([V5]).</li>
+    <li><span class="tool">Sage</span> Для кривой рода 2 вида y² = f(x), deg f = 5, по N₁ и N₂ восстановить P(t) степени 4 и проверить, что все корни лежат на окружности |t| = q<sup>−1/2</sup>.</li>
+    <li>Сосчитать точки грассманиана G(2, 4) над 𝔽<sub>q</sub>: получится многочлен от q, коэффициенты которого — числа Бетти G(2, 4)(ℂ). Объяснить это через клеточное разбиение и гипотезу 3.</li>
+    <li><span class="tool">PARI/GP</span> Суммы Клостермана K(1, 1; p) при p &lt; 10⁴: проверить оценку Вейля |K| ≤ 2√p и посмотреть на распределение K/(2√p).</li>
+    <li>Кривая Ферма x³ + y³ = z³ над 𝔽ₚ при p ≡ 1 (mod 3): сравнить прямой подсчёт с формулой через суммы Якоби.</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#A23B3B">V2</span><span>Представления Галуа, связанные с модулярными формами, живут в этальных когомологиях модулярных кривых; оценка |aₚ| ≤ 2√p — гипотеза Римана для кривых.</span>
+    <span class="sq" style="background:#9A7B1C">V5</span><span>Вторая колонка «Розеттского камня»: Дринфельд и Лафорги доказывают соответствие Ленглендса над функциональными полями когомологиями модулей штук, формулой следа и теорией весов Делиня.</span>
+    <span class="sq" style="background:#B5652A">V4</span><span>Формула Атьи–Ботта — аналог формулы следа Гротендика–Лефшеца; индексная теорема Ходжа и положительность — общий источник неравенств.</span>
+    <span class="sq" style="background:#3E7CB1">V6</span><span>Арифметика зеркальной квинтики: числа точек над 𝔽ₚ выражаются через периоды (Канделас, де ла Осса, Родригес-Вильегас).</span>
+  </div>
+</section>
+
+<!-- ===================== V2 ===================== -->
+<section class="vertex" id="v2" style="--c:#A23B3B;--t:#A23B3B14;--m:#A23B3B55">
+  <div class="vhead"><!--mark:v2--><div class="big">V2</div><div>
+    <div class="kick">Вершина прошлого · этап 5 · алгебро-арифметическая ветвь</div>
+    <h2>Великая теорема Ферма</h2>
+    <div class="vs">Задача XVII века, решённая через модулярность эллиптических кривых — первый большой случай программы Ленглендса</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>≈ 10–12 месяцев</div>
+    <div><span class="lab">Новое</span>[N8] Представления Галуа и теория деформаций</div>
+    <div><span class="lab">Рубеж</span>экзамен [N8] в фазе 4</div>
+    <div><span class="lab">Главная пара</span>Wiles 1995 + Darmon–Diamond–Taylor, Cornell–Silverman–Stevens</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <div class="statement">Уравнение x<sup>n</sup> + y<sup>n</sup> = z<sup>n</sup> не имеет решений в натуральных числах при n ≥ 3.</div>
+  <p>Доказательство идёт в обход: решению сопоставляется эллиптическая кривая (Фрей, 1984), которая не может быть модулярной (Серр, Рибет, 1986), а модулярны все
+  полустабильные эллиптические кривые над ℚ (Уайлс, Тейлор–Уайлс, 1995). Позже Брёй, Конрад, Даймонд и Тейлор (2001) доказали модулярность всех эллиптических кривых над ℚ.</p>
+  <p><b>Почему это вершина.</b> Сама теорема Ферма почти ничего не даёт; ценность — в методе. Модулярность означает, что L-функция эллиптической кривой — это L-функция
+  модулярной формы: так получены аналитическое продолжение и функциональное уравнение L(E, s), без которых нельзя даже сформулировать гипотезу Бёрча–Свиннертон-Дайера.
+  Теоремы «R = T» о подъёме модулярности стали главным инструментом арифметической программы Ленглендса: закон Сато–Тейта, гипотеза Серра о модулярности (Кхаре–Винтенбергер),
+  модулярность над вещественными квадратичными полями — всё это развитие метода Уайлса.</p>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана: [N1] → [A4] → [N3] → [N5] → [X2] → [N6] → [N7] → [X4] → [N8] → V2.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[N3]</td><td>Кольца целых, разложение простых, ветвление; круговые поля ℚ(ζ<sub>p</sub>), группы классов, регулярные простые.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N5]</td><td>Модулярные формы веса 2 на Γ<sub>0</sub>(N), операторы Гекке, новые формы, модулярные кривые X<sub>0</sub>(N); размерности пространств S<sub>2</sub>(Γ<sub>0</sub>(N)).</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N6]</td><td>Редукция, кондуктор, полустабильность, модуль Тейта, кривая Тейта; критерий Нерона–Огга–Шафаревича.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N7]</td><td>Когомологии Галуа, локальная двойственность Тейта, формула Эйлера–Пуанкаре, двойственность Пуату–Тейта, теорема Чеботарёва.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X2], [X4]</td><td>Групповые схемы и конечные плоские групповые схемы; ℓ-адические когомологии кривых — в них живут представления, построенные Эйхлером и Шимурой.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[A6]</td><td>Полные локальные кольца, полные пересечения, модули Фиттинга, регулярные последовательности: на этом языке записан критерий R = T.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G4], [R3]</td><td>Модулярные кривые как римановы поверхности, их якобианы.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N8]</td><td>Новая дисциплина вершины: деформации по Мазуру, алгебры Гекке, R = T, основы p-адической теории Ходжа.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[V1]</td><td>Соотношение Эйхлера–Шимуры T<sub>p</sub> = F + V и оценка |a<sub>p</sub>| ≤ 2√p.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[L1]–[L2]</td><td>Представления GL<sub>2</sub>: нужны в объёме формулировки теоремы Ленглендса–Таннелла.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>вычислить дискриминант кривой y² = x(x − A)(x + B) и объяснить, в каких простых у неё мультипликативная редукция;</li>
+      <li>найти dim S<sub>2</sub>(Γ<sub>0</sub>(N)) для малых N по формуле рода X<sub>0</sub>(N) и показать, что S<sub>2</sub>(Γ<sub>0</sub>(2)) = 0;</li>
+      <li>определить операторы Гекке на S<sub>2</sub>(Γ<sub>0</sub>(N)) и выписать эйлерово произведение L-функции собственной формы;</li>
+      <li>описать модуль Тейта T<sub>ℓ</sub>E как представление Gal(<span class="ov">ℚ</span>/ℚ) и сформулировать критерий Нерона–Огга–Шафаревича;</li>
+      <li>сформулировать теорему Чеботарёва и локальную двойственность Тейта, вычислить эйлерову характеристику H<sup>i</sup>(G<sub>ℚ<sub>ℓ</sub></sub>, M) для конечного модуля;</li>
+      <li>определить полное пересечение и регулярную последовательность в нётеровом локальном кольце.</li>
+    </ul></div>
+
+  <h3 class="vs3">Карта доказательства</h3>
+  <div class="maps">
+  <div class="box tint"><span class="lab">От Ферма к модулярности</span>
+    <ol class="chain">
+      <li>Достаточно n = 4 и простых n = p; n = 3 — классика (Эйлер), так что p ≥ 5.</li>
+      <li><b class="k">Кривая Фрея</b>: решению aᵖ + bᵖ = cᵖ (a ≡ −1 mod 4, b чётно) отвечает E: y² = x(x − aᵖ)(x + bᵖ); она полустабильна, Δ<sub>min</sub> = 2<sup>−8</sup>(abc)<sup>2p</sup>, кондуктор — rad(abc).</li>
+      <li><span class="ov">ρ</span> = <span class="ov">ρ</span><sub>E,p</sub> неприводимо (<b class="k">Мазур</b>) и «почти неразветвлено»: показатели в Δ делятся на p, поэтому в простых ℓ | abc, ℓ ≠ 2, p, <span class="ov">ρ</span> неразветвлено, а в p — конечно.</li>
+      <li><b class="k">Рибет</b>: если E модулярна, то <span class="ov">ρ</span> приходит из новой формы веса 2 уровня 2.</li>
+      <li>S<sub>2</sub>(Γ<sub>0</sub>(2)) = 0 — противоречие. Остаётся доказать модулярность E.</li>
+    </ol></div>
+  <div class="box tint"><span class="lab">Уайлс: полустабильные кривые модулярны</span>
+    <ol class="chain">
+      <li><b class="k">Ленглендс–Таннелл</b>: образ <span class="ov">ρ</span><sub>E,3</sub> в GL<sub>2</sub>(𝔽<sub>3</sub>) разрешим, поэтому <span class="ov">ρ</span><sub>E,3</sub> модулярно; если оно приводимо — <b class="k">переключение 3–5</b>.</li>
+      <li><b class="k">Мазур</b>: кольцо R<sub>Σ</sub> универсальных деформаций <span class="ov">ρ</span> с заданными локальными условиями; алгебра Гекке 𝕋<sub>Σ</sub>; сюръекция R<sub>Σ</sub> → 𝕋<sub>Σ</sub>.</li>
+      <li><b class="k">Тейлор–Уайлс</b>: в минимальном случае вспомогательные простые q ≡ 1 (mod pⁿ), подсчёт через двойственность Пуату–Тейта и «склейка» дают R = 𝕋 — полное пересечение.</li>
+      <li><b class="k">Числовой критерий</b> Уайлса–Ленстры и повышение уровня переносят R = 𝕋 на неминимальный случай.</li>
+      <li>⇒ ρ<sub>E,3</sub> ≅ ρ<sub>f</sub> для собственной формы f веса 2 ⇒ E модулярна.</li>
+    </ol></div>
+  </div>
+
+  <h3 class="vs3">Маршрут</h3>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">≈ 3 недели</span></div>
+      <p>Популярная история (Сингх), затем короткие математические обзоры: Рибет о связи представлений Галуа с модулярными формами, обзор Стивенса — первая глава сборника
+      Cornell–Silverman–Stevens, заметка Фальтингса. Цель — нарисовать обе карты доказательства своими словами.</p>
+      <div class="read"><span class="lab">Читать</span>Сингх; Ribet, Bull. AMS 1995; Stevens «An overview of the proof of FLT»; Faltings, Notices AMS 1995.</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>Классика: от Ферма до Куммера</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Бесконечный спуск для n = 4, кольцо ℤ[ω] для n = 3; идеалы Куммера и регулярные простые. Эта фаза показывает, почему «очевидный» путь через разложение
+      xᵖ + yᵖ = ∏(x + ζ<sup>i</sup>y) упирается в группу классов ℚ(ζ<sub>p</sub>), — и почему понадобилась совсем другая идея.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>n = 4 бесконечным спуском и n = 3 через кольцо ℤ[ω].</li>
+        <li><span class="w">веха</span>Теорема Куммера для регулярных простых: круговые поля и группы классов ([N3]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Edwards «Fermat's Last Theorem: A Genetic Introduction…» (первые главы, до регулярных простых); Washington «Introduction to Cyclotomic Fields»; Боревич, Шафаревич.</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>Эллиптические кривые и модулярные формы</b><span class="dur">≈ 2 месяца</span></div>
+      <p>Повторить и углубить [N5]–[N6] в направлении, нужном для Ферма: редукция и кондуктор, кривая Тейта, модулярные кривые как алгебраические кривые,
+      соотношение Эйхлера–Шимуры и ℓ-адическое представление ρ<sub>f</sub> собственной формы веса 2.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Эллиптические кривые: теорема Морделла–Вейля, редукция, кондуктор, полустабильность ([N6]).</li>
+        <li><span class="w">веха</span>Модулярные формы, операторы Гекке, модулярные кривые X₀(N); конструкция Эйхлера–Шимуры: ℓ-адическое представление, ассоциированное с собственной формой веса 2.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Diamond, Shurman, гл. 6–9; Silverman «The Arithmetic of Elliptic Curves», гл. VII; Silverman «Advanced Topics…», гл. V (кривая Тейта).</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Кривая Фрея, гипотеза Серра, теорема Рибета</b><span class="dur">≈ 1,5 месяца</span></div>
+      <p>Своими руками вычислить дискриминант и кондуктор кривой Фрея, проверить полустабильность, понять, почему <span class="ov">ρ</span><sub>E,p</sub> «слишком мало разветвлено». Гипотеза Серра
+      (уровень и вес по <span class="ov">ρ</span>) и теорема Рибета о понижении уровня: формулировка и идея — через кривые Шимура и их плохую редукцию.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Кривая Фрея: вычислить её дискриминант и кондуктор; понять, почему её представление mod p «слишком мало разветвлено».</li>
+        <li><span class="w">веха</span>Теорема Рибета: формулировка и идея доказательства.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Ribet, Stein «Lectures on Serre's conjectures»; Serre, Duke 1987; Ribet, Invent. Math. 1990; главы о Рибете в сборнике Cornell–Silverman–Stevens.</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>Деформации и R = 𝕋</b><span class="dur">4–5 месяцев</span><span class="ex">экзамен N8</span></div>
+      <p>Центральная фаза; по сути — дисциплина [N8] с прицелом на доказательство. Функтор деформаций и критерий Шлессингера, касательное пространство H¹(G, ad <span class="ov">ρ</span>);
+      локальные условия (плоские и полустабильные деформации); алгебры Гекке и сюръекция R → 𝕋; метод Тейлора–Уайлса и числовой критерий. Сначала прочитать
+      «Fermat's Last Theorem» Дармона–Даймонда–Тейлора от начала до конца на уровне формулировок, затем вернуться и разобрать полностью минимальный случай.</p>
+      <ul class="ms"><li><span class="w">веха</span>Деформации Мазура, R = T, критерий полного пересечения, метод Тейлора–Уайлса, переключение 3–5.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Gouvêa «Deformations of Galois representations»; Darmon, Diamond, Taylor; Cornell–Silverman–Stevens (главы Мазура, де Смита–Ленстры, де Шалита); затем Wiles и Taylor–Wiles.</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>Горизонт</b><span class="dur">по интересу</span></div>
+      <p>Упрощение Даймонда; модулярность всех кривых над ℚ (BCDT); гипотеза Серра (Кхаре–Винтенбергер); потенциальная модулярность и закон Сато–Тейта; обзор Калегари
+      о тридцати годах после Ферма. Модулярный метод для обобщённых уравнений Ферма. Проект формализации ВТФ в Lean — способ увидеть граф зависимостей всего доказательства.</p>
+      <div class="read"><span class="lab">Читать</span>Diamond, Annals 1996; Breuil, Conrad, Diamond, Taylor 2001; Khare, Wintenberger 2009; Calegari, ICM 2022.</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики при первом проходе</span>
+      <ul class="small">
+        <li>теорема Мазура о рациональных изогениях (неприводимость <span class="ov">ρ</span><sub>E,p</sub>);</li>
+        <li>теорема Ленглендса–Таннелла (замена базы для GL<sub>2</sub>);</li>
+        <li>доказательство теоремы Рибета (кривые Шимуры, лемма Ихары);</li>
+        <li>конечные плоские групповые схемы: Рейно, Фонтен–Лаффай;</li>
+        <li>двойственность Пуату–Тейта и теорема Чеботарёва;</li>
+        <li>построение ρ<sub>f</sub> и его локальные свойства (Эйхлер–Шимура, Делинь, Карайоль).</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> R = 𝕋 в минимальном случае — коммутативную алгебру «склейки» и подсчёт размерностей через когомологии Галуа. Это то, что Уайлс и Тейлор придумали заново.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Доказательство опирается почти на всю арифметику XX века: без списка чёрных ящиков легко утонуть. Главное новое — деформации и R = 𝕋; на них и тратить время.</li>
+        <li>Нормировки: гомологические и когомологические представления, двойственные друг другу; арифметический и геометрический Фробениус; твисты Тейта.</li>
+        <li>Коммутативная алгебра полных локальных колец (полные пересечения, модули Фиттинга, критерий Уайлса–Ленстры) часто оказывается неожиданно слабым местом: повторить [A6].</li>
+        <li>Текст Дармона–Даймонда–Тейлора плотный: читать вместе с соответствующими главами сборника Cornell–Silverman–Stevens.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Сингх</span> «Великая теорема Ферма» <span class="nt">— популярная история доказательства.</span></li>
+        <li><span class="au">Ribet</span> «Galois representations and modular forms» (Bull. AMS 32, 1995).</li>
+        <li><span class="au">Stevens</span> «An overview of the proof of Fermat's Last Theorem» <span class="nt">— первая глава сборника Cornell–Silverman–Stevens.</span></li>
+        <li><span class="au">Faltings</span> «The proof of Fermat's Last Theorem by R. Taylor and A. Wiles» (Notices AMS, 1995).</li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Edwards</span> «Fermat's Last Theorem: A Genetic Introduction to Algebraic Number Theory» <span class="nt">— Куммер.</span></li>
+        <li><span class="au">Diamond, Shurman</span> «A First Course in Modular Forms» <span class="nt">— до Эйхлера–Шимуры и представлений Галуа.</span></li>
+        <li><span class="au">Silverman</span> «The Arithmetic of Elliptic Curves»; «Advanced Topics in the Arithmetic of Elliptic Curves».</li>
+        <li><span class="au">Ribet, Stein</span> «Lectures on Serre's conjectures» (PCMI, 1999).</li>
+        <li><span class="au">Gouvêa</span> «Deformations of Galois representations» (PCMI, 1999).</li>
+        <li><span class="au">Cornell, Silverman, Stevens</span> (ред.) «Modular Forms and Fermat's Last Theorem» (1997) <span class="nt">— каждая часть доказательства отдельной главой.</span></li>
+        <li><span class="au">Darmon, Diamond, Taylor</span> «Fermat's Last Theorem» (1997) <span class="nt">— центральный текст.</span></li>
+        <li><span class="au">Stein</span> «Modular Forms: A Computational Approach» <span class="nt">— вычисления.</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники</div>
+      <ul>
+        <li><span class="au">Frey</span> «Links between stable elliptic curves and certain diophantine equations» (Ann. Univ. Sarav., 1986).</li>
+        <li><span class="au">Serre</span> «Sur les représentations modulaires de degré 2 de Gal(<span class="ov">ℚ</span>/ℚ)» (Duke Math. J. 54, 1987).</li>
+        <li><span class="au">Mazur</span> «Deforming Galois representations» (в сборнике «Galois Groups over ℚ», 1989).</li>
+        <li><span class="au">Ribet</span> «On modular representations of Gal(<span class="ov">ℚ</span>/ℚ) arising from modular forms» (Invent. Math. 100, 1990).</li>
+        <li><span class="au">Wiles</span> «Modular elliptic curves and Fermat's Last Theorem» (Annals of Math. 141, 1995).</li>
+        <li><span class="au">Taylor, Wiles</span> «Ring-theoretic properties of certain Hecke algebras» (Annals of Math. 141, 1995).</li>
+      </ul>
+      <div class="tier">Дальше</div>
+      <ul>
+        <li><span class="au">Diamond</span> «On deformation rings and Hecke rings» (Annals of Math., 1996).</li>
+        <li><span class="au">Breuil, Conrad, Diamond, Taylor</span> «On the modularity of elliptic curves over ℚ: wild 3-adic exercises» (JAMS 14, 2001).</li>
+        <li><span class="au">Khare, Wintenberger</span> «Serre's modularity conjecture I, II» (Invent. Math. 178, 2009).</li>
+        <li><span class="au">Calegari</span> «Reciprocity in the Langlands program since Fermat's Last Theorem» (ICM 2022; arXiv: 2109.14145).</li>
+        <li>Проект формализации ВТФ в Lean (руководитель K. Buzzard, с 2024 г.) <span class="nt">— граф зависимостей доказательства.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li>Проверить модулярность кривой уровня 11: коэффициенты ряда q∏(1 − qⁿ)²(1 − q<sup>11n</sup>)² совпадают с aₚ = p + 1 − #E(𝔽ₚ) для E: y² + y = x³ − x² − 10x − 20.
+      Это пять строк на Python; заодно — первая «настоящая» модулярная кривая X<sub>0</sub>(11).</li>
+    <li><span class="tool">PARI/GP</span><span class="tool">Sage</span> Для нескольких троек A + B = C взаимно простых чисел с A ≡ −1 (mod 4) и 32 | B посчитать кондуктор кривой y² = x(x − A)(x + B)
+      и сравнить с rad(ABC). Понять, что в кривой Фрея особенного по сравнению с этими примерами.</li>
+    <li><span class="tool">LMFDB</span> Пройти от эллиптической кривой к её новой форме и обратно; найти пару новых форм разных уровней, сравнимых по модулю ℓ, — живой пример повышения и понижения уровня.</li>
+    <li><span class="tool">Sage</span> По разложению многочлена 3-деления над 𝔽ₚ для многих p оценить образ <span class="ov">ρ</span><sub>E,3</sub> в GL<sub>2</sub>(𝔽<sub>3</sub>) и проверить, что он разрешим, — вход в теорему Ленглендса–Таннелла.</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#9C3D7A">V1</span><span>Представление ρ<sub>f</sub> строится в этальных когомологиях модулярной кривой; T<sub>p</sub> = F + V (Эйхлер–Шимура) и |a<sub>p</sub>| ≤ 2√p — гипотеза Римана для кривых.</span>
+    <span class="sq" style="background:#9A7B1C">V5</span><span>Модулярность — взаимность для GL<sub>2</sub> над ℚ; Ленглендс–Таннелл — случай функториальности (замена базы); теоремы о подъёме модулярности — главный инструмент современной арифметической программы.</span>
+  </div>
+</section>
+
+<!-- ===================== V3 ===================== -->
+<section class="vertex" id="v3" style="--c:#2A7F62;--t:#2A7F6214;--m:#2A7F6255">
+  <div class="vhead"><!--mark:v3--><div class="big">V3</div><div>
+    <div class="kick">Вершина прошлого · этап 5 · геометрический анализ</div>
+    <h2>Гипотеза Пуанкаре</h2>
+    <div class="vs">Топологическая задача, решённая уравнением теплопроводности для метрики</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>≈ 10–12 месяцев, удобно вторым треком</div>
+    <div><span class="lab">Новое</span>[T9] 3-многообразия, [D4] поток Риччи</div>
+    <div><span class="lab">Рубеж</span>экзамены [T9] и [D4] в фазах 2 и 4</div>
+    <div><span class="lab">Главная пара</span>Perelman I–III + Kleiner–Lott, Morgan–Tian</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <div class="statement">Всякое односвязное замкнутое 3-многообразие гомеоморфно S³. В размерности 3 топологическая, кусочно-линейная и гладкая категории совпадают (Моиз),
+  так что «гомеоморфно» здесь можно читать как «диффеоморфно».</div>
+  <p><b>Многомерная гипотеза</b>: гомотопическая n-сфера гомеоморфна Sⁿ. Смейл (1961) доказал её при n ≥ 5, Фридман (1982) — при n = 4, Перельман (2002–2003) — при n = 3.
+  Гладкий вариант в общем неверен (экзотические сферы Милнора), а в размерности 4 открыт до сих пор. Тем же методом Перельман доказал <b>гипотезу геометризации</b> Тёрстона:
+  после разрезания по сферам и несжимаемым торам каждый кусок замкнутого ориентируемого 3-многообразия несёт одну из восьми однородных геометрий.</p>
+  <p><b>Почему это вершина.</b> Геометризация даёт классификацию 3-многообразий — столь же полную, как классификация поверхностей. Поток Риччи стал универсальным инструментом:
+  дифференцируемая теорема о сфере (Брендле–Шён), обобщённая гипотеза Смейла о группах диффеоморфизмов сферических пространственных форм (Бамлер–Кляйнер). И это пока единственная решённая задача тысячелетия.</p>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана: [T1] → [T2] → [T3] → [G1] → [G2] → [G3] → [T9] и ([R5] → [D3]) → [D4] → V3. Отдельная ветка [G10] → [T8] ведёт к многомерному случаю.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[T2]–[T4]</td><td>π<sub>1</sub>, накрытия, ван Кампен; двойственность Пуанкаре; теоремы Гуревича и Уайтхеда — чтобы видеть, что односвязное замкнутое 3-многообразие — гомотопическая сфера.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G1]–[G2]</td><td>Многообразия, связности, тензор кривизны и его разложение; вычисления в координатах и в подвижном репере.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G3]</td><td>Теоремы сравнения (Бишоп–Громов, Топоногов), теорема о расщеплении, теорема о душе; сходимость Громова–Хаусдорфа и Чигера–Громова.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[R5], [D3]</td><td>Параболические уравнения, принцип максимума, оценки Шаудера, пространства Соболева; неравенство лог-Соболева — для энтропии.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[T9]</td><td>Новая дисциплина: разбиения Хегора, разложение на простые, JSJ, расслоения Зейферта, восемь геометрий.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[D4]</td><td>Новая дисциплина: поток Риччи, трюк ДеТурка, тензорный принцип максимума, оценки Ши, солитоны, теорема Гамильтона 1982 г.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G10], [T8]</td><td>Теория Морса и ручки, h-кобордизм — для многомерного случая.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[R7], [R4]</td><td>Вариационное исчисление (энтропия как функционал, градиентные потоки); тепловое ядро и его асимптотика.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>доказать, что замкнутое односвязное 3-многообразие гомотопически эквивалентно S³;</li>
+      <li>доказать сравнение объёмов Бишопа–Громова и теорему Майерса;</li>
+      <li>доказать принцип максимума для уравнения теплопроводности на компактном многообразии;</li>
+      <li>вычислить тензор Риччи для круглой сферы, цилиндра S² × ℝ и гиперболического пространства и выписать, как они эволюционируют под потоком Риччи;</li>
+      <li>построить разбиение Хегора рода 1 линзового пространства L(p, q) и вычислить его π<sub>1</sub>;</li>
+      <li>сформулировать теорему Кнезера–Милнора о разложении на простые и теорему о сфере.</li>
+    </ul></div>
+
+  <h3 class="vs3">Карта доказательства</h3>
+  <div class="maps">
+  <div class="box tint"><span class="lab">Смейл: размерности n ≥ 5</span>
+    <ol class="chain">
+      <li>Гомотопическая сфера Σⁿ без двух открытых дисков — h-кобордизм W между двумя копиями Sⁿ⁻¹.</li>
+      <li>Функция Морса на W даёт разложение на ручки; гомологическая тривиальность позволяет их сокращать.</li>
+      <li><b class="k">Трюк Уитни</b> убирает лишние пересечения сфер приклеивания — нужна размерность W не меньше 6: тогда W ≅ Sⁿ⁻¹ × [0, 1].</li>
+      <li>Σ — два диска, склеенные по границе ⇒ Σ гомеоморфно Sⁿ (трюк Александера). Для n = 5 нужен дополнительный шаг: Σ⁵ ограничивает стягиваемое 6-многообразие.</li>
+      <li>При n = 3, 4 трюк Уитни не работает: нужны совсем другие идеи — Фридман для n = 4, Перельман для n = 3.</li>
+    </ol></div>
+  <div class="box tint"><span class="lab">Перельман: размерность 3</span>
+    <ol class="chain">
+      <li><b class="k">Поток Риччи</b> ∂<sub>t</sub>g = −2 Ric из произвольной метрики; кратковременное существование; особенности за конечное время.</li>
+      <li><b class="k">Гамильтон–Айви</b>: где кривизна велика, она почти неотрицательна.</li>
+      <li>Монотонность <b class="k">W-энтропии</b> ⇒ отсутствие локального коллапса ⇒ пределы растяжений у особенностей — κ-решения.</li>
+      <li>Классификация κ-решений ⇒ <b class="k">канонические окрестности</b>: зоны большой кривизны — ε-шеи (почти S² × интервал) и «шапки».</li>
+      <li><b class="k">Хирургия</b>: разрезать шеи, вклеить стандартные шапки, продолжить поток; моменты хирургии не накапливаются.</li>
+      <li><b class="k">Конечное время вымирания</b> для односвязного M ⇒ M — связная сумма сферических пространственных форм и S² × S¹ ⇒ M ≅ S³.</li>
+    </ol></div>
+  </div>
+
+  <h3 class="vs3">Маршрут</h3>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">2–3 недели</span></div>
+      <p>Обзоры Милнора и Моргана — история, формулировки, общая схема; статья Тёрстона 1982 года с его программой; популярная книга Гессен о Перельмане.
+      Цель — понять, какие части доказательства нужны для гипотезы Пуанкаре, а какие — только для геометризации.</p>
+      <div class="read"><span class="lab">Читать</span>Milnor, Notices AMS 2003; Morgan, Bull. AMS 2005; Thurston, Bull. AMS 1982; Гессен «Совершенная строгость».</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>Многомерный случай</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Теорема об h-кобордизме по Милнору: функции Морса, ручки, их сокращение, трюк Уитни. Отдельно разобрать, где именно используется размерность и почему всё ломается в 3 и 4.</p>
+      <ul class="ms"><li><span class="w">веха</span>Многомерный случай: теорема об h-кобордизме по книге Милнора.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Milnor «Lectures on the h-cobordism theorem»; Milnor «Morse Theory» (повторение); Smale, Annals 1961.</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>Топология 3-многообразий</b><span class="dur">≈ 2 месяца</span><span class="ex">экзамен T9</span></div>
+      <p>Разбиения Хегора, разложение на простые, несжимаемые поверхности и JSJ, расслоения Зейферта, гиперболическая геометрия и жёсткость Мостова, восемь геометрий.
+      Что даёт геометризация и как из неё следует гипотеза Пуанкаре. Много картинок и вычислений в SnapPy.</p>
+      <ul class="ms"><li><span class="w">веха</span>Топология 3-многообразий и программа геометризации Тёрстона ([T9]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Hatcher «Notes on Basic 3-Manifold Topology»; Thurston «Three-Dimensional Geometry and Topology»; Scott 1983; Martelli «An Introduction to Geometric Topology».</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Геометрия сравнения</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Теоремы сравнения, теорема о душе и пространства неотрицательной кривизны — на них держится классификация κ-решений; сходимость Громова–Хаусдорфа и компактность
+      Чигера–Громова — на них держится анализ растяжений. Пространства Александрова — обзорно.</p>
+      <ul class="ms"><li><span class="w">веха</span>Теоремы сравнения, сходимость Громова–Хаусдорфа, пространства Александрова (обзор).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Petersen «Riemannian Geometry»; Бураго, Бураго, Иванов «Курс метрической геометрии»; Cheeger, Ebin «Comparison Theorems in Riemannian Geometry».</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>Поток Риччи Гамильтона</b><span class="dur">≈ 2 месяца</span><span class="ex">экзамен D4</span></div>
+      <p>Кратковременное существование, уравнения эволюции кривизны, тензорный принцип максимума, оценки Ши, теорема о компактности Гамильтона, солитоны;
+      теорема 1982 года о положительной кривизне Риччи и оценка Гамильтона–Айви. Хорошая разминка — поток Риччи на поверхностях.</p>
+      <ul class="ms"><li><span class="w">веха</span>Поток Риччи: существование, принцип максимума, теорема Гамильтона 1982 года, оценка Гамильтона–Айви ([D4]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Chow, Knopf; Topping «Lectures on the Ricci Flow»; Chow, Lu, Ni «Hamilton's Ricci Flow»; Hamilton, J. Diff. Geom. 1982 и обзор 1995 г.</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>Перельман</b><span class="dur">3–4 месяца</span></div>
+      <p>Главная фаза. Статья I: функционалы F и W, их монотонность, отсутствие локального коллапса, κ-решения, канонические окрестности. Статья II: хирургия и её корректность.
+      Статья III (или Колдинг–Миникоцци): конечное время вымирания. Для самой гипотезы Пуанкаре долговременный анализ из статьи II (толстая и тонкая части) не нужен —
+      достаточно вымирания; это экономит месяцы.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Перельман, статья I: W-энтропия и её монотонность, отсутствие локального коллапса, κ-решения.</li>
+        <li><span class="w">веха</span>Перельман, статья II: канонические окрестности, хирургия.</li>
+        <li><span class="w">веха</span>Перельман, статья III (или Колдинг–Миникоцци): конечное время вымирания для односвязных многообразий.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Perelman (arXiv: math/0211159, math/0303109, math/0307245) с Kleiner–Lott рядом; Morgan, Tian — за подробностями; Tao «Poincaré's Legacies, Part II».</div></div>
+    <div class="ph"><span class="n">6</span><div class="h"><b>Горизонт</b><span class="dur">по интересу</span></div>
+      <p>Полная геометризация (Morgan–Tian 2014; Бессьер, Безсон, Буало, Майо, Порти), дифференцируемая теорема о сфере, поток Риччи через особенности и его единственность;
+      поток средней кривизны (Хьюскен) и его особенности; кэлеров поток Риччи — мост к метрикам Калаби–Яу ([V6]).</p>
+      <div class="read"><span class="lab">Читать</span>Morgan, Tian «The Geometrization Conjecture»; Bessières и др. «Geometrisation of 3-Manifolds»; Brendle «Ricci Flow and the Sphere Theorem».</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики при первом проходе</span>
+      <ul class="small">
+        <li>теорема Гамильтона о компактности решений (на основе Чигера–Громова) и оценки Ши;</li>
+        <li>детальная классификация трёхмерных κ-решений;</li>
+        <li>существование стандартного решения для хирургии и её оценки;</li>
+        <li>оценка времени вымирания (минимальные поверхности у Колдинга–Миникоцци или функционал ширины у Перельмана);</li>
+        <li>теоремы о душе и о расщеплении из римановой геометрии.</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> монотонность W-энтропии и теорему об отсутствии локального коллапса (Перельман I, §§ 3–4) — несколько страниц, ключевая новая идея.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Новый стиль рассуждений — анализ растяжений и компактность. Разумно сначала увидеть его на потоке укорачивания кривых или на потоке Риччи на поверхностях.</li>
+        <li>Статьи Перельмана предельно сжаты: не читать их в одиночку, только параллельно с Kleiner–Lott.</li>
+        <li>Объём: Morgan–Tian — сотни страниц. Основным текстом лучше выбрать Kleiner–Lott, а Morgan–Tian использовать как справочник.</li>
+        <li>Держать в голове логику: что нужно для гипотезы Пуанкаре, а что — только для геометризации.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Milnor</span> «Towards the Poincaré conjecture and the classification of 3-manifolds» (Notices AMS 50, 2003).</li>
+        <li><span class="au">Morgan</span> «Recent progress on the Poincaré conjecture and the classification of 3-manifolds» (Bull. AMS 42, 2005).</li>
+        <li><span class="au">Thurston</span> «Three-dimensional manifolds, Kleinian groups and hyperbolic geometry» (Bull. AMS 6, 1982).</li>
+        <li><span class="au">Гессен</span> «Совершенная строгость. Григорий Перельман: гений и задача тысячелетия» <span class="nt">— популярно.</span></li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Milnor</span> «Lectures on the h-cobordism theorem» (1965).</li>
+        <li><span class="au">Hatcher</span> «Notes on Basic 3-Manifold Topology» (свободно).</li>
+        <li><span class="au">Thurston</span> «Three-Dimensional Geometry and Topology», т. 1.</li>
+        <li><span class="au">Martelli</span> «An Introduction to Geometric Topology» (свободно, arXiv) <span class="nt">— гиперболическая геометрия и 3-многообразия.</span></li>
+        <li><span class="au">Scott</span> «The geometries of 3-manifolds» (Bull. LMS 15, 1983).</li>
+        <li><span class="au">Бураго, Бураго, Иванов</span> «Курс метрической геометрии».</li>
+        <li><span class="au">Chow, Knopf</span> «The Ricci Flow: An Introduction»; <span class="au">Topping</span> «Lectures on the Ricci Flow».</li>
+        <li><span class="au">Chow, Lu, Ni</span> «Hamilton's Ricci Flow» (GSM 77).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники</div>
+      <ul>
+        <li><span class="au">Smale</span> «Generalized Poincaré's conjecture in dimensions greater than four» (Annals of Math. 74, 1961).</li>
+        <li><span class="au">Hamilton</span> «Three-manifolds with positive Ricci curvature» (J. Diff. Geom. 17, 1982).</li>
+        <li><span class="au">Hamilton</span> «The formation of singularities in the Ricci flow» (Surveys in Diff. Geom. 2, 1995).</li>
+        <li><span class="au">Perelman</span>, arXiv: math/0211159, math/0303109, math/0307245.</li>
+        <li><span class="au">Kleiner, Lott</span> «Notes on Perelman's papers» (Geom. Topol. 12, 2008).</li>
+        <li><span class="au">Morgan, Tian</span> «Ricci Flow and the Poincaré Conjecture» (Clay Math. Monographs 3, 2007).</li>
+        <li><span class="au">Colding, Minicozzi</span> «Estimates for the extinction time for the Ricci flow on certain 3-manifolds and a question of Perelman» (JAMS 18, 2005).</li>
+      </ul>
+      <div class="tier">Дальше</div>
+      <ul>
+        <li><span class="au">Tao</span> «Poincaré's Legacies, Part II» (AMS, 2009) <span class="nt">— лекции курса о доказательстве Перельмана;</span> «Perelman's proof of the Poincaré conjecture: a nonlinear PDE perspective» (arXiv: math/0610903).</li>
+        <li><span class="au">Morgan, Tian</span> «The Geometrization Conjecture» (Clay Math. Monographs 5, 2014).</li>
+        <li><span class="au">Bessières, Besson, Boileau, Maillot, Porti</span> «Geometrisation of 3-Manifolds» (EMS Tracts 13, 2010).</li>
+        <li><span class="au">Freedman</span> «The topology of four-dimensional manifolds» (J. Diff. Geom. 17, 1982).</li>
+        <li><span class="au">Brendle</span> «Ricci Flow and the Sphere Theorem» (GSM 111).</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li><span class="tool">SnapPy</span> Объёмы гиперболических многообразий: дополнение узла-восьмёрки (≈ 2,0299 — два правильных идеальных тетраэдра), многообразие Уикса (≈ 0,9427 — наименьший объём замкнутого);
+      заполнения Дена и их объёмы. Объём как топологический инвариант — живое следствие жёсткости Мостова.</li>
+    <li><span class="tool">Regina</span> Распознавание S³ по триангуляции, разложение на простые слагаемые, поиск несжимаемых поверхностей.</li>
+    <li><span class="tool">Python</span> Поток укорачивания кривых: вложенная кривая становится выпуклой и округляется (Гейдж–Гамильтон–Грейсон) — одномерная модель всего сюжета.</li>
+    <li><span class="tool">Python</span> Вращательно-симметричная метрика-«гантель» ds² + ψ(s)²g<sub>S²</sub> на S³: численно решить уравнение на ψ и увидеть пережатие шеи; сравнить с S², где поток округляет любую метрику.</li>
+    <li>Явные решения своими руками: сжимающаяся сфера, цилиндр, расширяющееся гиперболическое пространство, солитон-сигара Гамильтона (dx² + dy²)/(1 + x² + y²).</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#B5652A">V4</span><span>Уравнение теплопроводности как инструмент: тепловое ядро в теореме об индексе; энтропия и приведённый объём Перельмана устроены через сопряжённое уравнение теплопроводности.</span>
+    <span class="sq" style="background:#3E7CB1">V6</span><span>Метрики Калаби–Яу — тоже геометрический анализ (решение Яу гипотезы Калаби); кэлеров поток Риччи сходится к ним в нужных случаях.</span>
+    <span class="sq" style="background:#B5652A">G11</span><span>Гомологии Флоера (в том числе Хегора–Флоера) — один из главных инструментов современной топологии 3- и 4-многообразий.</span>
+  </div>
+</section>
+
+<!-- ===================== V4 ===================== -->
+<section class="vertex" id="v4" style="--c:#B5652A;--t:#B5652A14;--m:#B5652A55">
+  <div class="vhead"><!--mark:v4--><div class="big">V4</div><div>
+    <div class="kick">Вершина прошлого · этап 5 · геометро-аналитическая ветвь · рекомендуется первой</div>
+    <h2>Теорема Атьи–Зингера об индексе</h2>
+    <div class="vs">Число решений дифференциального уравнения минус число препятствий — топологический инвариант</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>≈ 7–9 месяцев</div>
+    <div><span class="lab">Новое</span>[G9] Эллиптические операторы и индекс</div>
+    <div><span class="lab">Рубеж</span>экзамен [G9] после фазы 5</div>
+    <div><span class="lab">Главная пара</span>Atiyah–Singer I, III + Lawson–Michelsohn; ABP 1973 + Roe</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <div class="statement">Для эллиптического дифференциального оператора D: Γ(E) → Γ(F) на замкнутом многообразии M число ind D = dim ker D − dim coker D конечно,
+  зависит только от гомотопического класса главного символа σ(D) ∈ K(T*M) и равно топологическому индексу, который выражается через характеристические классы.
+  Для скрученного оператора Дирака на чётномерном спинорном многообразии: ind D<sup>+</sup><sub>E</sub> = ∫<sub>M</sub> Â(TM) ch(E).</div>
+  <p><b>Четыре классических комплекса</b> — четыре теоремы, которые оказываются частными случаями одной:</p>
+  <table class="t"><thead><tr><th>Оператор</th><th>Индекс</th><th>Формула</th><th>Теорема</th></tr></thead><tbody>
+    <tr><td>d + d* на чётных формах</td><td>χ(M)</td><td>∫ e(TM)</td><td>Гаусс–Бонне–Черн</td></tr>
+    <tr><td>сигнатурный, dim M = 4k</td><td>σ(M)</td><td>∫ L(TM)</td><td>Хирцебрух</td></tr>
+    <tr><td><span class="ov">∂</span> + <span class="ov">∂</span>*, скрученный на E</td><td>χ(M, E)</td><td>∫ ch(E) td(TM)</td><td>Хирцебрух–Риман–Рох</td></tr>
+    <tr><td>Дирак на спинорном M</td><td>Â(M)</td><td>∫ Â(TM)</td><td>целочисленность Â-рода</td></tr>
+  </tbody></table>
+  <p><b>Почему это вершина.</b> Теорема связывает анализ (ядра операторов) с топологией (характеристические классы) и даёт целочисленность там, где её не видно:
+  Â-род спинорного многообразия — целое число, а по Лихнеровичу оно равно нулю при положительной скалярной кривизне. Индекс вычисляет размерности пространств модулей
+  инстантонов, монополей и псевдоголоморфных кривых — фундамент теорий Дональдсона, Зайберга–Виттена, Громова–Виттена и Флоера. Эквивариантная версия даёт формулу характеров Вейля,
+  а индекс семейств — язык аномалий в физике.</p>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана: ([R5], [D3]) → псевдодифференциальные операторы; [T4] → [T6] → [T7]; [G3] → [G8] → [G9] → V4.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[R5]</td><td>Фредгольмовы и компактные операторы, индекс и его устойчивость; теорема Атьи–Яниха K(X) = [X, Fred].</td><td class="lv">●</td></tr>
+    <tr><td class="c">[D3]</td><td>Распределения, преобразование Фурье, пространства Соболева и теоремы вложения, эллиптическая регулярность, уравнение теплопроводности, ΨDO (начало).</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G1]–[G3]</td><td>Расслоения, связности, кривизна; лапласианы на формах и формулы Вайценбёка.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[T6]</td><td>Черн–Вейль; классы Эйлера, Понтрягина, Черна; роды L, Â, Тодда; изоморфизм Тома.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[T7]</td><td>K-теория, периодичность Ботта, изоморфизм Тома в K-теории, характер Черна.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G8]</td><td>Алгебры Клиффорда, Spin и Spin<sup>c</sup>, оператор Дирака, формула Лихнеровича.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[L1]–[L2]</td><td>Спинорные представления; веса и характеры — для формулы Вейля через Атью–Ботта.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G4], [X3]</td><td>Риман–Рох для кривых и Хирцебрух–Риман–Рох — образцы ответа.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[T8], [G7]</td><td>Кобордизмы (первое доказательство, сигнатурная теорема); гармонические формы и теорема Ходжа.</td><td class="lv">○</td></tr>
+    <tr><td class="c">[R6], [Q5], [P4]</td><td>Асимптотика теплового ядра; суперсимметричное и вероятностное доказательства.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>доказать, что фредгольмовы операторы образуют открытое множество, а индекс локально постоянен и не меняется при компактных возмущениях;</li>
+      <li>вычислить классы Черна и Понтрягина ℂP<sup>n</sup> и проверить сигнатурную формулу для ℂP²;</li>
+      <li>сформулировать периодичность Ботта и вычислить K̃(S<sup>2n</sup>);</li>
+      <li>доказать эллиптическую оценку и регулярность для лапласиана на торе через ряды Фурье;</li>
+      <li>выписать оператор Дирака на ℝ<sup>n</sup> через образующие алгебры Клиффорда и проверить, что D² — лапласиан;</li>
+      <li>выписать L-род и Â-род через классы Понтрягина в размерностях 4 и 8.</li>
+    </ul></div>
+
+  <h3 class="vs3">Карта доказательства</h3>
+  <div class="maps">
+  <div class="box tint"><span class="lab">K-теоретическое доказательство (1968)</span>
+    <ol class="chain">
+      <li>Символ даёт класс [σ(D)] ∈ K(T*M); аналитический индекс зависит только от него: гомоморфизм ind<sub>a</sub>: K(T*M) → ℤ.</li>
+      <li><b class="k">Топологический индекс</b>: вложение M ⊂ ℝ<sup>N</sup>, изоморфизм Тома K(T*M) → K(T*ℝ<sup>N</sup>) и периодичность Ботта K(ℝ<sup>2N</sup>) ≅ ℤ.</li>
+      <li>Оба гомоморфизма удовлетворяют одним <b class="k">аксиомам</b>: нормировка на точке, вырезание, мультипликативность, функториальность при вложениях.</li>
+      <li>⇒ ind<sub>a</sub> = ind<sub>t</sub>. Характер Черна и изоморфизм Тома в когомологиях дают <b class="k">когомологическую формулу</b> (Атья–Зингер III).</li>
+    </ol></div>
+  <div class="box tint"><span class="lab">Тепловое ядро (1973, 1983)</span>
+    <ol class="chain">
+      <li><b class="k">Маккин–Зингер</b>: ind D = Tr e<sup>−tD*D</sup> − Tr e<sup>−tDD*</sup> при всех t &gt; 0 — ненулевые собственные значения сокращаются.</li>
+      <li>При t → 0 тепловое ядро раскладывается в ряд по степеням t с <b class="k">локальными</b> коэффициентами: индекс — интеграл локальной плотности.</li>
+      <li>В суперследе происходит «фантастическое сокращение»: остаётся член ровно нужной степени.</li>
+      <li><b class="k">Масштабирование Гетцлера</b>: в пределе D² становится гармоническим осциллятором; формула Мелера даёт плотность [Â(M) ch(E)]<sub>top</sub>.</li>
+    </ol></div>
+  </div>
+
+  <h3 class="vs3">Маршрут</h3>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">≈ 2 недели</span></div>
+      <p>Обзор Фрида — история, формы теоремы, следствия; анонс Атьи–Зингера 1963 года — всего несколько страниц. Выписать четыре классических случая из таблицы выше
+      и проверить их на S², T² и ℂP².</p>
+      <div class="read"><span class="lab">Читать</span>Freed, Bull. AMS 2021; Atiyah, Singer, Bull. AMS 1963.</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>Частные случаи вручную</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Гаусс–Бонне для поверхностей через Черна–Вейля, Риман–Рох для кривых, сигнатурная теорема Хирцебруха через кобордизмы и мультипликативные последовательности.
+      У каждой из трёх формул своё доказательство; задача фазы — увидеть, что ответ во всех трёх устроен одинаково.</p>
+      <ul class="ms"><li><span class="w">веха</span>Частные случаи «вручную»: Гаусс–Бонне для поверхностей ([G2]), Риман–Рох для кривых ([G4]), сигнатурная теорема Хирцебруха ([T8]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Milnor, Stasheff (глава о мультипликативных последовательностях и сигнатурной теореме); Hirzebruch «Topological Methods in Algebraic Geometry».</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>Аналитическая сторона</b><span class="dur">≈ 1,5 месяца</span></div>
+      <p>Фредгольмовы операторы, индекс, теорема Атьи–Яниха; псевдодифференциальные операторы, символьное исчисление, параметрикс, эллиптическая регулярность и
+      фредгольмовость на компактном многообразии.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Теория Фредгольма, индекс, теорема Атьи–Яниха ([R5], [T7]).</li>
+        <li><span class="w">веха</span>Псевдодифференциальные операторы и эллиптическая регулярность.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Шубин «Псевдодифференциальные операторы и спектральная теория»; Lawson, Michelsohn, гл. III; Wells, гл. IV; Atiyah «K-Theory» (приложение о фредгольмовых операторах).</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Топологическая сторона</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Периодичность Ботта (элементарное доказательство Атьи–Ботта), изоморфизм Тома в K-теории, характер Черна, K-теория с компактными носителями и класс символа.</p>
+      <ul class="ms"><li><span class="w">веха</span>Периодичность Ботта и изоморфизм Тома в K-теории.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Atiyah «K-Theory»; Hatcher «Vector Bundles and K-Theory»; Atiyah, Bott «On the periodicity theorem for complex vector bundles» (Acta Math., 1964).</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>K-теоретическое доказательство</b><span class="dur">≈ 1,5 месяца</span></div>
+      <p>Статья Атьи–Зингера I вместе с изложением Лоусона–Михельсон: аксиомы индекса, вырезание, мультипликативность, сведение к сфере и к точке; затем статья III —
+      когомологическая формула. Ключевой урок фазы — как топология «знает» индекс, не решая ни одного уравнения.</p>
+      <ul class="ms"><li><span class="w">веха</span>K-теоретическое доказательство (Atiyah–Singer I, 1968).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Atiyah, Singer I и III (Annals of Math. 87, 1968); Lawson, Michelsohn, гл. III; Shanahan (LNM 638).</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>Тепловое ядро</b><span class="dur">1,5–2 месяца</span><span class="ex">экзамен G9</span></div>
+      <p>Формула Маккина–Зингера, построение и асимптотика теплового ядра, локальная теорема об индексе через масштабирование Гетцлера. Книга Роу проводит всё
+      для операторов Дирака без тяжёлого символьного исчисления; Берлин–Гетцлер–Вернь — полная версия с суперсвязностями. После фазы — экзамен [G9].</p>
+      <ul class="ms"><li><span class="w">веха</span>Доказательство через тепловое ядро и масштабирование Гетцлера (Berline–Getzler–Vergne, Roe).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Roe «Elliptic Operators, Topology and Asymptotic Methods»; Berline, Getzler, Vergne, гл. 1–4; Getzler, Topology 1986; Atiyah, Bott, Patodi, Invent. Math. 1973.</div></div>
+    <div class="ph"><span class="n">6</span><div class="h"><b>Атья–Ботт и горизонт</b><span class="dur">1 месяц и дальше</span></div>
+      <p>Формула Атьи–Ботта о неподвижных точках для эллиптических комплексов и голоморфная формула Лефшеца; формула характеров Вейля из неё на флаговом многообразии.
+      Затем по интересу: индекс семейств, η-инвариант и Атья–Патоди–Зингер, суперсимметричное доказательство (Виттен, Альварес-Гоме), вероятностное (Бисмут).</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Формула Атьи–Ботта о неподвижных точках, аналог формулы следа из V1.</li>
+        <li><span class="w">веха</span>Дальше: индекс семейств; η-инвариант и теорема Атьи–Патоди–Зингера; суперсимметричное доказательство ([Q5]); вероятностное доказательство Бисмута ([P4]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Atiyah, Bott I, II (Annals 1967, 1968); Atiyah, Singer IV; Atiyah, Patodi, Singer I–III; Melrose «The APS Index Theorem»; Witten 1982; Bismut 1984.</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики при первом проходе</span>
+      <ul class="small">
+        <li>периодичность Ботта и изоморфизм Тома в K-теории в общем виде;</li>
+        <li>символьное исчисление ΨDO: композиция, сопряжение, замена переменных;</li>
+        <li>существование асимптотического разложения теплового ядра;</li>
+        <li>мультипликативность индекса (в K-теоретическом доказательстве).</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> локальную теорему об индексе для оператора Дирака через масштабирование Гетцлера — короткое и очень прозрачное вычисление,
+      в котором видно, откуда берётся Â-род.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Три языка сразу — анализ, K-теория, дифференциальная геометрия. Выбрать одно главное доказательство (тепловое ядро по Роу), второе пройти как другой взгляд.</li>
+        <li>Знаки и нормировки: ориентация T*M, множители 2πi в Черне–Вейле, род Тодда комплексификации. Проверять каждую формулу на S², T² и ℂP².</li>
+        <li>ℤ/2-градуированная алгебра (суперслед, модули Клиффорда) нужна с первого дня: потратить на неё неделю заранее.</li>
+        <li>Символьное исчисление ΨDO легко превращается в самоцель; для целей вершины достаточно формулировок и параметрикса.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Freed</span> «The Atiyah–Singer index theorem» (Bull. AMS 58, 2021; arXiv: 2107.03557).</li>
+        <li><span class="au">Atiyah, Singer</span> «The index of elliptic operators on compact manifolds» (Bull. AMS 69, 1963) <span class="nt">— анонс.</span></li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Roe</span> «Elliptic Operators, Topology and Asymptotic Methods» <span class="nt">— лучший первый текст.</span></li>
+        <li><span class="au">Lawson, Michelsohn</span> «Spin Geometry», гл. III <span class="nt">— K-теоретическое доказательство и следствия.</span></li>
+        <li><span class="au">Berline, Getzler, Vergne</span> «Heat Kernels and Dirac Operators» <span class="nt">— локальная теорема, эквивариантный случай, семейства.</span></li>
+        <li><span class="au">Шубин</span> «Псевдодифференциальные операторы и спектральная теория».</li>
+        <li><span class="au">Wells</span> «Differential Analysis on Complex Manifolds», гл. IV.</li>
+        <li><span class="au">Atiyah</span> «K-Theory»; <span class="au">Hatcher</span> «Vector Bundles and K-Theory» (свободно).</li>
+        <li><span class="au">Gilkey</span> «Invariance Theory, the Heat Equation, and the Atiyah–Singer Index Theorem».</li>
+        <li><span class="au">Shanahan</span> «The Atiyah–Singer Index Theorem: An Introduction» (LNM 638, 1978).</li>
+        <li><span class="au">Bleecker, Booß-Bavnbek</span> «Index Theory with Applications to Mathematics and Physics» (2013).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники</div>
+      <ul>
+        <li><span class="au">Palais</span> (ред.) «Seminar on the Atiyah–Singer Index Theorem» (Annals of Math. Studies 57, 1965) <span class="nt">— первое доказательство, через кобордизмы.</span></li>
+        <li><span class="au">Atiyah, Bott</span> «A Lefschetz fixed point formula for elliptic complexes I, II» (Annals of Math. 86, 1967; 88, 1968).</li>
+        <li><span class="au">Atiyah, Singer</span> «The index of elliptic operators I, III» (Annals of Math. 87, 1968).</li>
+        <li><span class="au">Atiyah, Bott, Patodi</span> «On the heat equation and the index theorem» (Invent. Math. 19, 1973).</li>
+        <li><span class="au">Getzler</span> «A short proof of the local Atiyah–Singer index theorem» (Topology 25, 1986).</li>
+      </ul>
+      <div class="tier">Дальше</div>
+      <ul>
+        <li><span class="au">Atiyah, Singer</span> «The index of elliptic operators IV» (Annals of Math. 93, 1971) <span class="nt">— семейства.</span></li>
+        <li><span class="au">Atiyah, Patodi, Singer</span> «Spectral asymmetry and Riemannian geometry I–III» (1975–1976); <span class="au">Melrose</span> «The Atiyah–Patodi–Singer Index Theorem».</li>
+        <li><span class="au">Witten</span> «Supersymmetry and Morse theory» (J. Diff. Geom. 17, 1982); <span class="au">Alvarez-Gaumé</span> «Supersymmetry and the Atiyah–Singer index theorem» (CMP 90, 1983).</li>
+        <li><span class="au">Bismut</span> «The Atiyah–Singer theorems: a probabilistic approach» (J. Funct. Anal. 57, 1984).</li>
+        <li><span class="au">Atiyah, Schmid</span> «A geometric construction of the discrete series for semisimple Lie groups» (Invent. Math. 42, 1977) <span class="nt">— мост к V5.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li>Сигнатурная теорема на ℂP², ℂP² # ℂP², S² × S² и на K3-поверхности (p<sub>1</sub> = −48, σ = −16, Â = 2). Вывести из чётности Â-рода спинорного 4-многообразия теорему Рохлина σ ≡ 0 (mod 16).</li>
+    <li>χ(ℂP¹, 𝒪(k)) = k + 1 по Хирцебруху–Риману–Роху; голоморфная формула Лефшеца для вращения ℂP¹ и формула характеров Вейля для SU(2).</li>
+    <li>Оператор Дирака на торе T² в постоянном магнитном поле с потоком N: найти нулевые моды явно (через тэта-функции) и убедиться, что индекс равен N — первому классу Черна.</li>
+    <li><span class="tool">Python</span> Тепловой след на окружности Σ e<sup>−tn²</sup> и его асимптотика √(π/t) (формула суммирования Пуассона); суперслед для комплекса де Рама на S¹ равен 0 = χ(S¹) при всех t.</li>
+    <li>Размерность пространства модулей SU(2)-инстантонов заряда k на S⁴ по теореме об индексе: 8k − 3 (Атья–Хитчин–Зингер). Повторить вычисление по шагам.</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#9C3D7A">V1</span><span>Формула Атьи–Ботта и формула следа Гротендика–Лефшеца — одна идея; Хирцебрух–Риман–Рох и Гротендик–Риман–Рох — алгебраическая тень теоремы об индексе.</span>
+    <span class="sq" style="background:#3E7CB1">V6</span><span>Индекс задаёт виртуальную размерность модулей стабильных отображений: для рода 0 без отмеченных точек в 3-мерное многообразие Калаби–Яу она равна нулю — поэтому кривые «считаются».</span>
+    <span class="sq" style="background:#2A7F62">V3</span><span>Тепловое ядро и формулы Вайценбёка — общий инструмент геометрического анализа; препятствия к положительной скалярной кривизне.</span>
+    <span class="sq" style="background:#9A7B1C">V5</span><span>Дискретные серии полупростых групп Ли реализуются в ядрах операторов Дирака (Атья–Шмид, Партасарати).</span>
+  </div>
+</section>
+
+<!-- ===================== V5 ===================== -->
+<section class="vertex" id="v5" style="--c:#9A7B1C;--t:#9A7B1C16;--m:#9A7B1C55">
+  <div class="vhead"><!--mark:v5--><div class="big">V5</div><div>
+    <div class="kick">Современное направление · этап 6 · открытая программа</div>
+    <h2>Программа Ленглендса</h2>
+    <div class="vs">Большая единая теория: автоморфные формы, представления Галуа и геометрия кривых как три стороны одного соответствия</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>вход ≈ 1,5–2 года, дальше открыто</div>
+    <div><span class="lab">Новое</span>[L4], [N9], [X6], [X8], [X9]</div>
+    <div><span class="lab">Рубежи</span>экзамены [L4] и [N9] в стволе, [X6], [X8], [X9] в геометрическом треке</div>
+    <div><span class="lab">Главная пара</span>письмо Ленглендса 1967 + Gelbart 1984, Arthur 2003</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <div class="statement"><b>Взаимность.</b> Автоморфным представлениям π редуктивной группы G над глобальным полем F должны отвечать (с точностью до L-пакетов) гомоморфизмы
+  φ<sub>π</sub> из группы Галуа поля F (или её гипотетических аналогов) в дуальную группу ᴸG, причём локальные компоненты согласованы: неразветвлённая компонента π<sub>v</sub>
+  соответствует классу сопряжённости φ(Frob<sub>v</sub>) через изоморфизм Сатаке, и L-функции совпадают.<br>
+  <b>Функториальность.</b> Каждому L-гомоморфизму ᴸH → ᴸG отвечает перенос автоморфных представлений с H на G.</div>
+  <p><b>Частные случаи</b>: теория полей классов (G = GL<sub>1</sub>); модулярность эллиптических кривых ([V2]); гипотеза Сато–Тейта (доказана в 2008–2011 через потенциальную автоморфность);
+  функториальность симметрических степеней для голоморфных модулярных форм (Ньютон–Торн, 2021). <b>Разделы</b> программы, по плану: глобальная арифметическая, локальная,
+  над функциональными полями, геометрическая, p-адическая с геометризацией локального соответствия (Фаргу–Шольце), относительная.</p>
+
+  <h3 class="vs3">Карта: «Розеттский камень» Вейля</h3>
+  <p>Вместо карты доказательства — карта программы. Одно и то же соответствие живёт в трёх мирах; продвижение в одном столбце обычно подсказывает путь в соседнем.</p>
+  <table class="t"><thead><tr><th style="width:15%"></th><th>Числовые поля</th><th>Функциональные поля над 𝔽<sub>q</sub></th><th>Кривые над ℂ</th></tr></thead><tbody>
+    <tr><td><b>Поле</b></td><td>ℚ и его конечные расширения</td><td>𝔽<sub>q</sub>(X) — функции на кривой X над 𝔽<sub>q</sub></td><td>ℂ(X) — мероморфные функции на римановой поверхности X</td></tr>
+    <tr><td><b>Сторона Галуа</b></td><td>представления Gal(<span class="ov">ℚ</span>/ℚ)</td><td>ℓ-адические локальные системы на открытых частях X</td><td>локальные системы, плоские связности на X</td></tr>
+    <tr><td><b>Автоморфная сторона</b></td><td>автоморфные формы на G(ℚ)∖G(𝔸)</td><td>функции на Bun<sub>G</sub>(𝔽<sub>q</sub>) = G(F)∖G(𝔸)/G(𝒪)</td><td>D-модули и пучки на стеке Bun<sub>G</sub></td></tr>
+    <tr><td><b>Статус</b></td><td>GL<sub>1</sub> — теория полей классов; GL<sub>2</sub> над ℚ — во многом (модулярность); общий случай открыт</td>
+      <td>GL<sub>2</sub> — Дринфельд, GL<sub>n</sub> — Л. Лафорг; для общих G направление «автоморфное → Галуа» — В. Лафорг</td>
+      <td>гипотеза доказана: Гайцгори, Раскин и соавторы (2024–2025)</td></tr>
+  </tbody></table>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана. Арифметика: ([N5], [N8]) → [N7] → [L3] → [L4] → [N9] → V5. Геометрия: [G4] → [X8] → ([X6], [X9]) → V5.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[A4], [N7]</td><td>Бесконечная теория Галуа; теория полей классов, идели, тезис Тейта — программа для GL<sub>1</sub>.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N5], [N6], [N8]</td><td>Модулярные формы, эллиптические кривые, представления Галуа — программа для GL<sub>2</sub> над ℚ; это и есть [V2].</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N2]–[N4]</td><td>Локальные поля, ветвление; L-функции, их продолжение и функциональные уравнения.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[R4], [R5]</td><td>Гармонический анализ на локально компактных группах, двойственность Понтрягина; спектральная теория (непрерывный спектр — ряды Эйзенштейна).</td><td class="lv">●</td></tr>
+    <tr><td class="c">[A5], [L1]–[L3]</td><td>Характеры конечных групп (L-функции Артина); корневые данные, редуктивные группы над незамкнутыми полями, дуальная группа и L-группа.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[L4], [N9]</td><td>Новые дисциплины: представления GL<sub>2</sub>(ℝ) и GL<sub>2</sub>(ℚ<sub>p</sub>), алгебры Гекке, Сатаке; автоморфные представления, L-функции, формула следа.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X2]–[X4]</td><td>Схемы и этальные когомологии — когомологии многообразий Шимуры и модулей штук.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X6], [X8], [X9]</td><td>Новые дисциплины геометрического трека: производные категории, Bun<sub>G</sub> и стеки, D-модули и перверсные пучки, геометрический Сатаке.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G4], [A8]</td><td>Кривые и якобианы — место действия геометрической программы; язык категорий.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G7], [Q4]–[Q6]</td><td>Теория Ходжа (многообразия Шимуры); физика — для Капустина–Виттена.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>сформулировать закон взаимности Артина в идельной форме и вывести из него квадратичный закон взаимности;</li>
+      <li>объяснить, как тезис Тейта даёт продолжение и функциональное уравнение ζ(s) через формулу Пуассона на аделях;</li>
+      <li>выписать эйлерово произведение L-функции собственной формы Гекке через параметры Сатаке α<sub>p</sub>, β<sub>p</sub>;</li>
+      <li>перечислить неприводимые представления GL<sub>2</sub>(𝔽<sub>q</sub>) по типам и их размерности;</li>
+      <li>вычислить корневые данные и дуальные группы для GL<sub>n</sub>, SL<sub>n</sub>, PGL<sub>n</sub>, Sp<sub>2n</sub>, SO<sub>2n+1</sub>;</li>
+      <li>объяснить, как Γ<sub>0</sub>(N)∖ℍ получается в виде G(ℚ)∖G(𝔸)/K.</li>
+    </ul></div>
+
+  <h3 class="vs3">Маршрут</h3>
+  <p class="small muted">Фазы 0–3 — общий ствол; затем треки: арифметический (4), p-адический (5, по желанию) и геометрический (6). Разумно выбрать один главный трек, а остальные держать на уровне обзоров.</p>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Обзор Гелбарта, письмо Ленглендса Вейлю, книга Френкеля для мотивации; письмо Вейля сестре 1940 года — оттуда «Розеттский камень»; статья Артура о функториальности.
+      Обзор Калегари — что изменилось после Ферма. Цель — заполнить таблицу «Розеттского камня» своими словами и примерами.</p>
+      <ul class="ms"><li><span class="w">веха</span>«Розеттский камень» Вейля (см. сквозные идеи).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Gelbart 1984; письмо Ленглендса (1967); Weil, Notices AMS 2005; Arthur, Bull. AMS 2003; Френкель «Любовь и математика»; Calegari 2021.</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>GL<sub>1</sub></b><span class="dur">≈ 1,5 месяца</span></div>
+      <p>Теория полей классов как соответствие Ленглендса для GL<sub>1</sub>: характеры Гекке ↔ одномерные представления Галуа. Тезис Тейта целиком — образец всей
+      последующей теории L-функций; L-функции Артина и гипотеза Артина как первый вопрос для GL<sub>n</sub>.</p>
+      <ul class="ms"><li><span class="w">веха</span>Теория полей классов как Ленглендс для GL₁; тезис Тейта ([N7]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Ramakrishnan, Valenza «Fourier Analysis on Number Fields»; Касселс, Фрёлих (тезис Тейта); Milne «Class Field Theory».</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>GL<sub>2</sub></b><span class="dur">3–4 месяца</span><span class="ex">экзамены L4, N9</span></div>
+      <p>От модулярных форм к автоморфным представлениям GL<sub>2</sub>(𝔸<sub>ℚ</sub>); тензорное разложение Флата; представления GL<sub>2</sub>(ℝ) и GL<sub>2</sub>(ℚ<sub>p</sub>);
+      локальное соответствие для GL<sub>2</sub>; L-функции, обратные теоремы, соответствие Жаке–Ленглендса. Всё — с явными вычислениями для GL<sub>2</sub>.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>От модулярных форм к автоморфным представлениям GL₂(𝔸<sub>ℚ</sub>); L-функции и обратные теоремы ([N9]).</li>
+        <li><span class="w">веха</span>Представления GL₂(ℚₚ) и локальное соответствие для GL₂ (Bushnell–Henniart).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Bump; Getz, Hahn; Bushnell, Henniart; Gelbart «Automorphic Forms on Adele Groups»; Jacquet, Langlands (LNM 114).</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Общая теория</b><span class="dur">≈ 3 месяца</span></div>
+      <p>L-группа, изоморфизм Сатаке, неразветвлённые L-функции, формулировка функториальности; формула следа Сельберга для компактного фактора, затем обзор формулы следа Артура
+      и её роли (эндоскопия, сравнение формул следа).</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>L-группа, изоморфизм Сатаке, формулировка функториальности.</li>
+        <li><span class="w">веха</span>Формула следа Сельберга, затем обзор формулы следа Артура.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Gross «On the Satake isomorphism»; Borel «Automorphic L-functions» (Корваллис); Arthur «An introduction to the trace formula»; Bernstein, Gelbart (ред.).</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>Арифметический трек: многообразия Шимуры</b><span class="dur">3–4 месяца</span></div>
+      <p>Модулярная кривая как простейшее многообразие Шимуры; их когомологии реализуют соответствие. Локальное соответствие для GL<sub>n</sub> (Харрис–Тейлор, Энньяр) — обзорно.
+      Подъём модулярности в общем виде: что из метода [V2] обобщилось и как.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Многообразия Шимуры: модулярная кривая как простейший пример; их когомологии реализуют соответствие.</li>
+        <li><span class="w">веха</span>Локальное соответствие для GLₙ (Харрис–Тейлор, Энньяр, 2000–2001), обзорно.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Milne «Introduction to Shimura Varieties»; Taylor «Galois representations»; Harris, Taylor (введение); Weinstein, Bull. AMS 2016.</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>p-адический трек</b><span class="dur">4–6 месяцев, по желанию</span></div>
+      <p>p-адическая теория Ходжа, перфектоидные пространства, диамонды, кривая Фаргу–Фонтена и геометризация локального соответствия. Самая быстро развивающаяся часть программы.</p>
+      <ul class="ms"><li><span class="w">веха</span>p-адическая теория Ходжа, перфектоидные пространства, работа Фаргу–Шольце (обзор).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Brinon, Conrad; Scholze «Perfectoid spaces»; Scholze, Weinstein «Berkeley Lectures»; Fargues (обзор геометризации); Fargues, Scholze.</div></div>
+    <div class="ph"><span class="n">6</span><div class="h"><b>Геометрический трек</b><span class="dur">6–9 месяцев</span><span class="ex">экзамены X6, X8, X9</span></div>
+      <p>Геометрическая теория полей классов (якобианы, обобщённые якобианы Розенлихта); Дринфельд и Лафорги; Bun<sub>G</sub>, операторы Гекке, собственные пучки,
+      геометрический Сатаке; Бейлинсон–Дринфельд; Капустин–Виттен; обзор доказательства 2024 года.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Геометрическая теория полей классов: отображение Абеля–Якоби, якобиан, обобщённые якобианы Розенлихта (Серр «Алгебраические группы и поля классов»).</li>
+        <li><span class="w">веха</span>Дринфельд (GL₂), Л. Лафорг (GLₙ, 2002), В. Лафорг (общее G): обзор.</li>
+        <li><span class="w">веха</span>Bun<sub>G</sub>, операторы Гекке, собственные пучки Гекке; геометрическая теорема Сатаке ([X9]).</li>
+        <li><span class="w">веха</span>Бейлинсон–Дринфельд: система Хитчина и оперы (обзор).</li>
+        <li><span class="w">веха</span>Капустин–Виттен: S-дуальность и связь с зеркальной симметрией (обзор).</li>
+        <li><span class="w">веха</span>Доказательство геометрической гипотезы Ленглендса Гайцгори, Раскиным и соавторами (2024): обзорно.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Серр «Алгебраические группы и поля классов»; Frenkel «Lectures on the Langlands Program and CFT»; Zhu (лекции об аффинных грассманианах); Mirković, Vilonen; Kapustin, Witten.</div></div>
+    <div class="ph"><span class="n">7</span><div class="h"><b>Горизонт</b><span class="dur">открыто</span></div>
+      <p>Относительная программа (периоды, сферические многообразия, двойственность Бен-Цви–Сакелларидиса–Венкатеша); эндоскопия и классификация Артура; функториальность
+      симметрических степеней. Цель этапа 6 по плану — читать свежие статьи на arXiv в выбранном направлении и понимать, какие в нём открытые вопросы.</p>
+      <div class="read"><span class="lab">Читать</span>Sakellaridis, Venkatesh (Astérisque 396); Ben-Zvi, Sakellaridis, Venkatesh «Relative Langlands duality»; доклады ICM и семинара Бурбаки последних лет.</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Что принять на веру при первом проходе</span>
+      <ul class="small">
+        <li>спектральное разложение Ленглендса и теория рядов Эйзенштейна;</li>
+        <li>формула следа Артура в общем виде и фундаментальная лемма (Нго);</li>
+        <li>построение представлений Галуа в когомологиях многообразий Шимуры (Харрис–Тейлор и др.);</li>
+        <li>доказательство геометрической теоремы Сатаке; основания производной алгебраической геометрии.</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> тезис Тейта, изоморфизм Сатаке для GL<sub>2</sub> и формулу следа Сельберга для компактного фактора — на них держится интуиция всей программы.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Область огромна: после общего ствола выбрать трек. Цель — не «знать всё», а свободно читать статьи в одном направлении.</li>
+        <li>Представления p-адических групп кажутся техническими: сначала всё для GL<sub>2</sub> руками, по Бушнеллу–Энньяру.</li>
+        <li>Нормировки: унитарная и арифметическая (сдвиг s ↦ s − (k − 1)/2), нормированная индукция, зависимость ε-факторов от аддитивного характера.</li>
+        <li>Современная геометрическая программа требует ∞-категорий и производной геометрии; разумно остановиться на классическом уровне, если трек не главный.</li>
+        <li>Литература быстро стареет: ориентироваться по обзорам ICM и семинара Бурбаки.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Gelbart</span> «An elementary introduction to the Langlands program» (Bull. AMS 10, 1984).</li>
+        <li><span class="au">Langlands</span>, письмо А. Вейлю (1967) <span class="nt">— на сайте IAS, в собрании трудов Ленглендса.</span></li>
+        <li><span class="au">Weil</span> «A 1940 letter of André Weil on analogy in mathematics» (пер. M. Krieger, Notices AMS 52, 2005).</li>
+        <li><span class="au">Arthur</span> «The principle of functoriality» (Bull. AMS 40, 2003).</li>
+        <li><span class="au">Френкель</span> «Любовь и математика» <span class="nt">— популярно, для мотивации.</span></li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Ramakrishnan, Valenza</span> «Fourier Analysis on Number Fields» (GTM 186) <span class="nt">— тезис Тейта.</span></li>
+        <li><span class="au">Bump</span> «Automorphic Forms and Representations».</li>
+        <li><span class="au">Getz, Hahn</span> «An Introduction to Automorphic Representations».</li>
+        <li><span class="au">Bushnell, Henniart</span> «The Local Langlands Conjecture for GL(2)».</li>
+        <li><span class="au">Gelbart</span> «Automorphic Forms on Adele Groups» (1975).</li>
+        <li><span class="au">Bernstein, Gelbart</span> (ред.) «An Introduction to the Langlands Program» (2003).</li>
+        <li><span class="au">Milne</span> «Introduction to Shimura Varieties» (свободно).</li>
+        <li><span class="au">Гельфанд, Граев, Пятецкий-Шапиро</span> «Теория представлений и автоморфные функции» (1966).</li>
+      </ul>
+      <div class="tier">p-адический трек</div>
+      <ul>
+        <li><span class="au">Brinon, Conrad</span> «CMI Summer School Notes on p-adic Hodge Theory» (свободно).</li>
+        <li><span class="au">Scholze</span> «Perfectoid spaces» (Publ. Math. IHÉS 116, 2012).</li>
+        <li><span class="au">Scholze, Weinstein</span> «Berkeley Lectures on p-adic Geometry» (Annals of Math. Studies 207, 2020).</li>
+        <li><span class="au">Fargues, Scholze</span> «Geometrization of the local Langlands correspondence» (arXiv: 2102.13459).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники и обзоры</div>
+      <ul>
+        <li><span class="au">Jacquet, Langlands</span> «Automorphic Forms on GL(2)» (LNM 114, 1970).</li>
+        <li><span class="au">Borel, Casselman</span> (ред.) «Automorphic Forms, Representations and L-functions» (Proc. Symp. Pure Math. 33, «Корваллис», 1979).</li>
+        <li><span class="au">Arthur</span> «An introduction to the trace formula» (Clay Math. Proc. 4, 2005).</li>
+              <li><span class="au">Gross</span> «On the Satake isomorphism» (1998).</li>
+        <li><span class="au">Taylor</span> «Galois representations» (Ann. Fac. Sci. Toulouse, 2004).</li>
+        <li><span class="au">Harris, Taylor</span> «The Geometry and Cohomology of Some Simple Shimura Varieties» (2001).</li>
+        <li><span class="au">Weinstein</span> «Reciprocity laws and Galois representations: recent breakthroughs» (Bull. AMS 53, 2016).</li>
+        <li><span class="au">Calegari</span> «Reciprocity in the Langlands program since Fermat's Last Theorem» (arXiv: 2109.14145).</li>
+      </ul>
+      <div class="tier">Геометрический трек</div>
+      <ul>
+        <li><span class="au">Серр</span> «Алгебраические группы и поля классов».</li>
+        <li><span class="au">Frenkel</span> «Lectures on the Langlands Program and Conformal Field Theory» (arXiv: hep-th/0512172).</li>
+        <li><span class="au">Zhu</span> «An introduction to affine Grassmannians and the geometric Satake equivalence» (лекции PCMI).</li>
+        <li><span class="au">Mirković, Vilonen</span> «Geometric Langlands duality and representations of algebraic groups over commutative rings» (Annals of Math. 166, 2007).</li>
+        <li><span class="au">Kapustin, Witten</span> «Electric-magnetic duality and the geometric Langlands program» (arXiv: hep-th/0604151).</li>
+        <li><span class="au">V. Lafforgue</span> «Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale» (JAMS 31, 2018).</li>
+        <li><span class="au">Gaitsgory, Raskin</span> и др. «Proof of the geometric Langlands conjecture I–V» (2024–2025; первая статья — arXiv: 2405.03599).</li>
+        <li><span class="au">Hausel, Thaddeus</span> «Mirror symmetry, Langlands duality, and the Hitchin system» (Invent. Math. 153, 2003) <span class="nt">— мост к V6.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li><span class="tool">Python</span><span class="tool">PARI/GP</span> Неабелев закон взаимности: для p ≠ 23 число корней x³ − x − 1 по модулю p равно a<sub>p</sub> + 1, где a<sub>p</sub> — коэффициенты формы веса 1
+      η(z)η(23z) = q∏(1 − qⁿ)(1 − q<sup>23n</sup>). Проверить для p &lt; 1000 и объяснить через представление Галуа с образом S<sub>3</sub>.</li>
+    <li>Параметры Сатаке формы Δ: α<sub>p</sub> + β<sub>p</sub> = τ(p), α<sub>p</sub>β<sub>p</sub> = p<sup>11</sup>. Проверить |α<sub>p</sub>| = p<sup>11/2</sup> (Делинь) и построить распределение τ(p)/(2p<sup>11/2</sup>) — полукруг Сато–Тейта.</li>
+    <li><span class="tool">LMFDB</span> Пройти цепочки «эллиптическая кривая ↔ новая форма», «представление Артина ↔ форма веса 1», «характер Дирихле ↔ характер Гекке»; посмотреть группы Сато–Тейта.</li>
+    <li><span class="tool">PARI/GP</span><span class="tool">Sage</span> Собственные значения операторов Гекке на S<sub>k</sub>(Γ<sub>0</sub>(N)): мультипликативность, соотношения Гекке и оценка Рамануджана на конкретных формах.</li>
+    <li>Для ℚ(√5) проверить, что разложение p зависит только от p mod 5, — простейший случай GL<sub>1</sub>; затем найти аналог для ℚ(ζ<sub>7</sub>)<sup>+</sup>.</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#A23B3B">V2</span><span>Модулярность — взаимность для GL<sub>2</sub> над ℚ; методы подъёма модулярности — основной инструмент арифметической программы.</span>
+    <span class="sq" style="background:#9C3D7A">V1</span><span>Функциональные поля — вторая колонка камня: модули штук, формула следа и теория весов Делиня.</span>
+    <span class="sq" style="background:#3E7CB1">V6</span><span>Капустин–Виттен: геометрический Ленглендс как S-дуальность; модули Хитчина для дуальных групп — SYZ-зеркальная пара.</span>
+    <span class="sq" style="background:#B5652A">V4</span><span>Дискретные серии реализуются операторами Дирака (Атья–Шмид); формулы характеров — через Атью–Ботта.</span>
+  </div>
+</section>
+
+<!-- ===================== V6 ===================== -->
+<section class="vertex" id="v6" style="--c:#3E7CB1;--t:#3E7CB114;--m:#3E7CB155">
+  <div class="vhead"><!--mark:v6--><div class="big">V6</div><div>
+    <div class="kick">Современное направление · этап 6 · открытая программа</div>
+    <h2>Зеркальная симметрия</h2>
+    <div class="vs">Физическая двойственность, которая сосчитала кривые на квинтике и связала симплектическую геометрию с алгебраической</div></div></div>
+  <div class="facts">
+    <div><span class="lab">Срок</span>вход ≈ 1,5–2 года, дальше открыто</div>
+    <div><span class="lab">Новое</span>[X6], [X8], [G11], [Q4], [Q5], [Q6]</div>
+    <div><span class="lab">Рубежи</span>[X8] в фазе 2, [Q4]–[Q6] параллельно, [G11] и [X6] в фазе 4</div>
+    <div><span class="lab">Главные пары</span>Candelas и др. + Cox–Katz; Kontsevich 1994 + Auroux, Polishchuk–Zaslow</div>
+  </div>
+
+  <h3 class="vs3">Суть</h3>
+  <div class="statement">Многообразия Калаби–Яу разбиваются на пары (X, X̌): комплексная геометрия одного отвечает симплектической геометрии другого, а числа Ходжа меняются местами,
+  h<sup>1,1</sup>(X) = h<sup>2,1</sup>(X̌). Гомологическая версия (Концевич): D<sup>b</sup>Coh(X) ≃ D<sup>π</sup>Fuk(X̌).</div>
+  <p><b>Основные этапы.</b> Грин–Плессер и Канделас–Линкер–Шиммригк (1990) — зеркальные пары как наблюдение физиков; Канделас, де ла Осса, Грин и Паркс (1991) — предсказание
+  чисел рациональных кривых на квинтике; Гивенталь и Лиан–Лю–Яу (1996–1997) — доказательство; Концевич (ICM 1994) — гомологическая зеркальная симметрия;
+  Строминджер, Яу и Заслов (1996) — зеркальные пары как двойственные лагранжевы расслоения на торы; Гросс–Зиберт — алгебро-тропическая конструкция зеркал.</p>
+  <div class="box tint"><span class="lab">Квинтика: главный пример, который стоит прожить руками</span>
+    <p class="small">X ⊂ ℙ<sup>4</sup> — гладкая квинтика: h<sup>1,1</sup> = 1, h<sup>2,1</sup> = 101, χ = −200. Зеркало X̌ — семейство x<sub>1</sub><sup>5</sup> + … + x<sub>5</sub><sup>5</sup> − 5ψ x<sub>1</sub>⋯x<sub>5</sub> = 0,
+    профакторизованное по (ℤ/5)³ (с разрешением особенностей): h<sup>1,1</sup> = 101, h<sup>2,1</sup> = 1.</p>
+    <p class="small"><b>B-модель на X̌.</b> Период ϖ<sub>0</sub>(z) = Σ<sub>n≥0</sub> (5n)!/(n!)<sup>5</sup> z<sup>n</sup> решает уравнение Пикара–Фукса
+    [θ<sup>4</sup> − 5z(5θ + 1)(5θ + 2)(5θ + 3)(5θ + 4)] ϖ = 0, θ = z d/dz. Второе решение ϖ<sub>1</sub> = ϖ<sub>0</sub> log z + … задаёт зеркальное отображение q = exp(ϖ<sub>1</sub>/ϖ<sub>0</sub>).</p>
+    <p class="small"><b>A-модель на X.</b> Юкавская связь 5/((1 − 5<sup>5</sup>z) ϖ<sub>0</sub><sup>2</sup>) · (d log z/d log q)<sup>3</sup>, записанная в координате q, равна
+    5 + Σ<sub>d≥1</sub> n<sub>d</sub> d<sup>3</sup> q<sup>d</sup>/(1 − q<sup>d</sup>), где n<sub>1</sub> = 2875, n<sub>2</sub> = 609 250, n<sub>3</sub> = 317 206 375 — инварианты Громова–Виттена
+    (для малых d — буквально числа рациональных кривых степени d).</p></div>
+
+  <h3 class="vs3">Пререквизиты</h3>
+  <p class="small muted">Минимальный путь из плана: [G6] → [G7]; [X3] → ([X6], [X7], [X8]); [G5] → [G10] → [G11]; [Q1] → ([Q2], [Q3]) → [Q4] → [Q5] → [Q6]; всё вместе → V6.</p>
+  <table class="t pre"><tbody>
+    <tr><td class="c">[G6], [G7]</td><td>Кэлеровы многообразия, многообразия Калаби–Яу, теорема Яу (формулировка); разложение Ходжа, вариации структур Ходжа, отображение периодов, уравнения Пикара–Фукса.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[G5], [G10]</td><td>Симплектические многообразия, лагранжевы подмногообразия, отображение моментов; теория Морса как модель теории Флоера.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X3], [X7]</td><td>Когерентные когомологии, теория пересечений, классы Черна; торические многообразия и рефлексивные многогранники.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[A7], [A8]</td><td>Триангулированные категории, производные функторы; язык dg- и A<sub>∞</sub>-категорий.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[T6], [T7]</td><td>Классы Черна для перечислительных задач; K-теория — заряды D-бран.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[R3], [G4]</td><td>Периоды, гипергеометрические функции, монодромия; кривые и их якобианы.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[X6], [X8], [G11]</td><td>Новые дисциплины: производные категории и Фурье–Мукаи; <span class="ov">M</span><sub>g,n</sub>, стабильные отображения, стеки; J-кривые, гомологии Флоера, категория Фукаи.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[Q1]–[Q6]</td><td>Физика: новые [Q4]–[Q6] — КТП, суперсимметрия, струны. Источник гипотез и словаря; доказательства от неё не зависят.</td><td class="lv">●</td></tr>
+    <tr><td class="c">[N5], [N6], [X5]</td><td>Квазимодулярные формы (инварианты Громова–Виттена эллиптической кривой); флопы и производные эквивалентности.</td><td class="lv">○</td></tr>
+  </tbody></table>
+  <div class="box tint"><span class="lab">Проверка готовности — без книги</span>
+    <ul class="pr">
+      <li>вычислить ромб Ходжа гладкой квинтики в ℙ<sup>4</sup> (формула присоединения, теорема Лефшеца о гиперплоском сечении, эйлерова характеристика);</li>
+      <li>найти число прямых на кубической поверхности как степень класса Черна расслоения Sym³S* на G(2, 4);</li>
+      <li>построить ℙ², ℙ¹ × ℙ¹ и раздутие ℙ² в точке по веерам и найти их многогранники моментов;</li>
+      <li>определить комплекс Морса–Смейла–Виттена и объяснить, почему ∂² = 0;</li>
+      <li>описать D<sup>b</sup>Coh(ℙ¹) через исключительный набор ⟨𝒪, 𝒪(1)⟩;</li>
+      <li>описать <span class="ov">M</span><sub>0,4</sub> и его граничные точки.</li>
+    </ul></div>
+
+  <h3 class="vs3">Карта: что меняется местами</h3>
+  <table class="t"><thead><tr><th style="width:22%"></th><th>X — B-сторона (комплексная геометрия)</th><th>X̌ — A-сторона (симплектическая геометрия)</th></tr></thead><tbody>
+    <tr><td><b>Пространство модулей</b></td><td>комплексные структуры X</td><td>комплексифицированные кэлеровы классы X̌</td></tr>
+    <tr><td><b>Числовые инварианты</b></td><td>периоды, вариации структур Ходжа, юкавская связь</td><td>инварианты Громова–Виттена, квантовые когомологии</td></tr>
+    <tr><td><b>Категория</b></td><td>D<sup>b</sup>Coh(X) — когерентные пучки, B-браны</td><td>D<sup>π</sup>Fuk(X̌) — лагранжевы подмногообразия, A-браны</td></tr>
+    <tr><td><b>Геометрия (SYZ)</b></td><td>торическое расслоение двойственных торов</td><td>специальное лагранжево расслоение на торы</td></tr>
+    <tr><td><b>Отождествление</b></td><td colspan="2">зеркальное отображение q = exp(ϖ<sub>1</sub>/ϖ<sub>0</sub>) вблизи точки максимальной унипотентной монодромии; в гомологической версии — эквивалентность категорий,
+      из которой перечислительная версия выводится при дополнительных условиях (Ганатра–Перуц–Шеридан)</td></tr>
+  </tbody></table>
+
+  <h3 class="vs3">Маршрут</h3>
+  <div class="route">
+    <div class="ph"><span class="n">0</span><div class="h"><b>Ориентация</b><span class="dur">≈ 1 месяц</span></div>
+      <p>Популярная книга Яу и Надиса; затем книга Каца «Enumerative Geometry and String Theory» — лучший первый математический текст; введения к Hori и др. и к обзору Ору.
+      Цель — увидеть обе версии симметрии (перечислительную и гомологическую) и то, как они связаны.</p>
+      <div class="read"><span class="lab">Читать</span>Яу, Надис; Katz (AMS Student Math. Library 32); Hori и др., введение; Auroux «A beginner's introduction to Fukaya categories», § 1.</div></div>
+    <div class="ph"><span class="n">1</span><div class="h"><b>Калаби–Яу и B-модель</b><span class="dur">≈ 2 месяца</span></div>
+      <p>Определения, теорема Яу, ромб Ходжа квинтики; вариации структур Ходжа, периоды и уравнение Пикара–Фукса для зеркальной квинтики; конструкция Батырева
+      через рефлексивные многогранники как систематический источник зеркальных пар.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Многообразия Калаби–Яу: определения, теорема Яу (формулировка); ромб Ходжа квинтики (h<sup>1,1</sup> = 1, h<sup>2,1</sup> = 101) и его зеркальное отражение.</li>
+        <li><span class="w">веха</span>Вариации структур Ходжа, уравнение Пикара–Фукса для зеркальной квинтики, B-модель ([G7]).</li>
+        <li><span class="w">веха</span>Конструкция Батырева через рефлексивные многогранники ([X7]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Gross, Huybrechts, Joyce; Cox, Katz; Batyrev, J. Algebraic Geom. 1994; Candelas и др. 1991.</div></div>
+    <div class="ph"><span class="n">2</span><div class="h"><b>A-модель: инварианты Громова–Виттена</b><span class="dur">≈ 3 месяца</span><span class="ex">экзамен X8</span></div>
+      <p>Классический подсчёт 2875 прямых; <span class="ov">M</span><sub>g,n</sub>, стабильные отображения, инварианты Громова–Виттена, квантовые когомологии, уравнения WDVV и формула Концевича для
+      плоских рациональных кривых; затем обзор доказательства Гивенталя и Лиана–Лю–Яу (локализация на пространствах стабильных отображений).</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Классический подсчёт 2875 прямых на квинтике через классы Черна ([T6], [X3]).</li>
+        <li><span class="w">веха</span><span class="ov">M</span><sub>g,n</sub>, стабильные отображения, инварианты Громова–Виттена, квантовые когомологии, уравнения WDVV ([X8]).</li>
+        <li><span class="w">веха</span>Теорема Гивенталя / Лиана–Лю–Яу (обзор): 609 250 коник и далее.</li></ul>
+      <div class="read"><span class="lab">Читать</span>Eisenbud, Harris «3264 and All That»; Fulton, Pandharipande; Kontsevich, Manin 1994; Cox, Katz (главы о теореме зеркальности); Givental 1996.</div></div>
+    <div class="ph"><span class="n">3</span><div class="h"><b>Физика как словарь</b><span class="dur">параллельно фазам 0–2</span><span class="ex">экзамены Q4–Q6</span></div>
+      <p>КТП в размерности 0 (гауссовы интегралы, диаграммы), суперсимметричная квантовая механика и Морс–Виттен, сигма-модели, A- и B-модели, топологические струны.
+      Цель — не стать физиком, а понимать, откуда берутся гипотезы и как их «переводить».</p>
+      <div class="read"><span class="lab">Читать</span>Hori и др., ч. 2 (главы о размерностях 0 и 1) и ч. 3; Witten «Mirror manifolds and topological field theory»; Polchinski, т. 1 (выборочно).</div></div>
+    <div class="ph"><span class="n">4</span><div class="h"><b>Гомологическая зеркальная симметрия</b><span class="dur">3–4 месяца</span><span class="ex">экзамены G11, X6</span></div>
+      <p>A<sub>∞</sub>-категории и категория Фукаи; эллиптическая кривая — пример, где всё видно: пучки ↔ замкнутые кривые на торе, морфизмы ↔ точки пересечения,
+      композиции ↔ тэта-функции. Затем D<sup>b</sup>Coh, Фурье–Мукаи, условия стабильности Бриджленда; обзор квартики Зейделя и гиперповерхностей Шеридана.</p>
+      <ul class="ms">
+        <li><span class="w">веха</span>Гомологическая зеркальная симметрия для эллиптической кривой (Полищук–Заслов, 1998).</li>
+        <li><span class="w">веха</span>A∞-категории и категория Фукаи ([G11]); гомологическая зеркальная симметрия для квартики (Зейдель) и для гиперповерхностей Калаби–Яу в проективном пространстве (Шеридан, 2015): обзор.</li>
+        <li><span class="w">веха</span>Условия стабильности Бриджленда ([X6]).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Auroux; Polishchuk, Zaslow; Huybrechts «Fourier–Mukai Transforms»; Seidel «Fukaya Categories and Picard–Lefschetz Theory»; Bridgeland, Annals 2007; Aspinwall и др.</div></div>
+    <div class="ph"><span class="n">5</span><div class="h"><b>SYZ и тропическая геометрия</b><span class="dur">2–3 месяца</span></div>
+      <p>Гипотеза SYZ: зеркало как двойственное торическое расслоение; квантовые поправки и стенки; тропические кривые; программа Гросса–Зиберта как алгебраическая реализация SYZ.</p>
+      <ul class="ms"><li><span class="w">веха</span>SYZ, тропическая геометрия, программа Гросса–Зиберта (обзор).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Strominger, Yau, Zaslow 1996; Gross «Tropical Geometry and Mirror Symmetry»; Gross, Siebert, Annals 2011; Auroux 2007.</div></div>
+    <div class="ph"><span class="n">6</span><div class="h"><b>Фано и модели Ландау–Гинзбурга</b><span class="dur">1–2 месяца</span></div>
+      <p>Зеркало многообразия Фано — не многообразие, а функция (суперпотенциал) на торе. Для ℙ<sup>n</sup>: критические точки W соответствуют собственным значениям
+      квантового умножения на гиперплоский класс, а кольцо Якоби W — квантовым когомологиям.</p>
+      <ul class="ms"><li><span class="w">веха</span>Модели Ландау–Гинзбурга: зеркала многообразий Фано, например ℙⁿ ↔ W = x₁ + … + xₙ + 1/(x₁⋯xₙ).</li></ul>
+      <div class="read"><span class="lab">Читать</span>Hori, Vafa (arXiv: hep-th/0002222); Givental; Auroux 2007.</div></div>
+    <div class="ph"><span class="n">7</span><div class="h"><b>Горизонт</b><span class="dur">открыто</span></div>
+      <p>Пересечения стенок Концевича–Сойбельмана, кластерные многообразия (Гросс–Хакинг–Кил), высший род (BCOV), системы Хитчина и связь с [V5],
+      арифметика зеркальных семейств. Выбрать направление и читать свежие статьи.</p>
+      <div class="read"><span class="lab">Читать</span>Ganatra, Perutz, Sheridan «Mirror symmetry: from categories to curve counts»; Hausel, Thaddeus; Candelas, de la Ossa, Rodriguez-Villegas.</div></div>
+  </div>
+
+  <div class="boxes">
+    <div class="box"><span class="lab">Чёрные ящики при первом проходе</span>
+      <ul class="small">
+        <li>теорема Яу о существовании метрик Калаби–Яу;</li>
+        <li>виртуальный фундаментальный класс и аксиомы Концевича–Манина;</li>
+        <li>вычисление локализацией у Гивенталя и Лиана–Лю–Яу;</li>
+        <li>основания категорий Фукаи (трансверсальность, ориентации, виртуальная техника);</li>
+        <li>физические выводы через интегралы по траекториям — как эвристика.</li>
+      </ul>
+      <p class="small"><b>Открыть обязательно:</b> гомологическую зеркальную симметрию для эллиптической кривой и вычисление B-модели для квинтики — оба доступны полностью.</p></div>
+    <div class="box"><span class="lab">Трудности</span>
+      <ul class="small">
+        <li>Язык физики: чисто математический маршрут возможен, но интуиция приходит из Hori и др.; использовать его как словарь, а не как главную дорогу.</li>
+        <li>Основания категорий Фукаи тяжелы: держаться примеров в размерности 1 (кривые) и точных случаев, где всё комбинаторно.</li>
+        <li>Соглашения: q = e<sup>2πit</sup>, кольца Новикова, знаки в соотношениях A<sub>∞</sub>, градуировки.</li>
+        <li>Две симметрии — перечислительная и гомологическая — держать раздельно и знать, как одна выводится из другой.</li>
+      </ul></div>
+  </div>
+
+  <h3 class="vs3">Литература</h3>
+  <div class="lit two">
+    <div>
+      <div class="tier">С чего начать</div>
+      <ul>
+        <li><span class="au">Яу, Надис</span> «Теория струн и скрытые измерения Вселенной» <span class="nt">— популярно.</span></li>
+        <li><span class="au">Katz</span> «Enumerative Geometry and String Theory» (AMS Student Math. Library 32, 2006).</li>
+        <li><span class="au">Auroux</span> «A beginner's introduction to Fukaya categories» (arXiv: 1301.7056).</li>
+      </ul>
+      <div class="tier">Основные тексты</div>
+      <ul>
+        <li><span class="au">Hori и др.</span> «Mirror Symmetry» (Clay Math. Monographs 1, 2003).</li>
+        <li><span class="au">Cox, Katz</span> «Mirror Symmetry and Algebraic Geometry» (AMS, 1999).</li>
+        <li><span class="au">Gross, Huybrechts, Joyce</span> «Calabi–Yau Manifolds and Related Geometries» (2003).</li>
+        <li><span class="au">Eisenbud, Harris</span> «3264 and All That» <span class="nt">— исчисление Шуберта, 2875 прямых.</span></li>
+        <li><span class="au">Fulton, Pandharipande</span> «Notes on stable maps and quantum cohomology» (Proc. Symp. Pure Math. 62, 1997).</li>
+        <li><span class="au">Huybrechts</span> «Fourier–Mukai Transforms in Algebraic Geometry» (2006); «Lectures on K3 Surfaces» (2016).</li>
+        <li><span class="au">McDuff, Salamon</span> «J-holomorphic Curves and Symplectic Topology».</li>
+        <li><span class="au">Seidel</span> «Fukaya Categories and Picard–Lefschetz Theory» (2008).</li>
+        <li><span class="au">Gross</span> «Tropical Geometry and Mirror Symmetry» (CBMS 114, 2011).</li>
+        <li><span class="au">Aspinwall и др.</span> «Dirichlet Branes and Mirror Symmetry» (Clay Math. Monographs 4, 2009).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tier">Первоисточники</div>
+      <ul>
+        <li><span class="au">Greene, Plesser</span> «Duality in Calabi–Yau moduli space» (Nucl. Phys. B 338, 1990).</li>
+        <li><span class="au">Candelas, de la Ossa, Green, Parkes</span> «A pair of Calabi–Yau manifolds as an exactly soluble superconformal theory» (Nucl. Phys. B 359, 1991).</li>
+        <li><span class="au">Batyrev</span> «Dual polyhedra and mirror symmetry for Calabi–Yau hypersurfaces in toric varieties» (J. Algebraic Geom. 3, 1994).</li>
+        <li><span class="au">Kontsevich, Manin</span> «Gromov–Witten classes, quantum cohomology, and enumerative geometry» (CMP 164, 1994).</li>
+        <li><span class="au">Kontsevich</span> «Homological algebra of mirror symmetry» (ICM 1994; arXiv: alg-geom/9411018).</li>
+        <li><span class="au">Strominger, Yau, Zaslow</span> «Mirror symmetry is T-duality» (Nucl. Phys. B 479, 1996).</li>
+        <li><span class="au">Givental</span> «Equivariant Gromov–Witten invariants» (IMRN, 1996); <span class="au">Lian, Liu, Yau</span> «Mirror principle I» (Asian J. Math. 1, 1997).</li>
+        <li><span class="au">Polishchuk, Zaslow</span> «Categorical mirror symmetry: the elliptic curve» (Adv. Theor. Math. Phys. 2, 1998).</li>
+        <li><span class="au">Seidel</span> «Homological mirror symmetry for the quartic surface» (Memoirs AMS, 2015).</li>
+        <li><span class="au">Sheridan</span> «Homological mirror symmetry for Calabi–Yau hypersurfaces in projective space» (Invent. Math. 199, 2015).</li>
+      </ul>
+      <div class="tier">Дальше</div>
+      <ul>
+        <li><span class="au">Bridgeland</span> «Stability conditions on triangulated categories» (Annals of Math. 166, 2007).</li>
+        <li><span class="au">Hori, Vafa</span> «Mirror symmetry» (arXiv: hep-th/0002222) <span class="nt">— зеркала Фано.</span></li>
+        <li><span class="au">Auroux</span> «Mirror symmetry and T-duality in the complement of an anticanonical divisor» (J. Gökova Geom. Topol. 1, 2007).</li>
+        <li><span class="au">Gross, Siebert</span> «From real affine geometry to complex geometry» (Annals of Math. 174, 2011).</li>
+        <li><span class="au">Ganatra, Perutz, Sheridan</span> «Mirror symmetry: from categories to curve counts» (arXiv, 2015).</li>
+        <li><span class="au">Candelas, de la Ossa, Rodriguez-Villegas</span> «Calabi–Yau manifolds over finite fields I, II» <span class="nt">— мост к V1.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="vs3">Практика</h3>
+  <ul class="pr">
+    <li><span class="tool">Python</span><span class="tool">sympy</span> Вычисление Канделаса и др. своими руками: ряд ϖ<sub>0</sub>, второе решение методом Фробениуса, зеркальное отображение, юкавская связь в координате q
+      — и из неё n<sub>1</sub> = 2875, n<sub>2</sub> = 609 250, n<sub>3</sub> = 317 206 375. Около сорока строк на рациональных числах; формула юкавской связи — в рамке выше.</li>
+    <li><span class="tool">Python</span> Формула Концевича: из WDVV — рекурсия для числа N<sub>d</sub> рациональных плоских кривых степени d через 3d − 1 точку; получить 1, 1, 12, 620, 87 304.</li>
+    <li><span class="tool">sympy</span><span class="tool">Macaulay2</span> 27 прямых и 2875 прямых по принципу расщепления: степени c<sub>4</sub>(Sym³S*) на G(2, 4) и c<sub>6</sub>(Sym⁵S*) на G(2, 5); в Macaulay2 — пакет Schubert2.</li>
+    <li>Перечислить 16 рефлексивных многоугольников, разбить на двойственные пары и проверить «правило 12»: число граничных точек P и P* в сумме равно 12.</li>
+    <li>Для ℙ²: у W = x + y + 1/(xy) три критические точки с критическими значениями 3ω<sup>k</sup>, ω³ = 1, а кольцо Якоби изоморфно QH*(ℙ²) = ℂ[H]/(H³ − q) при q = 1.</li>
+  </ul>
+
+  <h3 class="vs3">Связи</h3>
+  <div class="links">
+    <span class="sq" style="background:#B5652A">V4</span><span>Теорема об индексе даёт виртуальную размерность модулей стабильных отображений; индекс семейств и детерминантные расслоения — в основаниях теории Флоера.</span>
+    <span class="sq" style="background:#9A7B1C">V5</span><span>Капустин–Виттен: S-дуальность объединяет геометрический Ленглендс и зеркальную симметрию; модули Хитчина для G и ᴸG — SYZ-зеркальная пара (Хаузел–Таддеус).</span>
+    <span class="sq" style="background:#9C3D7A">V1</span><span>Числа точек зеркальной квинтики над 𝔽<sub>p</sub> выражаются через её периоды; теория Ходжа и веса — общий язык.</span>
+    <span class="sq" style="background:#2A7F62">V3</span><span>Метрики Калаби–Яу — результат геометрического анализа (Яу); SYZ требует понимать их вырождения.</span>
+  </div>
+</section>
+
+<!-- ===================== Приложение ===================== -->
+<section class="newpage" id="tools"><!--mark:tools-->
+  <h2 class="page-title">Инструменты, ресурсы и школы</h2>
+
+  <h3 class="sec">Программы</h3>
+  <table class="t">
+    <thead><tr><th style="width:18%">Инструмент</th><th>Для чего</th><th style="width:16%">Вершины</th></tr></thead>
+    <tbody>
+      <tr><td><b>SageMath</b></td><td>Универсальная система: эллиптические кривые и модулярные формы, числовые поля, многогранники и торические многообразия, ряды и символьные вычисления.</td><td>[V1] [V2] [V5] [V6]</td></tr>
+      <tr><td><b>PARI/GP</b></td><td>Быстрая теория чисел: числа точек и a<sub>p</sub> эллиптических кривых, кондуктор и редукция, пространства модулярных форм, числовые поля и группы классов.</td><td>[V1] [V2] [V5]</td></tr>
+      <tr><td><b>Macaulay2</b></td><td>Коммутативная алгебра и алгебраическая геометрия: когомологии пучков, резольвенты, исчисление Шуберта (пакет Schubert2).</td><td>[V1] [V6]</td></tr>
+      <tr><td><b>SnapPy</b></td><td>Гиперболические 3-многообразия: объёмы, заполнения Дена, канонические триангуляции, гомологии и π<sub>1</sub>.</td><td>[V3]</td></tr>
+      <tr><td><b>Regina</b></td><td>Триангуляции 3-многообразий, нормальные поверхности, распознавание S³, разложение на простые слагаемые.</td><td>[V3]</td></tr>
+      <tr><td><b>Python + sympy</b></td><td>Ряды на рациональных числах, численные эксперименты с потоками и тепловыми следами — всё, что не требует специальной системы.</td><td>все</td></tr>
+      <tr><td><b>Lean + Mathlib</b></td><td>Формализация; проект формализации ВТФ показывает граф зависимостей доказательства.</td><td>[V2]</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sec">Базы данных и справочники в сети</h3>
+  <ul>
+    <li><b>LMFDB</b> (lmfdb.org) — L-функции, модулярные формы, эллиптические кривые, числовые поля, представления Артина, группы Сато–Тейта; все связи между ними видны ссылками. [V2], [V5]</li>
+    <li><b>Stacks Project</b> — справочник по схемам, этальным когомологиям, алгебраическим пространствам и стекам. [V1], [V5], [V6]</li>
+    <li><b>Конспекты Милна</b> (jmilne.org) — этальные когомологии, теория полей классов, алгебраические группы, многообразия Шимуры, абелевы многообразия. [V1], [V2], [V5]</li>
+    <li><b>arXiv</b> — препринты Перельмана, обзоры Калегари, Фрида, Милна; разделы math.NT, math.AG, math.DG, math.SG, math.GT, hep-th.</li>
+    <li><b>MathOverflow</b> — вопросы уровня исследований; поиск по тегам (étale-cohomology, langlands-conjectures, mirror-symmetry, ricci-flow, index-theory) часто быстрее книги.</li>
+  </ul>
+
+  <h3 class="sec">Где искать обзоры</h3>
+  <p>Bulletin of the AMS; колонка «What is…?» в Notices of the AMS; доклады семинара Бурбаки (по каждой из вершин есть несколько — от Гротендика 1965 года до Фаргу–Шольце);
+  труды ICM (пленарные и секционные доклады дают картину направления на момент конгресса); сборники Current Developments in Mathematics; монографии и труды летних школ Clay.</p>
+
+  <div class="keep">
+  <h3 class="sec">Школы и курсы</h3>
+  <div class="two">
+    <div class="box"><span class="lab">Арифметика: [V1] [V2] [V5]</span>
+      <p class="small"><b>Arizona Winter School</b> — ежегодная школа по арифметической геометрии; лекции, задачи и проекты выкладываются в открытый доступ.
+      <b>PCMI</b> (Park City) — тома IAS/Park City Mathematics Series, в том числе «Arithmetic Algebraic Geometry» с лекциями Рибета–Стейна и Гувеа.
+      <b>Летние школы Clay</b> — например, конспекты Бринона–Конрада по p-адической теории Ходжа.</p></div>
+    <div class="box"><span class="lab">Геометрия: [V3] [V4] [V6]</span>
+      <p class="small">Школы и тематические программы по зеркальной симметрии, симплектической топологии и геометрическому анализу (SLMath, бывший MSRI; IAS; Clay) —
+      с записями лекций. В России — летняя школа «Современная математика» имени В. Арнольда в Дубне, курсы НМУ и факультета математики ВШЭ.</p></div>
+  </div>
+  </div>
+
+  <div class="box" style="margin-top:6mm"><span class="lab">Об этом путеводителе</span>
+    <p class="small">Собран {{date}} из <span class="sans">Reality Check/tools/vertices_guide.html</span> скриптом <span class="sans">tools/vertices_pdf.py</span>.
+    Суть, минимальные пути и вехи вершин совпадают с Частью IV <span class="sans">PLAN.md</span>; если вехи в плане меняются, путеводитель нужно поправить и пересобрать.
+    Сроки, деление на фазы, списки чёрных ящиков и литературы — рекомендации, а не часть программы: их можно менять по ходу работы.</p></div>
+</section>
+
+</body>
+</html>
