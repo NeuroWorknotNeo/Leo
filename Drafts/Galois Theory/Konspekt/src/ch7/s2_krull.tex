@@ -21,10 +21,26 @@ $\Om[X]$ на различные линейные множители. Так к�
 $F$-изоморфизма $\Om\to\Om$.
 \end{proposition}
 
+\[
+\begin{tikzcd}[row sep=large]
+F\arrow[r,hook]\arrow[drr,hook,bend right=18] & E\arrow[r,hook]\arrow[dr,"\varphi_E"'] & \Om\arrow[d,dashed,cnew,"\varphi"]\\
+ & & \Om
+\end{tikzcd}
+\]
+\figcap{Утверждение 7.4: стрелку $\varphi_E$ можно достроить до автоморфизма $\varphi$ поля $\Om$ (красная пунктирная
+стрелка) так, чтобы диаграмма была коммутативна.}
+
 \begin{proof}
 Пусть $\varphi_E\colon E\to\Om$~--- $F$-гомоморфизм. Рассмотрим множество $\mathcal S$ пар $(M,\varphi_M)$, где
 $E\subset M\subset\Om$~--- поле, а $\varphi_M\colon M\to\Om$~--- гомоморфизм, продолжающий $\varphi_E$; положим
-$(M,\varphi_M)\le(M',\varphi_{M'})$, если $M\subset M'$ и $\varphi_{M'}|_M=\varphi_M$. Множество $\mathcal S$ непусто
+$(M,\varphi_M)\le(M',\varphi_{M'})$, если $M\subset M'$ и $\varphi_{M'}|_M=\varphi_M$, т.\,е.\ треугольник
+\[
+\begin{tikzcd}
+M\arrow[r,hook]\arrow[dr,"\varphi_M"'] & M'\arrow[d,"\varphi_{M'}"]\\
+ & \Om
+\end{tikzcd}
+\]
+коммутативен. Множество $\mathcal S$ непусто
 (содержит $(E,\varphi_E)$), и у каждой цепи $(M_i,\varphi_i)$ есть верхняя грань $(\bigcup M_i,\bigcup\varphi_i)$
 (объединение возрастающей цепи полей~--- поле, а согласованные гомоморфизмы склеиваются). По лемме Цорна есть
 максимальный элемент $(K,\varphi_K)$.
@@ -35,7 +51,8 @@ E\arrow[r,hook]\arrow[dr,"\varphi_E"'] & K\arrow[r,hook]\arrow[d,"\varphi_K"] & 
  & \Om & &
 \end{tikzcd}
 \]
-\figcap{Если $K\ne\Om$, то $\varphi_K$ продолжается ещё на один шаг~--- на $K(\alpha)$ (красная стрелка); это противоречит
+\figcap{Если $K\ne\Om$, то $\varphi_K$ продолжается ещё на один шаг~--- на $K(\alpha)$, $\alpha\mapsto\beta$, где $\beta$~---
+корень образа $\varphi_K(g)$ минимального многочлена $g$ элемента $\alpha$ над $K$ (красная стрелка); это противоречит
 максимальности.}
 
 \emph{$K=\Om$.} Пусть $\alpha\in\Om\setminus K$, $g$~--- минимальный многочлен $\alpha$ над $K$, $f$~--- над $F$. Так как
@@ -130,9 +147,10 @@ $\psi_i\colon\Gal(F'/F)\to\Gal(\Fsep/F)$, $\sigma\mapsto\varphi_i\sigma\varphi_i
 $\psi_2(\sigma)=\varphi\,\psi_1(\sigma)\,\varphi^{-1}$, где $\varphi=\varphi_2\varphi_1^{-1}\in\Gal(\Fsep/F)$. Так как
 $\varphi_1$ не единственен, канонического изоморфизма нет.
 \[
-\begin{tikzcd}[column sep=huge]
-F'\arrow[r,shift left=1.2,"\varphi_1"]\arrow[r,shift right=1.2,"\varphi_2"']\arrow[loop left,"\sigma"] &
-\Fsep\arrow[loop right,"{\psi_i(\sigma)=\varphi_i\sigma\varphi_i^{-1}}"]
+\begin{tikzcd}[row sep=normal,column sep=large]
+ & \Fsep\arrow[loop right,cnew,"{\psi_i(\sigma)=\varphi_i\sigma\varphi_i^{-1}}"]\\
+F\arrow[ur,hook]\arrow[dr,hook] & \\
+ & F'\arrow[uu,shift left=1.3,"\varphi_1"]\arrow[uu,shift right=1.3,"\varphi_2"']\arrow[loop right,"\sigma"]
 \end{tikzcd}
 \]
 \end{enumerate}
@@ -210,10 +228,10 @@ $\{\Phi^{-1}(U)\mid U\text{ открыто в }Y\}$~--- топология на 
 \begin{center}
 \begin{tikzpicture}[>=stealth]
 \node (G) at (0,0) {$G$};
-\node (P) at (6.4,0) {$\displaystyle P=\prod_S G/G(S)$};
+\node (P) at (6.2,0) {$P=\prod_S G/G(S)$};
 \draw[right hook->,thick] (G) -- node[above]{$\Phi$} node[below,font=\scriptsize,cnew]{гомеоморфизм на образ} (P);
-\node[font=\footnotesize,align=center] at (0,-1.0) {топология\\ Крулля};
-\node[font=\footnotesize,align=center] at (6.4,-1.15) {топология произведения;\\ $G/G(S)$ конечны и дискретны};
+\draw[decorate,decoration={brace,mirror,amplitude=4pt}] (-0.7,-0.42) -- node[below=6pt,font=\footnotesize,align=center]{топология\\ Крулля} (0.7,-0.42);
+\draw[decorate,decoration={brace,mirror,amplitude=4pt}] ($(P.west)+(0,-0.42)$) -- node[below=6pt,font=\footnotesize,align=center]{топология произведения;\\ $G/G(S)$ конечны и дискретны} ($(P.east)+(0,-0.42)$);
 \end{tikzpicture}
 \end{center}
 
@@ -276,14 +294,26 @@ $U\subset G(S)$. Это верно для всех $S$, а $\bigcap_SG(S)=\{e\}$
 точки.
 
 \begin{center}
-\begin{tikzpicture}[scale=0.8]
-\draw[cold,fill=cold!10] (0,0) circle (1.1); \node[cold] at (-1.2,1.1) {$G(S)$};
-\draw[cnew,thick,dashed] plot[smooth cycle] coordinates {(-0.5,-0.3) (0.3,0.5) (1.6,0.4) (2.0,-0.2) (0.9,-0.6)};
-\fill (0,0) circle (1.6pt) node[left]{$e$};
-\node[cnew] at (1.9,-0.75) {$U$};
-\node[font=\footnotesize,align=left,anchor=west] at (3.0,0) {$U\cap G(S)$ и $U\setminus G(S)$ открыты в $U$\\ и не пересекаются $\Rightarrow$ связное $U$\\ не может <<вылезать>> за пределы $G(S)$};
+\begin{tikzpicture}[scale=0.9]
+\def\GSregion{(-3,-1.5) -- (-3,1.5) -- (0.5,1.5) .. controls (0.1,0.55) and (0.85,-0.45) .. (0.35,-1.5) -- cycle}
+\def\Ublob{plot[smooth cycle] coordinates {(-1.0,-0.05) (-0.55,0.6) (0.4,0.72) (1.35,0.5) (1.6,-0.25) (0.7,-0.78) (-0.45,-0.68)}}
+\fill[cold!9] \GSregion;
+\begin{scope} \clip \GSregion; \fill[cold!30] \Ublob; \end{scope}
+\begin{scope} \clip (-3,-1.5) rectangle (3,1.5); \clip (3,-1.5) -- (3,1.5) -- (0.5,1.5) .. controls (0.1,0.55) and (0.85,-0.45) .. (0.35,-1.5) -- cycle; \fill[cnew!22] \Ublob; \end{scope}
+\draw[cold,thick] (0.5,1.5) .. controls (0.1,0.55) and (0.85,-0.45) .. (0.35,-1.5);
+\draw[gray] (-3,-1.5) rectangle (3,1.5);
+\draw[cnew,thick,dashed] \Ublob;
+\fill (-0.35,0) circle (1.5pt) node[below=1pt,font=\scriptsize]{$e$};
+\node[cold] at (-2.35,1.1) {$G(S)$};
+\node at (2.1,1.1) {$G\setminus G(S)$};
+\node[cnew] at (1.75,-0.75) {$U$};
+\node[gray] at (-3.25,1.3) {$G$};
 \end{tikzpicture}
 \end{center}
+\figcap{Ситуация, которой не бывает: если бы компонента $U\ni e$ вылезала за пределы $G(S)$, то
+$U=(U\cap G(S))\sqcup(U\setminus G(S))$ (синяя и красная части) было бы разбиением связного $U$ на два непустых открытых
+в $U$ множества. Множества $G(S)$ и $G\setminus G(S)$ дополняют друг друга и оба открыты; линия между ними на рисунке
+условна: топологической границы у $G(S)$ нет, и <<перейти>> через неё связному множеству негде.}
 \end{proof}
 
 \begin{remark}[7.8a]

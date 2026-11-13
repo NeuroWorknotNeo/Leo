@@ -34,12 +34,17 @@ $\prod_M\Gal(M/F)$ с топологией произведения компак
 \begin{center}
 \begin{tikzpicture}[>=stealth]
 \node (A) at (0,0) {$\Aut(\Om/F)$};
-\node (P) at (6.4,0) {$\displaystyle\prod_{M}\Gal(M/F)$};
-\draw[right hook->,thick] (A) -- node[above]{$\Phi$} node[below,font=\scriptsize]{инъективно} (P);
-\node[font=\footnotesize,align=center] at (0,-1.15) {образ $\Phi$ замкнут (7.8)\\ $\Rightarrow$ $\Gal(\Om/F)$ компактна};
-\node[font=\footnotesize,align=center] at (6.4,-1.3) {$\Gal(M/F)$ конечны и дискретны;\\ произведение компактно (теорема Тихонова,\\ аксиома выбора)};
+\node (I) at (4.1,0) {$\Phi\bigl(\Aut(\Om/F)\bigr)$};
+\node (P) at (8.4,0) {$\prod_{M}\Gal(M/F)$};
+\draw[->,thick] (A) -- node[above]{$\Phi$} node[below,font=\scriptsize]{биекция} (I);
+\node at ($(I.east)!0.5!(P.west)$) {$\subset$};
+\draw[decorate,decoration={brace,mirror,amplitude=4pt},cnew] ($(A.west)+(0,-0.42)$) -- node[below=6pt,font=\footnotesize,align=center]{топология\\ переносится через $\Phi$} ($(A.east)+(0,-0.42)$);
+\draw[decorate,decoration={brace,mirror,amplitude=4pt},cold] ($(I.west)+(0,-0.42)$) -- node[below=6pt,font=\footnotesize,align=center]{замкнуто\\ (7.8)} ($(I.east)+(0,-0.42)$);
+\draw[decorate,decoration={brace,mirror,amplitude=4pt},cold] ($(P.west)+(0,-0.42)$) -- node[below=6pt,font=\footnotesize,align=center]{компактно: $\Gal(M/F)$ конечны\\ и дискретны; теорема Тихонова} ($(P.east)+(0,-0.42)$);
 \end{tikzpicture}
 \end{center}
+\figcap{Замкнутое подмножество компакта компактно. Поэтому $\Aut(\Om/F)$ с перенесённой через $\Phi$ топологией~---
+компактная группа.}
 
 Главный результат главы (основная теорема 7.13): вся теория Галуа конечных расширений переносится на бесконечные, если
 всюду заменить слово <<подгруппа>> словами <<\emph{замкнутая} подгруппа>>. Замкнутые подгруппы компактной группы сами компактны, так что

@@ -59,44 +59,62 @@ $\mathcal N$~--- база окрестностей единицы.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.95,every node/.style={font=\small}]
+\def\blobN{(1.2,0.15) (0.85,0.72) (0.05,0.85) (-0.62,0.55) (-0.88,-0.05) (-0.45,-0.62) (0.4,-0.66) (1.02,-0.4)}
+\def\blobNinv{(-1.2,-0.15) (-0.85,-0.72) (-0.05,-0.85) (0.62,-0.55) (0.88,0.05) (0.45,0.62) (-0.4,0.66) (-1.02,0.4)}
+\def\blobL{(1.5,0.05) (1.05,0.56) (0.0,0.63) (-1.05,0.52) (-1.5,-0.02) (-1.0,-0.56) (0.05,-0.62) (1.05,-0.52)}
+\def\Nprime#1{\fill[cnew!22] (0,0) circle (#1); \draw[cnew] (0,0) circle (#1);
+  \fill (0,0) circle (1.3pt) node[right=0pt,inner sep=0.8pt,font=\scriptsize]{$e$};}
+% (a)
 \begin{scope}
-\draw[cold] (-0.5,0) ellipse (1.3 and 0.9); \draw[cold] (0.5,0) ellipse (1.3 and 0.9);
-\fill[cnew!20] (0,0) circle (0.38); \draw[cnew] (0,0) circle (0.38);
-\fill (0,0) circle (1.6pt) node[below=1pt,font=\scriptsize]{$e$};
-\node[cold] at (-1.5,1.05) {$N_1$}; \node[cold] at (1.5,1.05) {$N_2$}; \node[cnew] at (0,0.65) {$N'$};
-\node at (0,-1.4) {(a) $N'\subset N_1\cap N_2$};
+\draw[cold,thick] (-0.48,0) ellipse (1.25 and 0.85); \draw[cold,thick] (0.48,0) ellipse (1.25 and 0.85);
+\Nprime{0.3}
+\node[cold] at (-1.55,0.95) {$N_1$}; \node[cold] at (1.55,0.95) {$N_2$}; \node[cnew,font=\scriptsize] at (0,0.5) {$N'$};
+\node at (0,-1.45) {(a) $e\in N'\subset N_1\cap N_2$};
 \end{scope}
-\begin{scope}[xshift=5.2cm]
-\draw[cold] (0,0) ellipse (1.4 and 0.95); \node[cold] at (1.4,1.0) {$N$};
-\draw[cnew,dashed] (0,0) ellipse (0.95 and 0.62); \node[cnew,font=\scriptsize] at (0.62,-0.2) {$N'N'$};
-\fill[cnew!20] (-0.35,0.1) circle (0.27); \draw[cnew] (-0.35,0.1) circle (0.27); \node[cnew,font=\scriptsize] at (-0.35,0.58) {$N'$};
-\fill (-0.35,0.1) circle (1.6pt);
-\node at (0,-1.4) {(b) $N'N'\subset N$};
+% (b)
+\begin{scope}[xshift=5.1cm]
+\begin{scope}[scale=1.22] \draw[cold,thick] plot[smooth cycle] coordinates {\blobN}; \end{scope}
+\draw[cnew,dashed] plot[smooth cycle] coordinates {(0.8,0.1) (0.5,0.62) (-0.25,0.66) (-0.72,0.12) (-0.42,-0.55) (0.4,-0.58)};
+\Nprime{0.28}
+\node[cold] at (1.6,0.95) {$N$}; \node[cnew,font=\scriptsize] at (0.1,0.42) {$N'N'$};
+\node[cnew,font=\scriptsize] at (-0.53,-0.05) {$N'$};
+\node at (0,-1.45) {(b) $N'N'\subset N$};
 \end{scope}
-\begin{scope}[xshift=10.4cm]
-\draw[cold] (0.35,0.15) ellipse (1.05 and 0.68); \node[cold] at (1.45,0.85) {$N$};
-\draw[cold,dashed] (-0.35,-0.15) ellipse (1.05 and 0.68); \node[cold] at (-1.5,-0.85) {$N^{-1}$};
-\fill[cnew!20] (0,0) circle (0.3); \draw[cnew] (0,0) circle (0.3); \fill (0,0) circle (1.6pt);
-\node[cnew,font=\scriptsize] at (0.05,0.5) {$N'$};
-\node at (0,-1.4) {(c) $N'\subset N^{-1}$};
+% (c)
+\begin{scope}[xshift=10.2cm]
+\draw[cold,thick] plot[smooth cycle] coordinates {\blobN};
+\draw[cold,dashed] plot[smooth cycle] coordinates {\blobNinv};
+\Nprime{0.28}
+\node[cold] at (1.3,0.8) {$N$}; \node[cold] at (-1.4,-0.8) {$N^{-1}$};
+\node[cnew,font=\scriptsize] at (0,0.45) {$N'$};
+\node at (0,-1.45) {(c) $N'\subset N^{-1}$};
 \end{scope}
-\begin{scope}[xshift=2.6cm,yshift=-3.4cm]
-\draw[cold] (0,0) ellipse (1.35 and 0.5); \node[cold] at (1.55,0.4) {$N$};
-\draw[cold,dashed,rotate=65] (0,0) ellipse (1.2 and 0.5); \node[cold] at (1.0,1.2) {$gNg^{-1}$};
-\fill[cnew!20] (0,0) circle (0.28); \draw[cnew] (0,0) circle (0.28); \fill (0,0) circle (1.6pt);
-\node[cnew,font=\scriptsize] at (-0.55,0.05) {$N'$};
-\node at (0,-1.4) {(d) $N'\subset gNg^{-1}$};
+% (d)
+\begin{scope}[xshift=2.55cm,yshift=-3.6cm]
+\draw[cold,thick] plot[smooth cycle] coordinates {\blobL};
+\begin{scope}[rotate=60] \draw[cold,dashed] plot[smooth cycle] coordinates {\blobL}; \end{scope}
+\Nprime{0.28}
+\node[cold] at (1.8,0.45) {$N$}; \node[cold,anchor=west] at (0.95,1.32) {$gNg^{-1}$};
+\node[cnew,font=\scriptsize] at (0,0.42) {$N'$};
+\node at (0,-1.75) {(d) $N'\subset gNg^{-1}$};
 \end{scope}
-\begin{scope}[xshift=7.6cm,yshift=-3.4cm]
-\draw[cold] (0,0) ellipse (0.8 and 0.55); \fill (0,0) circle (1.6pt) node[below,font=\scriptsize]{$e$}; \node[cold] at (-0.95,0.55) {$N$};
-\draw[cnew] (2.4,0.55) ellipse (0.8 and 0.55); \fill (2.4,0.55) circle (1.6pt) node[below,font=\scriptsize]{$g$}; \node[cnew] at (3.35,1.05) {$gN$};
-\draw[->,cnew] (0.25,0.2) to[bend left=35] node[above]{$g_L$} (2.15,0.75);
-\node at (1.2,-1.4) {(e) $gN$~--- окрестность $g$};
+% (e)
+\begin{scope}[xshift=7.35cm,yshift=-3.6cm]
+\begin{scope}[scale=0.62] \draw[cold,thick] plot[smooth cycle] coordinates {\blobN}; \end{scope}
+\fill (0,0) circle (1.3pt) node[below=0.5pt,font=\scriptsize]{$e$};
+\node[cold] at (-0.75,0.6) {$N$};
+\begin{scope}[shift={(2.6,0.45)},scale=0.62] \draw[cnew,thick] plot[smooth cycle] coordinates {\blobN}; \end{scope}
+\fill (2.6,0.45) circle (1.3pt) node[below=0.5pt,font=\scriptsize]{$g$};
+\node[cnew] at (3.55,1.0) {$gN$};
+\draw[->,>=stealth,cnew] (0.3,0.32) to[bend left=30] node[above]{$g_L$} (2.15,0.85);
+\node at (1.3,-1.75) {(e) $gN$~--- окрестность $g$};
 \end{scope}
 \end{tikzpicture}
 \end{center}
 \figcap{Условия (a)--(e) в картинках: окрестности единицы можно пересекать, <<делить пополам>> относительно умножения,
-обращать, сопрягать и переносить сдвигами в любую точку.}
+обращать, сопрягать и переносить сдвигами в любую точку. В (c) множество $N^{-1}$~--- <<отражение>> $N$; оно не может
+лежать строго внутри $N$: обращение~--- биекция, сохраняющая включения, и из $N^{-1}\subset N$ следует $N\subset N^{-1}$,
+т.\,е.\ $N^{-1}=N$.}
 
 \begin{proof}
 \emph{1) Прямое утверждение.} (a) следует из определений: $N_1\cap N_2$ содержит открытое множество, содержащее $e$, а

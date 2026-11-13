@@ -222,7 +222,13 @@ E\cap L\arrow[ur,hook]\arrow[dr,hook] & & EL\arrow[r,dashed,cnew,"\tau"] & \Om\\
 
 \begin{proof}
 \emph{1)} Расширение $EL/L$ алгебраично, поэтому $\sigma$ продолжается до гомоморфизма $s\colon EL\to\Om$ (теорема 6.6,
-применённая к полю $L$ и алгебраическому замыканию поля $\sigma(L)$ в $\Om$).
+применённая к полю $L$ и алгебраическому замыканию поля $\sigma(L)$ в $\Om$):
+\[
+\begin{tikzcd}
+L\arrow[r,hook]\arrow[dr,"\sigma"'] & EL\arrow[d,dashed,cnew,"s"]\\
+ & \Om
+\end{tikzcd}
+\]
 
 \emph{2)} Отображения $s|_E$ и $\rho$~--- $F$-вложения $E\to\Om$, совпадающие на $E\cap L$ (оба равны там $\sigma$). По
 лемме 7.15a $s(E)=\rho(E)$, поэтому $\varepsilon=\rho^{-1}\circ s|_E\colon E\to E$~--- автоморфизм (инъективен как
@@ -301,6 +307,27 @@ $a\ne b$ и $n>|a-b|$ прогрессии $a+n\Z$ и $b+n\Z$ не пересе�
 \end{center}
 \figcap{Окрестности $0+3\Z$ и $1+3\Z$ точек $0$ и $1$ не пересекаются ($3>|0-1|$). С ростом $n$ окрестности $a+n\Z$
 <<редеют>>, но остаются бесконечными~--- поэтому $\{0\}$ не открыто.}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9,every node/.style={font=\footnotesize}]
+\draw[gray] (0,0) ellipse (4.4 and 2.3);
+\node[gray] at (0,2.62) {$\Z=0+1!\,\Z=2+1!\,\Z$};
+\draw[gray!60!black] (0,0) ellipse (3.55 and 1.78);
+\node[gray!60!black] at (0,1.2) {$0+2!\,\Z=2+2!\,\Z$};
+\foreach \c/\a/\col in {-1.6/0/cold,1.6/2/cnew} {
+  \draw[\col,thick] (\c,-0.05) circle (0.9);
+  \draw[\col] (\c,-0.05) circle (0.62);
+  \draw[\col] (\c,-0.05) circle (0.38);
+  \fill[\col] (\c,-0.05) circle (1.5pt) node[right=0.5pt,inner sep=0.8pt,font=\scriptsize]{$\a$};
+  \node[\col] at (\c,-1.22) {$\a+3!\,\Z$};
+}
+\end{tikzpicture}
+\end{center}
+\figcap{Схема окрестностей точек $0$ и $2$. Окрестности $a+n!\,\Z$ ($n=1,2,3,\dots$) образуют базу в точке $a$ (любое
+$m$ делит некоторое $n!$); внутренние круги~--- $a+4!\,\Z\supset a+5!\,\Z$. Вообще $b\in a+m\Z\iff m\mid(b-a)$, и два
+класса по $m\Z$ либо совпадают, либо не пересекаются. Поэтому $0$ и $2$ лежат в общей окрестности $a+n!\,\Z$ при
+$n\le2$, а при $n\ge3$ их окрестности не пересекаются: в большие окрестности любые две точки попадают вместе, в
+достаточно малые~--- нет.}
 
 \emph{Пополнение $\Zh$.} Последовательность $(a_i)$ целых чисел~--- \emph{последовательность Коши}, если для каждого
 $n\ge1$ найдётся $N$ с $a_i\equiv a_j\pmod n$ при $i,j>N$; она \emph{тривиальна}, если для каждого $n$ найдётся $N$ с
