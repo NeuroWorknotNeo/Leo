@@ -1,73 +1,11 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
-\usepackage{amsmath,amsthm,amssymb,mathtools}
-\usepackage[margin=2.3cm]{geometry}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{tikz-cd}
-\usetikzlibrary{babel}
-\usetikzlibrary{decorations.pathreplacing,calc,arrows}
-\colorlet{cnew}{red!75!black}   % стрелки и объекты, которые строятся в доказательстве
-\colorlet{cold}{blue!65!black}  % данные
-\newcommand{\figcap}[1]{\par\smallskip{\small\itshape #1}\par\medskip}
-\usepackage[hidelinks]{hyperref}
-
-\newtheoremstyle{mplain}{\medskipamount}{\medskipamount}{\itshape}{}{\bfseries}{.}{ }{\thmname{#1}\thmnote{ #3}}
-\newtheoremstyle{mdef}{\medskipamount}{\medskipamount}{\normalfont}{}{\bfseries}{.}{ }{\thmname{#1}\thmnote{ #3}}
-\theoremstyle{mplain}
-\newtheorem*{theorem}{Теорема}
-\newtheorem*{proposition}{Предложение}
-\newtheorem*{lemma}{Лемма}
-\newtheorem*{corollary}{Следствие}
-\theoremstyle{mdef}
-\newtheorem*{definition}{Определение}
-\newtheorem*{example}{Пример}
-\newtheorem*{remark}{Замечание}
-\newtheorem*{aside}{Отступление}
-\newtheorem*{exercise}{Упражнение}
-
-\DeclareMathOperator{\Gal}{Gal}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Homc}{Hom_{cont}}
-\DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\Stab}{Stab}
-\DeclareMathOperator{\Orb}{Orb}
-\DeclareMathOperator{\Frob}{Frob}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\id}{id}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\R}{\mathbb R}
-\newcommand{\CC}{\mathbb C}
-\newcommand{\F}{\mathbb F}
-\newcommand{\Zh}{\widehat{\mathbb Z}}
-\newcommand{\Zp}{\mathbb Z_p}
-\newcommand{\Qp}{\mathbb Q_p}
-\newcommand{\Fpb}{\overline{\mathbb F}_p}
-\newcommand{\Qal}{\mathbb Q^{\mathrm{al}}}
-\newcommand{\Qab}{\mathbb Q^{\mathrm{ab}}}
-\newcommand{\Fsep}{F^{\mathrm{sep}}}
-\newcommand{\varlim}{\varprojlim}
-\newcommand{\Om}{\Omega}
-
-\title{Глава 7\\[4pt] Бесконечные расширения Галуа}
-\date{}
+% Отдельный PDF главы 7. Сборка: pdflatex ch7.tex (дважды) в этой папке. Общий файл — ../Konspekt.tex.
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\input{../preamble}
 
 \begin{document}
 \sloppy
-\maketitle
+\pagestyle{headings}
 \tableofcontents
-
-\input{s0_intro}
-\input{s1_topgroups}
-\input{s2_krull}
-\input{s3_fundamental}
-\input{s4_limits}
-\input{s5_nonopen}
-\input{s6_examples}
-\input{s7_exercises}
-
+\setcounter{chapter}{6}
+\input{body}
 \end{document}

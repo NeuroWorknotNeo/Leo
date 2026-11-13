@@ -1,0 +1,71 @@
+% Общая преамбула конспекта: её подключают и общий файл Konspekt.tex, и файлы отдельных глав ch<N>/ch<N>.tex.
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{import}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\usetikzlibrary{decorations.pathreplacing,calc,arrows}
+\colorlet{cnew}{red!75!black}   % стрелки и объекты, которые строятся в доказательстве
+\colorlet{cold}{blue!65!black}  % данные
+\newcommand{\figcap}[1]{\par\smallskip{\small\itshape #1}\par\medskip}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor={blue!50!black},urlcolor={blue!50!black},linktoc=page,
+  pdfauthor={},pdftitle={Поля и теория Галуа: конспект}}
+
+% Главы нумеруются, разделы внутри глав — нет (номера вида 7.1 заняты утверждениями).
+\setcounter{secnumdepth}{0}
+\renewcommand{\theequation}{\arabic{equation}}
+
+% Утверждения нумеруются вручную номерами книги: \begin{proposition}[7.2] или [7.13: основная теорема].
+% Номер (часть до двоеточия) автоматически становится меткой st:<номер>; ссылка — \rf{<номер>}:
+% если такое утверждение есть в собранном файле, номер становится переходом, иначе печатается как текст.
+\makeatletter
+\def\st@num#1:#2\@nil{#1}
+\newcommand{\stmtanchor}[1]{\edef\st@tmp{\st@num#1:\@nil}%
+  \phantomsection\edef\@currentlabel{\st@tmp}\label{st:\st@tmp}}
+\DeclareRobustCommand{\rf}[1]{\@ifundefined{r@st:#1}{#1}{\hyperref[st:#1]{#1}}}
+\makeatother
+
+\newtheoremstyle{mplain}{\medskipamount}{\medskipamount}{\itshape}{}{\bfseries}{.}{ }{\thmname{#1}\thmnote{ #3\stmtanchor{#3}}}
+\newtheoremstyle{mdef}{\medskipamount}{\medskipamount}{\normalfont}{}{\bfseries}{.}{ }{\thmname{#1}\thmnote{ #3\stmtanchor{#3}}}
+\theoremstyle{mplain}
+\newtheorem*{theorem}{Теорема}
+\newtheorem*{proposition}{Предложение}
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{corollary}{Следствие}
+\theoremstyle{mdef}
+\newtheorem*{definition}{Определение}
+\newtheorem*{example}{Пример}
+\newtheorem*{remark}{Замечание}
+\newtheorem*{aside}{Отступление}
+\newtheorem*{exercise}{Упражнение}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Homc}{Hom_{cont}}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Orb}{Orb}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\id}{id}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Zh}{\widehat{\mathbb Z}}
+\newcommand{\Zp}{\mathbb Z_p}
+\newcommand{\Qp}{\mathbb Q_p}
+\newcommand{\Fpb}{\overline{\mathbb F}_p}
+\newcommand{\Qal}{\mathbb Q^{\mathrm{al}}}
+\newcommand{\Qab}{\mathbb Q^{\mathrm{ab}}}
+\newcommand{\Fsep}{F^{\mathrm{sep}}}
+\newcommand{\varlim}{\varprojlim}
+\newcommand{\Om}{\Omega}

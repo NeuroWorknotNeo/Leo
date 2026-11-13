@@ -1,0 +1,29 @@
+% Общий файл конспекта. Сборка: pdflatex Konspekt.tex (дважды) в этой папке.
+% Новая глава N: папка chN/ с body.tex (\chapter{...} и \input разделов) и chN.tex (отдельный PDF главы);
+% здесь — строки \setcounter{chapter}{N-1}\subimport{chN/}{body} в порядке номеров.
+\documentclass[11pt,a4paper,oneside,openany]{book}
+\input{preamble}
+
+\begin{document}
+\sloppy
+\frontmatter
+\begin{titlepage}
+\centering
+\vspace*{4cm}
+{\Huge\bfseries Поля и теория Галуа\par}
+\vspace{0.9cm}
+{\LARGE Конспект\par}
+\vspace{1.6cm}
+{\large по книге J.\,S.~Milne <<Fields and Galois Theory>>\par}
+\vfill
+{\large 2026\par}
+\end{titlepage}
+
+\input{preface}
+\tableofcontents
+
+\mainmatter
+\setcounter{chapter}{6}
+\subimport{ch7/}{body}
+
+\end{document}
