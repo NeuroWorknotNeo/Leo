@@ -29,6 +29,15 @@ $(M,\varphi_M)\le(M',\varphi_{M'})$, если $M\subset M'$ и $\varphi_{M'}|_M=
 (объединение возрастающей цепи полей~--- поле, а согласованные гомоморфизмы склеиваются). По лемме Цорна есть
 максимальный элемент $(K,\varphi_K)$.
 
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+E\arrow[r,hook]\arrow[dr,"\varphi_E"'] & K\arrow[r,hook]\arrow[d,"\varphi_K"] & K(\alpha)\arrow[dl,dashed,cnew,"{\alpha\,\mapsto\,\beta}"]\arrow[r,hook] & \Om\\
+ & \Om & &
+\end{tikzcd}
+\]
+\figcap{Если $K\ne\Om$, то $\varphi_K$ продолжается ещё на один шаг~--- на $K(\alpha)$ (красная стрелка); это противоречит
+максимальности.}
+
 \emph{$K=\Om$.} Пусть $\alpha\in\Om\setminus K$, $g$~--- минимальный многочлен $\alpha$ над $K$, $f$~--- над $F$. Так как
 $g\mid f$ в $K[X]$, то $\varphi_K(g)\mid\varphi_K(f)=f$ ($\varphi_K$ применяется к коэффициентам и тождествен на $F$). Но
 $f$ раскладывается в $\Om$ на линейные множители (нормальность), поэтому у $\varphi_K(g)$ есть корень $\beta\in\Om$, и
@@ -48,6 +57,12 @@ $E/F$~--- расширение Галуа.
 Пусть $f\in F[X]$ неприводим с корнем $a\in E$, и $a_1,\dots,a_n$~--- его $n=\deg f$ различных корней в $\Om$. Есть
 $F$-изоморфизм $F[a]\to F[a_i]\subset\Om$, $a\mapsto a_i$; по 7.4 он продолжается до $\sigma\in\Aut(\Om/F)$. Так как
 $\sigma E=E$, то $a_i=\sigma(a)\in E$. Значит, $E/F$ нормально; сепарабельность наследуется от $\Om$.
+\[
+\begin{tikzcd}[row sep=large]
+F[a]\arrow[r,hook]\arrow[d,"{a\,\mapsto\,a_i}"',"\cong"] & E\arrow[r,hook] & \Om\arrow[d,dashed,cnew,"\sigma\ (7.4)"]\\
+F[a_i]\arrow[rr,hook] & & \Om
+\end{tikzcd}
+\]
 \end{proof}
 
 \paragraph{Подгруппы $G(S)$.} Пусть $\Om/F$~--- расширение Галуа и $G=\Aut(\Om/F)$. Для конечного подмножества
@@ -114,6 +129,12 @@ $\F_p^{\rm sep}=\Fpb$ (поле $\F_p$ совершенно: многочлен 
 $\psi_i\colon\Gal(F'/F)\to\Gal(\Fsep/F)$, $\sigma\mapsto\varphi_i\sigma\varphi_i^{-1}$, и
 $\psi_2(\sigma)=\varphi\,\psi_1(\sigma)\,\varphi^{-1}$, где $\varphi=\varphi_2\varphi_1^{-1}\in\Gal(\Fsep/F)$. Так как
 $\varphi_1$ не единственен, канонического изоморфизма нет.
+\[
+\begin{tikzcd}[column sep=huge]
+F'\arrow[r,shift left=1.2,"\varphi_1"]\arrow[r,shift right=1.2,"\varphi_2"']\arrow[loop left,"\sigma"] &
+\Fsep\arrow[loop right,"{\psi_i(\sigma)=\varphi_i\sigma\varphi_i^{-1}}"]
+\end{tikzcd}
+\]
 \end{enumerate}
 \end{remark}
 
@@ -123,11 +144,18 @@ $\varphi_1$ не единственен, канонического изомор
 \pi_E\colon\Gal(\Om/F)\to\Gal(E/F),\qquad\sigma\mapsto\sigma|_E,
 \]
 ~--- непрерывный сюръективный гомоморфизм (на $\Gal(E/F)$~--- дискретная топология) с ядром $\Gal(\Om/E)$. В частности,
-$\Gal(\Om/F)/\Gal(\Om/E)\cong\Gal(E/F)$.
+$\Gal(\Om/F)/\Gal(\Om/E)\cong\Gal(E/F)$~--- изоморфизм конечных групп, причём фактор-топология слева дискретна (так как
+подгруппа $\Gal(\Om/E)$ открыта).
 \end{proposition}
 
 \begin{proof}
 Сюръективность: $\tau\in\Gal(E/F)$~--- это $F$-гомоморфизм $E\to\Om$, и по 7.4 он продолжается до $\sigma\in\Gal(\Om/F)$.
+\[
+\begin{tikzcd}
+E\arrow[r,hook]\arrow[d,"\tau"'] & \Om\arrow[d,dashed,cnew,"\sigma"]\\
+E\arrow[r,hook] & \Om
+\end{tikzcd}
+\]
 Ядро~--- $\Gal(\Om/E)=G(S)$, где $S$~--- конечное множество образующих $E$; оно открыто. Гомоморфизм в дискретную группу
 с открытым ядром непрерывен: прообраз каждой точки~--- смежный класс ядра, т.\,е.\ открытое множество.
 \end{proof}
@@ -179,11 +207,34 @@ $G$ на свой образ $\Phi(G)$ с топологией подпрост�
 $\{\Phi^{-1}(U)\mid U\text{ открыто в }Y\}$~--- топология на $X$, в которой $\Phi$~--- гомеоморфизм на образ, и прообразы
 базы $Y$~--- её база: взятие прообраза сохраняет объединения и пересечения.)
 
+\begin{center}
+\begin{tikzpicture}[>=stealth]
+\node (G) at (0,0) {$G$};
+\node (P) at (6.4,0) {$\displaystyle P=\prod_S G/G(S)$};
+\draw[right hook->,thick] (G) -- node[above]{$\Phi$} node[below,font=\scriptsize,cnew]{гомеоморфизм на образ} (P);
+\node[font=\footnotesize,align=center] at (0,-1.0) {топология\\ Крулля};
+\node[font=\footnotesize,align=center] at (6.4,-1.15) {топология произведения;\\ $G/G(S)$ конечны и дискретны};
+\end{tikzpicture}
+\end{center}
+
 \emph{4) Образ замкнут.} Для $S_1\subset S_2$ имеем $G(S_2)\subset G(S_1)$, и определено отображение
 $\pi_{S_1S_2}\colon G/G(S_2)\to G/G(S_1)$. Положим
 \[
 E(S_1,S_2)=\{x\in P\mid \pi_{S_1S_2}(x_{S_2})=x_{S_1}\}.
 \]
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+P\arrow[r,"\mathrm{pr}_{S_1}"]\arrow[dr,"\mathrm{pr}_{S_2}"'] & G/G(S_1)\\
+ & G/G(S_2)\arrow[u,cnew,"\pi_{S_1S_2}"']
+\end{tikzcd}
+\qquad\qquad
+\begin{tikzcd}[row sep=large]
+\tau G(S_1)\\
+\tau G(S_2)\arrow[u,mapsto,cnew]
+\end{tikzcd}
+\]
+\figcap{$E(S_1,S_2)$~--- множество точек $x\in P$, на которых треугольник коммутативен; отображение $\pi_{S_1S_2}$ лишь
+<<огрубляет>> смежный класс (справа).}
 Это множество замкнуто: оно состоит из точек, где совпадают два непрерывных отображения $P\to G/G(S_1)$ (проекция на
 $S_1$-ю координату и проекция на $S_2$-ю с последующим $\pi_{S_1S_2}$), а $G/G(S_1)$ хаусдорфово. Покажем, что
 \[
@@ -197,7 +248,11 @@ $S_1$-ю координату и проекция на $S_2$-ю с послед�
 \item \emph{Класс $x_S$ задаёт биекцию $\varphi_S=\tau_S|_S\colon S\to S$.} Она не зависит от выбора представителя: если
 $\tau_SG(S)=\tau'_SG(S)$, то $\tau_S^{-1}\tau'_S\in G(S)$, т.\,е.\ $\tau_S$ и $\tau'_S$ совпадают на $S$. Так как $S$
 инвариантно, а $\tau_S$ инъективен, $\varphi_S$~--- перестановка $S$.
-\item \emph{Согласованность.} При $S_1\subset S_2$ условие $x\in E(S_1,S_2)$ означает $\tau_{S_2}\in\tau_{S_1}G(S_1)$,
+\item \emph{Согласованность.} При $S_1\subset S_2$ условие $x\in E(S_1,S_2)$ означает
+\[
+\pi_{S_1S_2}(x_{S_2})=\tau_{S_2}G(S_1)=\tau_{S_1}G(S_1)=x_{S_1},
+\]
+т.\,е.\ $\tau_{S_2}\in\tau_{S_1}G(S_1)$,
 т.\,е.\ $\varphi_{S_2}|_{S_1}=\varphi_{S_1}$.
 \item \emph{Определение $\varphi$.} Для $\alpha\in\Om$ положим $\varphi(\alpha)=\varphi_S(\alpha)$, где $S$~--- любое
 конечное инвариантное множество, содержащее $\alpha$ (например, $\bar{\{\alpha\}}$). Это корректно: если $\alpha\in S$ и
@@ -219,6 +274,16 @@ $\tau_S^{-1}\varphi\in G(S)$ и $\varphi G(S)=x_S$.
 единицы. Тогда $U=(U\cap G(S))\sqcup(U\setminus G(S))$~--- разбиение на два открытых в $U$ множества; по связности
 $U\subset G(S)$. Это верно для всех $S$, а $\bigcap_SG(S)=\{e\}$, поэтому $U=\{e\}$. Сдвигами получаем то же для любой
 точки.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+\draw[cold,fill=cold!10] (0,0) circle (1.1); \node[cold] at (-1.2,1.1) {$G(S)$};
+\draw[cnew,thick,dashed] plot[smooth cycle] coordinates {(-0.5,-0.3) (0.3,0.5) (1.6,0.4) (2.0,-0.2) (0.9,-0.6)};
+\fill (0,0) circle (1.6pt) node[left]{$e$};
+\node[cnew] at (1.9,-0.75) {$U$};
+\node[font=\footnotesize,align=left,anchor=west] at (3.0,0) {$U\cap G(S)$ и $U\setminus G(S)$ открыты в $U$\\ и не пересекаются $\Rightarrow$ связное $U$\\ не может <<вылезать>> за пределы $G(S)$};
+\end{tikzpicture}
+\end{center}
 \end{proof}
 
 \begin{remark}[7.8a]
@@ -272,12 +337,34 @@ N=\bigcap_{s\in S}\Stab_G(s)=\bigcap_{\sigma\in G,\ i\le n}\sigma H_i\sigma^{-1}
 \item $G$ переводит $K$ в себя ($S$ инвариантно), и ядро действия $G$ на $K$ равно $N$ (элемент тождествен на $K$ тогда и
 только тогда, когда он тождествен на $S$). Значит, конечная группа $G/N$ действует на $K$ точно, и
 $K^{G/N}=K\cap E^G=F$. По теореме Артина 3.11 $K/F$~--- расширение Галуа с группой $G/N$ и $[K:F]=(G:N)$.
+\[
+\begin{tikzcd}
+G\arrow[r]\arrow[d,two heads,"\pi_N"'] & \Aut(K/F)\\
+G/N\arrow[ur,hook,dashed,cnew,"\text{точно}"']
+\end{tikzcd}
+\]
 \item $G$ переводит $M$ в себя: если $m\in M$, $\sigma\in G$, $\nu\in N$, то
 $\nu\sigma(m)=\sigma(\sigma^{-1}\nu\sigma)(m)=\sigma(m)$, так как $\sigma^{-1}\nu\sigma\in N$. Подгруппа $N$ действует на
 $M$ тривиально, так что на $M$ действует конечная группа $\Gamma$~--- образ $G/N$ в $\Aut(M)$, причём $|\Gamma|\le(G:N)$ и
 $M^\Gamma=M\cap E^G=F$. По теореме Артина $[M:F]=|\Gamma|\le(G:N)$.
 \item Итак, $[K:F]=(G:N)\ge[M:F]$ и $K\subset M$, откуда $K=M$.
 \end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\node (F) at (0,0) {$F=E^G$};
+\node at (1.35,0) {$\subset$};
+\node (K) at (2.8,0) {$K=F(S)$};
+\node at (4.25,0) {$\subset$};
+\node (M) at (5.6,0) {$M=E^N$};
+\node at (6.9,0) {$\subset$};
+\node (E) at (7.7,0) {$E$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},cold] (-0.7,-0.35) -- node[below=6pt,font=\footnotesize,align=center]{Галуа, группа $G/N$,\\ $[K:F]=(G:N)$} (3.6,-0.35);
+\draw[decorate,decoration={brace,amplitude=5pt},cnew] (-0.7,0.35) -- node[above=6pt,font=\footnotesize,align=center]{Галуа, группа $\Gamma$ (образ $G/N$),\\ $[M:F]=|\Gamma|\le(G:N)$} (6.4,0.35);
+\end{tikzpicture}
+\end{center}
+\figcap{Две оценки зажимают $K\subset M$: степень $K$ не меньше степени $M$, поэтому $K=M$ (и попутно $\Gamma=G/N$,
+т.\,е.\ $G/N$ действует на $M$ точно).}
 
 \emph{3) $E/F$~--- расширение Галуа.} Каждый элемент $x\in E$ лежит в конечном расширении Галуа $F(S)$ из шага 2 (с
 $n=1$, $x_1=x$), поэтому его минимальный многочлен над $F$ сепарабелен и раскладывается в $F(S)\subset E$.
@@ -291,7 +378,13 @@ $G\subset\Aut(E/F)=\Gal(E/F)$. По 7.7a достаточно проверить
 \emph{6) $G$ плотна в $\Gal(E/F)$.} Базу топологии образуют множества $\tau\Gal(E/M)$, $\tau\in\Gal(E/F)$,
 $M\subset E$~--- конечное подрасширение Галуа. Пусть $M=F(x_1,\dots,x_n)$. Так как $M/F$ нормально, а $G\subset\Gal(E/F)$,
 орбиты $Gx_i$ лежат в $M$; значит, для $S=\bigcup Gx_i$ имеем $M=F(S)$. По шагу 2 ограничение $G\to\Gal(M/F)$
-сюръективно (его образ~--- группа порядка $(G:N)=[M:F]$). Значит, найдётся $\sigma\in G$ с $\sigma|_M=\tau|_M$, т.\,е.\
+ сюръективно (его образ~--- группа порядка $(G:N)=[M:F]$):
+\[
+\begin{tikzcd}[column sep=large]
+G\arrow[r,"{\sigma\,\mapsto\,\sigma|_M}"]\arrow[d,two heads,"\pi_N"'] & \Gal(M/F)\\
+G/N\arrow[ur,cnew,"\sim"']
+\end{tikzcd}
+\] Значит, найдётся $\sigma\in G$ с $\sigma|_M=\tau|_M$, т.\,е.\
 $\sigma\in\tau\Gal(E/M)$.
 
 \emph{7)} Замкнутое и плотное подмножество совпадает со всем пространством: $G=\Gal(E/F)$. Тождественное отображение

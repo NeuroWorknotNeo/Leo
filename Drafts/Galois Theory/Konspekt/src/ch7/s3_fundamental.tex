@@ -24,6 +24,20 @@ $\sigma|_E\notin\pi_E(H)$: иначе $\sigma|_E=h|_E$ для некоторог
 $\sigma\notin\Gal(\Om/\Om^H)$.
 \end{proof}
 
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+\draw[cold,fill=cold!8] plot[smooth cycle] coordinates {(-2,0) (-1.2,1.1) (0.6,1.0) (1.2,0) (0.3,-0.9) (-1.4,-0.9)};
+\node[cold] at (-1.75,1.15) {$\bar H$};
+\foreach \p in {(-1.3,0.2),(-0.8,-0.35),(-0.3,0.5),(0.2,-0.2),(0.6,0.4),(-1.0,0.7)} \fill[cold] \p circle (1.3pt);
+\node[cold,font=\footnotesize] at (-0.35,-0.65) {точки $H$};
+\fill[cnew] (3.0,0.2) circle (1.6pt) node[below right]{$\sigma$};
+\draw[cnew,dashed] (3.0,0.2) circle (0.75);
+\node[cnew,font=\footnotesize,align=left,anchor=west] at (4.0,0.2) {$\sigma\Gal(\Om/E)$~--- окрестность $\sigma$,\\ не пересекающая $H$};
+\end{tikzpicture}
+\end{center}
+\figcap{Если $\sigma\notin\bar H$, то $\sigma$ отличим от всех элементов $H$ уже на конечном уровне $E$:
+$\sigma|_E\notin\pi_E(H)$.}
+
 \begin{theorem}[7.13: основная теорема]
 Пусть $\Om/F$~--- расширение Галуа с группой $G$. Отображения
 \[
@@ -54,7 +68,10 @@ $\sigma\mapsto\sigma|_{\Om^H}$ индуцирует изоморфизм \emph{�
 очевидны, а последние группы равны $H_1$ и $H_2$.
 
 (b) Замкнутая подгруппа конечного индекса открыта, а открытая подгруппа компактной группы имеет конечный индекс
-(7.1a). Пусть $H$ открыта. Тогда $H$ содержит базисную окрестность $\Gal(\Om/K)$, $K$~--- конечное подрасширение Галуа,
+(7.1a). Итак, для замкнутой подгруппы $H$ компактной группы
+\[
+\boxed{\ H\ \text{открыта}\iff(G:H)<\infty.\ }
+\] Пусть $H$ открыта. Тогда $H$ содержит базисную окрестность $\Gal(\Om/K)$, $K$~--- конечное подрасширение Галуа,
 и по (a) $\Om^H\subset K$, так что $[\Om^H:F]<\infty$. Обратно, пусть $M=\Om^H$ конечно над $F$, $M=F(x_1,\dots,x_n)$. Тогда
 $H=\Gal(\Om/M)=G(\{x_1,\dots,x_n\})$~--- открытая подгруппа по определению топологии Крулля.
 
@@ -68,6 +85,20 @@ G/H\to\Hom_F(M,\Om),\qquad\sigma H\mapsto\sigma|_M,
 Расширение $M/F$ конечно и сепарабельно, поэтому $M=F(\alpha)$ (теорема о примитивном элементе 5.1); $F$-гомоморфизмы
 $F(\alpha)\to\Om$ взаимно однозначно соответствуют корням минимального многочлена $\mu_\alpha$ в $\Om$, а их ровно
 $\deg\mu_\alpha=[M:F]$, так как $\mu_\alpha$ сепарабелен и раскладывается в $\Om$ (нормальность).
+\[
+\begin{tikzcd}
+M=\Om^H\arrow[r,hook]\arrow[dr,"\varphi"'] & \Om\arrow[d,dashed,cnew,"\sigma\ (7.4)"]\\
+ & \Om
+\end{tikzcd}
+\qquad\qquad
+\sigma H\ \longleftrightarrow\ \varphi=\sigma|_M
+\]
+\emph{Другой взгляд на конечность.} Биекция $G/H\to\Hom_F(\Om^H,\Om)$ построена без предположения
+$[\Om^H:F]<\infty$. Поэтому для открытой $H$ множество $\Hom_F(\Om^H,\Om)$ конечно. Если бы $[\Om^H:F]=\infty$, то в
+$\Om^H$ нашлись бы конечные подрасширения $K'$ сколь угодно большой степени $d$ (иначе подрасширение $K$ наибольшей
+степени совпадало бы с $\Om^H$: для $x\in\Om^H$ степень $K(x)$ не больше степени $K$, т.\,е.\ $K(x)=K$). У каждого такого
+$K'$ ровно $d$ различных $F$-вложений в $\Om$, и по 7.4 каждое продолжается до вложения $\Om^H\to\Om$; получилось бы
+$|\Hom_F(\Om^H,\Om)|\ge d$ для всех $d$.
 
 (c) Для $\tau\in G$ и $\alpha\in\Om$: $\tau\alpha=\alpha\iff\sigma\tau\sigma^{-1}(\sigma\alpha)=\sigma\alpha$. Поэтому
 $\Gal(\Om/\sigma M)=\sigma\Gal(\Om/M)\sigma^{-1}$, и по взаимной обратности $\Om^{\sigma H\sigma^{-1}}=\sigma(\Om^H)$.
@@ -79,10 +110,16 @@ $\sigma(\alpha)$~--- корень минимального многочлена 
 
 Пусть теперь $H$ нормальна. Ограничение $r\colon G\to\Gal(M/F)$, $\sigma\mapsto\sigma|_M$, определено ($\sigma M=M$),
 является гомоморфизмом, сюръективно (по 7.4 каждый элемент $\Gal(M/F)$ продолжается до элемента $G$) и имеет ядро
-$\Gal(\Om/M)=H$. Значит, $r$ индуцирует изоморфизм групп $\bar r\colon G/H\to\Gal(M/F)$. Он непрерывен: базу
+$\Gal(\Om/M)=H$. Значит, $r$ индуцирует изоморфизм групп $\bar r\colon G/H\to\Gal(M/F)$.
+\[
+\begin{tikzcd}[column sep=large]
+G\arrow[r,two heads,"\pi"]\arrow[rr,bend left=22,"{r\colon\ \sigma\,\mapsto\,\sigma|_M}"] & G/H\arrow[r,cnew,"\bar r","\sim"'] & \Gal(M/F)
+\end{tikzcd}
+\] Он непрерывен: базу
 окрестностей единицы в $\Gal(M/F)$ образуют подгруппы $\Gal(M/K)$, $K\subset M$~--- конечное подрасширение Галуа, а
 $r^{-1}(\Gal(M/K))=\Gal(\Om/K)$ открыта в $G$; значит, $r$ непрерывен (7.7a), а $\bar r$ непрерывен по определению
-фактор-топологии. Группа $G/H$ компактна (непрерывный образ компакта $G$), $\Gal(M/F)$ хаусдорфова (7.8), а непрерывная
+фактор-топологии. (явно: $\bar r^{-1}(\Gal(M/K))=\pi(\Gal(\Om/K))$, и это множество открыто в
+$G/H$, так как его прообраз $\pi^{-1}\pi(\Gal(\Om/K))=\Gal(\Om/K)\,H$~--- объединение открытых сдвигов $\Gal(\Om/K)h$). Группа $G/H$ компактна (непрерывный образ компакта $G$), $\Gal(M/F)$ хаусдорфова (7.8), а непрерывная
 биекция компакта на хаусдорфово пространство~--- гомеоморфизм.
 \end{proof}
 
@@ -122,6 +159,21 @@ $E/E\cap L$~--- расширения Галуа, и ограничение
 ~--- изоморфизм топологических групп.
 \end{proposition}
 
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\node (EL) at (0,2.6) {$EL$};
+\node (E) at (-1.8,1.3) {$E$};
+\node (L) at (1.8,1.3) {$L$};
+\node (I) at (0,0) {$E\cap L$};
+\node (F) at (0,-1.3) {$F$};
+\draw (E) -- (EL); \draw (I) -- (L); \draw (I) -- (F);
+\draw[cnew,thick] (I) -- node[above right,font=\footnotesize,pos=0.45]{Галуа} (E);
+\draw[cnew,thick] (L) -- node[above right,font=\footnotesize]{Галуа} (EL);
+\draw (F) to[out=180,in=-100] node[left,font=\footnotesize,pos=0.4]{Галуа} (E);
+\end{tikzpicture}
+\end{center}
+\figcap{Параллельные красные стороны <<ромба>> имеют изоморфные группы Галуа: $\Gal(EL/L)\cong\Gal(E/E\cap L)$.}
+
 \begin{proof}
 $E/E\cap L$~--- Галуа по 7.3. Расширение $EL/L$ порождено элементами $E$; минимальный многочлен над $L$ элемента $x\in E$
 делит его минимальный многочлен над $F$, который сепарабелен и раскладывается в $E\subset EL$. Значит, $EL$~---
@@ -158,6 +210,16 @@ $\sigma\colon L\to\Om$~--- $F$-гомоморфизмы и $\rho|_{E\cap L}=\sig
 $\tau\colon EL\to\Om$ с $\tau|_E=\rho$ и $\tau|_L=\sigma$.
 \end{corollary}
 
+\[
+\begin{tikzcd}[row sep=small,column sep=large]
+ & E\arrow[dr,hook]\arrow[drr,bend left=25,"\rho"] & & \\
+E\cap L\arrow[ur,hook]\arrow[dr,hook] & & EL\arrow[r,dashed,cnew,"\tau"] & \Om\\
+ & L\arrow[ur,hook]\arrow[urr,bend right=25,"\sigma"'] & &
+\end{tikzcd}
+\]
+\figcap{Склейка: вложения $\rho$ и $\sigma$, согласованные на $E\cap L$, склеиваются во вложение композита (красная
+стрелка).}
+
 \begin{proof}
 \emph{1)} Расширение $EL/L$ алгебраично, поэтому $\sigma$ продолжается до гомоморфизма $s\colon EL\to\Om$ (теорема 6.6,
 применённая к полю $L$ и алгебраическому замыканию поля $\sigma(L)$ в $\Om$).
@@ -169,7 +231,13 @@ $\tau\colon EL\to\Om$ с $\tau|_E=\rho$ и $\tau|_L=\sigma$.
 
 \emph{3)} По 7.15 существует (единственный) $e\in\Gal(EL/L)$ с $e|_E=\varepsilon$. Положим $\tau=s\circ e^{-1}$. Так
 как $e$ тождествен на $L$, то $\tau|_L=s|_L=\sigma$. Так как $e(E)=E$ и $e^{-1}|_E=\varepsilon^{-1}$, то
-$\tau|_E=s|_E\circ\varepsilon^{-1}=\rho$.
+$\tau|_E=s|_E\circ\varepsilon^{-1}=\rho$:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+E\arrow[r,hook]\arrow[d,cnew,"\varepsilon"'] & EL\arrow[r,"s"]\arrow[d,"e"'] & \Om\\
+E\arrow[r,hook] & EL\arrow[ur,cnew,"\tau=s\circ e^{-1}"'] &
+\end{tikzcd}
+\]
 \end{proof}
 
 \begin{remark}[7.16a]
@@ -220,6 +288,19 @@ $\bar H=\Gal(\Om/\Om^H)=G$.
 Открытые множества~--- объединения арифметических прогрессий $a+n\Z$. Она хаусдорфова ($\bigcap n\Z=0$; явно: при
 $a\ne b$ и $n>|a-b|$ прогрессии $a+n\Z$ и $b+n\Z$ не пересекаются), но не дискретна ($\{0\}$ не открыто). Два целых
 числа близки, если их разность делится на большое число.
+
+\begin{center}
+\begin{tikzpicture}[x=0.75cm]
+\draw[->] (-6.6,0) -- (6.8,0);
+\foreach \x in {-6,...,6} {\draw (\x,0.08)--(\x,-0.08); \node[below,font=\scriptsize] at (\x,-0.1) {$\x$};}
+\foreach \x in {-6,-3,0,3,6} \fill[cold] (\x,0) circle (3pt);
+\foreach \x in {-5,-2,1,4} \fill[cnew] (\x,0) circle (3pt);
+\node[cold,font=\footnotesize] at (-4.5,0.5) {$0+3\Z$};
+\node[cnew,font=\footnotesize] at (2.5,0.5) {$1+3\Z$};
+\end{tikzpicture}
+\end{center}
+\figcap{Окрестности $0+3\Z$ и $1+3\Z$ точек $0$ и $1$ не пересекаются ($3>|0-1|$). С ростом $n$ окрестности $a+n\Z$
+<<редеют>>, но остаются бесконечными~--- поэтому $\{0\}$ не открыто.}
 
 \emph{Пополнение $\Zh$.} Последовательность $(a_i)$ целых чисел~--- \emph{последовательность Коши}, если для каждого
 $n\ge1$ найдётся $N$ с $a_i\equiv a_j\pmod n$ при $i,j>N$; она \emph{тривиальна}, если для каждого $n$ найдётся $N$ с

@@ -8,6 +8,10 @@
 \usepackage{booktabs}
 \usepackage{tikz-cd}
 \usetikzlibrary{babel}
+\usetikzlibrary{decorations.pathreplacing,calc,arrows}
+\colorlet{cnew}{red!75!black}   % стрелки и объекты, которые строятся в доказательстве
+\colorlet{cold}{blue!65!black}  % данные
+\newcommand{\figcap}[1]{\par\smallskip{\small\itshape #1}\par\medskip}
 \usepackage[hidelinks]{hyperref}
 
 \newtheoremstyle{mplain}{\medskipamount}{\medskipamount}{\itshape}{}{\bfseries}{.}{ }{\thmname{#1}\thmnote{ #3}}
