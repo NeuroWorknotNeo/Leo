@@ -1,0 +1,210 @@
+\section{Циклические расширения}
+
+Пусть поле $F$ содержит первообразный корень степени $n$ из $1$ для некоторого $n\ge2$. Тогда группа $\mu_n$ корней
+степени $n$ из $1$ в $F$~--- циклическая подгруппа $F^\times$ порядка $n$; обозначим через $\zeta$ её образующую. В этом
+разделе мы опишем циклические расширения $F$ степени $n$.
+
+Заметим, что при этом условии $\operatorname{char}F\nmid n$: если $\operatorname{char}F=p$ делит $n$, то первообразных
+корней степени $n$ из $1$ нет ни в каком поле характеристики $p$ (это показано в начале раздела <<Круговые
+расширения>>, перед \rf{5.7b}). Многочлены $X^n-a$, $a\in F^\times$, сепарабельны: если $\alpha$~--- корень $X^n-a$ в
+некотором расширении $F$, то все корни~--- это $\zeta^i\alpha$, $0\le i<n$, и они попарно различны.
+
+\subsection*{Расширения, порождённые корнем $n$-й степени}
+
+Рассмотрим поле $E=F[\alpha]$, где $\alpha^n\in F$, но никакая меньшая положительная степень $\alpha$ в $F$ не лежит.
+Тогда $\alpha\ne0$ (иначе $\alpha^1=0\in F$), и $\alpha$~--- корень многочлена $X^n-a$, $a=\alpha^n\in F^\times$, остальные
+корни которого~--- $\zeta^i\alpha$, $1\le i\le n-1$. Все они лежат в $E$ и попарно различны, так что $E$~--- поле разложения
+сепарабельного многочлена $X^n-a$, и $E/F$~--- расширение Галуа (\rf{3.10}); пусть $G$~--- его группа. Для $\sigma\in G$
+элемент $\sigma\alpha$~--- снова корень $X^n-a$, т.\,е.\ $\sigma\alpha=\zeta^i\alpha$ для некоторого $i$, и
+$\sigma\alpha/\alpha\in\mu_n$. Рассмотрим отображение
+\[
+G\to\mu_n,\qquad \sigma\mapsto\sigma\alpha/\alpha.
+\]
+\begin{itemize}[leftmargin=*]
+\item \emph{Оно не меняется при замене $\alpha$ на другой корень $\beta=\zeta^j\alpha$}, так как $\zeta^j\in F$:
+$\sigma\beta/\beta=\zeta^j\sigma\alpha/(\zeta^j\alpha)=\sigma\alpha/\alpha$.
+\item \emph{Это гомоморфизм}: применяя предыдущее к корню $\tau\alpha$, получаем
+\[
+\frac{\sigma\tau\alpha}{\alpha}=\frac{\sigma(\tau\alpha)}{\tau\alpha}\cdot\frac{\tau\alpha}{\alpha}
+=\frac{\sigma\alpha}{\alpha}\cdot\frac{\tau\alpha}{\alpha}.
+\]
+\item \emph{Он инъективен}: если $\sigma\alpha=\alpha$, то $\sigma$ тождественно на $F[\alpha]=E$.
+\item \emph{Он сюръективен.} Образ~--- подгруппа циклической группы $\mu_n$, т.\,е.\ $\mu_d$ для некоторого $d\mid n$. Если
+$d<n$, то $(\sigma\alpha/\alpha)^d=1$, т.\,е.\ $\sigma(\alpha^d)=\alpha^d$ для всех $\sigma\in G$, и $\alpha^d\in E^G=F$,
+что противоречит условию на $\alpha$.
+\end{itemize}
+Итак, $G\cong\mu_n\cong\Z/n\Z$, $[E:F]=n$, и $X^n-a$~--- минимальный многочлен $\alpha$ (он неприводим). Это первая
+часть следующего утверждения.
+
+\begin{proposition}[5.27]
+Пусть $F$ содержит первообразный корень степени $n$ из $1$. Если $E=F[\alpha]$, где $\alpha^n\in F$, а никакая меньшая
+положительная степень $\alpha$ не лежит в $F$, то $E/F$~--- расширение Галуа с циклической группой порядка $n$. Обратно,
+если $E/F$~--- циклическое расширение степени $n$, то $E=F[\alpha]$ для некоторого $\alpha$ с $\alpha^n\in F$ (и $n$~---
+наименьшая такая степень).
+\end{proposition}
+
+\begin{proof}
+Осталось доказать обратное утверждение. Пусть $\sigma$ порождает $G=\Gal(E/F)$. \emph{Достаточно найти $\alpha\in
+E^\times$ с $\sigma\alpha=\zeta^{-1}\alpha$.} Действительно, тогда по индукции $\sigma^i\alpha=\zeta^{-i}\alpha$ (так как
+$\sigma(\zeta^{-i}\alpha)=\zeta^{-i}\sigma\alpha$, ведь $\zeta\in F$), и:
+\begin{itemize}[leftmargin=*]
+\item $\sigma(\alpha^n)=\zeta^{-n}\alpha^n=\alpha^n$, т.\,е.\ $\alpha^n\in E^G=F$;
+\item при $0<d<n$ имеем $\sigma(\alpha^d)=\zeta^{-d}\alpha^d\ne\alpha^d$, т.\,е.\ $\alpha^d\notin F$;
+\item $E=F[\alpha]$: сопряжённые $\alpha,\zeta^{-1}\alpha,\dots,\zeta^{-(n-1)}\alpha$ попарно различны ($\zeta$
+первообразен, $\alpha\ne0$) и все являются корнями минимального многочлена $\alpha$ над $F$. Значит, его степень
+$[F[\alpha]:F]\ge n$, а так как $F[\alpha]\subset E$ и $[E:F]=n$, то $F[\alpha]=E$. (Иначе: стабилизатор $\alpha$ в $G$
+тривиален, и по основной теореме $F[\alpha]=E^{\{1\}}=E$.) Попутно $X^n-\alpha^n$~--- минимальный многочлен $\alpha$.
+\end{itemize}
+Найдём $\alpha$. Автоморфизмы $1,\sigma,\dots,\sigma^{n-1}$ поля $E$ различны, так что их ограничения на $E^\times$~---
+различные характеры $E^\times\to E^\times$, и по \rf{5.14} (см.~\rf{5.15a}) отображение $\sum_{i=0}^{n-1}\zeta^i\sigma^i\colon
+E\to E$ не нулевое. Выберем $\gamma\in E$ с
+\[
+\alpha\overset{\text{def}}=\sum_{i=0}^{n-1}\zeta^i\sigma^i\gamma\ne0.
+\]
+Так как $\sigma\zeta=\zeta$, $\sigma^n=1$ и $\zeta^n=1$,
+\[
+\zeta\,\sigma\alpha=\sum_{i=0}^{n-1}\zeta^{i+1}\sigma^{i+1}\gamma=\sum_{j=1}^{n}\zeta^j\sigma^j\gamma
+=\sum_{j=0}^{n-1}\zeta^j\sigma^j\gamma=\alpha
+\]
+(слагаемое с $j=n$ равно слагаемому с $j=0$). Итак, $\sigma\alpha=\zeta^{-1}\alpha$.
+\end{proof}
+
+\begin{center}
+\begin{tikzpicture}
+\node (A) at (0,0) {$F$};
+\node at (1.1,0) {$\subset$};
+\node (B) at (2.3,0) {$F[\alpha]$};
+\node at (3.5,0) {$\subset$};
+\node (C) at (4.5,0) {$E$};
+\draw[decorate,decoration={brace,amplitude=5pt},cnew] (-0.3,0.3) -- node[above=6pt,font=\footnotesize,align=center]
+ {$\ge n$: сопряжённые\\ $\alpha,\zeta^{-1}\alpha,\dots,\zeta^{-(n-1)}\alpha$} (2.9,0.3);
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},cold] (-0.3,-0.3) -- node[below=6pt,font=\footnotesize]
+ {$[E:F]=|G|=n$} (4.8,-0.3);
+\end{tikzpicture}
+\end{center}
+\figcap{Почему $F[\alpha]=E$: у построенного элемента $\alpha$ есть $n$ различных сопряжённых, поэтому $[F[\alpha]:F]\ge n$,
+а больше $n$ степень быть не может.}
+
+Построение $\alpha$~--- частный случай теоремы Гильберта~90. Так как $\zeta\in F$, то
+$\operatorname{Nm}_{E/F}\zeta=\prod_{\tau\in G}\tau\zeta=\zeta^n=1$, и по \rf{5.25} $\zeta=\beta/\sigma\beta$ для некоторого
+$\beta\in E^\times$, т.\,е.\ $\sigma\beta=\zeta^{-1}\beta$~--- это и есть нужный элемент. Формула для $\alpha$ выше~---
+формула для $\beta$ из доказательства \rf{5.23}, применённая к скрещённому гомоморфизму $f(\sigma^i)=\zeta^i$ (так как
+$\zeta\in F$, это просто гомоморфизм $G\to F^\times$, и $f(\sigma)=\zeta=\beta/\sigma\beta$).
+
+\begin{remark}[5.27a: где нужно $\zeta\in F$]
+Условие <<$F$ содержит первообразный корень степени $n$ из $1$>> относится к обоим утверждениям \rf{5.27}, и в обратном
+оно используется трижды: в равенстве $\sigma\alpha=\zeta^{-1}\alpha$ (нужно $\sigma\zeta=\zeta$; если $\zeta\notin F$,
+коэффициенты $\zeta^i$ тоже <<крутятся>> под действием $\sigma$), в выводе $\alpha^n\in F$ и в различности сопряжённых
+$\zeta^{-i}\alpha$ (нужна первообразность). Теорема Дедекинда этого условия не требует.
+
+Без него обратное утверждение неверно. Пусть $E=\Q[\cos\frac{2\pi}7]$; это циклическое расширение $\Q$ степени $3$
+(минимальный многочлен $2\cos\frac{2\pi}7$ равен $X^3+X^2-2X-1$, его дискриминант $49=7^2$~--- квадрат, так что группа
+Галуа~--- $A_3$, \rf{4.7}; ср.\ \rf{3.22}), а $\mu_3\not\subset\Q$.
+Если бы $E=\Q[\alpha]$ с $\alpha^3=a\in\Q$, то $X^3-a$ был бы минимальным многочленом $\alpha$, и вместе с $\alpha$
+нормальное расширение $E$ содержало бы невещественные корни $\omega\alpha$ ($\omega=e^{2\pi i/3}$), что невозможно, так как
+$E\subset\R$. При $n=2$ условие выполняется автоматически ($\mu_2=\{\pm1\}\subset F$ при $\operatorname{char}F\ne2$), поэтому
+каждое квадратичное расширение имеет вид $F[\sqrt a]$. Обычно условие обходят, присоединяя сначала корни из единицы:
+если $E/F$ циклично, то $E[\zeta]/F[\zeta]$ тоже циклично (его группа~--- подгруппа $\Gal(E/F)$, \rf{3.19}), и к нему
+применимо \rf{5.27}; так поступают в доказательстве теоремы Галуа о разрешимости в радикалах (\rf{5.34}). Если же
+$\operatorname{char}F=p$ и $p\mid n$, первообразных корней степени $n$ нет вовсе; циклические расширения степени $p$
+описываются иначе (\rf{5.29}(b)).
+\end{remark}
+
+\begin{remark}[5.27b: $\Hom(G,\mu_n)$ и скрещённые гомоморфизмы]
+Отображение $\sigma\mapsto\sigma\alpha/\alpha$~--- главный скрещённый гомоморфизм $G\to E^\times$, но его значения лежат в
+$\mu_n\subset F$, где $G$ действует тривиально, поэтому как отображение в $\mu_n$ это обычный гомоморфизм
+(\rf{5.21}(c)). Это значение связывающего гомоморфизма \rf{5.21b} для точной последовательности (\rf{5.20a}(b))
+\[
+1\to\mu_n\to E^\times\xrightarrow{\ x\mapsto x^n\ }E^{\times n}\to1
+\]
+на элементе $a=\alpha^n$; подробно~--- в теории Куммера (\rf{5.30d} и абзац после него).
+\end{remark}
+
+Пусть $F$ содержит первообразный корень степени $n$ из $1$, $\Om\supset F$~--- поле, и $\alpha\in\Om$, $\alpha^n=a\in F$.
+Все корни $X^n-a$ в $\Om$~--- это $\zeta^i\alpha$, и они лежат в $F[\alpha]$; поэтому подполе $F[\alpha]\subset\Om$ не
+зависит от выбора корня ($F[\alpha]=F[\zeta^i\alpha]$) и определяется самим $a$. Обозначим его $F[a^{1/n}]$.
+
+\begin{proposition}[5.28]
+Пусть $F$ содержит первообразный корень степени $n$ из $1$, $\Om\supset F$~--- поле, и $F[a^{1/n}]$, $F[b^{1/n}]$
+($a,b\in F^\times$)~--- циклические расширения $F$ степени $n$ внутри $\Om$. Они совпадают тогда и только тогда, когда
+$a=b^rc^n$ для некоторого целого $r$, взаимно простого с $n$, и некоторого $c\in F^\times$, т.\,е.\ тогда и только тогда,
+когда $a$ и $b$ порождают одну и ту же подгруппу в $F^\times/F^{\times n}$.
+\end{proposition}
+
+\begin{proof}
+Пусть $\alpha^n=a$, $\beta^n=b$, $\alpha,\beta\in\Om$. Так как $[F[\alpha]:F]=n$, никакая степень $\alpha^d$, $0<d<n$,
+не лежит в $F$ (иначе $\alpha$ был бы корнем многочлена $X^d-\alpha^d$ степени $d<n$), и так же для $\beta$.
+
+\emph{<<Если>>.} Пусть $a=b^rc^n$. Тогда $(\beta^rc)^n=a$, так что $\beta^rc\in F[\beta]$~--- корень $X^n-a$, и
+$F[a^{1/n}]=F[\beta^rc]\subset F[\beta]$. Обратно, пусть $ru+nv=1$ с целыми $u,v$. Тогда
+$b=b^{ru}b^{nv}=(ac^{-n})^ub^{nv}=a^u(c^{-u}b^v)^n$, и тем же рассуждением $F[b^{1/n}]\subset F[\alpha]$.
+
+\emph{<<Только если>>.} Пусть $F[\alpha]=F[\beta]=E$, $G=\Gal(E/F)=\langle\sigma\rangle$. Как показано перед \rf{5.27},
+$\sigma\mapsto\sigma\alpha/\alpha$ и $\sigma\mapsto\sigma\beta/\beta$~--- изоморфизмы $G\to\mu_n$; поэтому
+$\eta=\sigma\alpha/\alpha$~--- первообразный корень степени $n$ из $1$, и $\sigma\beta=\eta^i\beta$ для некоторого $i$,
+$0\le i<n$, причём $\eta^i$ тоже первообразен, т.\,е.\ $\gcd(i,n)=1$. Так как $1,\alpha,\dots,\alpha^{n-1}$~--- базис $E$ над
+$F$,
+\[
+\beta=\sum_{j=0}^{n-1}c_j\alpha^j,\ \ c_j\in F,\qquad\text{и}\qquad \sigma\beta=\sum_{j=0}^{n-1}c_j\eta^j\alpha^j.
+\]
+Сравнивая с $\sigma\beta=\eta^i\beta=\sum_jc_j\eta^i\alpha^j$, получаем $c_j(\eta^j-\eta^i)=0$ для всех $j$, а при $j\ne i$
+имеем $\eta^j\ne\eta^i$. Значит, $\beta=c_i\alpha^i$ и $b=c_i^na^i$. Меняя ролями $a$ и $b$, получаем $a=b^rc^n$ с
+$\gcd(r,n)=1$.
+
+\emph{Подгруппы.} Если $a=b^rc^n$ и $rr'\equiv1\pmod n$, то $\bar a=\bar b^r$ и $\bar b=\bar b^{rr'}=\bar a^{r'}$ в
+$F^\times/F^{\times n}$, т.\,е.\ $\langle\bar a\rangle=\langle\bar b\rangle$. Обратно, классы $\bar a$ и $\bar b$ имеют
+порядок $n$: если $a^d=c^n$, $0<d<n$, $c\in F^\times$, то $(\alpha^d/c)^n=1$ и $\alpha^d\in c\mu_n\subset F$~---
+противоречие; так же для $\bar b$. Поэтому если $\langle\bar a\rangle=\langle\bar b\rangle$, то $\bar a=\bar b^r$, причём
+$\gcd(r,n)=1$, так как $\bar a$ порождает циклическую группу $\langle\bar b\rangle$ порядка $n$ (\rf{5.7b}(a)); т.\,е.\
+$a=b^rc^n$ для некоторого $c\in F^\times$.
+\end{proof}
+
+Например, при $n=2$ (и $\operatorname{char}F\ne2$) получаем: $F[\sqrt a]=F[\sqrt b]\iff a/b\in F^{\times2}$ (при нечётном $r$
+имеем $a=b\cdot(b^{(r-1)/2}c)^2$). При $n=3$ и $F=\Q[\omega]$, $\omega^3=1\ne\omega$: $F[2^{1/3}]=F[4^{1/3}]=F[16^{1/3}]$, так
+как $4=2^2$ и $16=2\cdot2^3$.
+
+\begin{corollary}[5.28a]
+Пусть $F$ содержит первообразный корень степени $n$ из $1$, а $\Om\supset F$~--- алгебраически замкнутое поле. Правило
+$F[a^{1/n}]\mapsto\langle\bar a\rangle$ задаёт биекцию
+\[
+\left\{\begin{matrix}\text{циклические расширения}\\ \text{$F$ степени $n$ в $\Om$}\end{matrix}\right\}
+\ \longleftrightarrow\
+\left\{\begin{matrix}\text{циклические подгруппы}\\ \text{порядка $n$ в $F^\times/F^{\times n}$}\end{matrix}\right\}.
+\]
+\end{corollary}
+
+\begin{proof}
+\emph{Корректность и инъективность.} Если $E\subset\Om$~--- циклическое расширение $F$ степени $n$, то по \rf{5.27}
+$E=F[\alpha]$ с $a=\alpha^n\in F$, т.\,е.\ $E=F[a^{1/n}]$, и по \rf{5.28} (часть <<Подгруппы>> доказательства) класс
+$\bar a$ имеет порядок $n$. Итак, $\langle\bar a\rangle$~--- циклическая подгруппа порядка $n$; по \rf{5.28} она не
+зависит от выбора $a$, и различным расширениям отвечают различные подгруппы.
+
+\emph{Сюръективность.} Пусть $\bar a$ имеет порядок $n$. Возьмём $\alpha\in\Om$ с $\alpha^n=a$. Если $\alpha^d=c\in F$ при
+$0<d<n$, то $a^d=c^n$ и $\bar a^d=1$~--- противоречие. По \rf{5.27} $F[\alpha]/F$ циклично степени $n$, и оно переходит в
+$\langle\bar a\rangle$.
+\end{proof}
+
+\begin{aside}[5.29]
+(a) Пусть $F$ содержит первообразный корень степени $n$ из $1$ и $a\in F^\times$. \emph{Многочлен $X^n-a$ неприводим в
+$F[X]$ тогда и только тогда, когда $a\notin F^p$ ни для какого простого $p\mid n$.} Если $a=c^p$, $p\mid n$, то
+$X^{n/p}-c$~--- собственный делитель $X^n-a$. Обратно, пусть $\alpha$~--- корень $X^n-a$ в поле разложения; $E=F[\alpha]$
+содержит все корни $\zeta^i\alpha$ и является расширением Галуа. Как перед \rf{5.27}, $\sigma\mapsto\sigma\alpha/\alpha$~---
+инъективный гомоморфизм $G=\Gal(E/F)\to\mu_n$, его образ~--- $\mu_d$, где $d=|G|=[E:F]$, и $\sigma(\alpha^d)=\alpha^d$, т.\,е.\
+$b=\alpha^d\in F$. Тогда $a=\alpha^n=b^{n/d}$; если $d<n$, то для простого $p\mid n/d$ имеем $a=(b^{n/(dp)})^p\in F^p$.
+Значит, $d=n$, и минимальный многочлен $\alpha$ (делитель $X^n-a$) имеет степень $n$.
+
+Без предположения о корнях из единицы верна \emph{теорема Капелли}: при $n\ge2$ и $a\ne0$ многочлен $X^n-a$ неприводим
+тогда и только тогда, когда $a\notin F^p$ ни для какого простого $p\mid n$ и, если $4\mid n$, $a\notin-4F^4$ (её
+доказательство мы не приводим). Дополнительное условие существенно: $X^4+4=(X^2+2X+2)(X^2-2X+2)$, хотя $-4$ не квадрат в
+$\Q$; а $X^4+4c^4$ делится на $X^2+2cX+2c^2$. Если $\mu_4\subset F$, то $-4=(1+i)^4$, и условие $a\notin-4F^4$
+следует из условия для $p=2$~--- в согласии с первой частью.
+
+(b) Пусть $\operatorname{char}F=p$ (тогда в $F$ нет корней степени $p$ из $1$, кроме $1$: ${X^p-1=(X-1)^p}$), и $a\in F$.
+Многочлен $X^p-X-a$ неприводим в $F[X]$, если ${a\ne b^p-b}$ для всех ${b\in F}$, и тогда его группа Галуа циклична порядка
+$p$ и порождена автоморфизмом $\alpha\mapsto\alpha+1$ ($\alpha$~--- корень); если же ${a=b^p-b}$, то
+${X^p-X-a=\prod_{i\in\F_p}(X-b-i)}$. Обратно, каждое циклическое расширение $E/F$ степени $p$~--- поле разложения такого
+многочлена. Это аналог \rf{5.27}, в котором мультипликативную теорему Гильберта~90 заменяет аддитивная (\rf{5.25a}):
+если $\sigma$ порождает $\Gal(E/F)$, то $\operatorname{Tr}_{E/F}(1)=p\cdot1=0$, и найдётся $\alpha\in E$ с
+$\sigma\alpha=\alpha+1$. Доказательства и продолжение (абелевы расширения экспоненты $p$, расширения степени $p^n$,
+векторы Витта)~--- в разделе <<Теория Артина--Шрайера и векторы Витта>> (\rf{5.32c}, \rf{5.32d} и далее).
+\end{aside}

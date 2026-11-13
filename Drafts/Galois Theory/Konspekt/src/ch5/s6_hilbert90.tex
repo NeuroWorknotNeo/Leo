@@ -1,0 +1,484 @@
+\section{Теорема Гильберта 90}
+
+\subsection*{$G$-модули и точные последовательности}
+
+Пусть $G$~--- группа. \emph{$G$-модуль}~--- это абелева группа $M$ вместе с действием $G$, т.\,е.\ отображением
+$G\times M\to M$, $(\sigma,m)\mapsto\sigma m$, таким, что
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $\sigma(m+m')=\sigma m+\sigma m'$ для всех $\sigma\in G$, $m,m'\in M$;
+\item $(\sigma\tau)m=\sigma(\tau m)$ для всех $\sigma,\tau\in G$, $m\in M$;
+\item $1_Gm=m$ для всех $m\in M$.
+\end{enumerate}
+По (a) каждый $\sigma$ действует эндоморфизмом абелевой группы $M$, а по (b), (c)~--- автоморфизмом (обратный~---
+действие $\sigma^{-1}$); вместе это означает, что $\sigma\mapsto(m\mapsto\sigma m)$~--- гомоморфизм групп $G\to\Aut(M)$.
+Обратно, каждый такой гомоморфизм задаёт структуру $G$-модуля.
+
+Пусть $\Z[G]$~--- \emph{групповое кольцо}: свободная абелева группа с базисом $G$ и умножением, продолжающим умножение в
+$G$ (как в групповой алгебре $F[G]$, только с целыми коэффициентами). Действие $G$ на $M$ однозначно продолжается до
+структуры $\Z[G]$-модуля: $\bigl(\sum k_\sigma\sigma\bigr)m=\sum k_\sigma\,\sigma m$, $k_\sigma\in\Z$. \emph{Гомоморфизм
+$G$-модулей}~--- это гомоморфизм групп $\varphi\colon M\to N$ с $\varphi(\sigma m)=\sigma\varphi(m)$; это то же, что
+$\Z[G]$-линейное отображение. Так что $G$-модули~--- это в точности $\Z[G]$-модули. \emph{Инварианты} $G$-модуля:
+\[
+M^G=\{m\in M\mid \sigma m=m\ \text{для всех }\sigma\in G\}.
+\]
+Действие \emph{тривиально}, если $M^G=M$; например, $\Z$ с тривиальным действием.
+
+\begin{example}[5.20]
+Пусть $E/F$~--- расширение Галуа с группой $G$. Тогда $(E,+)$ и $(E^\times,\cdot)$~--- $G$-модули (второй записывается
+мультипликативно: $\sigma(xy)=\sigma x\cdot\sigma y$), и $E^G=F$, $(E^\times)^G=F^\times$. Группа $\mu_n(E)$ корней степени $n$
+из единицы в $E$~--- подмодуль $E^\times$. Групповое кольцо $\Z[G]$ и групповая алгебра $F[G]$ с действием умножением слева~---
+тоже $G$-модули.
+\end{example}
+
+Последовательность групп и гомоморфизмов $\dots\to A\xrightarrow{f}B\xrightarrow{g}C\to\dots$ \emph{точна} в $B$, если
+$\operatorname{im}f=\ker g$, и \emph{точна}, если она точна в каждом внутреннем члене. В мультипликативной записи
+(в частности, для неабелевых групп) короткая точная последовательность записывается как $1\to A\to B\to C\to1$, в
+аддитивной~--- как $0\to A\to B\to C\to0$: это значит, что $A\to B$ инъективно, $B\to C$ сюръективно и образ первого
+отображения равен ядру второго.
+
+\begin{example}[5.20a]
+(a) Пусть $F\subset E\subset K$, где $K/F$ и $E/F$~--- конечные расширения Галуа. Ограничение $\sigma\mapsto\sigma|_E$~---
+гомоморфизм $\Gal(K/F)\to\Gal(E/F)$ (так как $E/F$ нормально, $\sigma E=E$) с ядром $\Gal(K/E)$, и по основной теореме
+\rf{3.17} он сюръективен: $\Gal(E/F)\cong\Gal(K/F)/\Gal(K/E)$. Это означает точность последовательности групп
+\[
+1\to\Gal(K/E)\to\Gal(K/F)\to\Gal(E/F)\to1.
+\]
+(b) Если $E/F$~--- расширение Галуа с группой $G$, то $1\to\mu_n(E)\to E^\times\xrightarrow{x\mapsto x^n}E^{\times n}\to1$
+и $0\to F\to E\to E/F\to0$~--- точные последовательности $G$-модулей (здесь $E^{\times n}=\{x^n\mid x\in E^\times\}$).
+\end{example}
+
+\subsection*{Скрещённые гомоморфизмы и группа $H^1$}
+
+\begin{definition}
+Пусть $M$~--- $G$-модуль. \emph{Скрещённый гомоморфизм}~--- это отображение $f\colon G\to M$ с
+\[
+f(\sigma\tau)=f(\sigma)+\sigma f(\tau)\quad\text{для всех }\sigma,\tau\in G.
+\]
+\end{definition}
+
+Из условия $f(1)=f(1\cdot1)=f(1)+1\cdot f(1)=f(1)+f(1)$, т.\,е.\ $f(1)=0$. В мультипликативной записи (например, для
+$M=E^\times$) условие имеет вид $f(\sigma\tau)=f(\sigma)\cdot\sigma\bigl(f(\tau)\bigr)$, и $f(1)=1$.
+
+\begin{example}[5.21]
+(a) Пусть $f\colon G\to M$~--- скрещённый гомоморфизм. Для $\sigma\in G$
+\[
+f(\sigma^2)=f(\sigma)+\sigma f(\sigma),\quad f(\sigma^3)=f(\sigma\cdot\sigma^2)=f(\sigma)+\sigma f(\sigma)+\sigma^2f(\sigma),
+\quad\dots,\quad f(\sigma^n)=\sum_{i=0}^{n-1}\sigma^if(\sigma).
+\]
+Пусть $G=\langle\sigma\rangle$ циклическая порядка $n$, и $N=1+\sigma+\dots+\sigma^{n-1}\in\Z[G]$. Тогда $f$ однозначно
+определяется значением $x=f(\sigma)$: $f(\sigma^i)=x+\sigma x+\dots+\sigma^{i-1}x$, а из $f(1)=f(\sigma^n)=0$ получаем
+\begin{equation}\label{eq:s6-normzero}
+Nx=x+\sigma x+\dots+\sigma^{n-1}x=0.
+\end{equation}
+Обратно, пусть $x\in M$ удовлетворяет \eqref{eq:s6-normzero}. Для целых $i\ge0$ положим $S_i=\sum_{k=0}^{i-1}\sigma^kx$
+($S_0=0$). Тогда $S_{i+j}=S_i+\sigma^iS_j$ (сумма просто разбивается на два куска), и в частности
+$S_{i+n}=S_i+\sigma^iNx=S_i$. Значит, $S_i$ зависит только от $\sigma^i$, и формула $f(\sigma^i)=S_i$ корректно задаёт
+отображение $G\to M$, а равенство $S_{i+j}=S_i+\sigma^iS_j$ означает, что это скрещённый гомоморфизм. Итак, для
+циклической группы $G=\langle\sigma\rangle$
+\[
+\{\text{скрещённые гомоморфизмы } f\colon G\to M\}\ \xleftrightarrow{\ f\,\leftrightarrow\, f(\sigma)\ }\
+\{x\in M\mid x+\sigma x+\dots+\sigma^{n-1}x=0\}.
+\]
+
+(b) Для каждого $x\in M$ формула $f(\sigma)=\sigma x-x$ задаёт скрещённый гомоморфизм:
+$f(\sigma)+\sigma f(\tau)=\sigma x-x+\sigma\tau x-\sigma x=\sigma\tau x-x=f(\sigma\tau)$. Такие скрещённые гомоморфизмы
+называются \emph{главными}. В мультипликативной записи главный скрещённый гомоморфизм имеет вид $\sigma\mapsto\sigma x/x$.
+
+(c) Если $G$ действует на $M$ тривиально, то условие превращается в $f(\sigma\tau)=f(\sigma)+f(\tau)$: скрещённые
+гомоморфизмы~--- это просто гомоморфизмы групп $G\to M$, а главные равны нулю ($\sigma x-x=0$).
+\end{example}
+
+Пусть $Z^1(G,M)$~--- множество скрещённых гомоморфизмов $G\to M$, а $B^1(G,M)$~--- множество главных. Сумма и разность
+скрещённых гомоморфизмов (поточечные)~--- снова скрещённые гомоморфизмы:
+$(f\pm g)(\sigma\tau)=f(\sigma)+\sigma f(\tau)\pm g(\sigma)\pm\sigma g(\tau)=(f\pm g)(\sigma)+\sigma(f\pm g)(\tau)$; а главные
+образуют подгруппу: $(\sigma x-x)\pm(\sigma y-y)=\sigma(x\pm y)-(x\pm y)$. Поэтому определена факторгруппа
+\[
+H^1(G,M)=\frac{Z^1(G,M)}{B^1(G,M)}=\frac{\{\text{скрещённые гомоморфизмы}\}}{\{\text{главные скрещённые гомоморфизмы}\}},
+\]
+\emph{первая группа когомологий} $G$ с коэффициентами в $M$. Положим также $H^0(G,M)=M^G$. Существуют и группы
+когомологий $H^n(G,M)$ при $n>1$ (см.~\rf{5.26}), но здесь они почти не понадобятся. Для тривиального действия
+$H^1(G,M)=\Hom(G,M)$ по \rf{5.21}(c).
+
+\begin{remark}[5.21a: скрещённые гомоморфизмы и гомоморфизмы]
+Даже для абелевой $G$ скрещённый гомоморфизм не обязан быть гомоморфизмом: всё решает действие $G$ на $M$. Пусть
+$G=\{1,\sigma\}$ действует на $M=\Z$ по правилу $\sigma m=-m$. Здесь $N=1+\sigma$ действует нулём, и по \rf{5.21}(a) любое
+$x=f(\sigma)\in\Z$ задаёт скрещённый гомоморфизм, так что $Z^1\cong\Z$; главные~--- это $\sigma m-m=-2m$, т.\,е.\
+$B^1=2\Z$, и $H^1(G,M)\cong\Z/2\Z$, тогда как гомоморфизмов $\Z/2\to\Z$, кроме нулевого, нет. Для абелевой $G$ из
+$f(\sigma\tau)=f(\tau\sigma)$ получается лишь соотношение $(1-\tau)f(\sigma)=(1-\sigma)f(\tau)$. Не помогает и попытка
+рассматривать абелеву группу $G$ как $G$-модуль: естественное действие сопряжением на ней тривиально, и гомоморфизмы
+$G$-модулей $G\to M$~--- это гомоморфизмы групп со значениями в $M^G$ (в примере выше $M^G=0$, и такой гомоморфизм
+только нулевой), т.\,е.\ совсем другой объект. Правильная <<модульная>>
+интерпретация скрещённых гомоморфизмов~--- (2) ниже.
+
+Полезно знать две переформулировки. (1) В полупрямом произведении $M\rtimes G$ (пары $(m,\sigma)$ с умножением
+$(m,\sigma)(m',\tau)=(m+\sigma m',\sigma\tau)$) имеем $(f(\sigma),\sigma)(f(\tau),\tau)=(f(\sigma)+\sigma f(\tau),\sigma\tau)$;
+поэтому $f$~--- скрещённый гомоморфизм $\iff$ $\sigma\mapsto(f(\sigma),\sigma)$~--- гомоморфизм групп $G\to M\rtimes G$.
+Итак, скрещённый гомоморфизм~--- это обычный гомоморфизм, только со значениями в полупрямом произведении. (2) Пусть
+$I_G=\ker\bigl(\Z[G]\to\Z,\ \sum k_\sigma\sigma\mapsto\sum k_\sigma\bigr)$~--- \emph{идеал аугментации}; это свободная
+абелева группа с базисом $\{\sigma-1\mid\sigma\ne1\}$. Скрещённые гомоморфизмы $f$ взаимно однозначно соответствуют
+гомоморфизмам $G$-модулей $\varphi\colon I_G\to M$ по правилу $\varphi(\sigma-1)=f(\sigma)$: условие $\Z[G]$-линейности
+на тождестве $\tau(\sigma-1)=(\tau\sigma-1)-(\tau-1)$ превращается ровно в $\tau f(\sigma)=f(\tau\sigma)-f(\tau)$.
+\end{remark}
+
+\subsection*{Длинная точная последовательность}
+
+Гомоморфизм $G$-модулей $\alpha\colon M'\to M$ переводит инварианты в инварианты, а скрещённые гомоморфизмы~--- в
+скрещённые: $\alpha f(\sigma\tau)=\alpha f(\sigma)+\sigma\,\alpha f(\tau)$; главные переходят в главные:
+$\alpha(\sigma x-x)=\sigma\alpha(x)-\alpha(x)$. Поэтому корректно определены гомоморфизмы $\alpha\colon M'^G\to M^G$ и
+$\alpha_*\colon H^1(G,M')\to H^1(G,M)$, $[f]\mapsto[\alpha\circ f]$.
+
+\begin{theorem}[5.21b]
+Каждая короткая точная последовательность $G$-модулей $0\to M'\xrightarrow{\alpha}M\xrightarrow{\beta}M''\to0$ даёт точную
+последовательность абелевых групп
+\[
+0\to M'^G\xrightarrow{\alpha}M^G\xrightarrow{\beta}M''^G\xrightarrow{\delta}H^1(G,M')\xrightarrow{\alpha_*}H^1(G,M)
+\xrightarrow{\beta_*}H^1(G,M''),
+\]
+где \emph{связывающий гомоморфизм} $\delta$ определён так: для $m''\in M''^G$ выберем $m\in M$ с $\beta(m)=m''$; тогда
+$\sigma m-m\in\alpha(M')$ для всех $\sigma\in G$, и $\delta(m'')$~--- класс скрещённого гомоморфизма
+$\sigma\mapsto\alpha^{-1}(\sigma m-m)$.
+\end{theorem}
+
+\[
+\begin{tikzcd}[column sep=large,row sep=normal]
+0\arrow[r] & M'\arrow[r,"\alpha"] & M\arrow[r,"\beta"] & M''\arrow[r] & 0\\
+ & & m\arrow[r,mapsto,"\beta"]\arrow[d,mapsto,cnew,"\sigma-1"'] & m''\arrow[d,mapsto,"\sigma-1"] & \\
+ & \color{cnew}f(\sigma)\arrow[r,mapsto,cnew,"\alpha"] & \sigma m-m\arrow[r,mapsto,"\beta"] & 0 &
+\end{tikzcd}
+\]
+\figcap{Построение $\delta$: поднимаем инвариант $m''$ до $m\in M$; элемент $\sigma m-m$ лежит в ядре $\beta$, т.\,е.\
+приходит из $M'$; его прообраз $f(\sigma)$ и есть значение скрещённого гомоморфизма (красным~--- то, что строится).}
+
+\begin{proof}
+\emph{$\delta$ определено корректно.} Так как $\beta(\sigma m-m)=\sigma m''-m''=0$, элемент $\sigma m-m$ лежит в
+$\ker\beta=\operatorname{im}\alpha$ и имеет единственный прообраз $f(\sigma)\in M'$ ($\alpha$ инъективно). Это скрещённый
+гомоморфизм: $\alpha f(\sigma\tau)=\sigma\tau m-m=(\sigma m-m)+\sigma(\tau m-m)=\alpha\bigl(f(\sigma)+\sigma f(\tau)\bigr)$,
+и остаётся сократить на инъективное $\alpha$. Если $n$~--- другой прообраз $m''$, то $m-n=\alpha(x')$ с $x'\in M'$, и
+скрещённые гомоморфизмы, построенные по $m$ и по $n$, отличаются на $\alpha^{-1}\bigl(\sigma(m-n)-(m-n)\bigr)=\sigma
+x'-x'$, т.\,е.\ на главный. Значит, класс $\delta(m'')\in H^1(G,M')$ не зависит от выбора; ясно, что $\delta$~--- гомоморфизм
+(прообраз суммы~--- сумма прообразов).
+
+\emph{Точность в $M'^G$}: $\alpha$ инъективно на $M'$, тем более на $M'^G$.
+
+\emph{Точность в $M^G$.} Ясно, что $\beta\alpha=0$. Пусть $m\in M^G$ и $\beta(m)=0$. Тогда $m=\alpha(m')$, и
+$\alpha(\sigma m')=\sigma m=m=\alpha(m')$, откуда $\sigma m'=m'$: $m'\in M'^G$.
+
+\emph{Точность в $M''^G$.} Если $m''=\beta(m)$ с $m\in M^G$, то в качестве прообраза можно взять само $m$, и $\sigma
+m-m=0$: $\delta(m'')=0$. Обратно, пусть $\delta(m'')=0$, т.\,е.\ для прообраза $m$ скрещённый гомоморфизм
+$f(\sigma)=\alpha^{-1}(\sigma m-m)$ главный: $f(\sigma)=\sigma x'-x'$, $x'\in M'$. Тогда $m_1=m-\alpha(x')$~--- тоже
+прообраз $m''$, и $\sigma m_1-m_1=\alpha f(\sigma)-\alpha(\sigma x'-x')=0$. Значит, $m_1\in M^G$ и $m''=\beta(m_1)$.
+
+\emph{Точность в $H^1(G,M')$.} Для $\delta(m'')$ имеем $\alpha\circ f(\sigma)=\sigma m-m$~--- главный, так что
+$\alpha_*\delta=0$. Обратно, пусть $\alpha\circ f$ главный: $\alpha f(\sigma)=\sigma m-m$, $m\in M$. Положим
+$m''=\beta(m)$; тогда $\sigma m''-m''=\beta\alpha f(\sigma)=0$, т.\,е.\ $m''\in M''^G$, а $m$~--- его прообраз, так что
+$\delta(m'')=[f]$.
+
+\emph{Точность в $H^1(G,M)$.} Ясно, что $\beta_*\alpha_*=0$. Обратно, пусть $f\colon G\to M$~--- скрещённый
+гомоморфизм и $\beta\circ f$ главный: $\beta f(\sigma)=\sigma z-z$, $z\in M''$. Выберем $y\in M$ с $\beta(y)=z$ и положим
+$f_1(\sigma)=f(\sigma)-(\sigma y-y)$; это скрещённый гомоморфизм того же класса, что $f$, и $\beta f_1(\sigma)=0$. Значит,
+$f_1(\sigma)=\alpha g(\sigma)$, где $g\colon G\to M'$ (сокращая на $\alpha$, как выше)~--- скрещённый гомоморфизм, и
+$[f]=[f_1]=\alpha_*[g]$.
+\end{proof}
+
+\[
+\begin{tikzcd}[column sep=normal]
+0\arrow[r] & M'^G\arrow[r,"\alpha"] & M^G\arrow[r,"\beta"] & M''^G\arrow[d,phantom,""{coordinate,name=Z}]
+\arrow[dll,cnew,"\delta"',rounded corners,to path={--([xshift=2ex]\tikztostart.east)|-(Z)[near end]\tikztonodes
+-|([xshift=-2ex]\tikztotarget.west)--(\tikztotarget)}]\\
+ & H^1(G,M')\arrow[r,"\alpha_*"] & H^1(G,M)\arrow[r,"\beta_*"] & H^1(G,M'')\arrow[r,dashed] & H^2(G,M')\to\cdots
+\end{tikzcd}
+\]
+\figcap{Длинная точная последовательность \rf{5.21b}. Последнее отображение $\beta_*$, вообще говоря, не сюръективно;
+последовательность продолжается группами $H^2$, $H^3$, \dots\ (см.~\rf{5.26}).}
+
+Итак, функтор $M\mapsto M^G$ \emph{точен слева}: переводит $0\to M'\to M\to M''\to0$ в точную последовательность
+$0\to M'^G\to M^G\to M''^G$; а группа $H^1(G,M')$ измеряет, насколько $M^G\to M''^G$ не сюръективно.
+
+\begin{example}[5.21c]
+(a) Пусть $G=\{1,\sigma\}$, $M=\Z[G]=\Z\cdot1\oplus\Z\cdot\sigma$ ($\sigma$ переставляет координаты), $M''=\Z$ с
+тривиальным действием, $\beta(a+b\sigma)=a+b$. Ядро $M'=\{a(1-\sigma)\}\cong\Z$, и $\sigma$ действует на нём умножением на
+$-1$. Здесь $M'^G=0$, $M^G=\Z(1+\sigma)$, и $\beta(M^G)=2\Z\ne\Z=M''^G$: функтор инвариантов не точен справа. По
+\rf{5.21a} $H^1(G,M')\cong\Z/2$. Далее, $H^1(G,M)=0$: по \rf{5.21}(a) скрещённые гомоморфизмы задаются элементами $x$ с
+$(1+\sigma)x=0$, т.\,е.\ $x=a(1-\sigma)$, а $x=\sigma m-m$ при $m=-a\cdot1$. Последовательность \rf{5.21b} принимает вид
+\[
+0\to0\to\Z\xrightarrow{\ \cdot2\ }\Z\xrightarrow{\ \delta\ }\Z/2\to0,
+\]
+и $\delta$ переводит $1$ в класс скрещённого гомоморфизма с $f(\sigma)=\alpha^{-1}(\sigma\cdot1-1)$, т.\,е.\ в
+образующую $\Z/2$.
+
+(b) Пусть $G=\{1,\sigma\}$ действует тривиально на $0\to\Z\xrightarrow{\cdot2}\Z\to\Z/2\to0$. Тогда
+$H^1(G,\Z)=\Hom(\Z/2,\Z)=0$, а $H^1(G,\Z/2)=\Hom(\Z/2,\Z/2)\cong\Z/2$: отображение $\beta_*\colon H^1(G,M)\to H^1(G,M'')$
+не сюръективно.
+\end{example}
+
+\begin{example}[5.22]
+Пусть $\pi\colon\tilde X\to X$~--- универсальное накрытие топологического пространства $X$, и $\Gamma$~--- группа
+преобразований накрытия. При довольно общих условиях $\Gamma$-модуль $M$ задаёт пучок $\mathcal M$ на $X$, и
+$H^1(X,\mathcal M)\cong H^1(\Gamma,M)$. Например, при $M=\Z$ с тривиальным действием $\Gamma$ это изоморфизм
+$H^1(X,\Z)\cong H^1(\Gamma,\Z)=\Hom(\Gamma,\Z)$. Для окружности $\Gamma=\Z$ и $H^1(S^1,\Z)\cong\Hom(\Z,\Z)=\Z$.
+\end{example}
+
+\begin{aside}[5.22a: точная формулировка]
+Пусть $X$ связно, локально линейно связно и полулокально односвязно (при этих условиях универсальное накрытие
+существует), $\Gamma\cong\pi_1(X)$~--- группа преобразований накрытия $\tilde X\to X$. Для $\Gamma$-модуля $M$ пусть
+$\mathcal M$~--- пучок на $X$, сечения которого над открытым $U$~--- локально постоянные отображения
+$s\colon\pi^{-1}(U)\to M$ с $s(\gamma y)=\gamma s(y)$ ($\gamma\in\Gamma$). Это пучок сечений накрытия
+$(\tilde X\times M)/\Gamma\to X$ (<<локальная система>>); при тривиальном действии он постоянен. Тогда
+$H^1(X,\mathcal M)\cong H^1(\Gamma,M)$ (слева~--- когомологии пучка; для клеточных пространств и постоянных
+коэффициентов они совпадают с сингулярными, и при $M=\Z$ это согласуется с $H^1(X,\Z)\cong\Hom(H_1(X),\Z)$ и
+$H_1(X)\cong\pi_1(X)^{\rm ab}$).
+
+\emph{Почему это верно.} Обе группы классифицируют одни и те же объекты~--- \emph{торсоры}. Элементы $H^1(X,\mathcal M)$
+отвечают классам пучков, локально изоморфных $\mathcal M$, со свободным транзитивным действием $\mathcal M$. Если
+$f\colon\Gamma\to M$~--- скрещённый гомоморфизм, то формула $\gamma(y,m)=(\gamma y,\gamma m+f(\gamma))$ задаёт действие
+$\Gamma$ на $\tilde X\times M$ (проверка $\gamma(\gamma'(y,m))=(\gamma\gamma')(y,m)$~--- в точности условие скрещённости),
+и фактор $(\tilde X\times M)/\Gamma\to X$~--- такой торсор; главные $f$ дают тривиальный торсор. Обратно, над односвязным
+$\tilde X$ любой торсор тривиален (каждое накрытие односвязного локально линейно связного пространства тривиально);
+выбрав тривиализацию $\tilde s$, получаем $\gamma\tilde s=\tilde s+f(\gamma)$ со скрещённым $f$, а другая тривиализация
+меняет $f$ на главный. Это прямой аналог описания $H^1$ группы Галуа: расширению Галуа $E/F$ с группой $G$ отвечает
+накрытие $\tilde X\to X$ с группой $\Gamma$.
+
+\emph{Почему только $H^1$.} В общем случае имеется спектральная последовательность Картана--Лере
+$H^p(\Gamma,H^q(\tilde X,M))\Rightarrow H^{p+q}(X,\mathcal M)$ (мы её не доказываем). Так как $\tilde X$ связно и
+односвязно, $H^0(\tilde X,M)=M$ и $H^1(\tilde X,M)=0$; отсюда получаются изоморфизм $H^1(\Gamma,M)\cong H^1(X,\mathcal M)$
+и лишь инъекция $H^2(\Gamma,M)\hookrightarrow H^2(X,\mathcal M)$. В степенях $\ge2$ вмешиваются высшие когомологии самого
+$\tilde X$: например, сфера $S^2$ односвязна, так что $\tilde X=X$, $\Gamma=1$ и $H^2(\Gamma,\Z)=0$, но
+$H^2(S^2,\Z)\cong\Z$. Если же $X$~--- многообразие со стягиваемым $\tilde X$ (окружность, ориентируемые замкнутые
+поверхности рода $\ge1$, в том числе тор, неориентируемые замкнутые поверхности, кроме $\R P^2$), то
+$H^i(X,\mathcal M)\cong H^i(\Gamma,M)$ при всех $i$.
+\end{aside}
+
+\subsection*{Теорема Гильберта 90}
+
+\begin{theorem}[5.23]
+Пусть $E/F$~--- конечное расширение Галуа с группой $G$. Тогда $H^1(G,E^\times)=0$, т.\,е.\ каждый скрещённый
+гомоморфизм $G\to E^\times$ главный.
+\end{theorem}
+
+\begin{proof}
+Пусть $f\colon G\to E^\times$~--- скрещённый гомоморфизм: $f(\sigma\tau)=f(\sigma)\cdot\sigma\bigl(f(\tau)\bigr)$. Нужно
+найти $\gamma\in E^\times$ с $f(\sigma)=\sigma\gamma/\gamma$ для всех $\sigma\in G$. Все коэффициенты $f(\tau)$ отличны
+от нуля, поэтому по \rf{5.15} (см.~\rf{5.15a}) отображение $\sum_{\tau\in G}f(\tau)\tau\colon E\to E$ не нулевое: найдётся
+$\alpha\in E$ с
+\[
+\beta\overset{\text{def}}=\sum_{\tau\in G}f(\tau)\,\tau\alpha\ne0.
+\]
+Для $\sigma\in G$, пользуясь тем, что $\sigma(f(\tau))=f(\sigma)^{-1}f(\sigma\tau)$, получаем
+\[
+\sigma\beta=\sum_{\tau\in G}\sigma\bigl(f(\tau)\bigr)\cdot\sigma\tau\alpha
+=f(\sigma)^{-1}\sum_{\tau\in G}f(\sigma\tau)\,\sigma\tau\alpha=f(\sigma)^{-1}\beta,
+\]
+так как вместе с $\tau$ элемент $\sigma\tau$ пробегает всю группу $G$. Значит,
+\[
+f(\sigma)=\frac{\beta}{\sigma\beta}=\frac{\sigma(\beta^{-1})}{\beta^{-1}},
+\]
+и $f$ главный с $\gamma=\beta^{-1}$.
+\end{proof}
+
+Для аддитивной группы доказательство то же, только вместо произвольного $\alpha$ берётся элемент со следом $1$.
+
+\begin{theorem}[5.23a: аддитивная форма]
+Пусть $E/F$~--- конечное расширение Галуа с группой $G$. Тогда $H^1(G,E)=0$: каждый скрещённый гомоморфизм
+$f\colon G\to(E,+)$ главный.
+\end{theorem}
+
+\begin{proof}
+По \rf{5.15a} след $\operatorname{Tr}_{E/F}=\sum_{\tau\in G}\tau\colon E\to F$ не равен нулю; поделив на значение в $F$,
+найдём $\gamma\in E$ с $\operatorname{Tr}_{E/F}\gamma=1$. Положим $\beta=\sum_{\tau\in G}f(\tau)\,\tau\gamma$. Тогда, так
+как $\sigma f(\tau)=f(\sigma\tau)-f(\sigma)$,
+\[
+\sigma\beta=\sum_\tau\bigl(f(\sigma\tau)-f(\sigma)\bigr)\sigma\tau\gamma=\sum_\rho f(\rho)\,\rho\gamma-f(\sigma)\sum_\tau\sigma\tau\gamma
+=\beta-f(\sigma)\operatorname{Tr}_{E/F}\gamma=\beta-f(\sigma).
+\]
+Значит, $f(\sigma)=\beta-\sigma\beta=\sigma(-\beta)-(-\beta)$~--- главный.
+\end{proof}
+
+Пусть $E/F$~--- конечное расширение Галуа с группой $G$. \emph{Нормой} и \emph{следом} элемента $\alpha\in E$ называются
+\[
+\operatorname{Nm}_{E/F}\alpha=\prod_{\sigma\in G}\sigma\alpha,\qquad \operatorname{Tr}_{E/F}\alpha=\sum_{\sigma\in G}\sigma\alpha.
+\]
+Для $\tau\in G$ имеем $\tau(\operatorname{Nm}\alpha)=\prod_\sigma\tau\sigma\alpha=\operatorname{Nm}\alpha$ (вместе с $\sigma$ элемент
+$\tau\sigma$ пробегает $G$), поэтому $\operatorname{Nm}\alpha\in E^G=F$; так же $\operatorname{Tr}\alpha\in F$. Если $\alpha\ne0$, то все
+$\sigma\alpha\ne0$ и $\operatorname{Nm}\alpha\ne0$. Отображение $\alpha\mapsto\operatorname{Nm}\alpha$~--- гомоморфизм групп $E^\times\to F^\times$:
+$\operatorname{Nm}(\alpha\beta)=\prod_\sigma\sigma\alpha\cdot\prod_\sigma\sigma\beta=\operatorname{Nm}\alpha\cdot\operatorname{Nm}\beta$, а $\operatorname{Tr}\colon E\to F$
+$F$-линейно. (Норма и след произвольного конечного расширения изучаются в разделе <<Норма и след>>; для расширений
+Галуа определения согласуются, \rf{5.47a}(b).)
+
+\begin{example}[5.24]
+Норма $\CC^\times\to\R^\times$~--- это $\alpha\mapsto\alpha\bar\alpha=|\alpha|^2$ (для $\alpha=x+iy$ это $x^2+y^2$), а
+норма $\Q[\sqrt d]^\times\to\Q^\times$ ($d\in\Q$ не квадрат)~--- это
+$a+b\sqrt d\mapsto(a+b\sqrt d)(a-b\sqrt d)=a^2-db^2$.
+\end{example}
+
+Нас интересует ядро нормы. Элементы вида $\beta/\tau\beta$ ($\beta\in E^\times$, $\tau\in G$) имеют норму $1$:
+$\operatorname{Nm}(\beta/\tau\beta)=\operatorname{Nm}\beta/\operatorname{Nm}(\tau\beta)=1$, так как $\tau\beta$ имеет те же сопряжённые, что $\beta$.
+Для циклических расширений других элементов нормы $1$ нет.
+
+\begin{corollary}[5.25: теорема Гильберта 90]
+Пусть $E/F$~--- конечное циклическое расширение и $\sigma$ порождает $\Gal(E/F)$. Для $\alpha\in E^\times$
+\[
+\operatorname{Nm}_{E/F}\alpha=1\iff\alpha=\beta/\sigma\beta\ \ \text{для некоторого }\beta\in E^\times.
+\]
+\end{corollary}
+
+\begin{proof}
+<<$\Leftarrow$>> показано выше. <<$\Rightarrow$>>: пусть $m=[E:F]$. Условие $\operatorname{Nm}\alpha=1$ означает
+$\alpha\cdot\sigma\alpha\cdots\sigma^{m-1}\alpha=1$~--- это условие \eqref{eq:s6-normzero} в мультипликативной записи. По
+\rf{5.21}(a) существует скрещённый гомоморфизм $f\colon\langle\sigma\rangle\to E^\times$ с $f(\sigma)=\alpha$. По теореме
+\rf{5.23} он главный: $f(\sigma)=\sigma\gamma/\gamma$ для некоторого $\gamma\in E^\times$. Положив $\beta=\gamma^{-1}$,
+получаем $\alpha=\beta/\sigma\beta$.
+\end{proof}
+
+Название <<теорема 90>> пошло от номера утверждения (Satz 90) в отчёте Гильберта о теории алгебраических чисел (1897).
+Частный случай $\Q[\zeta_p]/\Q$ был известен Куммеру, а общую форму \rf{5.23} дала Э.~Нётер; теоремой Гильберта~90
+называют и её, и многочисленные обобщения.
+
+\begin{corollary}[5.25a: аддитивная теорема Гильберта 90]
+Пусть $E/F$~--- конечное циклическое расширение и $\sigma$ порождает $\Gal(E/F)$. Для $\alpha\in E$
+\[
+\operatorname{Tr}_{E/F}\alpha=0\iff\alpha=\beta-\sigma\beta\ \ \text{для некоторого }\beta\in E.
+\]
+\end{corollary}
+
+\begin{proof}
+<<$\Leftarrow$>>: $\operatorname{Tr}(\sigma\beta)=\operatorname{Tr}\beta$. <<$\Rightarrow$>>: условие $\operatorname{Tr}\alpha=\alpha+\sigma\alpha+\dots+\sigma^{m-1}\alpha=0$~---
+это \eqref{eq:s6-normzero}, поэтому есть скрещённый гомоморфизм $f$ с $f(\sigma)=\alpha$; по \rf{5.23a}
+$f(\sigma)=\sigma\gamma-\gamma$, и $\beta=-\gamma$.
+\end{proof}
+
+\begin{example}[5.25b]
+Для $\CC/\R$: $\operatorname{Nm}\alpha=|\alpha|^2=1\iff\alpha=\beta/\bar\beta$; например, $e^{i\theta}=e^{i\theta/2}/e^{-i\theta/2}$.
+Аддитивно: $\operatorname{Tr}\alpha=2\operatorname{Re}\alpha=0\iff\alpha=\beta-\bar\beta=2i\operatorname{Im}\beta$.
+\end{example}
+
+\begin{example}[5.25c: уравнение Пелля]
+Пусть $d>1$~--- целое число, свободное от квадратов, $K=\Q[\sqrt d]$, $\sigma\sqrt d=-\sqrt d$. Решения уравнения
+$x^2-dy^2=1$ в $\Q$~--- это элементы $\alpha=x+y\sqrt d$ нормы $1$.
+
+\emph{Рациональные решения.} По \rf{5.25} $\alpha=\beta/\sigma\beta$, $\beta\in K^\times$. Умножая $\beta$ на
+рациональное число, можно считать $\beta=a+b\sqrt d$ с целыми взаимно простыми $a,b$. Так как
+$\beta/\sigma\beta=\beta^2/\operatorname{Nm}\beta$,
+\[
+x=\frac{a^2+db^2}{a^2-db^2},\qquad y=\frac{2ab}{a^2-db^2}.
+\]
+Это \emph{все} рациональные точки коники $x^2-dy^2=1$. Более того, $\beta\mapsto\beta/\sigma\beta$~--- гомоморфизм
+$K^\times\to\ker\operatorname{Nm}$, сюръективный по \rf{5.25}, с ядром $\{\beta\mid\sigma\beta=\beta\}=\Q^\times$; итак,
+$K^\times/\Q^\times\cong\ker\bigl(\operatorname{Nm}\colon K^\times\to\Q^\times\bigr)$. При $d=2$, $a=b=1$ получаем
+$(x,y)=(-3,-2)$. (Те же формулы при $d=-1$ дают пифагоровы тройки, см. упражнение 5-2.)
+
+\emph{Целые решения.} Пусть $\varepsilon=x+y\sqrt d$, $x,y\in\Z$, $x>1$, $y>0$~--- решение. Прообраз в теореме
+Гильберта~90 можно указать явно: $\beta=1+\varepsilon$. Действительно, $\sigma\varepsilon=\varepsilon^{-1}$ (так как
+$\varepsilon\cdot\sigma\varepsilon=1$), и $(1+\varepsilon)/(1+\varepsilon^{-1})=\varepsilon$. Сократим: $g=\gcd(x+1,y)$;
+заменим $\beta$ на $\beta/g=a+b\sqrt d$, $a=(x+1)/g$, $b=y/g$ (отношение $\beta/\sigma\beta$ при этом не меняется).
+\emph{Тогда $\operatorname{Nm}\beta=a^2-db^2$~--- положительный делитель $2d$.} В самом
+деле, $\operatorname{Nm}(1+\varepsilon)=(x+1)^2-dy^2=2(x+1)$, так что $\operatorname{Nm}\beta=2(x+1)/g^2=2a/g$. Из $(x+1)(x-1)=dy^2$
+получаем $a(x-1)=dgb^2$, а так как $\gcd(a,b)=1$, то $a\mid dg$ и $2d=(2a/g)\cdot(dg/a)$. Если $\operatorname{Nm}\beta\in\{d,2d\}$,
+то $d\mid a^2$, значит, $d\mid a$, $\beta=\sqrt d\,\gamma$ с $\gamma=b+(a/d)\sqrt d$, $\operatorname{Nm}\gamma=-\operatorname{Nm}\beta/d\in\{-1,-2\}$, и
+$\varepsilon=-\gamma/\sigma\gamma$. Примеры (для наименьших решений):
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+$d$ & $\varepsilon$ & $\beta$ & $\operatorname{Nm}\beta$ & $\gamma=\beta/\sqrt d$, $\operatorname{Nm}\gamma$ \\
+\midrule
+$2$ & $3+2\sqrt2$ & $2+\sqrt2$ & $2$ & $1+\sqrt2$, $-1$\\
+$7$ & $8+3\sqrt7$ & $3+\sqrt7$ & $2$ & ---\\
+$13$ & $649+180\sqrt{13}$ & $65+18\sqrt{13}$ & $13$ & $18+5\sqrt{13}$, $-1$\\
+$19$ & $170+39\sqrt{19}$ & $57+13\sqrt{19}$ & $38$ & $13+3\sqrt{19}$, $-2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\emph{Следствие для простых $d=p>2$.} Пусть $\varepsilon$~--- наименьшее решение ($x>1$ минимально; нетривиальные
+решения существуют по теореме Дирихле о единицах, см. ниже~--- из теоремы Гильберта~90 это не следует). Тогда
+$\operatorname{Nm}\beta\in\{1,2,p,2p\}$, и $\operatorname{Nm}\beta=1$ невозможно: иначе $\sigma\beta=\beta^{-1}$, $\beta^2=\beta/\sigma\beta=\varepsilon$, и
+$\beta=a+b\sqrt p$ с $a,b>0$~--- решение, причём $a<a^2+pb^2=x$. Значит, разрешимо одно из уравнений $u^2-pv^2=2,\,-1,\,-2$ в целых
+числах. Отсюда классические утверждения Лежандра:
+\begin{itemize}[leftmargin=*]
+\item если $p\equiv1\pmod4$, то $u^2-pv^2=-1$ разрешимо: $u^2-pv^2\equiv u^2-v^2\pmod4$ не может быть $\equiv2$;
+\item если $p\equiv3\pmod4$, то $-1$ невозможно ($-1$~--- квадратичный невычет по модулю $p$), и разрешимо $u^2-pv^2=-2$ при
+$p\equiv3\pmod8$ и $u^2-pv^2=2$ при $p\equiv7\pmod8$ (знак определяется тем, какое из чисел $\pm2$~--- квадратичный
+вычет по модулю $p$).
+\end{itemize}
+
+\emph{Чего теорема Гильберта 90 не даёт.} Она не доказывает существования нетривиального целого решения (для этого нужны
+теорема Дирихле о единицах или цепные дроби). Не отвечает она и на вопрос, когда $-1$~--- норма: это вопрос о группе
+$\Q^\times/\operatorname{Nm}(K^\times)$, а не о ядре нормы. Над $\Q$ число $-1$ является нормой из $\Q[\sqrt d]$ тогда и
+только тогда, когда $d=s^2+t^2$ с рациональными $s,t$ (если $x^2-dy^2=-1$, то $d=(x/y)^2+(1/y)^2$; обратно, $x=s/t$,
+$y=1/t$, где $t\ne0$, так как $d$ не квадрат). Но рациональная разрешимость не влечёт целую: $(5/3)^2-34\cdot(1/3)^2=-1$,
+а уравнение $u^2-34v^2=-1$ в целых числах неразрешимо. (Наименьшее решение $x^2-34y^2=1$~--- $\varepsilon=35+6\sqrt{34}$;
+по схеме выше $\beta=6+\sqrt{34}$, $\operatorname{Nm}\beta=2$, $\varepsilon=\beta^2/2$. Если бы нашлась единица
+$u+v\sqrt{34}$ кольца $\Z[\sqrt{34}]$ нормы $-1$, то по теореме Дирихле (все единицы~--- это $\pm\eta^k$, $k\in\Z$)
+основная единица $\eta>1$ имела бы норму $-1$, и наименьшей единицей $>1$ нормы $1$ была бы $\eta^2$, т.\,е.\
+$\varepsilon=\eta^2$. Тогда $2=(\beta/\eta)^2$ было бы квадратом в $\Q[\sqrt{34}]$~--- противоречие: квадрат элемента
+$s+t\sqrt{34}$ ($s,t\in\Q$) рационален лишь при $st=0$, а ни $2$, ни $2/34=1/17$ не квадраты в $\Q$.)
+\end{example}
+
+\begin{aside}[5.26]
+С очевидными морфизмами $G$-модули образуют категорию; это та же категория, что $\Z[G]$-модули. В ней достаточно
+инъективных (и проективных) объектов. Функтор инвариантов $M\mapsto M^G=\Hom_{\Z[G]}(\Z,M)$ (гомоморфизм $\varphi\colon\Z\to
+M$ определяется инвариантным элементом $\varphi(1)$) точен слева, но не точен справа (\rf{5.21b}, \rf{5.21c}). Его
+правые производные функторы и есть группы когомологий:
+\[
+H^i(G,M)=R^i(-)^G(M)=\operatorname{Ext}^i_{\Z[G]}(\Z,M),\qquad H^0(G,M)=M^G,
+\]
+и общая теория производных функторов продолжает последовательность \rf{5.21b} до бесконечной точной
+последовательности
+\[
+\dots\to H^1(G,M)\to H^1(G,M'')\xrightarrow{\delta}H^2(G,M')\to H^2(G,M)\to H^2(G,M'')\xrightarrow{\delta}H^3(G,M')\to\cdots
+\]
+(эти факты мы не доказываем). Покажем, почему $R^1(-)^G$ совпадает с $H^1$, определённой через скрещённые гомоморфизмы.
+Возьмём точную последовательность $0\to I_G\to\Z[G]\to\Z\to0$ (\rf{5.21a}) и применим $\Hom_{\Z[G]}(-,M)$. Так как
+$\Z[G]$ свободен, $\operatorname{Ext}^1_{\Z[G]}(\Z[G],M)=0$, и длинная точная последовательность для $\operatorname{Ext}$
+даёт точную последовательность
+\[
+0\to\Hom_{\Z[G]}(\Z,M)\to\Hom_{\Z[G]}(\Z[G],M)\to\Hom_{\Z[G]}(I_G,M)\to\operatorname{Ext}^1_{\Z[G]}(\Z,M)\to0.
+\]
+Здесь $\Hom_{\Z[G]}(\Z[G],M)\cong M$ ($\varphi\mapsto\varphi(1)$), $\Hom_{\Z[G]}(I_G,M)\cong Z^1(G,M)$ по
+\rf{5.21a}, и элемент $m\in M$ переходит в $\sigma\mapsto(\sigma-1)m=\sigma m-m$, т.\,е.\ образ~--- это $B^1(G,M)$.
+Значит, $\operatorname{Ext}^1_{\Z[G]}(\Z,M)\cong Z^1(G,M)/B^1(G,M)=H^1(G,M)$.
+
+То же можно увидеть <<сдвигом размерности>>. Вложим $M$ в модуль $\operatorname{Map}(G,M)$ из \rf{5.26b} ниже:
+$m\mapsto(x\mapsto xm)$; это гомоморфизм $G$-модулей, и пусть $Q$~--- фактормодуль. Для этого модуля
+$H^1(G,\operatorname{Map}(G,M))=0$ (\rf{5.26b}), и он ацикличен для функтора инвариантов: $R^i(-)^G$ обращаются на нём в
+нуль при $i\ge1$ (этого мы не доказываем). Поэтому длинные точные последовательности для $H^1$ (\rf{5.21b}) и для
+$R^1(-)^G$ дают одно и то же описание: обе группы изоморфны коядру отображения
+$\operatorname{Map}(G,M)^G\to Q^G$.
+\end{aside}
+
+\begin{remark}[5.26a: точность инвариантов]
+(1) Проверить <<вручную>>, что $M^G\to M''^G$ сюръективно, значит решить ту же задачу, что и доказать $H^1=0$. Точнее,
+$H^1(G,M')=0$ $\iff$ для каждой точной последовательности $G$-модулей $0\to M'\to M\to\Z\to0$ (с тривиальным действием
+на $\Z$) элемент $1\in\Z$ поднимается до инварианта $M$. Импликация <<$\Rightarrow$>>~--- это \rf{5.21b}. Обратно, для
+скрещённого $f\colon G\to M'$ зададим на $M=M'\oplus\Z$ действие $\sigma(m',k)=(\sigma m'+kf(\sigma),k)$ (аксиомы
+действия равносильны скрещённости $f$); тогда $(m',1)$ инвариантен $\iff f(\sigma)=m'-\sigma m'$ для всех $\sigma$, т.\,е.\
+$f$ главный.
+
+(2) Если $M,M''$~--- модули над $F[G]$ и $\operatorname{char}F\nmid|G|$, всё проще: для $e=\frac1{|G|}\sum_\sigma\sigma$
+имеем $M^G=eM$, поэтому сюръекция $\beta$ даёт $\beta(M^G)=e\beta(M)=eM''=M''^G$, а для скрещённого $f$ элемент
+$b=\frac1{|G|}\sum_\tau f(\tau)\in M$ удовлетворяет $\sigma b=b-f(\sigma)$, так что $f$ главный. Это частный случай
+доказательства \rf{5.23a} с $\gamma=1/|G|$. Но если $\operatorname{char}F=p$ делит $|G|$ (например, для циклических
+расширений степени $p$ в характеристике $p$), то $\operatorname{Tr}(1)=|G|=0$, усреднять нельзя, и нужен элемент $\gamma$ со следом
+$1$, существующий по теореме Дедекинда.
+\end{remark}
+
+\begin{aside}[5.26b: модули с нулевыми когомологиями]
+Пусть $A$~--- абелева группа и $\operatorname{Map}(G,A)$~--- все отображения $G\to A$ с действием $(\sigma\varphi)(x)=\varphi(x\sigma)$
+(это действие: $(\sigma(\tau\varphi))(x)=(\tau\varphi)(x\sigma)=\varphi(x\sigma\tau)$). \emph{Тогда $H^1(G,\operatorname{Map}(G,A))=0$.}
+Действительно, для скрещённого $f$ положим $\beta(x)=f(x)(1)$. Тогда
+\[
+(\sigma\beta-\beta)(x)=f(x\sigma)(1)-f(x)(1)=\bigl(xf(\sigma)\bigr)(1)=f(\sigma)(x),
+\]
+т.\,е.\ $f(\sigma)=\sigma\beta-\beta$. Для конечной $G$ отображение $\sum_ha_hh\mapsto\varphi$, $\varphi(x)=a_{x^{-1}}$,~---
+изоморфизм $G$-модулей $F[G]\to\operatorname{Map}(G,F)$ (коэффициент элемента $\sigma\sum a_hh$ при $x^{-1}$ равен
+$a_{\sigma^{-1}x^{-1}}=a_{(x\sigma)^{-1}}$); так же $\Z[G]\cong\operatorname{Map}(G,\Z)$. Поэтому $H^1(G,F[G])=0$ и
+$H^1(G,\Z[G])=0$ (ср. \rf{5.21c}(a)). По теореме о нормальном базисе $E\cong F[G]$ как $G$-модуль, и мы снова получаем
+$H^1(G,E)=0$~--- \rf{5.23a}. (Формула $\beta(x)=f(x)(1)$~--- с точностью до знака формула из доказательства \rf{5.23a}, если считать
+$\operatorname{Map}(G,F)$ кольцом с поточечным умножением и взять в качестве $\gamma$ функцию, равную $1$ в единице
+группы и $0$ в остальных точках: её след $\sum_\tau\tau\gamma$~--- постоянная функция $1$.) Верно и больше: $H^i(G,\operatorname{Map}(G,A))=0$ при всех $i\ge1$ (лемма Шапиро), так что
+$H^i(G,E)=0$ при $i\ge1$. При $i=0$ это неверно: $H^0(G,F[G])=F[G]^G=F\cdot N\ne0$, где $N=\sum_{\sigma\in G}\sigma$ (зато здесь каждый
+инвариант $cN=N(c\cdot1)$~--- <<норма>>). С мультипликативной группой так не получается: $E^\times$ не такого вида, и хотя
+$H^1(G,E^\times)=0$, группа $H^2(G,E^\times)$ бывает ненулевой. Например, для циклической $G$ имеется изоморфизм
+$H^2(G,M)\cong M^G/NM$, $N=\sum_\sigma\sigma$ (не доказываем); для $\CC/\R$ это $\R^\times/\operatorname{Nm}(\CC^\times)=\R^\times/\R_{>0}\cong\Z/2$ (группа $H^2(G,E^\times)$ называется
+относительной группой Брауэра),
+а для аддитивной группы $F/\operatorname{Tr}(E)=0$.
+\end{aside}

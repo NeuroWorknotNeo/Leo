@@ -1,0 +1,686 @@
+\providecommand{\Tr}{\operatorname{Tr}}
+\providecommand{\Nm}{\operatorname{Nm}}
+\makeatletter
+\@ifundefined{keepfig}{\newenvironment{keepfig}{\par\edef\keepfig@pi{\the\parindent}\noindent
+  \begin{minipage}{\linewidth}\parindent=\keepfig@pi\relax}{\end{minipage}\par}}{}
+\makeatother
+
+\section{Норма и след}
+
+\subsection*{Напоминание из линейной алгебры}
+
+Для матрицы $A=(a_{ij})$ размера $n\times n$ над полем $F$ положим
+\begin{align*}
+\Tr(A)&=\textstyle\sum_ia_{ii} &&\text{(след $A$)},\\
+\det(A)&=\textstyle\sum_{\sigma\in S_n}\sgn(\sigma)\,a_{1\sigma(1)}\cdots a_{n\sigma(n)} &&\text{(определитель $A$)},\\
+c_A(X)&=\det(XI_n-A) &&\text{(характеристический многочлен $A$)}.
+\end{align*}
+При этом
+\[
+c_A(X)=X^n-\Tr(A)\,X^{n-1}+\dots+(-1)^n\det(A)
+\]
+(свободный член равен $c_A(0)=\det(-A)$; все коэффициенты описаны в \rf{5.42a} ниже). Ни одна из этих величин не меняется
+при замене $A$ на сопряжённую матрицу $UAU^{-1}$ ($U$ обратима): $XI_n-UAU^{-1}=U(XI_n-A)U^{-1}$, поэтому
+$c_{UAU^{-1}}=c_A$, а след и определитель~--- коэффициенты $c_A$ с точностью до знака. Значит, для любого эндоморфизма
+$\alpha$ конечномерного векторного пространства $V$ корректно определены
+\[
+\Tr(\alpha)=\Tr(A),\qquad\det(\alpha)=\det(A),\qquad c_\alpha(X)=c_A(X),
+\]
+где $A$~--- матрица $\alpha$ в каком-нибудь базисе $V$. Для двух эндоморфизмов $\alpha,\beta$ пространства $V$
+\[
+\Tr(\alpha+\beta)=\Tr(\alpha)+\Tr(\beta),\qquad \det(\alpha\beta)=\det(\alpha)\det(\beta).
+\]
+
+\begin{aside}[5.42a: все коэффициенты характеристического многочлена]
+Пусть $c_\alpha(X)=X^n+c_1X^{n-1}+\dots+c_n$. Тогда
+\[
+c_i=(-1)^i\,\Tr\bigl(\alpha\big|_{\Lambda^iV}\bigr),
+\]
+где $\alpha|_{\Lambda^iV}=\Lambda^i\alpha$~--- эндоморфизм $i$-й внешней степени $\Lambda^iV$, переводящий
+$v_1\wedge\dots\wedge v_i$ в $\alpha v_1\wedge\dots\wedge\alpha v_i$. При $i=1$ это след, при $i=n$~--- определитель
+($\Lambda^nV$ одномерно, и $\Lambda^n\alpha$~--- умножение на $\det\alpha$). Докажем это. Пусть $A$~--- матрица $\alpha$ в
+базисе $e_1,\dots,e_n$; для подмножеств $J,K\subset\{1,\dots,n\}$ через $A_{K,J}$ обозначим подматрицу из строк $K$ и
+столбцов $J$, и $A_J=A_{J,J}$ (\emph{главная подматрица}).
+
+\emph{(1) $c_i=(-1)^i\sum_{|J|=i}\det A_J$ (сумма главных миноров порядка $i$).} Столбец номер $j$ матрицы
+$XI_n-A$ равен $Xe_j-a_j$, где $a_j$~--- $j$-й столбец $A$. Определитель полилинеен по столбцам, поэтому
+$\det(XI_n-A)=\sum_{K}\det M_K$, где сумма берётся по всем $K\subset\{1,\dots,n\}$, а в матрице $M_K$ столбцы с номерами
+$j\in K$ равны $Xe_j$, остальные равны $-a_j$. Разлагая $\det M_K$ по столбцам $Xe_j$, $j\in K$ (в каждом из них
+единственный ненулевой элемент $X$ стоит на диагонали), получаем $\det M_K=X^{|K|}\det\bigl((-A)_J\bigr)=
+(-1)^{|J|}X^{n-|J|}\det A_J$, где $J$~--- дополнение к $K$. Собирая слагаемые с $|J|=i$, получаем (1).
+
+\emph{(2) $\Tr(\Lambda^i\alpha)=\sum_{|J|=i}\det A_J$.} Векторы $e_J=e_{j_1}\wedge\dots\wedge e_{j_i}$
+($j_1<\dots<j_i$) образуют базис $\Lambda^iV$. Раскрывая скобки в
+$\alpha e_{j_1}\wedge\dots\wedge\alpha e_{j_i}=\bigl(\sum_ka_{kj_1}e_k\bigr)\wedge\dots\wedge\bigl(\sum_ka_{kj_i}e_k\bigr)$,
+отбрасывая слагаемые с повторяющимися $e_k$ и упорядочивая остальные (со знаком перестановки), получаем
+\[
+\Lambda^i\alpha(e_J)=\sum_{|K|=i}\det(A_{K,J})\,e_K .
+\]
+Диагональный элемент матрицы $\Lambda^i\alpha$ в позиции $e_J$ равен $\det A_{J,J}=\det A_J$, откуда (2). Из (1) и (2)
+следует формула для $c_i$.
+\end{aside}
+
+\subsection*{Норма, след и характеристический многочлен элемента}
+
+\begin{definition}[5.42b]
+Пусть $E$~--- конечное расширение поля $F$ степени $n$. Элемент $\alpha\in E$ задаёт $F$-линейное отображение
+\[
+\alpha_L\colon E\to E,\qquad x\mapsto\alpha x,
+\]
+и мы полагаем
+\begin{align*}
+\Tr_{E/F}(\alpha)&=\Tr(\alpha_L) &&\text{(\emph{след} $\alpha$)},\\
+\Nm_{E/F}(\alpha)&=\det(\alpha_L) &&\text{(\emph{норма} $\alpha$)},\\
+c_{\alpha,E/F}(X)&=c_{\alpha_L}(X) &&\text{(\emph{характеристический многочлен} $\alpha$)}.
+\end{align*}
+\end{definition}
+
+Так как $(\alpha+\beta)_L=\alpha_L+\beta_L$ и $(\alpha\beta)_L=\alpha_L\circ\beta_L$, след $\Tr_{E/F}$~--- гомоморфизм
+$(E,+)\to(F,+)$ (даже $F$-линейное отображение), а норма $\Nm_{E/F}$~--- гомоморфизм $(E^\times,\cdot)\to(F^\times,\cdot)$:
+при $\alpha\ne0$ оператор $\alpha_L$ обратим (обратный~--- $(\alpha^{-1})_L$), так что $\Nm_{E/F}(\alpha)\ne0$.
+
+\begin{example}[5.43]
+(a) Рассмотрим расширение $\CC\supset\R$. Для $\alpha=a+bi$ имеем $\alpha\cdot1=a+bi$, $\alpha\cdot i=-b+ai$, так что
+матрица $\alpha_L$ в базисе $\{1,i\}$ равна $\begin{pmatrix}a&-b\\ b&a\end{pmatrix}$, и
+\[
+\Tr_{\CC/\R}(\alpha)=2a=2\Re(\alpha),\qquad \Nm_{\CC/\R}(\alpha)=a^2+b^2=|\alpha|^2 .
+\]
+
+(b) Для $a\in F$ оператор $a_L$~--- умножение на скаляр $a$, его матрица в любом базисе равна $aI_n$. Поэтому
+\[
+\Tr_{E/F}(a)=na,\qquad \Nm_{E/F}(a)=a^n,\qquad c_{a,E/F}(X)=(X-a)^n,\qquad\text{где } n=[E:F].
+\]
+\end{example}
+
+Пусть $E=\Q[\alpha,i]$~--- поле разложения многочлена $X^8-2$, где $\alpha=\sqrt[8]2>0$ (см.\ упражнение 4-3). Степень $E$
+над $\Q$ равна $16$, и чтобы найти след и норму элемента $E$ по определению, нужно вычислять след и определитель матрицы
+$16\times16$. Следующее предложение даёт более быстрый способ.
+
+\begin{proposition}[5.44]
+Пусть $E/F$~--- конечное расширение и $f(X)$~--- минимальный многочлен элемента $\alpha\in E$ над $F$. Тогда
+\[
+c_{\alpha,E/F}(X)=f(X)^{[E:F[\alpha]]}.
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{Случай $E=F[\alpha]$.} Нужно показать, что $c_\alpha(X)=f(X)$, где $c_\alpha=c_{\alpha,E/F}$. Отображение
+$\beta\mapsto\beta_L$~--- гомоморфизм колец $E\to\operatorname{End}_F(E)$ ($1_L=\id$, $(\beta+\beta')_L=\beta_L+\beta'_L$,
+$(\beta\beta')_L=\beta_L\beta'_L$), тождественный на $F$ (элементы $F$ переходят в скалярные операторы), и он инъективен:
+$\beta_L(1)=\beta$, так что из $\beta_L=0$ следует $\beta=0$. По теореме Гамильтона--Кэли $c_\alpha(\alpha_L)=0$. Но
+$c_\alpha(\alpha_L)=\bigl(c_\alpha(\alpha)\bigr)_L$ (гомоморфизм колец, тождественный на коэффициентах из $F$), поэтому
+$c_\alpha(\alpha)=0$. Значит, $f\mid c_\alpha$; оба многочлена унитарны и имеют степень $[E:F]$, поэтому $c_\alpha=f$.
+(Можно и прямо: в базисе $1,\alpha,\dots,\alpha^{n-1}$ матрица $\alpha_L$~--- сопровождающая матрица многочлена $f$, а её
+характеристический многочлен равен $f$.)
+
+\emph{Общий случай.} Пусть $\beta_1,\dots,\beta_n$~--- базис $F[\alpha]$ над $F$ (так что $n=\deg f$), а
+$\gamma_1,\dots,\gamma_m$~--- базис $E$ над $F[\alpha]$, $m=[E:F[\alpha]]$. Как в доказательстве \rf{1.20},
+$\{\beta_i\gamma_k\}$~--- базис $E$ над $F$. Запишем $\alpha\beta_i=\sum_ja_{ji}\beta_j$, $a_{ji}\in F$; по первому случаю
+матрица $A=(a_{ij})$ (матрица умножения на $\alpha$ в $F[\alpha]$) имеет характеристический многочлен $f(X)$. Но
+\[
+\alpha\,\beta_i\gamma_k=\sum_ja_{ji}\,\beta_j\gamma_k,
+\]
+т.\,е.\ умножение на $\alpha$ переводит каждое подпространство $F[\alpha]\gamma_k$ в себя и действует на нём той же
+матрицей $A$. Поэтому в базисе $\beta_1\gamma_1,\dots,\beta_n\gamma_1,\ \beta_1\gamma_2,\dots,\beta_n\gamma_m$ матрица $\alpha_L$
+блочно-диагональная: $m$ копий $A$ по диагонали и нули вне них. Определитель блочно-диагональной матрицы равен
+произведению определителей блоков, откуда
+\[
+c_{\alpha,E/F}(X)=\det(XI_{mn}-\operatorname{diag}(A,\dots,A))=\det(XI_n-A)^m=c_A(X)^m=f(X)^m. \qedhere
+\]
+\end{proof}
+
+\begin{keepfig}
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+\draw (0,0) rectangle (4,4);
+\foreach \i in {0,1,3} {
+  \draw[cnew,fill=cnew!8] (\i,4-\i) rectangle (\i+1,3-\i);
+  \node at (\i+0.5,3.5-\i) {$A$};
+}
+\node at (2.5,1.5) {$\ddots$};
+\node at (3,3) {\Large$0$};
+\node at (1,1) {\Large$0$};
+\draw[decorate,decoration={brace,amplitude=4pt}] (0,4.12) -- node[above=5pt,font=\footnotesize]{$n$} (1,4.12);
+\draw[decorate,decoration={brace,amplitude=5pt}] (4.15,4) -- node[right=7pt,font=\footnotesize,align=left]{$m$ блоков;\\ всего $mn\times mn$} (4.15,0);
+\end{tikzpicture}
+\end{center}
+\figcap{Матрица умножения на $\alpha$ в базисе $\{\beta_i\gamma_k\}$, упорядоченном по $k$: по диагонали $m=[E:F[\alpha]]$
+одинаковых блоков $A$ (матриц умножения на $\alpha$ в $F[\alpha]$), вне блоков нули. Поэтому $c_{\alpha,E/F}=c_A^m=f^m$.}
+\end{keepfig}
+
+\begin{corollary}[5.45]
+Пусть $\alpha_1,\dots,\alpha_n$~--- корни минимального многочлена $f$ элемента $\alpha$ с учётом кратностей (в
+каком-нибудь поле, содержащем $E$, над которым $f$ раскладывается на линейные множители), и $[E:F[\alpha]]=m$. Тогда
+\[
+\Tr_{E/F}(\alpha)=m\sum_{i=1}^n\alpha_i,\qquad \Nm_{E/F}(\alpha)=\Bigl(\prod_{i=1}^n\alpha_i\Bigr)^m .
+\]
+\end{corollary}
+
+\begin{proof}
+Запишем
+\[
+f(X)=X^n+a_1X^{n-1}+\dots+a_n=\prod_{i=1}^n(X-\alpha_i),\qquad\text{так что}\quad
+a_1=-\sum_i\alpha_i,\quad a_n=(-1)^n\prod_i\alpha_i .
+\]
+По \rf{5.44}
+\[
+c_\alpha(X)=f(X)^m=X^{mn}+ma_1X^{mn-1}+\dots+a_n^m,
+\]
+и, сравнивая с $c_\alpha(X)=X^{mn}-\Tr_{E/F}(\alpha)X^{mn-1}+\dots+(-1)^{mn}\Nm_{E/F}(\alpha)$, получаем
+\[
+\Tr_{E/F}(\alpha)=-ma_1=m\sum_i\alpha_i,\qquad \Nm_{E/F}(\alpha)=(-1)^{mn}a_n^m=\Bigl(\prod_i\alpha_i\Bigr)^m. \qedhere
+\]
+\end{proof}
+
+\begin{example}[5.46]
+(a) Рассмотрим расширение $\CC\supset\R$. Если $\alpha\in\CC\setminus\R$, то $\R[\alpha]=\CC$ и
+$c_\alpha(X)=f(X)=X^2-2\Re(\alpha)X+|\alpha|^2$ (корни $\alpha$ и $\bar\alpha$). Если $\alpha=a\in\R$, то
+$c_\alpha(X)=(X-a)^2$.
+
+(b) Пусть, как выше, $\alpha=\sqrt[8]2>0$ и $E=\Q[\alpha,i]$. Многочлен $X^8-2$ неприводим по признаку Эйзенштейна
+($p=2$), так что он~--- минимальный многочлен $\alpha$ и $[\Q[\alpha]:\Q]=8$; поле $\Q[\alpha]\subset\R$ не содержит $i$,
+поэтому $[E:\Q[\alpha]]=2$ и $[E:\Q]=16$. Поле $E$~--- поле разложения $X^8-2$: его корни $\zeta^k\alpha$, где
+$\zeta=e^{2\pi i/8}=(1+i)/\sqrt2=(1+i)/\alpha^4\in E$. По \rf{5.44} и \rf{5.45}
+\begin{align*}
+c_{\alpha,\Q[\alpha]/\Q}(X)&=X^8-2, & c_{\alpha,E/\Q}(X)&=(X^8-2)^2=X^{16}-4X^8+4,\\
+\Tr_{\Q[\alpha]/\Q}(\alpha)&=0, & \Tr_{E/\Q}(\alpha)&=0,\\
+\Nm_{\Q[\alpha]/\Q}(\alpha)&=-2, & \Nm_{E/\Q}(\alpha)&=4 .
+\end{align*}
+Точно так же для $i$: $[\Q[i]:\Q]=2$, $[E:\Q[i]]=8$, так что $c_{i,E/\Q}(X)=(X^2+1)^8$, $\Tr_{E/\Q}(i)=0$,
+$\Nm_{E/\Q}(i)=1$.
+\end{example}
+
+\begin{keepfig}
+\begin{center}
+\begin{tikzpicture}
+\node (A) at (0,0) {$\Q$};
+\node at (1.0,0) {$\subset$};
+\node (B) at (2.2,0) {$\Q[\alpha]$};
+\node at (3.4,0) {$\subset$};
+\node (C) at (5.0,0) {$E=\Q[\alpha,i]$};
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},cold] (-0.3,-0.3) -- node[below=6pt,font=\footnotesize]{$8$ ($X^8-2$)} (2.8,-0.3);
+\draw[decorate,decoration={brace,mirror,amplitude=5pt},cold] (2.9,-0.3) -- node[below=6pt,font=\footnotesize]{$2$ ($X^2+1$)} (6.3,-0.3);
+\draw[decorate,decoration={brace,amplitude=5pt},cnew] (-0.3,0.3) -- node[above=6pt,font=\footnotesize]{$16$: матрица $\alpha_L$ состоит из двух блоков $8\times8$} (6.3,0.3);
+\end{tikzpicture}
+\end{center}
+\figcap{Башня $\Q\subset\Q[\alpha]\subset E$ для $\alpha=\sqrt[8]2$: $c_{\alpha,E/\Q}=(X^8-2)^{[E:\Q[\alpha]]}=(X^8-2)^2$.}
+\end{keepfig}
+
+\subsection*{Норма и след через вложения}
+
+Опишем норму и след через гомоморфизмы поля $E$ в алгебраически замкнутое поле $\Om$ (например, в алгебраическое
+замыкание поля $F$, существующее по главе 6; для подполей $\CC$ можно взять $\Om=\CC$). Через $p$ обозначим
+\emph{характеристическую экспоненту}: $p=\operatorname{char}F$, если она положительна, и $p=1$, если
+$\operatorname{char}F=0$. Сначала подсчитаем гомоморфизмы.
+
+\begin{lemma}[5.46a]
+Пусть $\Om$~--- алгебраически замкнутое поле и $p$~--- его характеристическая экспонента (у полей $M$, $K$, $E$ ниже
+она та же, так как рассматриваются их гомоморфизмы в $\Om$).
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item Пусть $g\in M[X]$~--- унитарный неприводимый многочлен. Тогда $g(X)=g_0(X^q)$, где $q$~--- степень $p$, а
+$g_0\in M[X]$ неприводим и сепарабелен. Для любого гомоморфизма $\tau\colon M\to\Om$
+\[
+(\tau g)(X)=\prod_{j=1}^s(X-\beta_j)^q\quad\text{в }\Om[X],\qquad s=\deg g_0=\deg g/q,
+\]
+где $\beta_1,\dots,\beta_s\in\Om$ попарно различны.
+\item Пусть $E/M$~--- конечное расширение и $\tau\colon M\to\Om$~--- гомоморфизм. Число гомоморфизмов $E\to\Om$,
+продолжающих $\tau$, не меньше $1$ и не зависит от $\tau$; обозначим его $[E:M]_s$. Число $[E:M]_s$ делит $[E:M]$, и
+$[E:M]_i\overset{\mathrm{def}}{=}[E:M]/[E:M]_s$~--- степень $p$. Если $E=M[\beta]$, то $[E:M]_s=s$ и $[E:M]_i=q$, где
+$s,q$ отвечают по (a) минимальному многочлену $\beta$ над $M$.
+\item Для башни $M\subset K\subset E$ конечных расширений
+\[
+[E:M]_s=[E:K]_s\,[K:M]_s,\qquad [E:M]_i=[E:K]_i\,[K:M]_i .
+\]
+\item Если $E/M$ сепарабельно, то $[E:M]_s=[E:M]$ и $[E:M]_i=1$.
+\end{enumerate}
+\end{lemma}
+
+Числа $[E:M]_s$ и $[E:M]_i$ называются \emph{сепарабельной степенью} и \emph{степенью несепарабельности} расширения
+$E/M$.
+
+\begin{proof}
+(a) Если $\operatorname{char}M=0$, то $g$ сепарабелен (\rf{2.20}), и можно взять $q=1$, $g_0=g$. Пусть
+$\operatorname{char}M=p>0$, и $q=p^k$~--- наибольшая степень $p$, для которой $g\in M[X^q]$ (она существует, так как
+$q\le\deg g$); запишем $g(X)=g_0(X^q)$. Многочлен $g_0$ неприводим (разложение $g_0=uv$ дало бы разложение
+$g=u(X^q)\,v(X^q)$) и не является многочленом от $X^p$ (по выбору $q$), поэтому сепарабелен по \rf{2.20}.
+
+Итак, в обоих случаях $g_0$ неприводим и сепарабелен. Значит, $\gcd(g_0,g_0')=1$ (\rf{2.20}), т.\,е.\
+$ug_0+vg_0'=1$ для некоторых $u,v\in M[X]$; применяя $\tau$ к коэффициентам, получаем
+$(\tau u)(\tau g_0)+(\tau v)(\tau g_0)'=1$, т.\,е.\ $\tau g_0$ тоже сепарабелен: $\tau g_0=\prod_{j=1}^s(X-\gamma_j)$
+с попарно различными $\gamma_j\in\Om$, $s=\deg g_0$. Поле $\Om$ алгебраически замкнуто, поэтому $\gamma_j=\beta_j^q$ для
+некоторых $\beta_j\in\Om$, и $X^q-\gamma_j=X^q-\beta_j^q=(X-\beta_j)^q$ (при $q=1$ это тривиально, а при $q=p^k$~---
+потому что в характеристике $p$ возведение в степень $q$ аддитивно). Следовательно,
+$\tau g=(\tau g_0)(X^q)=\prod_j(X-\beta_j)^q$, а $\beta_j$ попарно различны, так как различны их $q$-е степени
+$\gamma_j$.
+
+(b) Пусть $E=M[\beta_1,\dots,\beta_r]$, $M_l=M[\beta_1,\dots,\beta_l]$, и $g_l$~--- минимальный многочлен $\beta_l$ над
+$M_{l-1}$; пусть $s_l,q_l$ отвечают $g_l$ по (a). По \rf{2.4}(b) каждый гомоморфизм $\rho\colon M_{l-1}\to\Om$ имеет ровно
+столько продолжений на $M_l$, сколько различных корней в $\Om$ у многочлена $\rho g_l$, т.\,е.\ ровно $s_l$ (по (a) это
+число не зависит от $\rho$). По индукции $\tau$ имеет ровно $s_1s_2\cdots s_r\ge1$ продолжений на $E$; это число не
+зависит от $\tau$ (а как число продолжений фиксированного $\tau$ оно не зависит и от выбора образующих $\beta_l$). Далее,
+по \rf{1.20} $[E:M]=\prod_l[M_l:M_{l-1}]=\prod_l\deg g_l=\prod_ls_lq_l$, так что $[E:M]_i=\prod_lq_l$~--- степень $p$. При
+$E=M[\beta]$ имеем $r=1$.
+
+(c) Каждое из $[K:M]_s$ продолжений $\tau$ на $K$ имеет ровно $[E:K]_s$ продолжений на $E$, а каждое продолжение $\tau$
+на $E$ ограничивается до некоторого продолжения на $K$. Поэтому $[E:M]_s=[E:K]_s[K:M]_s$. Деля
+$[E:M]=[E:K][K:M]$ (\rf{1.20}) на это равенство, получаем второе.
+
+(d) Если $E/M$ сепарабельно, то минимальный многочлен $\beta_l$ над $M$ не имеет кратных корней; $g_l$ делит его в
+$M_{l-1}[X]$, так что и у $g_l$ нет кратных корней. По (a) все корни $g_l$ имеют кратность $q_l$, поэтому $q_l=1$, и
+$[E:M]_i=1$.
+\end{proof}
+
+\begin{proposition}[5.47]
+Пусть $E/F$~--- конечное расширение, $\Om$~--- алгебраически замкнутое поле, $\tau\colon F\to\Om$~--- гомоморфизм, и
+$\Sigma_\tau$~--- множество гомоморфизмов $\sigma\colon E\to\Om$, продолжающих $\tau$. Тогда $|\Sigma_\tau|=[E:F]_s$ и
+для каждого $\alpha\in E$
+\[
+(\tau c_{\alpha,E/F})(X)=\prod_{\sigma\in\Sigma_\tau}(X-\sigma\alpha)^{[E:F]_i};
+\]
+в частности,
+\[
+\tau\bigl(\Tr_{E/F}\alpha\bigr)=[E:F]_i\cdot\sum_{\sigma\in\Sigma_\tau}\sigma\alpha,\qquad
+\tau\bigl(\Nm_{E/F}\alpha\bigr)=\Bigl(\prod_{\sigma\in\Sigma_\tau}\sigma\alpha\Bigr)^{[E:F]_i}.
+\]
+Если $F\subset\Om$ (например, $\Om$~--- алгебраическое замыкание $F$) и $\tau$~--- включение, то $\Sigma_\tau=\Sigma$~---
+множество $F$-гомоморфизмов $E\to\Om$, и
+\[
+\boxed{\ \Tr_{E/F}\alpha=[E:F]_i\cdot\sum_{\sigma\in\Sigma}\sigma\alpha,\qquad
+\Nm_{E/F}\alpha=\Bigl(\prod_{\sigma\in\Sigma}\sigma\alpha\Bigr)^{[E:F]_i}\ }
+\]
+Здесь $[E:F]_i=1$, если $E/F$ сепарабельно, и $[E:F]_i$~--- степень характеристической экспоненты $p$ в общем случае;
+в \rf{5.47c} мы увидим, что $[E:F]_i=[E:E_{\mathrm{sep}}]$, где $E_{\mathrm{sep}}$~--- сепарабельное замыкание $F$ в $E$ (\rf{3.15}).
+\end{proposition}
+
+\begin{proof}
+Пусть $\mu$~--- минимальный многочлен $\alpha$ над $F$ и $m=[E:F[\alpha]]$. По \rf{5.44} $c_{\alpha,E/F}=\mu^m$, так что
+$\tau c_{\alpha,E/F}=(\tau\mu)^m$. По лемме \rf{5.46a}(a),(b), применённой к $M=F$ и элементу $\alpha$ (в роли $\beta$),
+\[
+\tau\mu=\prod_{j=1}^s(X-\alpha_j)^{q_1},\qquad \alpha_j\ \text{попарно различны},\quad s=[F[\alpha]:F]_s,\quad
+q_1=[F[\alpha]:F]_i .
+\]
+По \rf{2.4}(b) продолжения $\tau$ на $F[\alpha]$~--- это ровно $\rho_j\colon\alpha\mapsto\alpha_j$, $j=1,\dots,s$. По лемме
+\rf{5.46a}(b) каждое $\rho_j$ имеет ровно $[E:F[\alpha]]_s$ продолжений на $E$, и каждое $\sigma\in\Sigma_\tau$
+продолжает ровно одно $\rho_j$~--- то, для которого $\alpha_j=\sigma\alpha$. Поэтому $|\Sigma_\tau|=s\,[E:F[\alpha]]_s=
+[E:F]_s$ (по \rf{5.46a}(c)) и
+\[
+\prod_{\sigma\in\Sigma_\tau}(X-\sigma\alpha)=\prod_{j=1}^s(X-\alpha_j)^{[E:F[\alpha]]_s}.
+\]
+Возведём это в степень $[E:F]_i=[E:F[\alpha]]_i\,q_1$ (снова \rf{5.46a}(c)) и воспользуемся равенством
+$[E:F[\alpha]]_s\,[E:F[\alpha]]_i=m$:
+\[
+\prod_{\sigma\in\Sigma_\tau}(X-\sigma\alpha)^{[E:F]_i}=\prod_{j=1}^s(X-\alpha_j)^{mq_1}=(\tau\mu)^m=\tau c_{\alpha,E/F}.
+\]
+Наконец, $c_{\alpha,E/F}=X^n-\Tr_{E/F}(\alpha)X^{n-1}+\dots+(-1)^n\Nm_{E/F}(\alpha)$, где $n=[E:F]=|\Sigma_\tau|\cdot[E:F]_i$,
+а у многочлена $\prod_\sigma(X-\sigma\alpha)^{[E:F]_i}$ коэффициент при $X^{n-1}$ равен $-[E:F]_i\sum_\sigma\sigma\alpha$, а
+свободный член равен $(-1)^n\bigl(\prod_\sigma\sigma\alpha\bigr)^{[E:F]_i}$. Сравнивая коэффициенты, получаем формулы для
+следа и нормы.
+\end{proof}
+
+\begin{remark}[5.47a: сепарабельный случай и случай Галуа]
+(a) Если $E/F$ сепарабельно, то $[E:F]_i=1$ и
+\[
+\Tr_{E/F}\alpha=\sum_{\sigma\in\Sigma}\sigma\alpha,\qquad \Nm_{E/F}\alpha=\prod_{\sigma\in\Sigma}\sigma\alpha .
+\]
+При $E=F[\alpha]$ это просто \rf{5.45} вместе с наблюдением (ср.\ \rf{2.1}(b)), что элементы $\sigma\alpha$~--- это в точности корни
+минимального многочлена $f$ элемента $\alpha$, каждый по одному разу. В общем случае $\sigma\alpha$ по-прежнему корни
+$f$ в $\Om$, но каждый корень встречается среди них ровно $[E:F[\alpha]]$ раз: каждый $F$-гомоморфизм $F[\alpha]\to\Om$
+имеет ровно $[E:F[\alpha]]_s=[E:F[\alpha]]$ продолжений на $E$ (лемма \rf{5.46a}(d); расширение $E/F[\alpha]$ сепарабельно
+вместе с $E/F$).
+\begin{keepfig}
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+ & F[\alpha]\arrow[r,hook]\arrow[d,cold,"\rho_j"] & E\arrow[dl,dashed,cnew,"{\text{ровно }[E:F[\alpha]]\text{ продолжений}}"]\\
+F\arrow[ur,hook]\arrow[r,hook] & \Om &
+\end{tikzcd}
+\]
+\figcap{Сепарабельный случай: каждый из $[F[\alpha]:F]$ гомоморфизмов $\rho_j\colon\alpha\mapsto\alpha_j$ (данные)
+продолжается на $E$ ровно
+$[E:F[\alpha]]$ способами (красная стрелка), поэтому каждый корень $\alpha_j$ повторяется в сумме $\sum_\sigma\sigma\alpha$
+ровно $[E:F[\alpha]]$ раз.}
+\end{keepfig}
+
+(b) \emph{Случай Галуа.} Пусть $E/F$~--- расширение Галуа с группой $G$, и $i\colon E\to\Om$~--- зафиксированный заранее
+$F$-гомоморфизм (если $E\subset\Om$, то включение). Отображение
+\[
+\varphi\colon G\to\Sigma,\qquad \sigma\mapsto i\circ\sigma,
+\]
+\emph{биективно}. Оно инъективно: если $i\circ\sigma=i\circ\tau$, то $\sigma=\tau$, так как $i$ инъективно. А $|G|=[E:F]$
+(\rf{3.11}) и $|\Sigma|=[E:F]_s=[E:F]$ (сепарабельность и \rf{5.46a}(d)), так что $\varphi$~--- биекция конечных множеств
+одинаковой мощности. Сюръективность видна и без подсчёта, причём для неё достаточно \emph{нормальности}: $E$~--- поле
+разложения некоторого $f\in F[X]$, и любой $F$-гомоморфизм $\psi\colon E\to\Om$ переводит корни $f$ в корни $f$, а все
+корни $f$ в $\Om$ лежат в $i(E)$; поэтому $\psi(E)\subset i(E)$, по соображениям размерности $\psi(E)=i(E)$, и
+$\psi=i\circ\sigma$ с $\sigma=i^{-1}\circ\psi\in\Aut(E/F)$. Без нормальности это неверно: у $\Q(\sqrt[3]2)$ автоморфизм
+один, а вложений в $\CC$ три.
+\[
+\begin{tikzcd}[column sep=large]
+E\arrow[r,"\sigma"]\arrow[rr,bend left=30,cnew,"\varphi(\sigma)=i\circ\sigma"] & E\arrow[r,"i"] & \Om
+\end{tikzcd}
+\]
+Поэтому
+\[
+\sum_{\psi\in\Sigma}\psi(\alpha)=\sum_{\sigma\in G}i(\sigma\alpha)=i\Bigl(\sum_{\sigma\in G}\sigma\alpha\Bigr)
+=\sum_{\sigma\in G}\sigma\alpha .
+\]
+Последнее равенство требует пояснения. Почленно элементы $\sigma\alpha\in E$ и $i(\sigma\alpha)\in\Om$, вообще говоря,
+различны (если $E\not\subset\Om$, их даже нельзя сравнивать). Но сумма $s=\sum_{\sigma\in G}\sigma\alpha$ неподвижна
+относительно $G$: $\tau s=\sum_\sigma\tau\sigma\alpha=s$, так как $\tau\sigma$ вместе с $\sigma$ пробегает всю группу. Значит,
+$s\in E^G=F$, а $i$ тождественно на $F$, так что $i(s)=s$. Итак, для расширения Галуа
+\[
+\Tr_{E/F}\alpha=\sum_{\sigma\in G}\sigma\alpha,\qquad \Nm_{E/F}\alpha=\prod_{\sigma\in G}\sigma\alpha
+\]
+(для произведения рассуждение то же), что согласуется с определением нормы и следа для расширений Галуа, данным перед \rf{5.24}.
+Результат не зависит от выбора $i$. Для сепарабельного, но не нормального расширения автоморфизмов меньше, чем $[E:F]$, и
+сумма по группе автоморфизмов уже не даёт следа, а сумма по вложениям даёт: например,
+$\Tr_{\Q(\sqrt[3]2)/\Q}(\sqrt[3]2)=\sqrt[3]2+\omega\sqrt[3]2+\omega^2\sqrt[3]2=0$, где $\omega=e^{2\pi i/3}$, тогда как
+<<сумма по группе>> $\Aut(\Q(\sqrt[3]2)/\Q)=1$ дала бы $\sqrt[3]2$.
+\end{remark}
+
+\begin{example}[5.47b: характеристический многочлен через сопряжённые]
+Пусть $E=F[a]$, где $a$ сепарабелен над $F$, $\mu_a=\prod_{k=1}^n(X-a_k)$ в $\Om$, и $b=h(a)$, $h\in F[X]$.
+$F$-гомоморфизмы $E\to\Om$~--- это $\sigma_k\colon a\mapsto a_k$, и $\sigma_k(b)=h(a_k)$, так как коэффициенты $h$ лежат
+в $F$. По \rf{5.47} и \rf{5.44}
+\[
+c_{b,E/F}(Y)=\prod_{k=1}^n\bigl(Y-h(a_k)\bigr)=\mu_b(Y)^{[F[a]:F[b]]},\qquad
+\Tr_{E/F}(b)=\sum_kh(a_k),\quad \Nm_{E/F}(b)=\prod_kh(a_k),
+\]
+т.\,е.\ среди чисел $h(a_1),\dots,h(a_n)$ каждый сопряжённый к $b$ элемент встречается ровно $[F[a]:F[b]]$ раз. (На языке
+результантов $c_{b,E/F}(Y)=\operatorname{Res}_X\bigl(\mu_a(X),\,Y-h(X)\bigr)$ по \rf{4.35}(b).) Минимальный многочлен $\mu_b$~---
+единственный унитарный неприводимый множитель $c_{b,E/F}$; в характеристике $0$ также
+$\mu_b=c_{b,E/F}/\gcd(c_{b,E/F},c_{b,E/F}')$.
+
+Пусть $F=\Q$, $a=\sqrt[3]2$, $\mu_a=X^3-2$ с корнями $\sqrt[3]2,\ \omega\sqrt[3]2,\ \omega^2\sqrt[3]2$.
+\begin{itemize}[leftmargin=*]
+\item $b=a^2$: $c_b(Y)=\prod_k\bigl(Y-\omega^{2k}\sqrt[3]4\bigr)=Y^3-4$, это и есть $\mu_b$; $\Tr(\sqrt[3]4)=0$,
+$\Nm(\sqrt[3]4)=4$.
+\item $b=1+a$: $c_b(Y)=(Y-1)^3-2=Y^3-3Y^2+3Y-3$; $\Tr(1+\sqrt[3]2)=3$, $\Nm(1+\sqrt[3]2)=3$.
+\item $b=a^3=2$: $c_b(Y)=(Y-2)^3$, $\mu_b=Y-2$, $[F[a]:F[b]]=3$ (ср.\ \rf{5.43}(b)).
+\end{itemize}
+\end{example}
+
+\begin{proposition}[5.47c: норма через сепарабельное замыкание]
+Пусть $E/F$~--- конечное расширение, $\operatorname{char}F=p>0$, $E_{\mathrm{sep}}$~--- сепарабельное замыкание $F$ в
+$E$ (подполе, сепарабельное над $F$, по \rf{3.15}), $q=[E:E_{\mathrm{sep}}]$, $\Om\supset F$~--- алгебраически замкнутое поле
+и $\Fsep\subset\Om$~--- сепарабельное замыкание $F$ в $\Om$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item Для каждого $\alpha\in E$ минимальный многочлен $\alpha$ над $E_{\mathrm{sep}}$ равен $X^{p^j}-\alpha^{p^j}$, где
+$p^j=[E_{\mathrm{sep}}[\alpha]:E_{\mathrm{sep}}]$; в частности, $\alpha^q\in E_{\mathrm{sep}}$.
+\item $[E:F]_i=q$, и ограничение $\sigma\mapsto\sigma|_{E_{\mathrm{sep}}}$~--- биекция множества $F$-гомоморфизмов
+$E\to\Om$ на множество $F$-гомоморфизмов $E_{\mathrm{sep}}\to\Om$; образы последних лежат в $\Fsep$.
+\item Для каждого $\alpha\in E$
+\[
+\Nm_{E/F}(\alpha)=\prod_{\tau\colon E_{\mathrm{sep}}\to\Fsep}\tau(\alpha^q),\qquad
+\Tr_{E/F}(\alpha)=\begin{cases}\sum_\tau\tau(\alpha),& q=1,\\ 0,& q>1,\end{cases}
+\]
+где $\tau$ пробегает $F$-гомоморфизмы $E_{\mathrm{sep}}\to\Fsep$.
+\item Если $q>1$, то $F$-гомоморфизмов $E\to\Fsep$ нет вовсе.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) По \rf{5.46a}(a) минимальный многочлен $\alpha$ над $F$ имеет вид $g_0(X^{p^k})$ с сепарабельным $g_0$; элемент
+$\alpha^{p^k}$~--- корень $g_0$, т.\,е.\ сепарабелен над $F$ и лежит в $E_{\mathrm{sep}}$. Минимальный многочлен $h$ элемента
+$\alpha$ над $E_{\mathrm{sep}}$ делит $X^{p^k}-\alpha^{p^k}=(X-\alpha)^{p^k}$, поэтому $h=(X-\alpha)^d$ для некоторого $d$.
+Запишем $d=p^jd'$ с $p\nmid d'$; тогда $h=(X^{p^j}-\alpha^{p^j})^{d'}$, и коэффициент при $X^{p^j(d'-1)}$ равен
+$-d'\alpha^{p^j}\in E_{\mathrm{sep}}$. Так как $d'\ne0$ в $F$, то $\alpha^{p^j}\in E_{\mathrm{sep}}$, и $\alpha$~--- корень
+многочлена $X^{p^j}-\alpha^{p^j}\in E_{\mathrm{sep}}[X]$ степени $p^j\le d$. По минимальности $d=p^j$ и
+$h=X^{p^j}-\alpha^{p^j}$. Число $p^j=[E_{\mathrm{sep}}[\alpha]:E_{\mathrm{sep}}]$ делит $q$ (\rf{1.20}), поэтому
+$\alpha^q=(\alpha^{p^j})^{q/p^j}\in E_{\mathrm{sep}}$.
+
+(b) Пусть $E=E_{\mathrm{sep}}[\beta_1,\dots,\beta_r]$. По (a) минимальный многочлен $g_l$ элемента $\beta_l$ над
+$E_{\mathrm{sep}}[\beta_1,\dots,\beta_{l-1}]$ делит $X^{p^{j}}-c$ с $c=\beta_l^{p^j}\in E_{\mathrm{sep}}$; для любого
+гомоморфизма $\rho$ этого поля в $\Om$ многочлен $\rho g_l$ делит $X^{p^j}-\rho(c)=(X-\gamma)^{p^j}$, где $\gamma$~---
+единственный корень степени $p^j$ из $\rho(c)$ в $\Om$, и потому имеет в $\Om$ единственный корень. Как в доказательстве
+\rf{5.46a}(b), отсюда $[E:E_{\mathrm{sep}}]_s=1$, т.\,е.\ каждый гомоморфизм $E_{\mathrm{sep}}\to\Om$ продолжается на $E$
+ровно одним способом~--- это и есть биективность ограничения. По \rf{5.46a}(c),(d)
+$[E:F]_s=[E:E_{\mathrm{sep}}]_s\,[E_{\mathrm{sep}}:F]_s=[E_{\mathrm{sep}}:F]$, откуда $[E:F]_i=[E:E_{\mathrm{sep}}]=q$.
+Если $x\in E_{\mathrm{sep}}$, то $\tau(x)$~--- корень того же сепарабельного минимального многочлена, что и $x$, так что
+$\tau(x)\in\Fsep$.
+
+(c) По \rf{5.47} и (b) $\Nm_{E/F}(\alpha)=\bigl(\prod_\sigma\sigma\alpha\bigr)^q=\prod_\sigma\sigma(\alpha^q)=
+\prod_\tau\tau(\alpha^q)$, так как $\alpha^q\in E_{\mathrm{sep}}$ и $\sigma\mapsto\sigma|_{E_{\mathrm{sep}}}$~--- биекция. При
+$q=1$ расширение $E=E_{\mathrm{sep}}$ сепарабельно и $\Tr_{E/F}\alpha=\sum_\tau\tau\alpha$; при $q>1$ число $q$~--- степень
+$p$, и $\Tr_{E/F}\alpha=q\sum_\sigma\sigma\alpha=0$.
+
+(d) При $q>1$ есть $\alpha\in E\setminus E_{\mathrm{sep}}$, т.\,е.\ несепарабельный над $F$. Для любого $F$-гомоморфизма
+$\sigma\colon E\to\Om$ элемент $\sigma\alpha$~--- корень того же несепарабельного минимального многочлена и потому не лежит
+в $\Fsep$.
+\end{proof}
+
+Итак, в сепарабельное замыкание вкладывается только $E_{\mathrm{sep}}$, а <<несепарабельная часть>> элемента $\alpha$
+убирается возведением в степень $q$. Степень несепарабельности часто записывают в виде $p^e$: $p^e=q=[E:E_{\mathrm{sep}}]$;
+в характеристике $0$ полагают $p^e=1$.
+
+\begin{example}[5.47d]
+(a) Пусть $F=\F_2(t)$, $\mu(X)=X^4+tX^2+t=g(X^2)$, где $g(Y)=Y^2+tY+t$. Оба многочлена неприводимы над $F$ (признак
+Эйзенштейна для простого элемента $t$ кольца $\F_2[t]$), $g$ сепарабелен ($g'=t\ne0$), а $\mu'=0$. Пусть $E=F[\beta]$,
+$\mu(\beta)=0$. Тогда $[E:F]=4$, элемент $\beta^2$~--- корень $g$, сепарабелен, $[F[\beta^2]:F]=2$, а $\beta$
+несепарабелен; поэтому $E_{\mathrm{sep}}=F[\beta^2]$ и $q=[E:F]_i=2$. Пусть $\gamma_1,\gamma_2\in\Om$~--- корни $g$
+($\gamma_1+\gamma_2=t$, $\gamma_1\gamma_2=t$) и $\beta_k=\sqrt{\gamma_k}$ (квадратный корень в характеристике $2$
+единствен); тогда $\mu=(X-\beta_1)^2(X-\beta_2)^2$, и $F$-гомоморфизмов $E\to\Om$ два: $\beta\mapsto\beta_1$ и
+$\beta\mapsto\beta_2$.
+\begin{itemize}[leftmargin=*]
+\item По \rf{5.47}: $\Nm_{E/F}(\beta)=(\beta_1\beta_2)^2=\gamma_1\gamma_2=t$, $\Tr_{E/F}(\beta)=2(\beta_1+\beta_2)=0$.
+\item Напрямую (\rf{5.44}, $E=F[\beta]$): $\Nm_{E/F}(\beta)=(-1)^4\mu(0)=t$, $\Tr_{E/F}(\beta)$ равен коэффициенту при $X^3$
+со знаком минус, т.\,е.\ $0$.
+\item По \rf{5.47c}: $\beta^q=\beta^2\in E_{\mathrm{sep}}$, и $\Nm_{E/F}(\beta)=\tau_1(\beta^2)\tau_2(\beta^2)=\gamma_1\gamma_2=t$,
+где $\tau_1,\tau_2\colon E_{\mathrm{sep}}=F[\beta^2]\to\Fsep$~--- два $F$-гомоморфизма, $\tau_k(\beta^2)=\gamma_k$.
+\item Без показателя $[E:F]_i$ получилось бы $\beta_1\beta_2=\sqrt t\notin F$~--- неверно. Показатель существен.
+\end{itemize}
+
+(b) \emph{Чисто несепарабельное расширение.} Пусть $F=\F_p(t)$, $E=F[\beta]$, $\beta^p=t$ (многочлен $X^p-t$ неприводим
+по \rf{2.3}). Здесь $X^p-t=(X-\beta)^p$, гомоморфизм $E\to\Om$ один, $[E:F]_i=p$, и $\Nm_{E/F}(\beta)=\beta^p=t$, а
+$\Tr_{E/F}\equiv0$.
+\end{example}
+
+\subsection*{Транзитивность нормы и следа}
+
+\begin{proposition}[5.48]
+Для конечных расширений $E\supset M\supset F$
+\[
+\Tr_{M/F}\circ\Tr_{E/M}=\Tr_{E/F},\qquad \Nm_{M/F}\circ\Nm_{E/M}=\Nm_{E/F}.
+\]
+\end{proposition}
+
+\begin{proof}
+Возьмём алгебраически замкнутое поле $\Om\supset F$. Для каждого $F$-гомоморфизма $\tau\colon M\to\Om$ пусть
+$\Sigma_\tau$~--- множество гомоморфизмов $\sigma\colon E\to\Om$, продолжающих $\tau$. Каждый $F$-гомоморфизм
+$\sigma\colon E\to\Om$ лежит ровно в одном $\Sigma_\tau$, а именно при $\tau=\sigma|_M$; поэтому множество $\Sigma$
+всех $F$-гомоморфизмов $E\to\Om$~--- дизъюнктное объединение множеств $\Sigma_\tau$.
+\begin{keepfig}
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+ & E\arrow[dr,dashed,cnew,"{\sigma\in\Sigma_\tau}"] & \\
+M\arrow[ur,hook]\arrow[rr,cold,"\tau"] & & \Om\\
+F\arrow[u,hook]\arrow[urr,hook,bend right=12] & &
+\end{tikzcd}
+\]
+\figcap{Каждый $F$-гомоморфизм $\sigma\colon E\to\Om$ продолжает ровно один $F$-гомоморфизм $\tau=\sigma|_M$; группируем
+$\sigma$ по $\tau$.}
+\end{keepfig}
+
+Пусть $\alpha\in E$. Применим \rf{5.47} к расширению $E/M$ и гомоморфизму $\tau\colon M\to\Om$:
+\[
+\tau\bigl(\Tr_{E/M}\alpha\bigr)=[E:M]_i\sum_{\sigma\in\Sigma_\tau}\sigma\alpha,\qquad
+\tau\bigl(\Nm_{E/M}\alpha\bigr)=\Bigl(\prod_{\sigma\in\Sigma_\tau}\sigma\alpha\Bigr)^{[E:M]_i}.
+\]
+Теперь применим \rf{5.47} к расширению $M/F$ (с включением $F\subset\Om$) и элементам $\Tr_{E/M}\alpha$, $\Nm_{E/M}\alpha$ поля
+$M$, а затем \rf{5.46a}(c) и \rf{5.47} для $E/F$:
+\begin{align*}
+\Tr_{M/F}\bigl(\Tr_{E/M}\alpha\bigr)&=[M:F]_i\sum_\tau\tau\bigl(\Tr_{E/M}\alpha\bigr)
+=[M:F]_i\,[E:M]_i\sum_\tau\sum_{\sigma\in\Sigma_\tau}\sigma\alpha\\
+&=[E:F]_i\sum_{\sigma\in\Sigma}\sigma\alpha=\Tr_{E/F}\alpha,\\
+\Nm_{M/F}\bigl(\Nm_{E/M}\alpha\bigr)&=\Bigl(\prod_\tau\tau\bigl(\Nm_{E/M}\alpha\bigr)\Bigr)^{[M:F]_i}
+=\Bigl(\prod_\tau\prod_{\sigma\in\Sigma_\tau}\sigma\alpha\Bigr)^{[E:M]_i[M:F]_i}\\
+&=\Bigl(\prod_{\sigma\in\Sigma}\sigma\alpha\Bigr)^{[E:F]_i}=\Nm_{E/F}\alpha.
+\end{align*}
+В сепарабельном случае все степени несепарабельности равны $1$, и вычисление сводится к перегруппировке слагаемых
+(сомножителей) по ограничениям на $M$.
+\end{proof}
+
+\begin{aside}[5.48a: почему нельзя <<применить $\tau$ к каждому слагаемому>>]
+В сепарабельном случае хочется написать (считая $M\subset\Om$)
+\[
+\Tr_{M/F}\bigl(\Tr_{E/M}\alpha\bigr)=\Tr_{M/F}\Bigl(\sum_{\psi\in\Hom_M(E,\Om)}\psi\alpha\Bigr)
+=\sum_{\tau\in\Hom_F(M,\Om)}\tau\Bigl(\sum_{\psi\in\Hom_M(E,\Om)}\psi\alpha\Bigr)
+\]
+и затем внести $\tau$ под знак суммы. Но так делать нельзя: $\psi\alpha$~--- элемент $\Om$, вообще говоря не лежащий в
+$M$, а $\tau$ определено только на $M$. Гомоморфизм $\tau$ применяется к \emph{элементу} $\Tr_{E/M}\alpha\in M$, а не к
+слагаемым. Вместо почленного применения работает формула \rf{5.47} \emph{относительно $\tau$}:
+$\tau(\Tr_{E/M}\alpha)=\sum_{\sigma\in\Sigma_\tau}\sigma\alpha$, где сумма берётся по продолжениям $\tau$ на $E$; именно
+это использовано выше.
+
+Почленное применение становится законным, если продолжить $\tau$ до автоморфизма $\tilde\tau$ поля $\Om$. Если $\Om$~---
+алгебраическое замыкание $F$, то это возможно: $\Om$ является алгебраическим замыканием поля $M$ как через включение
+$M\subset\Om$, так и через $\tau$, и по \rf{6.6} найдётся изоморфизм $\tilde\tau\colon\Om\to\Om$ с $\tilde\tau|_M=\tau$. Тогда
+\[
+\tau\bigl(\Tr_{E/M}\alpha\bigr)=\tilde\tau\Bigl(\sum_{\psi}\psi\alpha\Bigr)=\sum_{\psi}(\tilde\tau\circ\psi)(\alpha),
+\]
+а $\psi\mapsto\tilde\tau\circ\psi$~--- биекция $\Hom_M(E,\Om)\to\Sigma_\tau$ (обратная: $\sigma\mapsto\tilde\tau^{-1}\circ\sigma$).
+Суммируя по $\tau$, получаем сумму по всем $\sigma\in\Sigma=\bigsqcup_\tau\Sigma_\tau$, т.\,е.\ $\Tr_{E/F}\alpha$.
+\end{aside}
+
+\begin{remark}[5.48b: доказательство транзитивности без вложений]
+Транзитивность можно доказать и чисто матричным вычислением, не пользуясь \rf{5.47}. Пусть $k_1,\dots,k_n$~--- базис $M/F$,
+$e_1,\dots,e_m$~--- базис $E/M$; тогда $\{k_ie_l\}$~--- базис $E/F$. Для $c\in M$ обозначим через $[c]\in\operatorname{Mat}_n(F)$ матрицу
+умножения на $c$ в $M$; $c\mapsto[c]$~--- гомоморфизм колец, $\Tr[c]=\Tr_{M/F}c$, $\det[c]=\Nm_{M/F}c$. Для
+$A=(a_{jl})\in\operatorname{Mat}_m(M)$ пусть $\rho(A)\in\operatorname{Mat}_{mn}(F)$~--- блочная матрица с блоками $[a_{jl}]$; так как блочные матрицы
+перемножаются по тем же формулам, $\rho$~--- гомоморфизм колец. Если $A$~--- матрица $\alpha_L$ над $M$ в базисе $e_l$,
+т.\,е.\ $\alpha e_l=\sum_ja_{jl}e_j$, то $\alpha(k_ie_l)=\sum_j(a_{jl}k_i)e_j=\sum_j\sum_{i'}[a_{jl}]_{i'i}\,k_{i'}e_j$, т.\,е.\
+$\rho(A)$~--- матрица $\alpha_L$ над $F$ в базисе $\{k_ie_l\}$, упорядоченном блоками по $l$.
+
+\emph{След:} $\Tr\rho(A)=\sum_j\Tr[a_{jj}]=\Tr_{M/F}\bigl(\sum_ja_{jj}\bigr)=\Tr_{M/F}(\Tr_{E/M}\alpha)$.
+
+\emph{Норма:} докажем, что $\det\rho(A)=\Nm_{M/F}(\det A)$ для всех $A\in\operatorname{Mat}_m(M)$. Если $\det A=0$, то $AB=0$ для
+некоторой $B\ne0$, откуда $\rho(A)\rho(B)=0$ с $\rho(B)\ne0$, и $\det\rho(A)=0=\Nm_{M/F}(0)$. Обе части мультипликативны
+по $A$, а обратимая матрица над полем~--- произведение элементарных матриц $I+cE_{jl}$ ($j\ne l$) и одной матрицы
+$\operatorname{diag}(1,\dots,1,d)$ (метод Гаусса). Для первых $\rho(I+cE_{jl})$~--- блочно-унитреугольная матрица с
+определителем $1=\Nm_{M/F}(1)$, для второй $\rho$ даёт $\operatorname{diag}(I_n,\dots,I_n,[d])$ с определителем
+$\det[d]=\Nm_{M/F}(d)$. Применяя это к матрице $A$ оператора $\alpha_L$, получаем
+$\Nm_{E/F}\alpha=\det\rho(A)=\Nm_{M/F}(\det A)=\Nm_{M/F}(\Nm_{E/M}\alpha)$.
+
+Получив транзитивность таким способом, можно идти и в обратную сторону: вывести общую формулу \rf{5.47} из её
+сепарабельного случая (который сразу следует из \rf{5.45} и \rf{5.46a}(d), как в \rf{5.47a}(a)) по башне
+$F\subset E_{\mathrm{sep}}\subset E$. Для этого нужны лишь равенства $\Nm_{E/E_{\mathrm{sep}}}\alpha=\alpha^q$ и
+$\Tr_{E/E_{\mathrm{sep}}}\alpha=q\alpha$ (они следуют из \rf{5.47c}(a) и \rf{5.44}: $c_{\alpha,E/E_{\mathrm{sep}}}=
+(X^{p^j}-\alpha^{p^j})^{q/p^j}$) и биекция \rf{5.47c}(b). Важно лишь не доказывать формулу \rf{5.47} и транзитивность друг через
+друга по кругу: одно из двух утверждений нужно получить независимо (мы доказали \rf{5.47} через характеристический
+многочлен \rf{5.44}, а транзитивность вывели из неё).
+\end{remark}
+
+\begin{corollary}[5.48c]
+Для конечного расширения $E/F$ равносильны условия: (a) $E/F$ сепарабельно; (b) $\Tr_{E/F}$ не равен тождественно
+нулю; (c) билинейная форма следа $(x,y)\mapsto\Tr_{E/F}(xy)$ на $E$ невырождена.
+\end{corollary}
+
+\begin{proof}
+(a)$\Rightarrow$(b): по \rf{5.47a} $\Tr_{E/F}=\sum_{\sigma\in\Sigma}\sigma$~--- сумма $[E:F]$ различных гомоморфизмов
+$E\to\Om$, а по теореме Дедекинда (\rf{5.15}) они линейно независимы над $\Om$, так что сумма не равна нулю. (b)$\Rightarrow$(a):
+если $E/F$ несепарабельно, то некоторый $\alpha\in E$ несепарабелен, его минимальный многочлен~--- многочлен от $X^p$
+(\rf{2.20}), и по \rf{5.46a} $[F[\alpha]:F]_i>1$; тогда $[E:F]_i=[E:F[\alpha]]_i[F[\alpha]:F]_i$~--- степень $p$, большая $1$,
+и $\Tr_{E/F}\equiv0$ по \rf{5.47}. (b)$\Leftrightarrow$(c): если $\Tr_{E/F}(c)\ne0$, то для любого $x\ne0$ имеем
+$\Tr_{E/F}(x\cdot x^{-1}c)\ne0$, т.\,е.\ $x$ не лежит в ядре формы; если же $\Tr_{E/F}\equiv0$, то форма нулевая.
+\end{proof}
+
+\subsection*{Дискриминант через норму}
+
+\begin{proposition}[5.49]
+Пусть $f(X)\in F[X]$~--- унитарный неприводимый многочлен степени $m$, и $\alpha$~--- его корень в некотором поле
+разложения $f$. Тогда
+\[
+D(f)=(-1)^{m(m-1)/2}\,\Nm_{F[\alpha]/F}\bigl(f'(\alpha)\bigr),
+\]
+где $f'=\frac{df}{dX}$~--- формальная производная.
+\end{proposition}
+
+\begin{proof}
+Если $f$ несепарабелен, то $f'=0$ (\rf{2.20}), и обе части равны нулю: $D(f)=0$, так как у $f$ есть кратный корень. Пусть
+$f$ сепарабелен и $f(X)=\prod_{i=1}^m(X-\alpha_i)$ в данном поле разложения $E_f$, причём $\alpha=\alpha_1$. Тогда
+\[
+D(f)\overset{\mathrm{def}}{=}\prod_{i<j}(\alpha_i-\alpha_j)^2=(-1)^{m(m-1)/2}\prod_i\prod_{j\ne i}(\alpha_i-\alpha_j):
+\]
+каждая неупорядоченная пара $\{i,j\}$ даёт слева множитель $(\alpha_i-\alpha_j)^2$, а справа
+$(\alpha_i-\alpha_j)(\alpha_j-\alpha_i)=-(\alpha_i-\alpha_j)^2$, и всего пар $m(m-1)/2$. Далее,
+$f'(X)=\sum_i\prod_{j\ne i}(X-\alpha_j)$ (правило Лейбница), поэтому $f'(\alpha_i)=\prod_{j\ne i}(\alpha_i-\alpha_j)$ и
+\[
+D(f)=(-1)^{m(m-1)/2}\prod_{i=1}^mf'(\alpha_i).
+\]
+Вложим $E_f$ в алгебраически замкнутое поле $\Om$. $F$-гомоморфизмы $F[\alpha]\to\Om$~--- это $\sigma_i\colon\alpha\mapsto\alpha_i$
+(\rf{2.1}(b)), и $\sigma_i(f'(\alpha))=f'(\alpha_i)$, так как коэффициенты $f'$ лежат в $F$. (Иначе: так как $E_f/F$~---
+расширение Галуа, $\sigma_i$ продолжается до элемента $\Gal(E_f/F)$, переводящего $f'(\alpha)$ в $f'(\alpha_i)$.) Расширение
+$F[\alpha]/F$ сепарабельно, и по \rf{5.47a}(a)
+\[
+\Nm_{F[\alpha]/F}\bigl(f'(\alpha)\bigr)=\prod_{i=1}^m\sigma_i\bigl(f'(\alpha)\bigr)=\prod_{i=1}^mf'(\alpha_i). \qedhere
+\]
+\end{proof}
+
+\begin{example}[5.50]
+Вычислим дискриминант многочлена
+\[
+f(X)=X^n+aX+b,\qquad a,b\in F,\quad n\ge2,
+\]
+предполагая его неприводимым и сепарабельным, через норму элемента
+\[
+\gamma\overset{\mathrm{def}}{=}f'(\alpha)=n\alpha^{n-1}+a,\qquad f(\alpha)=0 .
+\]
+Так как $f$ неприводим и $n\ge2$, то $b\ne0$ и $\alpha\ne0$.
+
+\emph{Случай $n\ne0$ в $F$.} Умножая равенство $\alpha^n+a\alpha+b=0$ на $n\alpha^{-1}$, получаем
+$n\alpha^{n-1}=-na-nb\alpha^{-1}$. Поэтому
+\[
+\gamma=n\alpha^{n-1}+a=-(n-1)a-nb\alpha^{-1},\qquad\text{т.\,е.}\qquad \gamma+(n-1)a=-nb\alpha^{-1}\ne0,
+\]
+и, решая относительно $\alpha$,
+\[
+\alpha=\frac{-nb}{\gamma+(n-1)a}
+\]
+(корень выражен рационально через коэффициенты и значение производной в нём). Из двух последних формул видно, что
+$F[\alpha]=F[\gamma]$, так что минимальный многочлен $\gamma$ над $F$ тоже имеет степень $n$. Запишем
+\[
+f\Bigl(\frac{-nb}{X+(n-1)a}\Bigr)=\frac{P(X)}{Q(X)},\quad
+\begin{aligned}
+P(X)&=(X+(n-1)a)^n-na\,(X+(n-1)a)^{n-1}+(-1)^nn^nb^{n-1},\\
+Q(X)&=(X+(n-1)a)^n/b .
+\end{aligned}
+\]
+(Действительно, при $Z=X+(n-1)a$ имеем $f(-nb/Z)=\bigl((-nb)^n-nab\,Z^{n-1}+bZ^n\bigr)/Z^n$, а это $P/Q$.) Тогда $P(\gamma)=f(\alpha)\cdot Q(\gamma)=0$, где
+\[
+Q(\gamma)=\frac{(\gamma+(n-1)a)^n}{b}=\frac{(n\alpha^{n-1}+na)^n}{b}=\frac{(-nb\alpha^{-1})^n}{b}=\frac{(-nb)^n}{\alpha^nb}\ne0 .
+\]
+Многочлен $P$ унитарен степени $n$ и обращается в нуль в $\gamma$, поэтому он~--- минимальный многочлен $\gamma$. По \rf{5.44}
+(с $E=F[\gamma]$) норма $\gamma$ равна свободному члену $P$, умноженному на $(-1)^n$:
+\begin{align*}
+P(0)&=\bigl((n-1)a\bigr)^n-na\bigl((n-1)a\bigr)^{n-1}+(-1)^nn^nb^{n-1}\\
+&=(n-1)^{n-1}a^n\bigl((n-1)-n\bigr)+(-1)^nn^nb^{n-1},\\
+\Nm_{F[\alpha]/F}(\gamma)&=(-1)^nP(0)=n^nb^{n-1}+(-1)^{n-1}(n-1)^{n-1}a^n .
+\end{align*}
+
+\emph{Случай $n=0$ в $F$} (характеристика $p$ делит $n$). Тогда $\gamma=a\in F$ и $\Nm_{F[\alpha]/F}(\gamma)=a^n$ по
+\rf{5.43}(b). Но в $F$ имеем $n^n=0$ и $(n-1)^{n-1}=(-1)^{n-1}$, так что выражение
+$n^nb^{n-1}+(-1)^{n-1}(n-1)^{n-1}a^n$ тоже равно $a^n$: формула для нормы та же.
+
+По \rf{5.49} в обоих случаях
+\[
+\boxed{\ D(X^n+aX+b)=(-1)^{n(n-1)/2}\bigl(n^nb^{n-1}+(-1)^{n-1}(n-1)^{n-1}a^n\bigr)\ }
+\]
+в согласии с \rf{4.39}. Например, $D(X^5+aX+b)=5^5b^4+4^4a^5$; при $n=2$ получаем $D(X^2+aX+b)=a^2-4b$, при $n=3$~---
+$D(X^3+aX+b)=-4a^3-27b^2$.
+\end{example}
+
+\begin{remark}[5.50a]
+(a) \emph{Формула верна для всех $a,b$} в любом поле~--- и для приводимых, и для несепарабельных многочленов. Пусть $A,B$~---
+независимые переменные. Многочлен $X^n+AX+B$ как многочлен от $B$ имеет степень $1$ и взаимно простые коэффициенты $1$
+и $X^n+AX$, поэтому он неприводим в $\Q[A,X][B]=\Q[A,B][X]$; будучи унитарным по $X$, он по лемме Гаусса неприводим и
+над полем $\Q(A,B)$, а в характеристике $0$ сепарабелен. По \rf{5.50} над $F=\Q(A,B)$ получаем тождество
+\[
+\Delta_n(0,\dots,0,A,B)=(-1)^{n(n-1)/2}\bigl(n^nB^{n-1}+(-1)^{n-1}(n-1)^{n-1}A^n\bigr),
+\]
+где $\Delta_n\in\Z[a_1,\dots,a_n]$~--- универсальный многочлен, выражающий дискриминант через коэффициенты (\rf{5.37}(c)).
+Обе части лежат в $\Z[A,B]$, и, подставляя вместо $A,B$ любые элементы $a,b$ любого поля, получаем формулу для
+$D(X^n+aX+b)$ без всяких предположений о многочлене.
+
+(b) \emph{Примеры.} $D(X^5-X-1)=5^5-4^4=2869=19\cdot151$; $D(X^5+X+1)=5^5+4^4=3381$, как и в \rf{4.38} (здесь нужен пункт (a):
+$X^5+X+1=(X^2+X+1)(X^3-X^2+1)$ приводим). В характеристике, делящей $n$: многочлен $X^3-X-1$ над $\F_3$ неприводим (у
+него нет корней в $\F_3$), $\gamma=f'(\alpha)=-1$, $\Nm(\gamma)=(-1)^3=-1$, и $D=(-1)^{3}\cdot(-1)=1$; формула даёт
+$-(27+4\cdot(-1)^3)=-23\equiv1\pmod3$.
+\end{remark}
