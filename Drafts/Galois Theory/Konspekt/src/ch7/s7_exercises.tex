@@ -1,0 +1,59 @@
+\section*{Упражнения}
+\addcontentsline{toc}{section}{Упражнения}
+
+\begin{exercise}[7-1]
+Пусть $p$~--- простое число и $\Om\subset\CC$~--- поле, порождённое над $\Q$ всеми корнями степени $p^m$ из единицы,
+$m\in\mathbb N$. Покажите, что $\Om/\Q$~--- расширение Галуа с группой $\Zp^\times=\varlim(\Z/p^m\Z)^\times$.
+\emph{Указание:} $\Om$~--- объединение башни $\Q\subset\Q(\zeta_p)\subset\dots\subset\Q(\zeta_{p^m})\subset
+\Q(\zeta_{p^{m+1}})\subset\cdots$. При нечётном $p$ покажите, что $\Gal(\Q(\zeta_{p^\infty})/\Q(\zeta_p))\cong\Zp$.
+\emph{Указание:} элементу $a\in\Zp$ сопоставьте $\zeta_{p^k}\mapsto\zeta_{p^k}^{(1+p)^{a}}$, где показатель берётся по
+модулю $p^k$ и зависит лишь от $a\bmod p^{k-1}$.
+\end{exercise}
+
+\begin{exercise}[7-2]
+Пусть $\F$~--- алгебраическое замыкание $\F_p$ и $\F_{p^m}$~--- его подполе из $p^m$ элементов. Покажите, что
+$\varlim_{m\ge1}\Gal(\F_{p^m}/\F_p)\cong\varlim_{m\ge1}\Z/m\Z$, и выведите, что $\Gal(\F/\F_p)\cong\Zh$.
+\end{exercise}
+
+\begin{exercise}[7-3]
+Для проконечной группы $G$ положим $G^{\rm ab}=G/\overline{[G,G]}$ (фактор по замыканию коммутанта). Верно ли, что
+$G^{\rm ab}=\varlim G_i^{\rm ab}$, где $G_i=G/U$ пробегает фактор-группы по \emph{открытым} нормальным подгруппам $U$? \emph{Ответ:} да; при этом $\overline{[G,G]}=\bigcap_UU[G,G]$.
+\end{exercise}
+
+\begin{exercise}[7-4]
+Докажите, что в $\Zh$ нет ненулевых элементов конечного порядка, а в $\Zh^\times$ есть несчётная подгруппа экспоненты 2.
+Содержит ли $\prod_p\mu_{p-1}\subset\Zh^\times$ элементы бесконечного порядка? \emph{Ответ:} да.
+\end{exercise}
+
+\begin{exercise}[7-5]
+Пусть $p$ нечётно. Покажите, что $\Q(\mu_{p^\infty})$ содержит ровно одно квадратичное поле, и найдите его.
+\emph{Ответ:} $\Q(\sqrt{p^*})$, $p^*=(-1)^{(p-1)/2}p$ (в $\Zp^\times\cong\Z/(p-1)\times\Zp$ ровно одна открытая подгруппа
+индекса 2).
+\end{exercise}
+
+\begin{exercise}[7-6]
+Покажите, что $\Q(\sqrt[3]2)\cap\Qab=\Q$, и выведите, что $\Gal(\Qab(\sqrt[3]2)/\Qab)\cong\Z/3$. \emph{Указание:} к самому
+$\Q(\sqrt[3]2)$ предложение 7.15 неприменимо (оно не Галуа); возьмите $E=\Q(\sqrt[3]2,\omega)$, $L=\Qab$ и заметьте, что
+$\omega\in\Qab$ и $E\cap\Qab=\Q(\omega)$.
+\end{exercise}
+
+\begin{exercise}[7-7]
+Пусть $\ell$~--- простое и $\Om=\bigcup_k\F_{p^{\ell^k}}$. Найдите $\Gal(\Om/\F_p)$ и все промежуточные поля.
+\emph{Ответ:} $\Z_\ell$; поля $\F_{p^{\ell^k}}$ и само $\Om$.
+\end{exercise}
+
+\begin{exercise}[7-8]
+Докажите, что всякий непрерывный гомоморфизм $\R\to\Gal(\Fpb/\F_p)$ (с обычной топологией на $\R$) тривиален.
+\emph{Указание:} образ связен, а группа Галуа вполне несвязна (7.8).
+\end{exercise}
+
+\begin{exercise}[7-9]
+Пусть $E$~--- поле из 7.29. Докажите, что $\Gal(E/\Q(\sqrt2))\cong\prod_{i\ne1}\Z/2$ и что подгруппа $\bigoplus\Z/2$ в ней
+по-прежнему плотна. Какая подгруппа $\Q^\times/\Q^{\times2}$ соответствует полю $\Q(\sqrt2,\sqrt3,\sqrt5,\dots)$ (все
+простые, без $\sqrt{-1}$), и каков её аннулятор в $\prod\Z/2$ (в смысле 7.37)?
+\end{exercise}
+
+\begin{exercise}[7-10]
+Пусть $q\equiv1\pmod4$. С помощью 7.37 покажите, что $-1$~--- четвёртая степень в $\F_q$ тогда и только тогда, когда
+$q\equiv1\pmod8$.
+\end{exercise}
