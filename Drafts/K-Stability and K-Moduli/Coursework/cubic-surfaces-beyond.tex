@@ -383,16 +383,16 @@ $-(K_X+\Delta)$ обилен; при $\Delta=0$ говорят о \emph{$\Q$-Ф�
 
 Пары появляются по нескольким причинам. (1) При ограничении на дивизор: если $E\subset Y$ ---
 простой дивизор, то «формула присоединения» $K_E+\Delta_E=(K_Y+E)|_E$ в общем случае требует
-поправки $\Delta_E$ (\emph{different}, см.~ниже). (2) При изучении семейств: по кривой $D\subset X$
+поправки $\Delta_E$ (\emph{дифферента}, см.~ниже). (2) При изучении семейств: по кривой $D\subset X$
 и числу $c\in[0,1]$ получаем пару $(X,cD)$, и интересно, как меняются её свойства с ростом $c$
 (примеры~\ref{ex:P112-pair}, \ref{ex:P114-pair}). (3) При разрешении особенностей:
 $K_Y+\Delta_Y=\pi^*(K_X+\Delta)$ превращает любую пару в пару с «простыми» особенностями
 (раздел~\ref{sec:mmp}).
 
-\begin{definition}[Different]\label{def:different}
+\begin{definition}[Дифферента]\label{def:different}
 Пусть $(Y,E+\Delta)$ --- пара, $E$ --- простой дивизор с коэффициентом~1, не входящий в
 $\Supp\Delta$, и $E^\nu\to E$ --- нормализация. Тогда существует единственный $\Q$-дивизор
-$\Delta_E\ge0$ на $E^\nu$ (\emph{different}) такой, что
+$\Delta_E=\mathrm{Diff}_{E^\nu}(\Delta)\ge0$ на $E^\nu$ (\emph{дифферента}) такой, что
 \[
 K_{E^\nu}+\Delta_E=(K_Y+E+\Delta)|_{E^\nu}
 \]
@@ -2875,7 +2875,7 @@ $\delta_p(X,\Delta;V_\bullet)\ge1$ для всех $p\in X$.
 $(\tilde X,\tilde\Delta+E)$ plt, где $\tilde\Delta$ определено равенством
 $K_{\tilde X}+\tilde\Delta+(1-A_{(X,\Delta)}(E))E=\pi^*(K_X+\Delta)$. (Для дивизора $E\subset X$ на
 самом $X$ берём $\pi=\id$; тогда условие --- plt-ость пары $(X,\Delta+E)$.) По формуле
-присоединения с different (определение~\ref{def:different})
+присоединения с дифферентой (определение~\ref{def:different})
 \[
 K_E+\Delta_E=(K_{\tilde X}+\tilde\Delta+E)|_E ,
 \]
@@ -2983,7 +2983,7 @@ S(E)=\frac29\int_0^3\frac{(3-t)^2}2dt=\frac19\cdot9=1,\qquad\frac{A}{S}=1 .
 \[
 S(W^E_{\bullet\bullet};p)=\frac2{9/2}\int_0^3\frac12\Big(\frac{3-u}2\Big)^2du=\frac49\cdot\frac12\cdot\frac14\cdot9=\frac12 .
 \]
-Different: $\Delta_E=\frac12(Q\cap E)+\frac12p_0$ --- точка $Q\cap E$ с коэффициентом $\frac12$
+Дифферента: $\Delta_E=\frac12(Q\cap E)+\frac12p_0$ --- точка $Q\cap E$ с коэффициентом $\frac12$
 плюс вклад особой точки $\frac12(1,1)$ с коэффициентом $1-\frac12$ (определение~\ref{def:different}).
 Поскольку $p\ne p_0$, имеем $A_{(E,\Delta_E)}(p)\ge\frac12$ и $\delta_p(E,\Delta_E;W)\ge\frac{1/2}{1/2}=1$. По
 теореме~\ref{thm:AZ} $\delta_p(X,\Delta;L)\ge1$.
