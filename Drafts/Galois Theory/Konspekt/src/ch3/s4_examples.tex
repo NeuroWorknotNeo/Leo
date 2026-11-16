@@ -1,0 +1,577 @@
+\makeatletter
+\@ifundefined{keepfig}{\newenvironment{keepfig}{\par\edef\keepfig@pi{\the\parindent}\noindent
+  \begin{minipage}{\linewidth}\parindent=\keepfig@pi\relax}{\end{minipage}\par}}{}
+\makeatother
+\section{Примеры}
+
+В этом разделе основная теорема применяется к конкретным расширениям: мы находим группу Галуа, все её подгруппы и
+соответствующие им подполя, а для подполей~--- образующие и минимальные многочлены. Общий приём таков: если
+$H\subset G$~--- подгруппа и $\theta\in E$ неподвижен относительно $H$, то $F[\theta]\subset E^H$; если при этом
+$[F[\theta]:F]=(G:H)$ (например, у $\theta$ ровно $(G:H)$ различных сопряжённых), то $F[\theta]=E^H$. Минимальный многочлен
+$\theta$~--- это $\prod(X-\theta_j)$ по различным сопряжённым $\theta_j$ (\rf{3.14}); его коэффициенты~--- симметрические
+функции от $\theta_j$, неподвижные относительно $G$, т.\,е.\ лежащие в $F$.
+
+\subsection*{Круговое поле $\Q[\zeta_7]$}
+
+\begin{example}[3.22]
+Пусть $\zeta=e^{2\pi i/7}$~--- первообразный корень седьмой степени из $1$. Поле $\Q[\zeta]$~--- поле разложения многочлена
+$X^7-1$ (его корни~--- $1,\zeta,\dots,\zeta^6$), а минимальный многочлен $\zeta$ над $\Q$ равен
+\[
+\Phi_7=X^6+X^5+X^4+X^3+X^2+X+1
+\]
+(\rf{1.42}). Поэтому $\Q[\zeta]/\Q$~--- расширение Галуа степени $6$ (\rf{3.10}).
+
+\emph{Группа Галуа.} Каждый $\sigma\in G=\Gal(\Q[\zeta]/\Q)$ переводит $\zeta$ в корень $\Phi_7$, т.\,е.\ $\sigma\zeta=\zeta^i$,
+$1\le i\le6$, и $\sigma$ определяется числом $i$ (так как $\Q[\zeta]$ порождено $\zeta$). Обозначим этот автоморфизм
+$\sigma_i$; тогда $\sigma_i\sigma_j(\zeta)=\sigma_i(\zeta^j)=\zeta^{ij}$, т.\,е.\ $\sigma_i\sigma_j=\sigma_{ij}$, и $\sigma_i\mapsto
+i\bmod7$~--- инъективный гомоморфизм $G\to(\Z/7\Z)^\times$. Обе группы имеют порядок $6$, так что это изоморфизм. Пусть
+$\sigma=\sigma_3$, $\sigma\zeta=\zeta^3$. Степени $3$ по модулю $7$ равны $3,2,6,4,5,1$, т.\,е.\ класс $3$ порождает
+$(\Z/7\Z)^\times$, и $G=\langle\sigma\rangle$~--- циклическая группа порядка $6$, $\sigma^k=\sigma_{3^k}$:
+\[
+\sigma=\sigma_3,\quad\sigma^2=\sigma_2,\quad\sigma^3=\sigma_6,\quad\sigma^4=\sigma_4,\quad\sigma^5=\sigma_5,\quad\sigma^6=1 .
+\]
+Подгрупп четыре: $1$, $\langle\sigma^3\rangle$ (порядка $2$), $\langle\sigma^2\rangle$ (порядка $3$) и $G$; все они нормальны
+($G$ абелева). По основной теореме у $\Q[\zeta]$ ровно два собственных подполя, отличных от $\Q$: степени $3$ и $2$, и оба
+являются расширениями Галуа поля $\Q$.
+
+\emph{Подполе $\Q[\zeta]^{\langle\sigma^3\rangle}$.} Так как $\sigma^3\zeta=\zeta^6=\zeta^{-1}=\bar\zeta$, автоморфизм $\sigma^3$~---
+ограничение комплексного сопряжения, и число
+\[
+\alpha_1=\zeta+\bar\zeta=2\cos\tfrac{2\pi}7
+\]
+неподвижно относительно $\sigma^3$. Оно не рационально: иначе $\zeta$ был бы корнем многочлена
+$X^2-\alpha_1X+1=(X-\zeta)(X-\bar\zeta)\in\Q[X]$ степени $2<6$. Значит, $\Q\subsetneq\Q[\alpha_1]\subset\Q[\zeta]^{\langle\sigma^3\rangle}$,
+а $[\Q[\zeta]^{\langle\sigma^3\rangle}:\Q]=(G:\langle\sigma^3\rangle)=3$~--- простое число; поэтому
+\[
+\Q[\zeta]^{\langle\sigma^3\rangle}=\Q[\zeta+\bar\zeta]=\Q\bigl[\cos\tfrac{2\pi}7\bigr]=\Q[\zeta]\cap\R
+\]
+(последнее~--- \rf{3.19a}(2)). Это расширение Галуа поля $\Q$ с группой $\langle\sigma\rangle/\langle\sigma^3\rangle\cong\Z/3\Z$.
+
+Положим $\alpha_k=\zeta^k+\zeta^{-k}$ (так что $\alpha_k=\alpha_{-k}=\alpha_{k+7}$ и $\alpha_0=2$). Сопряжённые с $\alpha_1$~--- это
+$\sigma\alpha_1=\zeta^3+\zeta^{-3}=\alpha_3$ и $\sigma^2\alpha_1=\zeta^2+\zeta^{-2}=\alpha_2$. Из $\zeta^j\zeta^k=\zeta^{j+k}$ следует
+$\alpha_j\alpha_k=\alpha_{j+k}+\alpha_{j-k}$, и прямое вычисление даёт
+\begin{align*}
+\alpha_1+\alpha_2+\alpha_3&=\textstyle\sum_{i=1}^6\zeta^i=-1,\\
+\alpha_1\alpha_2+\alpha_1\alpha_3+\alpha_2\alpha_3&=(\alpha_3+\alpha_1)+(\alpha_4+\alpha_2)+(\alpha_5+\alpha_1)=2(\alpha_1+\alpha_2+\alpha_3)=-2,\\
+\alpha_1\alpha_2\alpha_3&=(\alpha_3+\alpha_1)\alpha_3=(\alpha_6+\alpha_0)+(\alpha_4+\alpha_2)=\alpha_1+2+\alpha_3+\alpha_2=1 .
+\end{align*}
+(мы пользовались равенствами $\alpha_4=\alpha_3$, $\alpha_5=\alpha_2$, $\alpha_6=\alpha_1$). Следовательно, минимальный многочлен $\zeta+\bar\zeta$ равен
+\[
+g(X)=X^3+X^2-2X-1 .
+\]
+Короче то же получается подстановкой $X=\zeta+\zeta^{-1}$ в тождество $g(X)=(X^3-3X)+(X^2-2)+X+1$: так как
+$X^3-3X=\zeta^3+\zeta^{-3}$ и $X^2-2=\zeta^2+\zeta^{-2}$, правая часть равна $\sum_{k=-3}^3\zeta^k=\zeta^{-3}\Phi_7(\zeta)=0$.
+(Неприводимость $g$ видна и непосредственно: рациональными корнями могли бы быть лишь $\pm1$, а $g(1)=-1$, $g(-1)=1$.)
+Минимальный многочлен числа $\cos\frac{2\pi}7=\frac{\alpha_1}2$ равен
+\[
+\frac{g(2X)}8=X^3+\frac{X^2}2-\frac X2-\frac18 .
+\]
+Нормальность $\Q[\alpha_1]/\Q$ видна и <<вручную>>: из $2\cos2\theta=(2\cos\theta)^2-2$ имеем
+\[
+\alpha_2=\alpha_1^2-2,\qquad\alpha_3=\alpha_2^2-2,\qquad\alpha_1=\alpha_3^2-2,
+\]
+т.\,е.\ все сопряжённые с $\alpha_1$~--- многочлены от $\alpha_1$, а автоморфизм $\sigma^2=\sigma_2$ действует на них как
+$x\mapsto x^2-2$.
+
+\emph{Подполе $\Q[\zeta]^{\langle\sigma^2\rangle}$.} Подгруппа $\langle\sigma^2\rangle=\{\sigma_1,\sigma_2,\sigma_4\}$ переставляет
+$\zeta,\zeta^2,\zeta^4$, поэтому период
+\[
+\beta=\zeta+\zeta^2+\zeta^4
+\]
+неподвижен относительно неё. Положим $\beta'=\sigma\beta=\zeta^3+\zeta^6+\zeta^{12}=\zeta^3+\zeta^5+\zeta^6$. Тогда
+$\beta+\beta'=\sum_{i=1}^6\zeta^i=-1$ и
+\[
+\beta\beta'=\zeta^4+\zeta^6+\zeta^7+\zeta^5+\zeta^7+\zeta^8+\zeta^7+\zeta^9+\zeta^{10}=3+\textstyle\sum_{i=1}^6\zeta^i=2,
+\]
+так что $\beta,\beta'$~--- корни $X^2+X+2$ и $(\beta-\beta')^2=(\beta+\beta')^2-4\beta\beta'=-7$. В частности, $\beta\ne\beta'$, т.\,е.\
+$\beta\notin\Q$ (иначе $\beta'=\sigma\beta=\beta$), и $\Q[\beta]=\Q[\sqrt{-7}]$~--- поле степени $2=(G:\langle\sigma^2\rangle)$. Итак,
+\[
+\Q[\zeta]^{\langle\sigma^2\rangle}=\Q[\zeta+\zeta^2+\zeta^4]=\Q[\sqrt{-7}],\qquad\beta=\frac{-1+\sqrt{-7}}2,\quad\beta'=\frac2\beta=\frac{-1-\sqrt{-7}}2,
+\]
+где $\sqrt{-7}=\beta-\beta'=(\zeta-\zeta^6)+(\zeta^2-\zeta^5)+(\zeta^4-\zeta^3)=2i\bigl(\sin\frac{2\pi}7+\sin\frac{4\pi}7-\sin\frac{\pi}7\bigr)=i\sqrt7$
+(мнимая часть положительна, так как $\sin\frac{2\pi}7>\sin\frac\pi7$). Группа Галуа $\Q[\sqrt{-7}]/\Q$ равна
+$\langle\sigma\rangle/\langle\sigma^2\rangle\cong\Z/2\Z$; нетривиальный элемент~--- ограничение $\sigma$ (или любого $\sigma_i$ с
+неквадратом $i\in\{3,5,6\}$ по модулю $7$).
+
+Над полем $\Q[\sqrt{-7}]$ сопряжённые с $\zeta$~--- его орбита $\zeta,\zeta^2,\zeta^4$ под действием
+$\Gal(\Q[\zeta]/\Q[\sqrt{-7}])=\langle\sigma^2\rangle$, поэтому (\rf{3.14}) минимальный многочлен $\zeta$ над $\Q[\sqrt{-7}]$ равен
+\[
+(X-\zeta)(X-\zeta^2)(X-\zeta^4)=X^3-\beta X^2+\beta'X-1=X^3+\frac{1-\sqrt{-7}}2\,X^2-\frac{1+\sqrt{-7}}2\,X-1
+\]
+($\zeta\cdot\zeta^2+\zeta\cdot\zeta^4+\zeta^2\cdot\zeta^4=\zeta^3+\zeta^5+\zeta^6=\beta'$, $\zeta\cdot\zeta^2\cdot\zeta^4=1$); а над
+$\Q[\zeta+\bar\zeta]$ минимальный многочлен $\zeta$~--- это $X^2-\alpha_1X+1$.
+
+Наконец, $\langle\sigma^2\rangle\cap\langle\sigma^3\rangle=1$, поэтому по \rf{3.18}(a)
+$\Q[\zeta]=\Q[\cos\frac{2\pi}7]\cdot\Q[\sqrt{-7}]=\Q[\cos\frac{2\pi}7,\sqrt{-7}]$.
+\end{example}
+
+\begin{keepfig}
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\begin{scope}
+\node (one) at (0,3) {$1$};
+\node (s3) at (-1.6,1.8) {$\langle\sigma^3\rangle\cong\Z/2$};
+\node (s2) at (1.6,1.2) {$\langle\sigma^2\rangle\cong\Z/3$};
+\node (G) at (0,0) {$G=\langle\sigma\rangle\cong\Z/6$};
+\draw (one) -- node[above left,font=\scriptsize]{$2$} (s3) -- node[below left,font=\scriptsize]{$3$} (G);
+\draw (one) -- node[above right,font=\scriptsize]{$3$} (s2) -- node[pos=0.3,below right,font=\scriptsize]{$2$} (G);
+\end{scope}
+\node at (3.6,1.5) {$\longleftrightarrow$};
+\begin{scope}[xshift=7.6cm]
+\node[cold] (E) at (0,3) {$\Q[\zeta]$};
+\node[cnew] (K3) at (-1.9,1.8) {$\Q[\zeta+\bar\zeta]=\Q[\cos\frac{2\pi}7]$};
+\node[cnew] (K2) at (1.9,1.2) {$\Q[\zeta+\zeta^2+\zeta^4]=\Q[\sqrt{-7}]$};
+\node[cold] (Q) at (0,0) {$\Q$};
+\begin{scope}[every node/.style={font=\scriptsize}]
+\draw (E) -- node[above left]{$\langle\sigma^3\rangle$} (K3) -- node[below left,align=center]{$\langle\sigma\rangle/\langle\sigma^3\rangle$\\$\cong\Z/3$} (Q);
+\draw (E) -- node[above right]{$\langle\sigma^2\rangle$} (K2) -- node[below right,align=center]{$\langle\sigma\rangle/\langle\sigma^2\rangle$\\$\cong\Z/2$} (Q);
+\end{scope}
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\figcap{Пример \rf{3.22}: подгруппы $G=\Gal(\Q[\zeta_7]/\Q)$, $\sigma\zeta=\zeta^3$ (слева, на рёбрах~--- индексы), и подполя
+(справа, на рёбрах~--- группы Галуа соответствующих расширений: сверху $\Gal(\Q[\zeta]/M)$, снизу $\Gal(M/\Q)$).}
+\end{keepfig}
+
+Тот же ответ получается и в общем виде: для нечётного простого $p$ группа $\Gal(\Q[\zeta_p]/\Q)\cong(\Z/p\Z)^\times$ циклична порядка
+$p-1$, подполя взаимно однозначно соответствуют делителям $p-1$ и порождаются гауссовыми периодами (\rf{5.11e}), подполе
+$\Q[\zeta_p]\cap\R=\Q[\cos\frac{2\pi}p]$ имеет степень $\frac{p-1}2$ (\rf{5.11d}), а единственное квадратичное подполе равно
+$\Q[\sqrt{\pm p}]$ со знаком $(-1)^{(p-1)/2}$ (\rf{5.11f}; элементарное вычисление через периоды~--- упражнение 3-2). Для
+$p=7$ это $\Q[\sqrt{-7}]$, как и выше.
+
+\begin{example}[3.22a: многочлен $X^3-3X+1$]
+Ещё одно кубическое поле, порождённое косинусом. Пусть $f=X^3-3X+1$. При $x=2\cos\theta$ имеем
+$x^3-3x=2\cos3\theta$ (формула тройного угла), так что $f(2\cos\theta)=0\iff\cos3\theta=-\frac12$. Поэтому корни $f$~--- три
+различных числа
+\[
+x_1=2\cos\tfrac{2\pi}9,\qquad x_2=2\cos\tfrac{4\pi}9,\qquad x_3=2\cos\tfrac{8\pi}9
+\]
+($3\theta=\frac{2\pi}3,\frac{4\pi}3,\frac{8\pi}3$). Многочлен $f$ неприводим над $\Q$ (рациональными корнями могли бы быть лишь
+$\pm1$, а $f(1)=-1$, $f(-1)=3$). Как и выше, $x_2=x_1^2-2$ и $x_3=x_2^2-2$, т.\,е.\ $\Q[x_1]$ содержит все корни $f$. Значит,
+$\Q[x_1]$~--- поле разложения $f$, расширение Галуа степени $3$ с группой $\Z/3\Z$, образующая которой действует на корнях
+как $x\mapsto x^2-2$ ($x_1\mapsto x_2\mapsto x_3\mapsto x_1$, так как $x_3^2-2=2\cos\frac{16\pi}9=x_1$). По основной теореме
+собственных промежуточных полей нет. Это поле $\Q[\zeta_9+\zeta_9^{-1}]=\Q[\zeta_9]\cap\R$ (\rf{5.11d}).
+
+Сравните с полем разложения $X^3-2$ или $X^3+3X+1$ (\rf{3.23c}): там поле, порождённое одним корнем, не нормально, и
+группа Галуа~--- $S_3$. Отличить два случая можно по дискриминанту (\rf{4.7}): у $X^3-3X+1$ он равен $81=9^2$. Формула Кардано
+для $f$: подстановка $x=u+v$ даёт $x^3-3x+1=u^3+v^3+1+3(uv-1)(u+v)$, и достаточно взять $uv=1$, $u^3+v^3=-1$; тогда
+$u^3,v^3$~--- корни $T^2+T+1$, т.\,е.\ $e^{\pm2\pi i/3}$, и
+$x_1=\sqrt[3]{-\frac12+\frac{\sqrt{-3}}2}+\sqrt[3]{-\frac12-\frac{\sqrt{-3}}2}=e^{2\pi i/9}+e^{-2\pi i/9}$~--- вещественный
+корень записан через кубические корни из \emph{невещественных} чисел. Это неизбежно (\rf{3.22f}).
+\end{example}
+
+\subsection*{Гауссовы периоды: вычисление без перебора}
+
+Чтобы найти минимальный многочлен гауссова периода, нужно вычислить элементарные симметрические функции от его
+сопряжённых. Это суммы большого числа корней из единицы, но все они рациональны, и следующая лемма сводит их вычисление к
+подсчёту слагаемых, равных $1$.
+
+Пусть $p$~--- простое число и $\zeta=\zeta_p$. Для $u\in\F_p=\Z/p\Z$ запись $\zeta^u$ корректна, так как $\zeta^p=1$.
+
+\begin{lemma}[3.22b: принцип инвариантности]
+Пусть на конечном множестве $S$ действует группа $\F_p^\times$, и $s\colon S\to\F_p$~--- отображение, для которого
+$s(k\cdot x)=k\,s(x)$ ($k\in\F_p^\times$, $x\in S$). Пусть $N_0$~--- число элементов $x\in S$ с $s(x)=0$. Тогда
+\[
+\sum_{x\in S}\zeta^{s(x)}=N_0-\frac{|S|-N_0}{p-1}=\frac{pN_0-|S|}{p-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Пусть $N(u)$~--- число $x\in S$ с $s(x)=u$. Отображение $x\mapsto k\cdot x$ переводит $s^{-1}(u)$ в $s^{-1}(ku)$ и обратимо
+(обратное~--- $x\mapsto k^{-1}\cdot x$). Поэтому $N(u)$ одно и то же для всех $u\ne0$; обозначим его $N_1$. Тогда
+$(p-1)N_1=|S|-N_0$, и
+\[
+\sum_{x\in S}\zeta^{s(x)}=\sum_{u\in\F_p}N(u)\zeta^u=N_0+N_1\sum_{u\ne0}\zeta^u=N_0-N_1,
+\]
+так как $\sum_{u=1}^{p-1}\zeta^u=-1$.
+\end{proof}
+
+Простейший случай~--- произведение двух квадратичных периодов: $S=H\times(\F_p^\times\smallsetminus H)$, где $H$~--- подгруппа
+квадратов, $s(i,j)=i+j$, а элемент $k\in\F_p^\times$ действует как $(i,j)\mapsto(ki,kj)$ при $k\in H$ и как $(i,j)\mapsto(kj,ki)$ при
+$k\notin H$. Этот подсчёт проведён в решении упражнения 3-2 и даёт квадратичное подполе $\Q[\sqrt{\pm p}]$.
+
+Применим лемму к периодам. Пусть $p-1=ef$, $C_0\subset\F_p^\times$~--- (единственная, так как $\F_p^\times$ циклична) подгруппа
+порядка $f$, а $C_0,C_1,\dots,C_{e-1}$~--- её смежные классы, занумерованные так, что $C_i=g^iC_0$ для фиксированного
+первообразного корня $g$ по модулю $p$. Периоды $\eta_i=\sum_{x\in C_i}\zeta^x$~--- сопряжённые элементы, порождающие
+единственное подполе $\Q[\zeta]$ степени $e$ (\rf{5.11e}), и автоморфизм $\sigma_g\colon\zeta\mapsto\zeta^g$ сдвигает их:
+$\sigma_g\eta_i=\eta_{i+1}$. $m$-я элементарная симметрическая функция от $\eta_0,\dots,\eta_{e-1}$ равна
+$\sum_{x\in S_m}\zeta^{s(x)}$, где $S_m$~--- множество $m$-элементных подмножеств $\F_p^\times$, содержащих не более одного
+элемента из каждого класса $C_i$, и $s(x)$~--- сумма элементов $x$. Умножение на $c\in\F_p^\times$ переставляет классы
+($cC_i=C_j$) и потому сохраняет $S_m$, и $s(c\cdot x)=c\,s(x)$. Остаётся сосчитать подмножества с нулевой суммой.
+
+\begin{example}[3.22c: кубическое подполе {$\Q[\zeta_{13}]$}]
+Пусть $p=13$, $e=3$, $f=4$, $g=2$ (степени $2$ по модулю $13$: $2,4,8,3,6,12,11,9,5,10,7,1$). Тогда
+\[
+C_0=\{1,5,8,12\}=\langle8\rangle,\qquad C_1=2C_0=\{2,3,10,11\},\qquad C_2=4C_0=\{4,6,7,9\},
+\]
+и $C_0$ соответствует подгруппе $\langle\sigma^3\rangle$, $\sigma=\sigma_2$ (орбиты $\sigma^3\colon\zeta\mapsto\zeta^8$: $\zeta\mapsto\zeta^8\mapsto\zeta^{12}\mapsto\zeta^5\mapsto\zeta$
+и т.\,д.). Обозначим периоды
+\[
+\alpha=\zeta+\zeta^5+\zeta^8+\zeta^{12},\qquad\beta=\zeta^2+\zeta^3+\zeta^{10}+\zeta^{11},\qquad\gamma=\zeta^4+\zeta^6+\zeta^7+\zeta^9 .
+\]
+Они порождают кубическое подполе $K_3=\Q[\zeta]^{\langle\sigma^3\rangle}$. (Решётка всех подполей $\Q[\zeta_{13}]$~--- в
+\rf{5.11i}: кроме $K_3$, там есть $K_2=\Q[\sqrt{13}]$, $K_6=\Q[\cos\frac{2\pi}{13}]$ и поле $K_4$ степени $4$, которое мы
+найдём после этого примера.)
+
+(1) $\alpha+\beta+\gamma=\sum_{x=1}^{12}\zeta^x=-1$.
+
+(2) $\alpha\beta+\beta\gamma+\gamma\alpha=\sum\zeta^{x+y}$ по $48=3\cdot4^2$ парам $\{x,y\}$ из разных классов. Нулевых сумм нет:
+$y=-x$ лежит в том же классе, что и $x$, так как $-1=2^6=8^2\in C_0$. По лемме \rf{3.22b}
+$\alpha\beta+\beta\gamma+\gamma\alpha=\frac{13\cdot0-48}{12}=-4$. (Иначе говоря, $48$ пар распадаются на четыре орбиты по $12$, и в
+каждой орбите суммы $x+y$ пробегают все $\F_{13}^\times$, давая вклад $-1$.)
+
+(3) $\alpha\beta\gamma=\sum\zeta^{x+y+z}$ по $64=4^3$ тройкам $x\in C_0$, $y\in C_1$, $z\in C_2$. Если $x+y+z=0$, то, разделив на
+$x$, получим $1+y'+z'=0$ с $y'=y/x\in C_1$, $z'=z/x\in C_2$ (так как $x^{-1}C_i=C_i$). Для $y'\in C_1=\{2,3,10,11\}$ число
+$z'=-1-y'$ равно $10,9,2,1$, и лишь $9\in C_2$. Значит, $y'=3$, $z'=9$, и тройки с нулевой суммой~--- это ровно
+\[
+x\cdot\{1,3,9\},\ x\in C_0:\qquad \{1,3,9\},\quad\{5,2,6\},\quad\{8,11,7\},\quad\{12,10,4\}
+\]
+(здесь $\{1,3,9\}$~--- подгруппа кубических корней из $1$ в $\F_{13}^\times$: $3^3=27\equiv1$). Итак, $N_0=4$, и
+$\alpha\beta\gamma=\frac{13\cdot4-64}{12}=-1$.
+
+Следовательно, $\alpha,\beta,\gamma$~--- корни многочлена
+\[
+X^3+X^2-4X+1,
+\]
+и $K_3=\Q[\alpha]$. Численно $\alpha=2\cos\frac{2\pi}{13}+2\cos\frac{10\pi}{13}\approx0{,}2739$, $\beta\approx1{,}3772$,
+$\gamma\approx-2{,}6511$; все три периода вещественны, так как комплексное сопряжение $\sigma_{12}=\sigma_{-1}$ лежит в
+$\langle\sigma^3\rangle$.
+
+\emph{Структура орбит.} Лемма \rf{3.22b} скрывает следующую картину. Пусть $k\ne1$ оставляет тройку $\{x,y,z\}$ на месте. Если
+$k\in C_0$, то $k$ сохраняет каждый класс, т.\,е.\ $kx=x$, и $k=1$; значит, $k\notin C_0$ и $k$ циклически переставляет классы, а
+$k^3\in C_0$ оставляет на месте каждый элемент тройки, откуда $k^3=1$, $k\in\{3,9\}$, и тройка имеет вид
+$\{x,3x,9x\}$~--- с нулевой суммой. Поэтому у каждой из $60$ троек с ненулевой суммой стабилизатор тривиален, их орбиты
+имеют по $12$ элементов, а суммы $k\,s$ в орбите пробегают все $\F_{13}^\times$. Итак, $64=4+5\cdot12$: одна орбита из четырёх
+нулевых троек (вклад $4$) и пять орбит по двенадцать (вклад $5\cdot(-1)$).
+
+\emph{Ещё короче~--- таблица умножения.} Подставим в $\alpha\beta=\sum_{x\in C_0,\,y\in C_1}\zeta^{x+y}$ $y=xt$: при фиксированном $x$
+элемент $t$ пробегает $C_1$, и $\alpha\beta=\sum_{t\in C_1}\sum_{x\in C_0}\zeta^{x(1+t)}$. Внутренняя сумма~--- период класса,
+содержащего $1+t$. Для $t=2,3,10,11$ имеем $1+t=3\in C_1$, $4\in C_2$, $11\in C_1$, $12\in C_0$, поэтому
+\[
+\alpha\beta=\alpha+2\beta+\gamma=\beta-1,\qquad\text{и, применяя }\sigma\ (\alpha\mapsto\beta\mapsto\gamma\mapsto\alpha):\qquad
+\beta\gamma=\gamma-1,\quad\gamma\alpha=\alpha-1 .
+\]
+Отсюда снова $\alpha\beta+\beta\gamma+\gamma\alpha=-1-3=-4$ и $\alpha\beta\gamma=(\beta-1)\gamma=\beta\gamma-\gamma=-1$. Эти формулы
+задают умножение в поле $K_3$ в базисе $\alpha,\beta,\gamma$.
+\end{example}
+
+Тот же приём находит и поле $K_4=\Q[\zeta]^{\langle\sigma^4\rangle}$ степени $4$. Пусть $D_0=\{1,3,9\}$ (подгруппа порядка $3$),
+$D_i=2^iD_0$: $D_1=\{2,5,6\}$, $D_2=\{4,10,12\}$, $D_3=\{7,8,11\}$, и $\theta_i=\sum_{x\in D_i}\zeta^x$, $\theta=\theta_0=\zeta+\zeta^3+\zeta^9$;
+автоморфизм $\sigma$ сдвигает $\theta_i\mapsto\theta_{i+1}$. Так как $D_0\cup D_2$~--- квадраты по модулю $13$, сумма
+$\theta_0+\theta_2=a$~--- квадратичный период, корень $X^2+X-3$ (упражнение 3-2), $a=\frac{-1+\sqrt{13}}2$, а
+$\theta_1+\theta_3=b=-1-a$. Подстановка $y=xt$ даёт $\theta_0\theta_2=\sum_{t\in D_2}\sum_{x\in D_0}\zeta^{x(1+t)}$, а при $t=4,10,12$
+имеем $1+t=5\in D_1$, $11\in D_3$, $0$; поэтому $\theta_0\theta_2=\theta_1+\theta_3+3=2-a$. Значит, $\theta_0,\theta_2$~--- корни
+$X^2-aX+2-a$ над $\Q[\sqrt{13}]$; они различны (дискриминант $a^2+4a-8=\frac{-13+3\sqrt{13}}2\ne0$), так что $\theta$ не
+неподвижен относительно $\sigma^2$, его стабилизатор~--- ровно $\langle\sigma^4\rangle$, и $K_4=\Q[\theta]$. Умножая $X^2-aX+2-a$ на
+сопряжённый многочлен $X^2-bX+2-b$ ($a+b=-1$, $ab=-3$), получаем минимальный многочлен числа $\theta$ над $\Q$:
+\[
+(X-\theta_0)(X-\theta_1)(X-\theta_2)(X-\theta_3)=X^4+X^3+2X^2-4X+3 .
+\]
+
+Тот же подсчёт для любого простого $p\equiv1\pmod3$ даёт $\eta_0\eta_1+\eta_1\eta_2+\eta_2\eta_0=\frac{0-3f^2}{p-1}=-\frac{p-1}3$
+(нулевых сумм нет, так как $-1=(-1)^3$~--- куб), т.\,е.\ минимальный многочлен кубического периода имеет вид
+$X^3+X^2-\frac{p-1}3X+c$. Гаусс нашёл и $c$: если $4p=L^2+27M^2$, $L\equiv1\pmod3$, то $c=-\frac{p(L+3)-1}{27}$, а дискриминант
+равен $p^2M^2$ (приводим без доказательства; при $p=7$, $L=1$, $M=1$ получается $X^3+X^2-2X-1$ из \rf{3.22}, при $p=13$,
+$L=-5$, $M=1$~--- многочлен из \rf{3.22c}).
+
+\begin{aside}[3.22d: формула Кардано для кубических периодов]
+Решим уравнение $X^3+X^2-4X+1=0$ по Кардано. Сдвиг $X=t-\frac13$ даёт $t^3-\frac{13}3t+\frac{65}{27}=0$; его дискриминант
+$-4\bigl(-\frac{13}3\bigr)^3-27\bigl(\frac{65}{27}\bigr)^2=13^2$~--- квадрат (как и должно быть для циклического кубического
+поля, \rf{4.7}). Ищем корень в виде $t=u+v$ с $3uv=\frac{13}3$; тогда $u^3+v^3=-\frac{65}{27}$, $u^3v^3=\frac{13^3}{27^2}$, и
+\[
+u^3,\ v^3=\frac{13}{27}\cdot\frac{-5\pm3\sqrt{-3}}2,\qquad t=\sqrt[3]{\frac{13}{27}\cdot\frac{-5+3\sqrt{-3}}2}+\sqrt[3]{\frac{13}{27}\cdot\frac{-5-3\sqrt{-3}}2},
+\]
+где кубические корни выбираются с произведением $\frac{13}9$. Все три корня вещественны, а под кубическими корнями стоят
+невещественные числа; упростить эту запись до вещественных радикалов нельзя (\rf{3.22f}). Численно корни удобнее находить
+по тригонометрической формуле $t_k=\frac{2\sqrt{13}}3\cos\frac{\varphi+2\pi k}3$, $\cos\varphi=-\frac5{2\sqrt{13}}$ ($k=0,1,2$ дают
+$\beta+\frac13$, $\gamma+\frac13$, $\alpha+\frac13$).
+
+Что такое $u$ и $v$? Пусть $\omega=e^{2\pi i/3}$ и $r=\alpha+\omega\beta+\omega^2\gamma$ (\emph{резольвента Лагранжа}); так как
+$\alpha,\beta,\gamma$ вещественны, $\bar r=\alpha+\omega^2\beta+\omega\gamma$. Из $\alpha+\beta+\gamma=-1$ и $1+\omega+\omega^2=0$ получаем
+\[
+\alpha+\tfrac13=\frac{r+\bar r}3,\qquad\beta+\tfrac13=\frac{\omega^2r+\omega\bar r}3,\qquad\gamma+\tfrac13=\frac{\omega r+\omega^2\bar r}3 .
+\]
+С другой стороны, для любых $u,v$ числа $\omega^ku+\omega^{-k}v$ ($k=0,1,2$)~--- корни многочлена $t^3-3uv\,t-(u^3+v^3)$ (тождество
+$x^3+y^3+z^3-3xyz=\prod_k(x+\omega^ky+\omega^{2k}z)$ при $x=t$, $y=-u$, $z=-v$). Сравнивая с $t^3-\frac{13}3t+\frac{65}{27}$, видим,
+что $u=\frac r3$, $v=\frac{\bar r}3$ годятся: $r\bar r=13$, $r^3+\bar r^3=-65$, и $r^3=13\cdot\frac{-5\pm3\sqrt{-3}}2$ (знак зависит от
+выбора $\omega$). Резольвента $r=\sum_{x\in\F_{13}^\times}\chi(x)\zeta^x$, где $\chi=1,\omega,\omega^2$ на $C_0,C_1,C_2$,~--- это
+\emph{сумма Гаусса} кубического характера; числа $5$ и $27$ в формуле~--- из разложения $4\cdot13=5^2+27\cdot1^2$.
+\end{aside}
+
+\subsection*{Неприводимый случай формулы Кардано}
+
+В примерах \rf{3.22}, \rf{3.22a}, \rf{3.22c} все три корня кубического многочлена вещественны, а формула Кардано выражает
+их через кубические корни из невещественных чисел. Покажем, что это не недостаток формулы, а неизбежность (так
+называемый \emph{неприводимый случай}, casus irreducibilis).
+
+\begin{lemma}[3.22e]
+Пусть $K\subset\R$~--- поле, $\ell$~--- простое число, $\beta\in\R$ и $\beta^\ell=b\in K$. Тогда $[K[\beta]:K]$ равно $1$ или $\ell$.
+\end{lemma}
+
+\begin{proof}
+При $b=0$ имеем $\beta=0\in K$. Пусть $b\ne0$, $\varepsilon=e^{2\pi i/\ell}$, и $h$~--- минимальный многочлен $\beta$ над $K$, $d=\deg h$.
+В $\CC[X]$ имеем $X^\ell-b=\prod_{j=0}^{\ell-1}(X-\varepsilon^j\beta)$, и $h$ делит $X^\ell-b$; значит, $h=\prod_{j\in J}(X-\varepsilon^j\beta)$
+для некоторого $J$ из $d$ элементов, и свободный член $h$ равен $(-1)^d\varepsilon^s\beta^d$, $s=\sum_{j\in J}j$. Он лежит в $K\subset\R$, а
+$\beta^d$~--- ненулевое вещественное число, поэтому $\varepsilon^s=\pm1$ и $\beta^d\in K$. Если $d<\ell$, то $\gcd(d,\ell)=1$, $1=ud+w\ell$
+с целыми $u,w$, и $\beta=(\beta^d)^u(\beta^\ell)^w\in K$, т.\,е.\ $d=1$.
+\end{proof}
+
+\begin{proposition}[3.22f: casus irreducibilis]
+Пусть $K_0\subset\R$~--- поле (например, $\Q$) и $f\in K_0[X]$~--- неприводимый многочлен степени $3$, все три корня
+которого вещественны. Тогда ни один его корень не лежит ни в каком поле $K_m$ вида
+\[
+K_0\subset K_1\subset\dots\subset K_m\subset\R,\qquad K_i=K_{i-1}[\beta_i],\quad\beta_i\in\R,\quad\beta_i^{n_i}\in K_{i-1},
+\]
+т.\,е.\ корни $f$ не выражаются через элементы $K_0$ с помощью арифметических операций и \emph{вещественных} корней.
+\end{proposition}
+
+\begin{proof}
+\emph{Шаг 0.} Можно считать все $n_i$ простыми: если $n_i=\ell_1\cdots\ell_s$, вставим между $K_{i-1}$ и $K_i$ поля
+$K_{i-1}[\beta_i^{n_i/\ell_1}]\subset K_{i-1}[\beta_i^{n_i/(\ell_1\ell_2)}]\subset\dots$; присоединяемые элементы вещественны, и
+$\ell_j$-я степень каждого лежит в предыдущем поле. Пусть $x_1,x_2,x_3\in\R$~--- корни $f$ и
+$\delta=(x_1-x_2)(x_1-x_3)(x_2-x_3)$. Число $\delta$ вещественно и не равно $0$ (в характеристике $0$ корни неприводимого многочлена
+различны, \rf{2.20}), а $\delta^2$ не меняется при перестановках корней, т.\,е.\ неподвижно относительно группы Галуа
+поля разложения $f$, и потому $\delta^2\in K_0$ (\rf{3.10}). Добавим $\delta$ в начало башни: $K'_0=K_0[\delta]$, $K'_i=K'_{i-1}[\beta_i]=K_i[\delta]\subset\R$.
+
+\emph{Шаг 1.} Над $K'_0$ многочлен $f$ неприводим: иначе у него был бы корень в $K'_0$, а $[K'_0:K_0]\le2$ не делится на
+$3=[K_0[x_1]:K_0]$. Пусть $i$~--- наименьший номер, для которого $f$ имеет корень $x\in K'_i$ (он есть, так как $K'_m\supset K_m$).
+Положим $K=K'_{i-1}$, $\ell=n_i$. Над $K$ многочлен $f$ не имеет корней и потому неприводим, так что $[K[x]:K]=3$ делит
+$[K'_i:K]$, которое по лемме \rf{3.22e} равно $1$ или $\ell$. Значит, $\ell=3$ и $K'_i=K[x]$.
+
+\emph{Шаг 2: $K[x]/K$ нормально.} Пусть $N$~--- поле разложения $f$ над $K$ (внутри $\CC$). Каждый $\tau\in\Gal(N/K)$
+переставляет корни $x_1,x_2,x_3$, и $\tau\delta=\pm\delta$, причём знак $-$ получается ровно для нечётных перестановок. Так как
+$\delta\in K$, все перестановки чётны, т.\,е.\ $\Gal(N/K)$ вкладывается в $A_3$ и $[N:K]\le3$. Но $N\supset K[x]$ и
+$[K[x]:K]=3$; значит, $N=K[x]$.
+
+\emph{Шаг 3: противоречие.} Итак, $K'_i=K[\beta_i]$ с $\beta=\beta_i\in\R$, $\beta^3=b\in K$, $[K[\beta]:K]=3$, и это расширение
+нормально. Минимальный многочлен $\beta$ над $K$ имеет степень $3$ и делит $X^3-b$, т.\,е.\ равен $X^3-b$; по нормальности все его
+корни $\beta,\omega\beta,\omega^2\beta$ ($\omega=e^{2\pi i/3}$) лежат в $K'_i\subset\R$. Но $\omega\beta\notin\R$, так как $\beta\ne0$.
+\end{proof}
+
+Корни таких многочленов, конечно, выражаются в радикалах~--- но только с использованием невещественных чисел, как в
+\rf{3.22a} и \rf{3.22d}. В противоположном случае, когда вещественный корень один (\rf{3.23c}), формула Кардано обходится
+вещественными радикалами.
+
+\subsection*{Поле разложения $X^5-2$}
+
+\begin{example}[3.23]
+Найдём группу Галуа поля разложения $E$ многочлена $X^5-2\in\Q[X]$. По упражнению 2-3 $E=\Q[\zeta,\alpha]$, где $\zeta$~---
+первообразный корень пятой степени из $1$, а $\alpha$~--- корень $X^5-2$; например, внутри $\CC$ можно взять
+$\zeta=e^{2\pi i/5}$ и $\alpha=\sqrt[5]2\in\R$. Корни $X^5-2$~--- это $\zeta^k\alpha$, $k\in\Z/5\Z$. Имеем
+\[
+[\Q[\zeta]:\Q]=4,\qquad[\Q[\alpha]:\Q]=5
+\]
+($\Phi_5$ неприводим по \rf{1.42}, $X^5-2$~--- по Эйзенштейну, \rf{1.16}). Обе степени делят $[E:\Q]$, а $4$ и $5$ взаимно
+просты, поэтому $20\mid[E:\Q]$; с другой стороны, $[E:\Q]=[E:\Q[\zeta]][\Q[\zeta]:\Q]\le5\cdot4$. Итак, $[\Q[\zeta,\alpha]:\Q]=20$, и
+$G=\Gal(E/\Q)$ имеет порядок $20$.
+
+Пусть $N=\Gal(E/\Q[\zeta])$ и $H=\Gal(E/\Q[\alpha])$; по \rf{3.17}(b) $|N|=5$, $|H|=4$. Поле $\Q[\zeta]$~--- поле разложения
+$X^5-1$, т.\,е.\ нормально над $\Q$, поэтому $N\triangleleft G$ (\rf{3.17}(d)) и $G/N\cong\Gal(\Q[\zeta]/\Q)\cong(\Z/5\Z)^\times$. Так как
+$\Q[\zeta]\cdot\Q[\alpha]=E$, по \rf{3.18}(a) $N\cap H=1$. Значит, $|NH|=|N||H|=20$, т.\,е.\ $G=NH$, $N\cap H=1$, $N$
+нормальна: $G$~--- полупрямое произведение $N\rtimes H$. Кроме того, ограничение на $\Q[\zeta]$ отображает $H$ изоморфно на
+$G/N\cong(\Z/5\Z)^\times$ (ядро $H\cap N=1$, порядки равны), а $(\Z/5\Z)^\times$ циклична с образующей $2$ (степени: $2,4,3,1$).
+
+Пусть $\tau$~--- элемент $H$, соответствующий $2$, и $\sigma$~--- образующая $N\cong\Z/5\Z$. Тогда $\sigma\zeta=\zeta$ (так как
+$\sigma\in\Gal(E/\Q[\zeta])$), а $\sigma\alpha$~--- корень $X^5-2$, отличный от $\alpha$ (иначе $\sigma=1$), т.\,е.\ $\sigma\alpha=\zeta^j\alpha$,
+$j\not\equiv0$; заменив $\sigma$ на $\sigma^{j'}$ с $jj'\equiv1\pmod5$, можно считать $\sigma\alpha=\zeta\alpha$. Итак,
+\[
+\begin{cases}\tau\zeta=\zeta^2,\\ \tau\alpha=\alpha,\end{cases}\qquad\qquad\begin{cases}\sigma\zeta=\zeta,\\ \sigma\alpha=\zeta\alpha.\end{cases}
+\]
+Далее, $\tau\sigma\tau^{-1}(\alpha)=\tau\sigma(\alpha)=\tau(\zeta\alpha)=\zeta^2\alpha$, и $\tau\sigma\tau^{-1}$ тождествен на $\zeta$; поэтому
+$\tau\sigma\tau^{-1}=\sigma^2$. Иначе говоря, $H$ действует на $N\cong\Z/5\Z$ сопряжениями через гомоморфизм
+$\theta\colon H\to\Aut(N)\cong(\Z/5\Z)^\times$, $\theta(\tau)\colon\sigma^k\mapsto\sigma^{2k}$ (умножение на $2$; так как $2$
+порождает $(\Z/5\Z)^\times$, $\theta$~--- изоморфизм), и $G\cong N\rtimes_\theta H\cong\Z/5\Z\rtimes\Z/4\Z$. Итак, $G$ порождается элементами $\sigma,\tau$ с соотношениями
+\[
+\sigma^5=1,\qquad\tau^4=1,\qquad\tau\sigma\tau^{-1}=\sigma^2,
+\]
+и это \emph{определяющие} соотношения. Действительно, в группе $\Gamma$, заданной образующими $s,t$ и этими соотношениями,
+равенство $ts=s^2t$ позволяет переносить все $t$ вправо, так что каждый элемент имеет вид $s^it^j$ ($0\le i<5$, $0\le j<4$), и
+$|\Gamma|\le20$. Гомоморфизм $\Gamma\to G$, $s\mapsto\sigma$, $t\mapsto\tau$, существует (соотношения выполнены) и сюръективен ($G=NH$
+порождена $\sigma$ и $\tau$); так как $|G|=20$, это изоморфизм.
+
+Подгруппа $H=\langle\tau\rangle$ не нормальна: $\sigma\tau\sigma^{-1}(\alpha)=\sigma\tau(\zeta^{-1}\alpha)=\sigma(\zeta^{-2}\alpha)=\zeta^{-1}\alpha\ne\alpha$, т.\,е.\
+$\sigma\tau\sigma^{-1}\notin H$. По \rf{3.17}(c) её сопряжённые отвечают полям, сопряжённым с $\Q[\alpha]$:
+\[
+\sigma^iH\sigma^{-i}\ \longleftrightarrow\ \sigma^i\Q[\alpha]=\Q[\zeta^i\alpha],\qquad i=0,1,2,3,4 .
+\]
+Эти пять полей попарно различны: если бы $\zeta^i\alpha$ и $\zeta^j\alpha$ ($i\ne j$) лежали в одном поле степени $5$, то в нём лежал бы и
+$\zeta^{i-j}$~--- корень $\Phi_5$ степени $4$, а $4\nmid5$. (Одно из них, $\Q[\alpha]$, вещественно, остальные~--- нет.)
+\end{example}
+
+\begin{remark}[3.23a: $G$~--- группа Фробениуса порядка $20$]
+Каждый $\rho\in G$ задаётся парой $(a,b)$, $a\in(\Z/5\Z)^\times$, $b\in\Z/5\Z$: $\rho\zeta=\zeta^a$, $\rho\alpha=\zeta^b\alpha$, и тогда
+$\rho(\zeta^k\alpha)=\zeta^{ak+b}\alpha$. Таким образом, $G$ действует на пяти корнях $\zeta^k\alpha$, $k\in\F_5$, как группа
+\emph{аффинных преобразований} $k\mapsto ak+b$ прямой $\F_5$:
+\[
+G\ \cong\ \{k\mapsto ak+b\mid a\in\F_5^\times,\ b\in\F_5\}=\F_5\rtimes\F_5^\times,\qquad\sigma\colon k\mapsto k+1,\quad\tau\colon k\mapsto2k .
+\]
+Нетривиальный элемент этой группы имеет не более одной неподвижной точки: $ak+b=k$ при $a\ne1$ имеет единственное решение,
+а при $a=1$, $b\ne0$~--- ни одного. Транзитивная группа перестановок, в которой нетривиальные элементы имеют не более одной
+неподвижной точки и некоторые имеют ровно одну, называется \emph{группой Фробениуса}; здесь $N$ (сдвиги)~--- её ядро, а
+стабилизаторы точек $\sigma^iH\sigma^{-i}=\Gal(E/\Q[\zeta^i\alpha])$~--- дополнения. Эту группу порядка $20$ обозначают $F_{20}$
+(или $\mathrm{AGL}_1(\F_5)$); она разрешима ($1\subset N\subset G$, факторы $\Z/5$ и $\Z/4$). Так как $N\triangleleft G$ и $|G|=20$,
+группа $G$ совпадает с нормализатором в $S_5$ (группе перестановок корней) силовской подгруппы $N=\langle(0\,1\,2\,3\,4)\rangle$, порядок которого равен $120/6=20$ (в $S_5$ шесть силовских
+$5$-подгрупп).
+\end{remark}
+
+\begin{example}[3.23b: все подполя поля разложения $X^5-2$]
+Найдём все подгруппы $G=F_{20}$, пользуясь описанием \rf{3.23a}.
+\begin{itemize}[leftmargin=*]
+\item Порядок $5$: силовская $5$-подгруппа $N=\langle\sigma\rangle$ (сдвиги); она одна, так как нормальна.
+\item Порядок $4$: силовские $2$-подгруппы; это стабилизаторы точек $H_i=\sigma^iH\sigma^{-i}=\{k\mapsto a(k-i)+i\}$, $i\in\F_5$, все
+циклические (порождены $k\mapsto2(k-i)+i$), их пять. Других нет: подгруппа порядка $4$ пересекает $N$ тривиально, поэтому её
+элементы имеют разные <<$a$>>, т.\,е.\ она содержит элемент с $a=2$, а такой элемент $k\mapsto2k+b$ имеет неподвижную точку
+$i=-b$ и порождает $H_i$.
+\item Порядок $2$: элементы порядка $2$~--- это $k\mapsto-k+2i=-(k-i)+i$ (<<симметрия относительно точки $i$>>), их пять;
+подгруппы $\langle\sigma^i\tau^2\sigma^{-i}\rangle$, и каждая лежит ровно в одной подгруппе порядка $4$ (в $H_i$).
+\item Порядок $10$: подгруппа $D=\langle\sigma,\tau^2\rangle=\{k\mapsto\pm k+b\}$, изоморфная диэдральной группе $D_5$
+($\tau^2\sigma\tau^{-2}=\sigma^4=\sigma^{-1}$). Она единственна: подгруппа порядка $10$ содержит нормальную подгруппу $N$ (единственную
+подгруппу порядка $5$) и элемент порядка $2$, т.\,е.\ равна $D$. Она нормальна (индекс $2$).
+\item Делители $20$~--- это $1,2,4,5,10,20$, так что других подгрупп нет.
+\end{itemize}
+Итого $14$ подгрупп: $1$, пять порядка $2$, пять порядка $4$, $N$, $D$, $G$; нормальны из них $1$, $N$, $D$, $G$. Подполя:
+\begin{itemize}[leftmargin=*]
+\item $H_i\leftrightarrow\Q[\zeta^i\alpha]$ (степень $5$; не нормальны);
+\item $N\leftrightarrow\Q[\zeta]$ (степень $4$, группа $G/N\cong\Z/4$);
+\item $D\leftrightarrow\Q[\sqrt5]$ (степень $2$): $\sqrt5=1+2(\zeta+\zeta^4)=\zeta+\zeta^4-\zeta^2-\zeta^3$ неподвижен относительно
+$\sigma$ (он лежит в $\Q[\zeta]$) и относительно $\tau^2\colon\zeta\mapsto\zeta^4$;
+\item $\langle\tau^2\rangle\leftrightarrow\Q[\alpha,\sqrt5]$ (степень $10$): $\tau^2$ фиксирует $\alpha$ и $\sqrt5$, а
+$[\Q[\alpha,\sqrt5]:\Q]=10$ (делится на $5$ и на $2$ и не больше $10$); сопряжённые~--- $\Q[\zeta^i\alpha,\sqrt5]$
+$\leftrightarrow\langle\sigma^i\tau^2\sigma^{-i}\rangle$;
+\item $1\leftrightarrow E$, $G\leftrightarrow\Q$.
+\end{itemize}
+Так как $\tau^2\zeta=\zeta^4=\bar\zeta$ и $\tau^2\alpha=\alpha$, автоморфизм $\tau^2$~--- ограничение комплексного сопряжения, и
+$E\cap\R=\Q[\sqrt[5]2,\sqrt5]$. Расширения $E/\Q[\zeta]$ (группа $\Z/5$), $E/\Q[\sqrt5]$ (группа $D_5$) и $\Q[\zeta]/\Q$ (группа
+$\Z/4$)~--- расширения Галуа; нормальное замыкание $\Q[\alpha]$~--- всё $E$ (пересечение пяти подгрупп $H_i$ тривиально,
+\rf{3.18}(b)).
+\end{example}
+
+\begin{keepfig}
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\node[cold] (E) at (0,5) {$E=\Q[\zeta,\alpha]$};
+\node[cold] (Q) at (0,-0.5) {$\Q$};
+\node[cnew,align=center] (Z) at (6.6,4.0) {$\Q[\zeta]$\\[-2pt]{\scriptsize\color{cold}$N$}};
+\node[cnew,align=center] (S) at (6.5,1.4) {$\Q[\sqrt5]$\\[-2pt]{\scriptsize\color{cold}$D\cong D_5$}};
+\foreach \i/\x/\a/\g in {0/-6.4/{\alpha}/{\langle\tau^2\rangle},1/-3.9/{\zeta\alpha}/{\sigma\langle\tau^2\rangle\sigma^{-1}},
+  2/-1.4/{\zeta^2\alpha}/{\sigma^2\langle\tau^2\rangle\sigma^{-2}},3/1.1/{\zeta^3\alpha}/{\sigma^3\langle\tau^2\rangle\sigma^{-3}},
+  4/3.6/{\zeta^4\alpha}/{\sigma^4\langle\tau^2\rangle\sigma^{-4}}}{
+  \node[cnew,align=center] (T\i) at (\x,3.5) {$\Q[\a,\sqrt5]$\\[-2pt]{\scriptsize\color{cold}$\g$}};
+  \node[cnew,align=center] (F\i) at (\x,1.2) {$\Q[\a]$\\[-2pt]{\scriptsize\color{cold}$H_{\i}$}};
+}
+\foreach \i in {0,...,4}{\draw[gray!60] (T\i) -- (S);}
+\foreach \i in {1,...,4}{\draw (E) -- (T\i); \draw (T\i) -- (F\i); \draw (F\i) -- (Q);}
+\draw (E) -- node[above left,font=\scriptsize]{$2$} (T0);
+\draw (T0) -- node[left,font=\scriptsize]{$2$} (F0);
+\draw (F0) -- node[below left,font=\scriptsize]{$5$} (Q);
+\draw (E) -- node[above right,font=\scriptsize]{$5$} (Z);
+\draw (Z) -- node[right,font=\scriptsize]{$2$} (S);
+\draw (S) -- node[below right,font=\scriptsize]{$2$} (Q);
+\node[font=\scriptsize,gray] at (5.6,2.35) {$5$};
+\end{tikzpicture}
+\end{center}
+\figcap{Решётка подполей поля разложения $X^5-2$ ($\alpha=\sqrt[5]2$, $\zeta=e^{2\pi i/5}$); под каждым полем синим указана
+соответствующая подгруппа группы $G=\langle\sigma,\tau\rangle$, $H_i=\sigma^iH\sigma^{-i}$. Поля второго ряда имеют степень $10$, третьего~--- $5$;
+$[\Q[\zeta]:\Q]=4$, $[\Q[\sqrt5]:\Q]=2$; серые рёбра (степени $5$) ведут от $\Q[\zeta^i\alpha,\sqrt5]$ к $\Q[\sqrt5]$.}
+\end{keepfig}
+
+\subsection*{Поле разложения $X^3+3X+1$}
+
+\begin{example}[3.23c]
+Пусть $f=X^3+3X+1\in\Q[X]$ и $\Q_f$~--- его поле разложения в $\CC$.
+
+\emph{Группа Галуа.} Рациональными корнями $f$ могли бы быть лишь $\pm1$, но $f(1)=5$, $f(-1)=-3$; значит, $f$ неприводим, и $3$
+делит порядок группы $G=\Gal(\Q_f/\Q)$, которую мы рассматриваем как подгруппу $S_3$ (перестановки корней; $\Q_f$ порождено
+корнями). Так как $f'=3X^2+3>0$, функция $f$ на $\R$ строго возрастает, и вещественный корень $x_1$ один; два других $x_2,x_3=\bar x_2$
+комплексно сопряжены. Комплексное сопряжение сохраняет $\Q_f$ (переставляет корни) и действует на корнях как транспозиция
+$(2\,3)$. Подгруппа $S_3$ порядка, кратного $3$, содержащая транспозицию,~--- это $S_3$; итак, $G=S_3$ и $[\Q_f:\Q]=6$.
+
+\emph{Подгруппы и подполя.} У $S_3$ шесть подгрупп: $1$; три подгруппы порядка $2$, $\langle(2\,3)\rangle$, $\langle(1\,3)\rangle$,
+$\langle(1\,2)\rangle$; $A_3$; $S_3$. Транспозиция $(j\,k)$ оставляет на месте корень $x_i$, $\{i,j,k\}=\{1,2,3\}$, поэтому
+$\Q[x_i]\subset\Q_f^{\langle(j\,k)\rangle}$, и обе степени равны $3$:
+\[
+\langle(2\,3)\rangle\leftrightarrow\Q[x_1],\qquad\langle(1\,3)\rangle\leftrightarrow\Q[x_2],\qquad\langle(1\,2)\rangle\leftrightarrow\Q[x_3]
+\]
+(например, неподвижность $x_3$ относительно $(1\,2)$ видна и из $x_3=-(x_1+x_2)$, формула Виета). Эти три поля различны
+(разные подгруппы), не нормальны над $\Q$ (подгруппы порядка $2$ в $S_3$ не нормальны) и сопряжены друг с другом; одно из
+них, $\Q[x_1]$, вещественно, а два других~--- нет, хотя все три изоморфны. Подгруппе $A_3$ отвечает единственное
+квадратичное подполе. Число $\delta=(x_1-x_2)(x_1-x_3)(x_2-x_3)\ne0$ при перестановке корней умножается на её знак,
+поэтому $\Q_f^{A_3}=\Q[\delta]$. Вычислим $\delta^2$: дифференцируя $f=\prod(X-x_j)$, получаем $f'(x_i)=\prod_{j\ne i}(x_i-x_j)$, откуда
+\[
+\delta^2=-\prod_{i}f'(x_i)=-27\prod_i(x_i^2+1)=-27\,f(i)\,f(-i)=-27\,(1+2i)(1-2i)=-135
+\]
+(мы использовали $f(i)f(-i)=\prod_j(i-x_j)(-i-x_j)=\prod_j(x_j^2+1)$). Итак, $\Q_f^{A_3}=\Q[\sqrt{-135}]=\Q[\sqrt{-15}]$, и
+\[
+\Q_f=\Q[x_1]\cdot\Q[\sqrt{-15}]=\Q[x_1,\sqrt{-15}],
+\]
+так как $\langle(2\,3)\rangle\cap A_3=1$; расширение $\Q_f/\Q[\sqrt{-15}]$ циклично степени $3$ (группа $A_3$).
+
+\emph{Радикалы формулы Кардано.} Здесь вещественный корень один, и формула Кардано даёт его через вещественные радикалы.
+Подстановка $x=u+v$ даёт $x^3+3x+1=u^3+v^3+1+3(uv+1)(u+v)$; при $uv=-1$, $u^3+v^3=-1$ числа $u^3,v^3$~--- корни
+$T^2+T-1$, т.\,е.\ $\frac{-1\pm\sqrt5}2$, и
+\[
+x_1=u+v,\qquad u=\sqrt[3]{\frac{-1+\sqrt5}2},\quad v=\sqrt[3]{\frac{-1-\sqrt5}2}\quad(\text{вещественные корни; }uv=-1),
+\]
+а $x_2=\omega u+\omega^2v$, $x_3=\omega^2u+\omega v$. Однако $\sqrt5\notin\Q_f$: единственное квадратичное подполе $\Q_f$~--- это
+$\Q[\sqrt{-15}]$, а $\Q[\sqrt5]\ne\Q[\sqrt{-15}]$ (одно поле вещественно, другое нет). Радикалы формулы Кардано лежат в поле
+$\Q_f[\omega]=\Q_f[\sqrt{-3}]$ степени $12$: $\sqrt5=\pm\sqrt{-15}/\sqrt{-3}$, а $u=\frac13(x_1+\omega^2x_2+\omega x_3)$~--- резольвента
+Лагранжа, как в \rf{3.22d}. Таким образом, промежуточные поля радикальной башни не обязаны лежать в поле разложения
+(эта радикальная башня подробно разобрана в \rf{3.28a}).
+\end{example}
+
+\begin{keepfig}
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\begin{scope}
+\node (one) at (0,3) {$1$};
+\node (t1) at (-1.7,1.5) {$\langle(2\,3)\rangle$};
+\node (t2) at (-0.55,1.5) {$\langle(1\,3)\rangle$};
+\node (t3) at (0.6,1.5) {$\langle(1\,2)\rangle$};
+\node (A) at (1.9,1.0) {$A_3$};
+\node (G) at (0,0) {$S_3$};
+\foreach \t in {t1,t2,t3}{\draw (one) -- (\t) -- (G);}
+\draw (one) -- node[above right,font=\scriptsize]{$3$} (A) -- node[below right,font=\scriptsize]{$2$} (G);
+\node[font=\scriptsize] at (-1.25,2.35) {$2$};
+\node[font=\scriptsize] at (-1.2,0.65) {$3$};
+\end{scope}
+\node at (3.4,1.5) {$\longleftrightarrow$};
+\begin{scope}[xshift=7cm]
+\node[cold] (E) at (0,3) {$\Q_f$};
+\node[cnew] (F1) at (-1.8,1.5) {$\Q[x_1]$};
+\node[cnew] (F2) at (-0.6,1.5) {$\Q[x_2]$};
+\node[cnew] (F3) at (0.6,1.5) {$\Q[x_3]$};
+\node[cnew] (S) at (2.1,1.0) {$\Q[\sqrt{-15}]$};
+\node[cold] (Q) at (0,0) {$\Q$};
+\foreach \t in {F1,F2,F3}{\draw (E) -- (\t) -- (Q);}
+\draw (E) -- node[above right,font=\scriptsize]{$3$} (S) -- node[below right,font=\scriptsize]{$2$} (Q);
+\node[font=\scriptsize] at (-1.3,2.35) {$2$};
+\node[font=\scriptsize] at (-1.25,0.65) {$3$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\figcap{Пример \rf{3.23c}: подгруппы $S_3$ и подполя поля разложения $X^3+3X+1$; $x_1$~--- вещественный корень. Три
+средних поля сопряжены и не нормальны; $\Q[\sqrt{-15}]$~--- единственное нормальное собственное подполе, отличное от $\Q$.}
+\end{keepfig}
+
+\subsection*{Многочлен Артина--Шрайера}
+
+\begin{example}[3.23d]
+Пусть $\operatorname{char}F=p>0$, $a\in F$ и $a\ne c^p-c$ ни для какого $c\in F$. Тогда $f=X^p-X-a$ неприводим, его корни~---
+$\alpha+i$, $i\in\F_p$, где $\alpha$~--- любой корень, и $E=F[\alpha]$~--- поле разложения $f$ (\rf{2.22b}). Поскольку $f$ сепарабелен
+($f'=-1$), $E/F$~--- расширение Галуа степени $p$, и его группа Галуа~--- группа простого порядка $p$, т.\,е.\ $\Z/p\Z$, с образующей
+$\alpha\mapsto\alpha+1$ (\rf{5.32c}). По основной теореме промежуточных полей нет.
+
+Например, при $F=\F_p$ годится любое $a\ne0$, в частности $f=X^p-X-1$; его поле разложения~--- $\F_{p^p}$, и корни $f$
+оказываются корнями из единицы степени $\frac{p^p-1}{p-1}$ (\rf{5.32g}). При $F=k(t)$ ($k$~--- любое поле характеристики $p$)
+годится $a=t$ (\rf{5.32h}). Группа $\Z/p\Z$ разрешима, но в характеристике $p$ это не означает разрешимости уравнения в
+радикалах: корни $X^p-X-t$ над $k(t)$ не лежат ни в какой радикальной башне (\rf{5.32i}--\rf{5.32j}); в характеристике $p$ к
+радикалам приходится добавлять корни многочленов Артина--Шрайера (\rf{5.35b}).
+\end{example}
+
+\begin{remark}[3.23e: подсчёт вложений]
+При $k=\Fpb$ это видно из подсчёта вложений: для радикальной башни над $F=\Fpb(t)$ с простыми показателями число вложений
+её вершины $F_m$ в алгебраическое замыкание~--- произведение чисел $1$ и простых $q\ne p$ и потому не делится на $p$, а
+если $F_m$ содержит корень $\alpha$ многочлена $X^p-X-t$, оно делится на число $p$ вложений поля $F[\alpha]$. Полное
+доказательство (для любого поля $F$ характеристики $p$ с первообразными корнями из единицы всех простых степеней $q\ne p$ и
+любого $a$, не представимого в виде $c^p-c$)~--- в \rf{3.29a}.
+\end{remark}
