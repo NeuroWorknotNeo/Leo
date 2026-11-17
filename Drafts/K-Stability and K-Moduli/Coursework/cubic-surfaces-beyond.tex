@@ -13,6 +13,7 @@
 \usepackage{comment}
 
 \setlist{itemsep=2pt,topsep=4pt}
+\emergencystretch=3em
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Теорема}[section]
@@ -963,10 +964,10 @@ $\frac1{25}(1,4)$: $25/4=7-\cfrac1{4/3}$, $4/3=2-\frac12$, т.\,е.
 \begin{enumerate}
 \item $X\cong\A^2/G$ для конечной подгруппы $G\subset\SL_2(\C)$;
 \item $X$ аналитически изоморфна одной из гиперповерхностей
-\[
-A_n:\ x^2+y^2+z^{n+1}=0\ (n\ge1),\quad D_n:\ x^2+y^2z+z^{n-1}=0\ (n\ge4),\quad
-E_6:\ x^2+y^3+z^4,\quad E_7:\ x^2+y^3+yz^3,\quad E_8:\ x^2+y^3+z^5;
-\]
+\begin{gather*}
+A_n:\ x^2+y^2+z^{n+1}=0\ (n\ge1),\qquad D_n:\ x^2+y^2z+z^{n-1}=0\ (n\ge4),\\
+E_6:\ x^2+y^3+z^4=0,\qquad E_7:\ x^2+y^3+yz^3=0,\qquad E_8:\ x^2+y^3+z^5=0;
+\end{gather*}
 \item исключительные кривые минимального разрешения --- гладкие рациональные $(-2)$-кривые,
 пересекающиеся трансверсально по схеме Дынкина соответствующего типа;
 \item (\emph{канонические} особенности) $K_Y=\pi^*K_X$ для минимального разрешения $\pi$.
@@ -1366,10 +1367,10 @@ $\PP^1$ с кратностями. Диагональная 1-ПП $\lambda=\mat
 $x^iy^{d-i}$ вес $r(i-(d-i))=r(2i-d)$. Все мономы $F$ имеют положительный вес $\iff$ в $F$ входят только мономы $x^iy^{d-i}$ с
 $i>d/2$ $\iff$ $F$ делится на $x^{\lfloor d/2\rfloor+1}$ $\iff$ точка $[0:1]=\{x=0\}$ имеет
 кратность $>d/2$. Сопряжением получаем:
-\[
-F\ \text{нестабильна}\iff\text{некоторая точка имеет кратность}>d/2;\qquad
+\begin{gather*}
+F\ \text{нестабильна}\iff\text{некоторая точка имеет кратность}>d/2;\\
 F\ \text{не стабильна}\iff\text{некоторая точка имеет кратность}\ge d/2 .
-\]
+\end{gather*}
 При нечётном $d$ полустабильность совпадает со стабильностью. При $d=4$: четвёрка точек
 полустабильна, если никакие три не совпадают; стабильна, если все различны; строго полустабильные
 полистабильные точки --- пары двойных точек $x^2y^2$ (орбита замкнута: стабилизатор --- тор).
@@ -1664,7 +1665,7 @@ $i\partial\bar\partial\big(h-\log\frac{\omega_\varphi^n}{\omega^n}-\varphi\big)=
 поднимаются на раздутие. Итак, $\Aut(X)=\Stab_{\PGL_3}(p)$ --- параболическая подгруппа; при
 $p=[1:0:0]$ это матрицы вида
 \[
-\begin{pmatrix}a&b&c\\0&d&e\\0&f&g\end{pmatrix}\!\!\Big/\C^*,\qquad\text{содержащие нормальную
+\begin{pmatrix}a&b&c\\0&d&e\\0&f&g\end{pmatrix}\!\!\Big/\C^*,\quad\text{содержащие нормальную
 унипотентную подгруппу}\ \Big\{\begin{pmatrix}1&b&c\\0&1&0\\0&0&1\end{pmatrix}\Big\}\cong\mathbb G_a^2 .
 \]
 Значит, $\Aut(\mathbb F_1)$ нередуктивна, и \emph{$\mathbb F_1$ не допускает метрики Кэлера--Эйнштейна}. Аналогично для
@@ -2327,10 +2328,10 @@ $P=P_{-K}\subset M_\R$ \cite[\S\,4.3]{CLS}, $u\in N$ --- однопарамет�
 $\cX=X\times\A^1$ с действием $\lambda^u$ --- тест-конфигурация, и её инвариант Футаки
 вычисляется по формуле Дональдсона \cite{Don02}: сечения $H^0(-kK_X)$ --- характеры $\chi^m$,
 $m\in kP\cap M$, с весами $\langle m,u\rangle$, поэтому
-\[
-d_k=\#(kP\cap M)=\vol(P)k^n+\tfrac12\vol(\partial P)k^{n-1}+\dots,\qquad
-w_k=\sum_{m\in kP\cap M}\langle m,u\rangle=k^{n+1}\int_P\langle x,u\rangle\,dx+\tfrac12k^n\int_{\partial P}\langle x,u\rangle\,d\sigma+\dots,
-\]
+\begin{align*}
+d_k&=\#(kP\cap M)=\vol(P)k^n+\tfrac12\vol(\partial P)k^{n-1}+\dots,\\
+w_k&=\sum_{m\in kP\cap M}\langle m,u\rangle=k^{n+1}\int_P\langle x,u\rangle\,dx+\tfrac12k^n\int_{\partial P}\langle x,u\rangle\,d\sigma+\dots,
+\end{align*}
 где $\vol$ --- евклидов объём, а $d\sigma$ --- мера на границе, нормированная решёткой (вес
 характера $\chi^m$ равен $\langle m,u\rangle$ с точностью до общего знака). Для рефлексивного $P$
 (грани на решёточном расстоянии $1$ от начала координат) разбиение $P$ на конусы над гранями даёт
@@ -2689,11 +2690,11 @@ S_X(E)=\frac18\int_0^2\big(9-(1+t)^2\big)dt=\frac18\Big(18-\frac{27-1}3\Big)=\fr
 
 \begin{example}[Дель Пеццо степени 7 K-нестабильна; упражнение~3.4(7)]\label{ex:beta-dP7}
 $X=\Bl_{p_1,p_2}\PP^2$, $E=E_1$, $A=1$, $(-K)^2=7$. По примеру~\ref{ex:vol-dP7}
-\[
+\begin{gather*}
 S_X(E_1)=\frac17\Big(\int_0^1\big(8-(1+t)^2\big)dt+\int_1^2(8-4t)\,dt\Big)
-=\frac17\Big(8-\frac73+2\Big)=\frac17\cdot\frac{23}3=\frac{23}{21},\qquad
+=\frac17\Big(8-\frac73+2\Big)=\frac17\cdot\frac{23}3=\frac{23}{21},\\
 \beta_X(E_1)=-\frac2{21}<0 .
-\]
+\end{gather*}
 Итак, дель Пеццо степени 7 K-нестабильна.
 \end{example}
 
@@ -2728,16 +2729,16 @@ S(D_\rho)=\frac{1}{n!\vol P}\int_0^\infty n!\vol\big(P\cap\{\langle x,u_\rho\ran
 Это согласуется с формулой для инварианта Футаки произведений из примера~\ref{ex:toric-product-tc}
 (с точностью до множителя $\frac12$). Для пяти гладких торических поверхностей дель Пеццо
 (многоугольники $P=\{\langle m,u_i\rangle\ge-1\}$):
-\[
-\begin{array}{l|l|c|c}
+\begin{center}\small
+$\begin{array}{l|l|c|c}
 X & \text{лучи }u_i & \text{вершины }P & b_P\\\hline
 \PP^2 & (1,0),(0,1),(-1,-1) & (-1,-1),(2,-1),(-1,2) & (0,0)\\
 \PP^1\times\PP^1 & (1,0),(0,1),(-1,0),(0,-1) & (\pm1,\pm1) & (0,0)\\
 \mathbb F_1 & (1,0),(0,1),(-1,1),(0,-1) & (-1,-1),(0,-1),(2,1),(-1,1) & (\tfrac1{12},\tfrac16)\\
 \Bl_2\PP^2 & (1,0),(1,1),(0,1),(-1,0),(0,-1) & (-1,0),(0,-1),(1,-1),(1,1),(-1,1) & (\tfrac2{21},\tfrac2{21})\\
 \Bl_3\PP^2 & (1,0),(1,1),(0,1),(-1,0),(-1,-1),(0,-1) & \text{шестиугольник} & (0,0)
-\end{array}
-\]
+\end{array}$
+\end{center}
 Для $\mathbb F_1$ кривая $E$ отвечает лучу $u=(0,1)$ ($u_1+u_3=u_2$, т.\,е. $D_2^2=-1$), и
 $\beta(E)=-\langle b_P,u\rangle=-\frac16$ --- ровно то, что мы получили в примере~\ref{ex:beta-F1}
 прямым вычислением. Для $\Bl_2\PP^2$ кривая $E_1$ отвечает лучу $(1,0)$, и $\beta(E_1)=-\frac2{21}$
@@ -2862,11 +2863,11 @@ $\delta$ многообразия через $\delta$-инварианты, вы
 \begin{definition}\label{def:graded-series}
 \emph{Полная градуированная линейная система} $V_\bullet=\{V_m\}_{m\in\mathbb N}$, $V_m=H^0(X,mL)$;
 её объём $\vol(V_\bullet)=\lim\dim V_m/(m^n/n!)=\vol(L)$. Для дивизора $E$ над $X$ и $t\ge0$ положим
-\[
+\begin{gather*}
 \mathcal F_E^tV_m=\{s\in V_m:\ \ord_E(s)\ge mt\},\qquad
-\vol(\mathcal F_EV_\bullet)^t=\lim_{m\to\infty}\frac{\dim\mathcal F_E^tV_m}{m^n/n!},\qquad
+\vol(\mathcal F_EV_\bullet)^t=\lim_{m\to\infty}\frac{\dim\mathcal F_E^tV_m}{m^n/n!},\\
 S(V_\bullet;E)=\frac1{\vol V_\bullet}\int_0^\infty\vol(\mathcal F_EV_\bullet)^t\,dt .
-\]
+\end{gather*}
 \end{definition}
 
 Так как $\mathcal F_E^tV_m=H^0(Y,m\mu^*L-\lceil mt\rceil E)$ (сечения $mL$, обращающиеся в нуль
@@ -2940,11 +2941,11 @@ $\pi^*L-uE$, и $\pi^*L-uE=P(u)+N(u)$ --- разложение Зарисско�
 \begin{theorem}[{\cite[1.106]{ACCFKMSV}}]\label{thm:AZ-surface}
 В этих обозначениях положим $t(u)=P(u)\cdot E$ \textup{(}степень $\Q$-дивизора $P(u)|_E$ на кривой $E$\textup{)}.
 Тогда для $q\in E$
-\[
-S(W^E_{\bullet\bullet};q)=\frac2{\vol L}\int_0^\tau\Big(t(u)\cdot\ord_q\big(N(u)|_E\big)
-+\int_0^{t(u)}\big(t(u)-v\big)dv\Big)du
-=\frac2{\vol L}\int_0^\tau\Big(t(u)\,\ord_q\big(N(u)|_E\big)+\frac{t(u)^2}2\Big)du .
-\]
+\begin{align*}
+S(W^E_{\bullet\bullet};q)&=\frac2{\vol L}\int_0^\tau\Big(t(u)\cdot\ord_q\big(N(u)|_E\big)
++\int_0^{t(u)}\big(t(u)-v\big)dv\Big)du\\
+&=\frac2{\vol L}\int_0^\tau\Big(t(u)\,\ord_q\big(N(u)|_E\big)+\frac{t(u)^2}2\Big)du .
+\end{align*}
 Если $q\notin\Supp N(u)$ при всех $u$ \textup{(}в частности, если $N(u)=0$\textup{)}, первое слагаемое отсутствует.
 \end{theorem}
 
@@ -3077,9 +3078,10 @@ a^2+b^2+c^2=3abc
 \]
 в натуральных числах (\emph{тройка Маркова}). Все решения получаются из $(1,1,1)$ перестановками и
 \emph{мутациями} $(a,b,c)\mapsto(a,b,3ab-c)$; начало дерева Маркова:
-\[
-(1,1,1)\to(1,1,2)\to(1,2,5)\to\{(1,5,13),\,(2,5,29)\}\to\{(1,13,34),\,(5,13,194),\,(5,29,433),\,(2,29,169)\}\to\dots
-\]
+\begin{multline*}
+(1,1,1)\to(1,1,2)\to(1,2,5)\to\{(1,5,13),\,(2,5,29)\}\\
+\to\{(1,13,34),\,(5,13,194),\,(5,29,433),\,(2,29,169)\}\to\dots
+\end{multline*}
 Рассмотрим $X_{a,b,c}=\PP(a^2,b^2,c^2)$. Числа $a,b,c$ попарно взаимно просты (если $p\mid a,b$,
 то $p\mid c^2$, и т.\,д.), так что веса нормализованы, и
 \[
@@ -3412,10 +3414,10 @@ $E$ --- исключительная кривая разрешения $Y=\mathb
 $\ord_E(D)\ge1$, и $A_{(X,cD)}(E)=A_X(E)-c\,\ord_E(D)\le\frac24-c=\frac12-c$. Далее, $L=-K_X-cD=\cO(6-4dc)$,
 и по вычислению примера~\ref{ex:beta-P11n} с $\ell=6-4dc$ вместо $n+2$:
 $S(E)=\frac23\cdot\frac{\ell}4=1-\frac23dc$. Поэтому
-\[
-\beta_{(X,cD)}(E)\le\frac12-c-1+\frac23dc=-\frac12+c\Big(\frac{2d}3-1\Big)<0
-\quad\text{при}\quad c<\frac{3}{2(2d-3)}\ (d\ge2)\ \text{или при всех }c\ (d=1).
-\]
+\begin{gather*}
+\beta_{(X,cD)}(E)\le\frac12-c-1+\frac23dc=-\frac12+c\Big(\frac{2d}3-1\Big)<0\\
+\text{при}\quad c<\frac{3}{2(2d-3)}\ (d\ge2)\ \text{или при всех }c\ (d=1).
+\end{gather*}
 Так как $\frac3{2(2d-3)}>\frac3{2d}$, пара K-нестабильна при всех допустимых $c\in(0,\frac3{2d})$.
 
 \emph{(b) $D$ не проходит через $p_0$.} Тогда $\hvol(p_0,X,cD)=\hvol(p_0,X)=\frac44=1$, и
